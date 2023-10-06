@@ -39,6 +39,7 @@ pip install -e './[readfish]'
 # git submodule update --init --depth 1 external/ont_nanosim
 # bash usecases/install_usecase_deps.sh
 
+# adapt config in ~/ont_project_all/ont_project/usecases/configs/ to fit your setup
 ~/ont_project_all/ont_project/usecases/replicate_run_submission.sh "sampler_per_rolling_window_channel"
 ~/ont_project_all/ont_project/usecases/enrich_usecase_submission.sh
 ```

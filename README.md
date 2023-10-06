@@ -81,6 +81,8 @@ pip install ont_project/
 pip install --upgrade seaborn
 ```
 
+Take a look at the directory [usecase](usecases/) to run some example usecases.
+
 If the installation fails due to dependency issues, you can alternatively run it as a Docker image that comes with the dependencies and runs Jupyter lab:
 ```{bash}
 # to update the Docker image if a new one was published
@@ -99,10 +101,6 @@ Several Docker containers can run in parallel, provided you modify the port and 
 conda create -y -n ont_project_venv python=3.10 pip
 ```
 Some scripts activate the virtual environment, so you have to change it to `conda activate ont_project_venv`.
-
-## Usecases
-
-Take a look at the directory [usecase](usecases/), in particular [enrich_usecase](usecases/enrich_usecase.py) which combines the simulator with ReadFish (and optionally NanoSim).
 
 ### Comparison with UNCALLED
 

@@ -22,37 +22,6 @@ cd runs/enrich_usecase
 source ~/ont_project_all/ont_project_venv/bin/activate
 export PATH=~/ont_project_all/tools/bin:$PATH && which minimap2
 
-mkdir dummy_random && cd dummy_random
-ln -s ../data .
-ln -s ../configs/dummy/random configs
-python ~/ont_project_all/ont_project/usecases/enrich_usecase.py
-
-cd ..
-mkdir dummy_constant_gaps && cd dummy_constant_gaps
-ln -s ../data .
-ln -s ../configs/dummy/constant_gaps configs
-python ~/ont_project_all/ont_project/usecases/enrich_usecase.py
-
-cd ..
-mkdir dummy_replication && cd dummy_replication
-ln -s ../data .
-ln -s ../configs/dummy/replication configs
-python ~/ont_project_all/ont_project/usecases/enrich_usecase.py
-
-cd ..
-mkdir dummy_sampler_per_window && cd dummy_sampler_per_window
-ln -s ../data .
-ln -s ../configs/dummy/sampler_per_window configs
-python ~/ont_project_all/ont_project/usecases/enrich_usecase.py
-# Press Ctrl+C to stop script, then plots are created
-
-cd ..
-mkdir full_run_sampler_per_window && cd full_run_sampler_per_window
-ln -s ../data .
-ln -s ../configs/full_run/sampler_per_window configs
-python ~/ont_project_all/ont_project/usecases/enrich_usecase.py
-
-cd ..
 mkdir full_genome_run_sampler_per_window && cd full_genome_run_sampler_per_window
 ln -s ../data .
 ln -s ../configs/full_genome_run/sampler_per_window configs

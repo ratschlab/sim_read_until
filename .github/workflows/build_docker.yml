@@ -95,7 +95,7 @@ jobs:
             pip install tox
             tox run -e py310
       -
-        name: Build and push
+        name: Push docker image
         uses: docker/build-push-action@v4
         id: Push
         with:
