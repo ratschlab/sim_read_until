@@ -1,0 +1,153 @@
+syntax = "proto3";
+
+// field numbers to ensure backwards compatibility (in case fields are added or deleted)
+// following README at https://github.com/nanoporetech/read_until_api, https://github.com/nanoporetech/minknow_api/blob/master/proto/minknow_api/data.proto
+
+package ontdevice;
+service ONTDevice {
+    // control the readuntil simulator
+    // API calls: start/stop/mux_scan, perform_actions (unblock/stop_receiving), mk_run_dir, is_running, basecalled_chunks, action_results
+
+    // any information that should be attached to the server
+    rpc GetServerInfo(EmptyRequest) returns (ServerInfoResponse) {}
+
+    // return the current run dir where reads are written to
+    rpc GetMKRunDir(EmptyRequest) returns (MKRunDirResponse) {}
+    
+    // request actions to perform on channels
+    rpc PerformActions(ReadActionsRequest) returns (ActionResultImmediateResponse) {}
+    // get new chunks
+    rpc GetBasecalledChunks(BasecalledChunksRequest) returns (stream BasecalledReadChunkResponse) {}
+    // get action results (only those that were not yet received)
+    rpc GetActionResults(ActionResultsRequest) returns (stream ActionResultResponse) {}
+
+    // start simulation, returns whether it succeeded (i.e. if simulation was not running)
+    rpc StartSim(StartRequest) returns (BoolResponse) {}
+    // stop simulation, returns whether it succeeded (i.e. if simulation was running)
+    rpc StopSim(EmptyRequest) returns (BoolResponse) {}
+    rpc RunMuxScan(RunMuxScanRequest) returns (MuxScanStartedInfo) {}
+
+    // whether simulation is running
+    rpc IsRunning(EmptyRequest) returns (BoolResponse) {}
+
+    rpc GetDeviceInfo(EmptyRequest) returns (DeviceInfoResponse) {}
+}
+
+// empty request types since each rpc needs a request
+message EmptyRequest {}
+message EmptyResponse {}
+
+message ServerInfoResponse {
+    string unique_id = 1;
+}
+
+// where to put reads
+message MKRunDirResponse {
+    string mk_run_dir = 1;
+}
+
+/* 
+* read actions
+*/
+
+
+message ReadActionsRequest {
+    message Action {
+        message StopReceivingAction {}
+    
+        message UnblockAction {
+            double unblock_duration = 1;
+        }
+    
+        uint32 channel = 1;
+        string read_id = 2;
+        oneof action {
+            UnblockAction unblock = 3;
+            StopReceivingAction stop_further_data = 4;
+        }
+    }
+    repeated Action actions = 1;
+}
+
+message ActionResultImmediateResponse {
+    repeated bool succeeded = 1;
+}
+
+message ActionResultsRequest {
+    bool clear = 1; // whether to clear the action results after getting them
+}
+
+message ActionResultResponse {
+    string read_id = 1;
+    double time = 2;
+    uint32 channel = 3;
+    uint32 action_type = 4;
+    uint32 result = 5; // int rather than bool, to capture an enum
+}
+
+message StartRequest {
+    double acceleration_factor = 1;
+    string update_method = 2;
+    uint32 log_interval = 3;
+    bool stop_if_no_reads = 4;
+}
+
+/*
+* mux scan
+*/
+
+message RunMuxScanRequest {
+    double t_duration = 1;
+}
+
+message MuxScanStartedInfo {
+    uint32 nb_reads_rejected = 1;
+}
+
+
+/*
+* get basecalled chunks
+*/
+
+message BasecalledChunksRequest {
+    // maximum number of channels to get chunks from, defaults to all channels
+    optional uint32 batch_size = 1;
+    
+    // optional repeated not possible, so workaround
+    message Channels {
+        repeated uint32 value = 2;
+    }
+    optional Channels channels = 3;
+    // oneof _channels {
+    //     repeated uint32 channels = 3;
+    //     bool none = 4;
+    // }
+}
+
+// read chunk for a single channel
+message BasecalledReadChunkResponse {
+    uint32 channel = 1;
+    string read_id = 2;
+    // sequence of new basepairs
+    string seq = 3;
+    // quality string
+    string quality_seq = 4;
+    // estimated reference length of read fragment sequenced so far
+    uint32 estimated_ref_len_so_far = 5;
+}
+
+
+/* 
+* miscellaneous
+*/
+
+message BoolResponse {
+    bool value = 1;
+}
+
+message DeviceInfoResponse {
+    string info = 1;
+    uint32 n_channels = 2;
+}
+
+

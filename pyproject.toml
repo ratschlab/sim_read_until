@@ -1,0 +1,121 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "simreaduntil"
+# version = "0.0.1"
+authors = [
+  { name="Maximilian Mordig", email="maximilian.mordig@inf.ethz.ch" },
+]
+description = "Simulator for ONT devices"
+keywords = [
+    "ont",
+    "simulator"
+]
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    # "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+license-files = { paths = ["LICENSE"] }
+dependencies = [
+    "matplotlib",
+    "pandas", 
+    "seaborn",
+    "numpy",
+    "pysam",
+    "pyfastx", # sometimes more convenient than pysam
+    "biopython",
+    "google-api-python-client", # needed for grpc
+    "grpcio",
+    "scipy", # for parameter estimation
+    "dill", # for serializing the gap sampler function
+    "joblib", # for parallelization
+    "more-itertools",
+    "tqdm",
+    "intervaltree",
+    "ipykernel",
+    "jupyter",
+    "notebook",
+    "jupyterlab",
+    "toml"
+]
+dynamic = [
+  "version", # not updated correctly during editable installs, only once built
+]
+
+[project.optional-dependencies]
+# for development
+dev = [
+  "ipdb",
+  "tox",
+  "grpcio-tools", # for building the python wrappers from the protobuf spec
+  "docutils", "pydoctor", # for documentation
+  "black",
+  "scalene", # for profiling
+]
+test = [
+  "pytest>=6",
+  "pytest-helpers-namespace", # for utility functions in tests
+  "pytest-datadir", # for datafiles in tests
+  "pytest-mock",
+  "pytest-xdist", # for parallelism with "pytest -n auto"
+  "pytest-cov",
+]
+readfish = [
+  "ont-pyguppy-client-lib",
+  "read-until @ git+https://github.com/nanoporetech/read_until_api@v3.4.1",
+  "readfish @ {root:uri}/external/ont_readfish",
+]
+
+[project.scripts]
+plot_sim_seqsum = "simreaduntil.seqsum_tools.seqsum_plotting:main"
+simfasta_to_seqsum = "simreaduntil.simulator.simfasta_to_seqsum:main"
+simulator_with_readfish = "simreaduntil.usecase_helpers.simulator_with_readfish:main"
+normalize_fasta = "simreaduntil.usecase_helpers.utils:normalize_fasta_cmd"
+
+[project.urls]
+"Homepage" = "https://github.com/ratschlab/sim_read_until"
+"Documentation" = "https://ratschlab.github.io/sim_read_until"
+"Bug Tracker" = "https://github.com/ratschlab/sim_read_until/issues"
+
+[tool.hatch.version]
+source = "vcs"
+fallback-version = "unknown_version"
+
+[tool.hatch.metadata]
+# to install from git
+allow-direct-references = true
+
+[tool.hatch.build.sources]
+"src/simreaduntil" = "simreaduntil"
+
+[tool.black]
+line-length = 120
+extend-exclude = """
+# A regex preceded with ^/ will apply only to files and directories
+# in the root of the project.
+^/external/
+"""
+
+[tool.pydoctor]
+# add-package = ["src/simreaduntil"]
+intersphinx = ["https://docs.python.org/3/objects.inv"]
+#    "https://twistedmatrix.com/documents/current/api/objects.inv"
+docformat = "google"
+make-html = true
+html-output = "./apidocs"
+verbose = 1
+warnings-as-errors = true
+# privacy = ["HIDDEN:pydoctor.test",
+#            "PUBLIC:pydoctor._configparser",]
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s,%(msecs)03d - %(message)s --- %(filename)s:%(lineno)d (%(funcName)s) %(levelname)s ##"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S" # not supported: milliseconds '%Y-%m-%d %H:%M:%S,uuu', see https://stackoverflow.com/questions/63782079/log-milliseconds-with-pytest
+# addopts="-n 4" # to run in parallel

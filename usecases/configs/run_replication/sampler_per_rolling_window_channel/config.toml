@@ -1,0 +1,17 @@
+run_dir = "simulator_run" # where reads, logs, pafs etc. will be written to
+# n_channels = 5
+n_channels = 512
+run_duration = 173_000
+
+#################################################
+# Optional arguments
+#################################################
+
+sim_params_file = "sim_params.dill"
+
+#################################################
+# Parameter extraction arguments
+#################################################
+seqsum_param_extr_file = "data/20190809_zymo_seqsum.txt"
+n_channels_full = 512
+gap_sampler_type = "sampler_per_rolling_window_channel"

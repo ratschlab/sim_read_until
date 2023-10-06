@@ -1,0 +1,7 @@
+kmer	level_mean	level_stdv	sd_mean	sd_stdv	weight
+ACCCTT	1.1	0	0	0	0
+CCCTTT	2.2	0	0	0	0
+CCTTTG	3.3	0	0	0	0
+CTTTGG	4.4	0	0	0	0
+TTTGGG	5.5	0	0	0	0
+ACTGGT	6.6	0	0	0	0

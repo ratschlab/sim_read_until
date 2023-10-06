@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package routeguide;
+// Interface exported by the server.
+service RouteGuide {
+  // A simple RPC.
+  //
+  // Obtains the feature at a given position.
+  //
+  // A feature with an empty name is returned if there's no feature at the given
+  // position.
+  rpc GetFeature(Point) returns (Feature) {}
+}
+
+message Point {
+    int32 latitude = 1;
+    int32 longitude = 2;
+}
+
+// A feature names something at a given point.
+//
+// If a feature could not be named, the name is empty.
+message Feature {
+    // The name of the feature.
+    string name = 1;
+
+    // The point where the feature is detected.
+    Point location = 2;
+}

@@ -1,0 +1,6 @@
+[submodule "external/ont_readfish"]
+	path = external/ont_readfish
+	url = git@github.com:ratschlab/ont_readfish.git
+[submodule "external/ont_nanosim"]
+	path = external/ont_nanosim
+	url = git@github.com:ratschlab/ont_nanosim.git

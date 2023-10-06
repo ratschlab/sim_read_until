@@ -1,0 +1,69 @@
+name: run_tox
+on:
+  workflow_dispatch:
+  push:
+    paths-ignore:
+    - README.md
+    - .gitignore
+  pull_request:
+  # schedule:
+  #   - cron: "0 8 * * *"
+
+concurrency:
+  group: runtests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: test with ${{ matrix.py }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        py:
+          # - "3.12"
+          # - "3.11"
+          - "3.10"
+          # - "3.9"
+          - "3.8"
+          # - "3.7" # end-of-life reached
+        os:
+          - ubuntu-latest
+          # - macos-latest
+          # - windows-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT }} # the special secrets.GITHUB_TOKEN only allows access to the current repository, so we added a personal access token with scope "repo" as a secret to this repo
+          submodules: true
+      - name: Setup python for test ${{ matrix.py }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.py }}
+      - name: Install minimap2
+        run: curl -L https://github.com/lh3/minimap2/releases/download/v2.26/minimap2-2.26_x64-linux.tar.bz2 | tar -jxvf -
+      - name: Fix pyproject for tox
+        run: |
+          sed -i'.backup' "s@{root:uri}@file://$(pwd)@g" pyproject.toml
+
+          # does not work
+          # replace {root:uri} by "file:." in pyproject.toml since tox does not understand it
+          # sed -i 's/{root:uri}/file:./g' pyproject.toml
+          # remove line that contains {root:uri}
+          # sed -i '/{root:uri}/d' pyproject.toml
+      - name: Install tox
+        run: python -m pip install tox-gh>=1.2
+      - name: Setup test suite
+        run: tox -vv --notest
+      - name: Run test suite
+        run: PATH="$(pwd)/minimap2-2.26_x64-linux:$PATH" tox --skip-pkg-install
+        # run: PATH="$(pwd)/minimap2-2.26_x64-linux:$PATH" tox --skip-pkg-install -- tests/usecase_helpers/test_run_simulator_with_readfish.py
+      - name: archive if failure
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.os }}-${{ matrix.py }}-${{ github.sha }}
+          retention-days: 1
+          path: /tmp/pytest-of-runner/
+          # path: /tmp/pytest-of-runner/pytest-0/test_simulator_with_readfish0/data/run_dir/simulator_run/reads

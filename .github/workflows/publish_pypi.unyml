@@ -1,0 +1,71 @@
+# workflow currently disabled (extension .unyml) because ReadFish dependency not available on pypi, so pypi does not accept this repo
+
+name: publish_pypi
+on:
+  workflow_dispatch:
+  push:
+    # branches:
+    #   - main
+    tags:
+        - 'v*' # push of any tag
+
+# following https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
+# to do it locally with hatch, do (see https://hatch.pypa.io/latest/publish/):
+# pip install hatch
+# hatch build
+# export HATCH_INDEX_AUTH=<some_token>
+# # or -r main, but does not seem to work
+# hatch publish -u '__token__' -r test
+
+# pypi refuses packages with a version derived from a normal commit (only x.x.x format), so we create a tag to have a good version name with
+# git commit, then git tag v0.0.1 && git push origin v0.0.1
+# function tag_and_push() {
+#   git tag "$1"
+#   git push origin "$1"
+# }
+
+# for trusted publishing, see https://blog.pypi.org/posts/2023-04-20-introducing-trusted-publishers/, set set id_token: write, and
+# need to add repository in pypi settings: https://test.pypi.org/manage/account/publishing/
+# alternatively, provide a password under the name 'TEST_PYPI_API_TOKEN' in the repository secrets under repository settings
+
+jobs:
+  pypi-publish:
+    name: Upload release to PyPI
+    runs-on: ubuntu-latest
+    environment:
+      # displayed on the github main page
+      name: testpypi
+      url: https://pypi.org/p/simreaduntil # todo
+    permissions:
+      id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing -> no extra pypi token required, github token enough
+      contents: read
+    steps:
+    # build package
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Install pypa/build
+      run: >-
+        python3 -m
+        pip install
+        build
+        --user
+    - name: Build a binary wheel and a source tarball
+      run: >-
+        python3 -m
+        build
+        --sdist
+        --wheel
+        --outdir dist/
+
+    - name: "check tagged"
+      run: |
+        # can only upload tagged commits, see above
+        [[ "${{ github.ref_type }}" == 'tag' ]] || exit 1
+
+    - name: Publish package distributions to PyPI (commit needs to be tagged)
+    # NOTE: currently broken because pypi does not allow git repos as dependencies ("Invalid value for requires_dist. Error: Can't have direct dependency:", i.e. read-until and ont_readfish)
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+        repository-url: https://test.pypi.org/legacy/

@@ -1,0 +1,16 @@
+# files here will not be transferred to Docker daemon and therefore also not copied
+
+# ignore dot files (includes .git etc)
+.*
+# **/.git/
+# .tox/
+
+# ignore change to Dockerfile while developing, todo2
+Dockerfile
+
+runs/
+# external/
+
+experimentation/
+
+# usecases/
