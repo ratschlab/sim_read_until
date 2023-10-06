@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>simreaduntil.shared_utils.dna</title>
+    <meta name="generator" content="pydoctor 23.9.0"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="simreaduntil.shared_utils.dna.html" class="internal-link" title="This module">dna</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_nb_fasta_seqs" class="internal-link" title="simreaduntil.shared_utils.dna.get_nb_fasta_seqs">get<wbr></wbr>_nb<wbr></wbr>_fasta<wbr></wbr>_seqs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_random_DNA_seq" class="internal-link" title="simreaduntil.shared_utils.dna.get_random_DNA_seq">get_random_<wbr></wbr>DNA_seq</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_ref_lengths" class="internal-link" title="simreaduntil.shared_utils.dna.get_ref_lengths">get<wbr></wbr>_ref<wbr></wbr>_lengths</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_reverse_complement" class="internal-link" title="simreaduntil.shared_utils.dna.get_reverse_complement">get<wbr></wbr>_reverse<wbr></wbr>_complement</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_sequence_names_in_fasta" class="internal-link" title="simreaduntil.shared_utils.dna.get_sequence_names_in_fasta">get<wbr></wbr>_sequence<wbr></wbr>_names<wbr></wbr>_in<wbr></wbr>_fasta</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="simreaduntil.shared_utils.html" class="internal-link" title="The parent of this module">shared<wbr></wbr>_utils</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.debugging_helpers.html" class="internal-link" title="simreaduntil.shared_utils.debugging_helpers">debugging<wbr></wbr>_helpers</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.dna.html" class="internal-link" title="simreaduntil.shared_utils.dna">dna</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.logging_utils.html" class="internal-link" title="simreaduntil.shared_utils.logging_utils">logging<wbr></wbr>_utils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.merge_axes.html" class="internal-link" title="simreaduntil.shared_utils.merge_axes">merge<wbr></wbr>_axes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.nanosim_parsing.html" class="internal-link" title="simreaduntil.shared_utils.nanosim_parsing">nanosim<wbr></wbr>_parsing</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.numerics.html" class="internal-link" title="simreaduntil.shared_utils.numerics">numerics</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.plotting.html" class="internal-link" title="simreaduntil.shared_utils.plotting">plotting</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.profiling.html" class="internal-link" title="simreaduntil.shared_utils.profiling">profiling</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.tee_stdouterr.html" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr">tee<wbr></wbr>_stdouterr</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.testing_utils.html" class="internal-link" title="simreaduntil.shared_utils.testing_utils">testing<wbr></wbr>_utils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.thread_helpers.html" class="internal-link" title="simreaduntil.shared_utils.thread_helpers">thread<wbr></wbr>_helpers</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.timing.html" class="internal-link" title="simreaduntil.shared_utils.timing">timing</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.utils.html" class="internal-link" title="simreaduntil.shared_utils.utils">utils</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">simreaduntil</a></code><wbr></wbr>.<code><a href="simreaduntil.shared_utils.html" class="internal-link" title="simreaduntil.shared_utils">shared_utils</a></code><wbr></wbr>.<code><a href="simreaduntil.shared_utils.dna.html" class="internal-link" title="simreaduntil.shared_utils.dna">dna</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <a href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/dna.py" class="sourceLink">(source)</a>
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Common helper functions for dealing with DNA</p></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id15">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_nb_fasta_seqs" class="internal-link" title="simreaduntil.shared_utils.dna.get_nb_fasta_seqs">get<wbr></wbr>_nb<wbr></wbr>_fasta<wbr></wbr>_seqs</a></code></td>
+    <td>Get number of sequences in a fasta file</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_random_DNA_seq" class="internal-link" title="simreaduntil.shared_utils.dna.get_random_DNA_seq">get_random_<wbr></wbr>DNA_seq</a></code></td>
+    <td>Random DNA sequence of length n</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_ref_lengths" class="internal-link" title="simreaduntil.shared_utils.dna.get_ref_lengths">get<wbr></wbr>_ref<wbr></wbr>_lengths</a></code></td>
+    <td>Get chromosome lengths in a dict</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_reverse_complement" class="internal-link" title="simreaduntil.shared_utils.dna.get_reverse_complement">get<wbr></wbr>_reverse<wbr></wbr>_complement</a></code></td>
+    <td>Reverse complement of DNA sequence</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_sequence_names_in_fasta" class="internal-link" title="simreaduntil.shared_utils.dna.get_sequence_names_in_fasta">get<wbr></wbr>_sequence<wbr></wbr>_names<wbr></wbr>_in<wbr></wbr>_fasta</a></code></td>
+    <td>Get sequence names in a fasta file</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.dna.get_nb_fasta_seqs">
+    
+  </a>
+  <a name="get_nb_fasta_seqs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_nb_fasta_seqs</span><span class="function-signature">(fasta_filename)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/dna.py#L36">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_nb_fasta_seqs" title="simreaduntil.shared_utils.dna.get_nb_fasta_seqs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get number of sequences in a fasta file</p>
+<p>It supports .gz file</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.dna.get_random_DNA_seq">
+    
+  </a>
+  <a name="get_random_DNA_seq">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_random_DNA_seq</span><span class="function-signature">(n, random_state=np.random.default_rng(<wbr></wbr>2))</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/dna.py#L11">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_random_DNA_seq" title="simreaduntil.shared_utils.dna.get_random_DNA_seq">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Random DNA sequence of length n</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">n</span></td><td class="fieldArgDesc">length of the sequence</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">random<wbr></wbr>_state</span></td><td class="fieldArgDesc">random state; if not provided, repeated calls to this function return different values</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.dna.get_ref_lengths">
+    
+  </a>
+  <a name="get_ref_lengths">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_ref_lengths</span><span class="function-signature">(ref_genome_path) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a>]</code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/dna.py#L25">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_ref_lengths" title="simreaduntil.shared_utils.dna.get_ref_lengths">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get chromosome lengths in a dict</p>
+<p>It supports .gz file</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.dna.get_reverse_complement">
+    
+  </a>
+  <a name="get_reverse_complement">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_reverse_complement</span><span class="function-signature">(seq)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/dna.py#L21">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_reverse_complement" title="simreaduntil.shared_utils.dna.get_reverse_complement">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Reverse complement of DNA sequence</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.dna.get_sequence_names_in_fasta">
+    
+  </a>
+  <a name="get_sequence_names_in_fasta">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_sequence_names_in_fasta</span><span class="function-signature">(fasta_filename)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/dna.py#L54">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_sequence_names_in_fasta" title="simreaduntil.shared_utils.dna.get_sequence_names_in_fasta">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get sequence names in a fasta file</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fasta<wbr></wbr>_filename</span></td><td class="fieldArgDesc">filename of fasta file</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">sequence names in FASTA</td></tr></table></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.0 at 2023-10-06 08:21:16.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

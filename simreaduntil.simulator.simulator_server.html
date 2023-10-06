@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>simreaduntil.simulator.simulator_server</title>
+    <meta name="generator" content="pydoctor 23.9.0"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="simreaduntil.simulator.simulator_server.html" class="internal-link" title="This module">simulator<wbr></wbr>_server</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator_server.ONTDeviceServicer.html" class="internal-link" title="simreaduntil.simulator.simulator_server.ONTDeviceServicer"><wbr></wbr>ONTDevice<wbr></wbr>Servicer</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#launchable_device_grpc_server" class="internal-link" title="simreaduntil.simulator.simulator_server.launchable_device_grpc_server">launchable<wbr></wbr>_device<wbr></wbr>_grpc<wbr></wbr>_server</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#manage_grpc_server" class="internal-link" title="simreaduntil.simulator.simulator_server.manage_grpc_server">manage<wbr></wbr>_grpc<wbr></wbr>_server</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#port_is_available" class="internal-link" title="simreaduntil.simulator.simulator_server.port_is_available">port<wbr></wbr>_is<wbr></wbr>_available</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#print_gen_exceptions" class="internal-link" title="simreaduntil.simulator.simulator_server.print_gen_exceptions">print<wbr></wbr>_gen<wbr></wbr>_exceptions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#print_nongen_exceptions" class="internal-link" title="simreaduntil.simulator.simulator_server.print_nongen_exceptions">print<wbr></wbr>_nongen<wbr></wbr>_exceptions</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RAISE_GRPC_SERVER_EXCEPTIONS" class="internal-link" title="simreaduntil.simulator.simulator_server.RAISE_GRPC_SERVER_EXCEPTIONS">RAISE<wbr></wbr>_GRPC<wbr></wbr>_SERVER<wbr></wbr>_EXCEPTIONS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#logger" class="internal-link" title="simreaduntil.simulator.simulator_server.logger">logger</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="simreaduntil.simulator.html" class="internal-link" title="The parent of this module">simulator</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.example_grpc.html" class="internal-link" title="simreaduntil.simulator.example_grpc">example<wbr></wbr>_grpc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel.html" class="internal-link" title="simreaduntil.simulator.channel">channel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_element.html" class="internal-link" title="simreaduntil.simulator.channel_element">channel<wbr></wbr>_element</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.html" class="internal-link" title="simreaduntil.simulator.channel_stats">channel<wbr></wbr>_stats</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.pore_model.html" class="internal-link" title="simreaduntil.simulator.pore_model">pore<wbr></wbr>_model</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.readpool.html" class="internal-link" title="simreaduntil.simulator.readpool">readpool</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.readswriter.html" class="internal-link" title="simreaduntil.simulator.readswriter">readswriter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simfasta_to_seqsum.html" class="internal-link" title="simreaduntil.simulator.simfasta_to_seqsum">simfasta<wbr></wbr>_to<wbr></wbr>_seqsum</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html" class="internal-link" title="simreaduntil.simulator.simulator">simulator</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator_client.html" class="internal-link" title="simreaduntil.simulator.simulator_client">simulator<wbr></wbr>_client</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator_params.html" class="internal-link" title="simreaduntil.simulator.simulator_params">simulator<wbr></wbr>_params</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator_server.html" class="internal-link" title="simreaduntil.simulator.simulator_server">simulator<wbr></wbr>_server</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.utils.html" class="internal-link" title="simreaduntil.simulator.utils">utils</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">simreaduntil</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.html" class="internal-link" title="simreaduntil.simulator">simulator</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.simulator_server.html" class="internal-link" title="simreaduntil.simulator.simulator_server">simulator_server</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <a href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator_server.py" class="sourceLink">(source)</a>
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>gRPC server exposing an underlying ReadUntilDevice</p>
+<p>API calls: start/stop, unblock/stop_receiving, mk_run_dir, is_running, basecalled_chunks</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id103">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="simreaduntil.simulator.simulator_server.ONTDeviceServicer.html" class="internal-link" title="simreaduntil.simulator.simulator_server.ONTDeviceServicer"><wbr></wbr>ONTDevice<wbr></wbr>Servicer</a></code></td>
+    <td>gRPC server that exposes the simulator via a gRPC server</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#launchable_device_grpc_server" class="internal-link" title="simreaduntil.simulator.simulator_server.launchable_device_grpc_server">launchable<wbr></wbr>_device<wbr></wbr>_grpc<wbr></wbr>_server</a></code></td>
+    <td>Start a grpc server for interacting with the given device on port; adds support for with statement</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#manage_grpc_server" class="internal-link" title="simreaduntil.simulator.simulator_server.manage_grpc_server">manage<wbr></wbr>_grpc<wbr></wbr>_server</a></code></td>
+    <td>Provides a with context around the gRPC server (not available)</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#port_is_available" class="internal-link" title="simreaduntil.simulator.simulator_server.port_is_available">port<wbr></wbr>_is<wbr></wbr>_available</a></code></td>
+    <td>Whether a port is available to be used with the grpc server</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#print_gen_exceptions" class="internal-link" title="simreaduntil.simulator.simulator_server.print_gen_exceptions">print<wbr></wbr>_gen<wbr></wbr>_exceptions</a></code></td>
+    <td>See print_nongen_exceptions, works with generators</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#print_nongen_exceptions" class="internal-link" title="simreaduntil.simulator.simulator_server.print_nongen_exceptions">print<wbr></wbr>_nongen<wbr></wbr>_exceptions</a></code></td>
+    <td>gRPC catches exceptions, so this function makes them visible before they are caught and then raises them again if RAISE_GRPC_SERVER_EXCEPTIONS is set</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#RAISE_GRPC_SERVER_EXCEPTIONS" class="internal-link" title="simreaduntil.simulator.simulator_server.RAISE_GRPC_SERVER_EXCEPTIONS">RAISE<wbr></wbr>_GRPC<wbr></wbr>_SERVER<wbr></wbr>_EXCEPTIONS</a></code></td>
+    <td>Whether to only print gRPC server exceptions or also raise them</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#logger" class="internal-link" title="simreaduntil.simulator.simulator_server.logger">logger</a></code></td>
+    <td>module logger</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="simreaduntil.simulator.simulator_server.launchable_device_grpc_server">
+    
+  </a>
+  <a name="launchable_device_grpc_server">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">launchable_device_grpc_server</span><span class="function-signature">(device: <code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html" class="internal-link" title="simreaduntil.simulator.simulator.ReadUntilDevice">ReadUntilDevice</a></code>, port: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code> = 0) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.Tuple" class="intersphinx-link">Tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a>, <wbr></wbr>grpc.Server, <wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]</code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator_server.py#L164">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#launchable_device_grpc_server" title="simreaduntil.simulator.simulator_server.launchable_device_grpc_server">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Start a grpc server for interacting with the given device on port; adds support for with statement</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">device:</span><code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html" class="internal-link" title="simreaduntil.simulator.simulator.ReadUntilDevice">ReadUntilDevice</a></code></td><td class="fieldArgDesc">underlying device</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">port:</span><code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code></td><td class="fieldArgDesc">port where to launch, assigns an available port if set to 0</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.Tuple" class="intersphinx-link">Tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a>, <wbr></wbr>grpc.Server, <wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]</code></td><td class="fieldArgDesc">A tuple containing (port, server, unique_id) where
+- port is the actual port (useful if port set to 0 in argument),
+- server must be started,
+- unique_id that the server will respond with GetUniqueId(); to check that the correct server is being used</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code>AssertionError if port is already in use</code></td><td></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.simulator.simulator_server.manage_grpc_server">
+    
+  </a>
+  <a name="manage_grpc_server">
+    
+  </a>
+  <div class="functionHeader">
+    
+    @<a href="https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager" class="intersphinx-link">contextmanager</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">manage_grpc_server</span><span class="function-signature">(server: <code>grpc.server</code>, grace=0.5)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator_server.py#L202">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#manage_grpc_server" title="simreaduntil.simulator.simulator_server.manage_grpc_server">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Provides a with context around the gRPC server (not available)</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.simulator.simulator_server.port_is_available">
+    
+  </a>
+  <a name="port_is_available">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">port_is_available</span><span class="function-signature">(port) -&gt; <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator_server.py#L155">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#port_is_available" title="simreaduntil.simulator.simulator_server.port_is_available">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Whether a port is available to be used with the grpc server</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.simulator.simulator_server.print_gen_exceptions">
+    
+  </a>
+  <a name="print_gen_exceptions">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">print_gen_exceptions</span><span class="function-signature">(f)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator_server.py#L52">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#print_gen_exceptions" title="simreaduntil.simulator.simulator_server.print_gen_exceptions">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>See print_nongen_exceptions, works with generators</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.simulator.simulator_server.print_nongen_exceptions">
+    
+  </a>
+  <a name="print_nongen_exceptions">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">print_nongen_exceptions</span><span class="function-signature">(f)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator_server.py#L32">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#print_nongen_exceptions" title="simreaduntil.simulator.simulator_server.print_nongen_exceptions">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>gRPC catches exceptions, so this function makes them visible before they are caught and then raises them again if RAISE_GRPC_SERVER_EXCEPTIONS is set</p>
+<p>Does not work when f is a generator function because it may not have finished when it returns (paused at the yield statement).
+See print_generator_exceptions</p>
+</div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="simreaduntil.simulator.simulator_server.RAISE_GRPC_SERVER_EXCEPTIONS">
+    
+  </a>
+  <a name="RAISE_GRPC_SERVER_EXCEPTIONS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">RAISE_GRPC_SERVER_EXCEPTIONS</span>: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator_server.py#L29">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#RAISE_GRPC_SERVER_EXCEPTIONS" title="simreaduntil.simulator.simulator_server.RAISE_GRPC_SERVER_EXCEPTIONS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Whether to only print gRPC server exceptions or also raise them</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a></code></pre></td></tr></table>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="simreaduntil.simulator.simulator_server.logger">
+    
+  </a>
+  <a name="logger">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">logger</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator_server.py#L26">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#logger" title="simreaduntil.simulator.simulator_server.logger">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>module logger</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.0 at 2023-10-06 08:21:16.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>simreaduntil.simulator.simfasta_to_seqsum</title>
+    <meta name="generator" content="pydoctor 23.9.0"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="simreaduntil.simulator.simfasta_to_seqsum.html" class="internal-link" title="This module">simfasta<wbr></wbr>_to<wbr></wbr>_seqsum</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#convert_simfasta_dir_to_seqsum" class="internal-link" title="simreaduntil.simulator.simfasta_to_seqsum.convert_simfasta_dir_to_seqsum">convert<wbr></wbr>_simfasta<wbr></wbr>_dir<wbr></wbr>_to<wbr></wbr>_seqsum</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#convert_simfasta_to_seqsum" class="internal-link" title="simreaduntil.simulator.simfasta_to_seqsum.convert_simfasta_to_seqsum">convert<wbr></wbr>_simfasta<wbr></wbr>_to<wbr></wbr>_seqsum</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#main" class="internal-link" title="simreaduntil.simulator.simfasta_to_seqsum.main">main</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SEQ_SUMMARY_HEADER" class="internal-link" title="simreaduntil.simulator.simfasta_to_seqsum.SEQ_SUMMARY_HEADER">SEQ<wbr></wbr>_SUMMARY<wbr></wbr>_HEADER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#logger" class="internal-link" title="simreaduntil.simulator.simfasta_to_seqsum.logger">logger</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_extra_fields" class="internal-link" title="simreaduntil.simulator.simfasta_to_seqsum._extra_fields">_extra<wbr></wbr>_fields</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="simreaduntil.simulator.html" class="internal-link" title="The parent of this module">simulator</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.example_grpc.html" class="internal-link" title="simreaduntil.simulator.example_grpc">example<wbr></wbr>_grpc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel.html" class="internal-link" title="simreaduntil.simulator.channel">channel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_element.html" class="internal-link" title="simreaduntil.simulator.channel_element">channel<wbr></wbr>_element</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.html" class="internal-link" title="simreaduntil.simulator.channel_stats">channel<wbr></wbr>_stats</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.pore_model.html" class="internal-link" title="simreaduntil.simulator.pore_model">pore<wbr></wbr>_model</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.readpool.html" class="internal-link" title="simreaduntil.simulator.readpool">readpool</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.readswriter.html" class="internal-link" title="simreaduntil.simulator.readswriter">readswriter</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simfasta_to_seqsum.html" class="internal-link" title="simreaduntil.simulator.simfasta_to_seqsum">simfasta<wbr></wbr>_to<wbr></wbr>_seqsum</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html" class="internal-link" title="simreaduntil.simulator.simulator">simulator</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator_client.html" class="internal-link" title="simreaduntil.simulator.simulator_client">simulator<wbr></wbr>_client</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator_params.html" class="internal-link" title="simreaduntil.simulator.simulator_params">simulator<wbr></wbr>_params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator_server.html" class="internal-link" title="simreaduntil.simulator.simulator_server">simulator<wbr></wbr>_server</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.utils.html" class="internal-link" title="simreaduntil.simulator.utils">utils</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">simreaduntil</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.html" class="internal-link" title="simreaduntil.simulator">simulator</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.simfasta_to_seqsum.html" class="internal-link" title="simreaduntil.simulator.simfasta_to_seqsum">simfasta_to_seqsum</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <a href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simfasta_to_seqsum.py" class="sourceLink">(source)</a>
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Convert a FASTA file generated by the ONTSimulator into a sequencing_summary.txt file, based on the FASTA headers.</p>
+<p>It contains the most relevant fields in the sequencing summary file. In particular, it converts the end reason to the ONT format and adds some extra columns</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id88">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#convert_simfasta_dir_to_seqsum" class="internal-link" title="simreaduntil.simulator.simfasta_to_seqsum.convert_simfasta_dir_to_seqsum">convert<wbr></wbr>_simfasta<wbr></wbr>_dir<wbr></wbr>_to<wbr></wbr>_seqsum</a></code></td>
+    <td>Convert a directory of fasta files (non-recursive) from the simulator to a sequencing summary file, first sorting fasta files by creation time</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#convert_simfasta_to_seqsum" class="internal-link" title="simreaduntil.simulator.simfasta_to_seqsum.convert_simfasta_to_seqsum">convert<wbr></wbr>_simfasta<wbr></wbr>_to<wbr></wbr>_seqsum</a></code></td>
+    <td>Convert FASTA generated by simulator to a sequencing summary file</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#main" class="internal-link" title="simreaduntil.simulator.simfasta_to_seqsum.main">main</a></code></td>
+    <td>CLI entrypoint to convert a FASTA file generated by the ONTSimulator into a sequencing_summary.txt file, based on the FASTA headers.</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#SEQ_SUMMARY_HEADER" class="internal-link" title="simreaduntil.simulator.simfasta_to_seqsum.SEQ_SUMMARY_HEADER">SEQ<wbr></wbr>_SUMMARY<wbr></wbr>_HEADER</a></code></td>
+    <td>Fields in the sequencing summary file</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#logger" class="internal-link" title="simreaduntil.simulator.simfasta_to_seqsum.logger">logger</a></code></td>
+    <td>module logger</td>
+  </tr><tr class="variable private">
+    
+    <td>Variable</td>
+    <td><code><a href="#_extra_fields" class="internal-link" title="simreaduntil.simulator.simfasta_to_seqsum._extra_fields">_extra<wbr></wbr>_fields</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="simreaduntil.simulator.simfasta_to_seqsum.convert_simfasta_dir_to_seqsum">
+    
+  </a>
+  <a name="convert_simfasta_dir_to_seqsum">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">convert_simfasta_dir_to_seqsum</span><span class="function-signature">(reads_dir, seqsummary_filename)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simfasta_to_seqsum.py#L79">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#convert_simfasta_dir_to_seqsum" title="simreaduntil.simulator.simfasta_to_seqsum.convert_simfasta_dir_to_seqsum">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert a directory of fasta files (non-recursive) from the simulator to a sequencing summary file, first sorting fasta files by creation time</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.simulator.simfasta_to_seqsum.convert_simfasta_to_seqsum">
+    
+  </a>
+  <a name="convert_simfasta_to_seqsum">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">convert_simfasta_to_seqsum</span><span class="function-signature">(reads_fasta, seqsummary_filename, mode=<span class="rst-variable-quote">'</span><span class="rst-variable-string">w</span><span class="rst-variable-quote">'</span>, tqdm_outer=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simfasta_to_seqsum.py#L30">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#convert_simfasta_to_seqsum" title="simreaduntil.simulator.simfasta_to_seqsum.convert_simfasta_to_seqsum">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert FASTA generated by simulator to a sequencing summary file</p>
+<p>The FASTA contains enough metadata to populate the essential fields.
+If the read has a NanoSim id, it is used to get the full length of the read (before rejection).</p>
+<p>Note: The sequencing summary file may not be sorted by channel and time.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.simulator.simfasta_to_seqsum.main">
+    
+  </a>
+  <a name="main">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">main</span><span class="function-signature">()</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simfasta_to_seqsum.py#L91">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#main" title="simreaduntil.simulator.simfasta_to_seqsum.main">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>CLI entrypoint to convert a FASTA file generated by the ONTSimulator into a sequencing_summary.txt file, based on the FASTA headers.</p></div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="simreaduntil.simulator.simfasta_to_seqsum.SEQ_SUMMARY_HEADER">
+    
+  </a>
+  <a name="SEQ_SUMMARY_HEADER">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SEQ_SUMMARY_HEADER</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simfasta_to_seqsum.py#L27">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#SEQ_SUMMARY_HEADER" title="simreaduntil.simulator.simfasta_to_seqsum.SEQ_SUMMARY_HEADER">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Fields in the sequencing summary file</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">read_id</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">channel</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">mux</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">start_time</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">duration</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">passes_filtering</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">template_start</span><span class="rst-variable-quote">'</span>,
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="simreaduntil.simulator.simfasta_to_seqsum.logger">
+    
+  </a>
+  <a name="logger">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">logger</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simfasta_to_seqsum.py#L23">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#logger" title="simreaduntil.simulator.simfasta_to_seqsum.logger">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>module logger</p></div>
+    
+  </div>
+</div><div class="basevariable private">
+  
+  
+  <a name="simreaduntil.simulator.simfasta_to_seqsum._extra_fields">
+    
+  </a>
+  <a name="_extra_fields">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_extra_fields</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]</code> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simfasta_to_seqsum.py#L26">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_extra_fields" title="simreaduntil.simulator.simfasta_to_seqsum._extra_fields">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.0 at 2023-10-06 08:21:16.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

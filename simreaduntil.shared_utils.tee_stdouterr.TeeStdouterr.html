@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr</title>
+    <meta name="generator" content="pydoctor 23.9.0"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.html" class="internal-link" title="This class"><wbr></wbr>Tee<wbr></wbr>Stdouterr</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.Writer.html" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.Writer"><wbr></wbr>Writer</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#is_redirecting" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.is_redirecting">is<wbr></wbr>_redirecting</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#redirect" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.redirect">redirect</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#restore" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.restore">restore</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LOGGER_NAME" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.LOGGER_NAME">LOGGER<wbr></wbr>_NAME</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_stderr" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr._stderr">_stderr</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_stdout" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr._stdout">_stdout</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="simreaduntil.shared_utils.tee_stdouterr.html" class="internal-link" title="The parent of this class">tee<wbr></wbr>_stdouterr</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.html" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr"><wbr></wbr>Tee<wbr></wbr>Stdouterr</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">simreaduntil</a></code><wbr></wbr>.<code><a href="simreaduntil.shared_utils.html" class="internal-link" title="simreaduntil.shared_utils">shared_utils</a></code><wbr></wbr>.<code><a href="simreaduntil.shared_utils.tee_stdouterr.html" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr">tee_stdouterr</a></code><wbr></wbr>.<code><a href="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.html" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr">TeeStdouterr</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">TeeStdouterr</span>: <a href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/tee_stdouterr.py#L10" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.__init__">TeeStdouterr(filename, mode, propagate)</a></code></p>
+          <p><a href="classIndex.html#simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Tee stdout and stderr</p>
+<p>We use the logging module to ensure thread-safety when writing to it. Do not use this logger or its children for anything else.</p>
+<p>Unlike common implementations seen on the Internet, this implementation correctly logs stdout and stderr to the respective
+streams (instead of merging them into one stream).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filename</span></td><td class="fieldArgDesc">file to tee to</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mode</span></td><td class="fieldArgDesc">file mode</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">propagate</span></td><td class="fieldArgDesc">whether to propagate to root logger; if set to True, every write to stdout and stdin (e.g. prints) can be intercepted with the usual logging additionally</td></tr></table></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id25">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.Writer.html" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.Writer"><wbr></wbr>Writer</a></code></td>
+    <td>Writer class that writes to the corresponding child logger which gets propagated to its parent</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.__init__">__init__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#is_redirecting" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.is_redirecting">is<wbr></wbr>_redirecting</a></code></td>
+    <td>Whether teeing is currently active</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#redirect" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.redirect">redirect</a></code></td>
+    <td>Start redirection</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#restore" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.restore">restore</a></code></td>
+    <td>Restore stdout and stderr</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#LOGGER_NAME" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.LOGGER_NAME">LOGGER<wbr></wbr>_NAME</a></code></td>
+    <td>Name of logger (do not interact with this logger directly)</td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_stderr" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr._stderr">_stderr</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_stdout" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr._stdout">_stdout</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, filename, mode=<span class="rst-variable-quote">'</span><span class="rst-variable-string">w</span><span class="rst-variable-quote">'</span>, propagate=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/tee_stdouterr.py#L24">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#__init__" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.is_redirecting">
+    
+  </a>
+  <a name="is_redirecting">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">is_redirecting</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/tee_stdouterr.py#L63">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#is_redirecting" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.is_redirecting">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Whether teeing is currently active</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.redirect">
+    
+  </a>
+  <a name="redirect">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">redirect</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/tee_stdouterr.py#L45">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#redirect" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.redirect">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Start redirection</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.restore">
+    
+  </a>
+  <a name="restore">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">restore</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/tee_stdouterr.py#L53">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#restore" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.restore">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Restore stdout and stderr</p></div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.LOGGER_NAME">
+    
+  </a>
+  <a name="LOGGER_NAME">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LOGGER_NAME</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/tee_stdouterr.py#L42">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#LOGGER_NAME" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.LOGGER_NAME">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Name of logger (do not interact with this logger directly)</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">stdouterr</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr._stderr">
+    
+  </a>
+  <a name="_stderr">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_stderr</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/tee_stdouterr.py#L40">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_stderr" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr._stderr">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr._stdout">
+    
+  </a>
+  <a name="_stdout">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_stdout</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/tee_stdouterr.py#L39">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_stdout" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr._stdout">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.0 at 2023-10-06 08:21:16.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

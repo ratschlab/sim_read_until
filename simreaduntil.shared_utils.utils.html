@@ -1,0 +1,1220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>simreaduntil.shared_utils.utils</title>
+    <meta name="generator" content="pydoctor 23.9.0"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="simreaduntil.shared_utils.utils.html" class="internal-link" title="This module">utils</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#convert_to_vscode_remote_path" class="internal-link" title="simreaduntil.shared_utils.utils.convert_to_vscode_remote_path">convert<wbr></wbr>_to<wbr></wbr>_vscode<wbr></wbr>_remote<wbr></wbr>_path</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#delete_dir_if_exists" class="internal-link" title="simreaduntil.shared_utils.utils.delete_dir_if_exists">delete<wbr></wbr>_dir<wbr></wbr>_if<wbr></wbr>_exists</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#dill_dump" class="internal-link" title="simreaduntil.shared_utils.utils.dill_dump">dill<wbr></wbr>_dump</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#dill_load" class="internal-link" title="simreaduntil.shared_utils.utils.dill_load">dill<wbr></wbr>_load</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#force_eval_generator" class="internal-link" title="simreaduntil.shared_utils.utils.force_eval_generator">force<wbr></wbr>_eval<wbr></wbr>_generator</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#force_eval_generator_function" class="internal-link" title="simreaduntil.shared_utils.utils.force_eval_generator_function">force<wbr></wbr>_eval<wbr></wbr>_generator<wbr></wbr>_function</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_file_content" class="internal-link" title="simreaduntil.shared_utils.utils.get_file_content">get<wbr></wbr>_file<wbr></wbr>_content</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_some_value_from_dict" class="internal-link" title="simreaduntil.shared_utils.utils.get_some_value_from_dict">get<wbr></wbr>_some<wbr></wbr>_value<wbr></wbr>_from<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#is_empty_dir" class="internal-link" title="simreaduntil.shared_utils.utils.is_empty_dir">is<wbr></wbr>_empty<wbr></wbr>_dir</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#is_empty_file" class="internal-link" title="simreaduntil.shared_utils.utils.is_empty_file">is<wbr></wbr>_empty<wbr></wbr>_file</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#is_sorted" class="internal-link" title="simreaduntil.shared_utils.utils.is_sorted">is<wbr></wbr>_sorted</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#num_lines_in_file" class="internal-link" title="simreaduntil.shared_utils.utils.num_lines_in_file">num<wbr></wbr>_lines<wbr></wbr>_in<wbr></wbr>_file</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#print_args" class="internal-link" title="simreaduntil.shared_utils.utils.print_args">print<wbr></wbr>_args</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#print_cmd_and_run" class="internal-link" title="simreaduntil.shared_utils.utils.print_cmd_and_run">print<wbr></wbr>_cmd<wbr></wbr>_and<wbr></wbr>_run</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#subset_dict" class="internal-link" title="simreaduntil.shared_utils.utils.subset_dict">subset<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tqdm_if_verbose" class="internal-link" title="simreaduntil.shared_utils.utils.tqdm_if_verbose">tqdm<wbr></wbr>_if<wbr></wbr>_verbose</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tqdm_with_name" class="internal-link" title="simreaduntil.shared_utils.utils.tqdm_with_name">tqdm<wbr></wbr>_with<wbr></wbr>_name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_cycle_list_deep" class="internal-link" title="simreaduntil.shared_utils.utils._cycle_list_deep">_cycle<wbr></wbr>_list<wbr></wbr>_deep</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#logger" class="internal-link" title="simreaduntil.shared_utils.utils.logger">logger</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="simreaduntil.shared_utils.html" class="internal-link" title="The parent of this module">shared<wbr></wbr>_utils</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.debugging_helpers.html" class="internal-link" title="simreaduntil.shared_utils.debugging_helpers">debugging<wbr></wbr>_helpers</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.dna.html" class="internal-link" title="simreaduntil.shared_utils.dna">dna</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.logging_utils.html" class="internal-link" title="simreaduntil.shared_utils.logging_utils">logging<wbr></wbr>_utils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.merge_axes.html" class="internal-link" title="simreaduntil.shared_utils.merge_axes">merge<wbr></wbr>_axes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.nanosim_parsing.html" class="internal-link" title="simreaduntil.shared_utils.nanosim_parsing">nanosim<wbr></wbr>_parsing</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.numerics.html" class="internal-link" title="simreaduntil.shared_utils.numerics">numerics</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.plotting.html" class="internal-link" title="simreaduntil.shared_utils.plotting">plotting</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.profiling.html" class="internal-link" title="simreaduntil.shared_utils.profiling">profiling</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.tee_stdouterr.html" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr">tee<wbr></wbr>_stdouterr</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.testing_utils.html" class="internal-link" title="simreaduntil.shared_utils.testing_utils">testing<wbr></wbr>_utils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.thread_helpers.html" class="internal-link" title="simreaduntil.shared_utils.thread_helpers">thread<wbr></wbr>_helpers</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.timing.html" class="internal-link" title="simreaduntil.shared_utils.timing">timing</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.utils.html" class="internal-link" title="simreaduntil.shared_utils.utils">utils</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">simreaduntil</a></code><wbr></wbr>.<code><a href="simreaduntil.shared_utils.html" class="internal-link" title="simreaduntil.shared_utils">shared_utils</a></code><wbr></wbr>.<code><a href="simreaduntil.shared_utils.utils.html" class="internal-link" title="simreaduntil.shared_utils.utils">utils</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <a href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py" class="sourceLink">(source)</a>
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>General utility functions</p></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id34">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#convert_to_vscode_remote_path" class="internal-link" title="simreaduntil.shared_utils.utils.convert_to_vscode_remote_path">convert<wbr></wbr>_to<wbr></wbr>_vscode<wbr></wbr>_remote<wbr></wbr>_path</a></code></td>
+    <td>Convert path on remote to a path that VSCode can open</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#delete_dir_if_exists" class="internal-link" title="simreaduntil.shared_utils.utils.delete_dir_if_exists">delete<wbr></wbr>_dir<wbr></wbr>_if<wbr></wbr>_exists</a></code></td>
+    <td>Delete directory if it exists, return whether it existed</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#dill_dump" class="internal-link" title="simreaduntil.shared_utils.utils.dill_dump">dill<wbr></wbr>_dump</a></code></td>
+    <td>Dumps an object to a file using dill.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#dill_load" class="internal-link" title="simreaduntil.shared_utils.utils.dill_load">dill<wbr></wbr>_load</a></code></td>
+    <td>Load an object from a file using dill.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#force_eval_generator" class="internal-link" title="simreaduntil.shared_utils.utils.force_eval_generator">force<wbr></wbr>_eval<wbr></wbr>_generator</a></code></td>
+    <td>Evaluate a generator to its first yield.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#force_eval_generator_function" class="internal-link" title="simreaduntil.shared_utils.utils.force_eval_generator_function">force<wbr></wbr>_eval<wbr></wbr>_generator<wbr></wbr>_function</a></code></td>
+    <td>Force evaluate a generator function until its first yield, decorate a function with @force_eval_generator_function</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_file_content" class="internal-link" title="simreaduntil.shared_utils.utils.get_file_content">get<wbr></wbr>_file<wbr></wbr>_content</a></code></td>
+    <td>return the file content as a string</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_some_value_from_dict" class="internal-link" title="simreaduntil.shared_utils.utils.get_some_value_from_dict">get<wbr></wbr>_some<wbr></wbr>_value<wbr></wbr>_from<wbr></wbr>_dict</a></code></td>
+    <td>Get some value from a dict</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#is_empty_dir" class="internal-link" title="simreaduntil.shared_utils.utils.is_empty_dir">is<wbr></wbr>_empty<wbr></wbr>_dir</a></code></td>
+    <td>Whether the directory is empty</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#is_empty_file" class="internal-link" title="simreaduntil.shared_utils.utils.is_empty_file">is<wbr></wbr>_empty<wbr></wbr>_file</a></code></td>
+    <td>whether the file is empty</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#is_sorted" class="internal-link" title="simreaduntil.shared_utils.utils.is_sorted">is<wbr></wbr>_sorted</a></code></td>
+    <td>Whether a list is sorted</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#num_lines_in_file" class="internal-link" title="simreaduntil.shared_utils.utils.num_lines_in_file">num<wbr></wbr>_lines<wbr></wbr>_in<wbr></wbr>_file</a></code></td>
+    <td>Counts empty lines, stripping last line if empty</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#print_args" class="internal-link" title="simreaduntil.shared_utils.utils.print_args">print<wbr></wbr>_args</a></code></td>
+    <td>Print and format all arguments from the command line</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#print_cmd_and_run" class="internal-link" title="simreaduntil.shared_utils.utils.print_cmd_and_run">print<wbr></wbr>_cmd<wbr></wbr>_and<wbr></wbr>_run</a></code></td>
+    <td>Print the command and run it, raising an error if it fails</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#subset_dict" class="internal-link" title="simreaduntil.shared_utils.utils.subset_dict">subset<wbr></wbr>_dict</a></code></td>
+    <td>Subset dict to some keys, all keys must be present</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#tqdm_if_verbose" class="internal-link" title="simreaduntil.shared_utils.utils.tqdm_if_verbose">tqdm<wbr></wbr>_if<wbr></wbr>_verbose</a></code></td>
+    <td>Return tqdm if verbose, otherwise just the iterator</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#tqdm_with_name" class="internal-link" title="simreaduntil.shared_utils.utils.tqdm_with_name">tqdm<wbr></wbr>_with<wbr></wbr>_name</a></code></td>
+    <td>Use this instead of tqdm.tqdm</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#logger" class="internal-link" title="simreaduntil.shared_utils.utils.logger">logger</a></code></td>
+    <td>module logger</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_cycle_list_deep" class="internal-link" title="simreaduntil.shared_utils.utils._cycle_list_deep">_cycle<wbr></wbr>_list<wbr></wbr>_deep</a></code></td>
+    <td>Cycle through a list, returning the next element each time</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.convert_to_vscode_remote_path">
+    
+  </a>
+  <a name="convert_to_vscode_remote_path">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">convert_to_vscode_remote_path</span><span class="function-signature">(path)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L41">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#convert_to_vscode_remote_path" title="simreaduntil.shared_utils.utils.convert_to_vscode_remote_path">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert path on remote to a path that VSCode can open</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.delete_dir_if_exists">
+    
+  </a>
+  <a name="delete_dir_if_exists">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">delete_dir_if_exists</span><span class="function-signature">(dir, ask=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L47">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#delete_dir_if_exists" title="simreaduntil.shared_utils.utils.delete_dir_if_exists">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Delete directory if it exists, return whether it existed</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dir</span></td><td class="fieldArgDesc">directory to delete</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ask</span></td><td class="fieldArgDesc">whether to ask the user before deleting if the directory exists; if user rejects, the directory is not deleted</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">whether the directory was deleted</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.dill_dump">
+    
+  </a>
+  <a name="dill_dump">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">dill_dump</span><span class="function-signature">(obj, filename)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L109">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#dill_dump" title="simreaduntil.shared_utils.utils.dill_dump">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Dumps an object to a file using dill.</p>
+<p>Dill has the advantage over pickle that it can serialize lambdas and other functions.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.dill_load">
+    
+  </a>
+  <a name="dill_load">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">dill_load</span><span class="function-signature">(filename)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L118">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#dill_load" title="simreaduntil.shared_utils.utils.dill_load">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Load an object from a file using dill.</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.force_eval_generator">
+    
+  </a>
+  <a name="force_eval_generator">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">force_eval_generator</span><span class="function-signature">(gen)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L79">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#force_eval_generator" title="simreaduntil.shared_utils.utils.force_eval_generator">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Evaluate a generator to its first yield.</p>
+<p>Generator functions (using yield in the function) are only run when the first element is requested.
+This may come with some overhead for the first element, e.g. to open a FASTA file. This function
+avoids it by evaluating the generator to its first yield.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">gen</span></td><td class="fieldArgDesc">a generator</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">new generator object (do not use the old one which has one element missing)</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.force_eval_generator_function">
+    
+  </a>
+  <a name="force_eval_generator_function">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">force_eval_generator_function</span><span class="function-signature">(f)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L100">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#force_eval_generator_function" title="simreaduntil.shared_utils.utils.force_eval_generator_function">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Force evaluate a generator function until its first yield, decorate a function with @force_eval_generator_function</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.get_file_content">
+    
+  </a>
+  <a name="get_file_content">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_file_content</span><span class="function-signature">(filename)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L125">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_file_content" title="simreaduntil.shared_utils.utils.get_file_content">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return the file content as a string</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.get_some_value_from_dict">
+    
+  </a>
+  <a name="get_some_value_from_dict">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_some_value_from_dict</span><span class="function-signature">(d: <code><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">Dict</a></code>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L32">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_some_value_from_dict" title="simreaduntil.shared_utils.utils.get_some_value_from_dict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get some value from a dict</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code>StopIteration if dict is empty</code></td><td></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.is_empty_dir">
+    
+  </a>
+  <a name="is_empty_dir">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">is_empty_dir</span><span class="function-signature">(path)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L65">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#is_empty_dir" title="simreaduntil.shared_utils.utils.is_empty_dir">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Whether the directory is empty</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.is_empty_file">
+    
+  </a>
+  <a name="is_empty_file">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">is_empty_file</span><span class="function-signature">(filename)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L130">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#is_empty_file" title="simreaduntil.shared_utils.utils.is_empty_file">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>whether the file is empty</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.is_sorted">
+    
+  </a>
+  <a name="is_sorted">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">is_sorted</span><span class="function-signature">(arr: <code><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">List</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>]</code>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L24">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#is_sorted" title="simreaduntil.shared_utils.utils.is_sorted">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Whether a list is sorted</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.num_lines_in_file">
+    
+  </a>
+  <a name="num_lines_in_file">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">num_lines_in_file</span><span class="function-signature">(filename)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L71">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#num_lines_in_file" title="simreaduntil.shared_utils.utils.num_lines_in_file">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Counts empty lines, stripping last line if empty</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.print_args">
+    
+  </a>
+  <a name="print_args">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">print_args</span><span class="function-signature">(args, logger=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, exclude=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L191">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#print_args" title="simreaduntil.shared_utils.utils.print_args">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Print and format all arguments from the command line</p>
+<p>Copied from ReadFish</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.print_cmd_and_run">
+    
+  </a>
+  <a name="print_cmd_and_run">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">print_cmd_and_run</span><span class="function-signature">(cmd, verbose=<a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>, dry=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L135">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#print_cmd_and_run" title="simreaduntil.shared_utils.utils.print_cmd_and_run">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Print the command and run it, raising an error if it fails</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cmd</span></td><td class="fieldArgDesc">command to run</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose</span></td><td class="fieldArgDesc">whether to print the command</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dry</span></td><td class="fieldArgDesc">whether to actually run the command, will print the command</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc">to pass to subprocess.run</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">stdout if verbose=False, otherwise None</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.subset_dict">
+    
+  </a>
+  <a name="subset_dict">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">subset_dict</span><span class="function-signature">(d: <code><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">Dict</a></code>, keys: <code><a href="https://docs.python.org/3/library/typing.html#typing.Iterable" class="intersphinx-link">Iterable</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>]</code>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L28">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#subset_dict" title="simreaduntil.shared_utils.utils.subset_dict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Subset dict to some keys, all keys must be present</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.tqdm_if_verbose">
+    
+  </a>
+  <a name="tqdm_if_verbose">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">tqdm_if_verbose</span><span class="function-signature">(iter, *args, verbose=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L165">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#tqdm_if_verbose" title="simreaduntil.shared_utils.utils.tqdm_if_verbose">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return tqdm if verbose, otherwise just the iterator</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.tqdm_with_name">
+    
+  </a>
+  <a name="tqdm_with_name">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">tqdm_with_name</span><span class="function-signature">(it, *args, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L174">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#tqdm_with_name" title="simreaduntil.shared_utils.utils.tqdm_with_name">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Use this instead of tqdm.tqdm</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">it</span></td><td class="fieldArgDesc">iterator returning (name, elem) rather than just elem, name will be displayed in progress bar
+when it is available and when the next element is requested</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">*args</span></td><td class="fieldArgDesc">to pass to tqdm.tqdm</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc">to pass to tqdm.tqdm</td></tr></table></div>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.logger">
+    
+  </a>
+  <a name="logger">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">logger</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L19">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#logger" title="simreaduntil.shared_utils.utils.logger">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>module logger</p></div>
+    
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="simreaduntil.shared_utils.utils._cycle_list_deep">
+    
+  </a>
+  <a name="_cycle_list_deep">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_cycle_list_deep</span><span class="function-signature">(lst)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/shared_utils/utils.py#L209">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_cycle_list_deep" title="simreaduntil.shared_utils.utils._cycle_list_deep">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Cycle through a list, returning the next element each time</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lst</span></td><td class="fieldArgDesc">list to cycle through</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Yields</td></tr><tr><td colspan="2">next element</td></tr></table></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.0 at 2023-10-06 08:21:16.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

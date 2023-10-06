@@ -1,0 +1,2320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>simreaduntil.simulator.simulator.ONTSimulator</title>
+    <meta name="generator" content="pydoctor 23.9.0"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="simreaduntil.simulator.simulator.ONTSimulator.html" class="internal-link" title="This class"><wbr></wbr>ONTSimulator</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__getstate__" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.__getstate__">__getstate__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__repr__" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.__repr__">__repr__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__setstate__" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.__setstate__">__setstate__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#device_info" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.device_info">device<wbr></wbr>_info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_action_results" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.get_action_results">get<wbr></wbr>_action<wbr></wbr>_results</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_basecalled_read_chunks" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.get_basecalled_read_chunks">get<wbr></wbr>_basecalled<wbr></wbr>_read<wbr></wbr>_chunks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_channel_stats" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.get_channel_stats">get<wbr></wbr>_channel<wbr></wbr>_stats</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_raw_chunks" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.get_raw_chunks">get<wbr></wbr>_raw<wbr></wbr>_chunks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_channels" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.plot_channels">plot<wbr></wbr>_channels</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#run_mux_scan" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.run_mux_scan">run<wbr></wbr>_mux<wbr></wbr>_scan</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#save_elems.setter" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.save_elems.setter">save<wbr></wbr>_elems<wbr></wbr>.setter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#start" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.start">start</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#stop" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.stop">stop</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#stop_receiving_read" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.stop_receiving_read">stop<wbr></wbr>_receiving<wbr></wbr>_read</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sync_forward" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.sync_forward">sync<wbr></wbr>_forward</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sync_start" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.sync_start">sync<wbr></wbr>_start</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sync_stop" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.sync_stop">sync<wbr></wbr>_stop</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#unblock_read" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.unblock_read">unblock<wbr></wbr>_read</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_all_channels_finished" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._all_channels_finished">_all<wbr></wbr>_channels<wbr></wbr>_finished</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_check_not_async_mode" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._check_not_async_mode">_check<wbr></wbr>_not<wbr></wbr>_async<wbr></wbr>_mode</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_compute_delta_t_sim" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._compute_delta_t_sim">_compute<wbr></wbr>_delta<wbr></wbr>_t<wbr></wbr>_sim</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_forward_channels" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._forward_channels">_forward<wbr></wbr>_channels</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_forward_sim_loop" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._forward_sim_loop">_forward<wbr></wbr>_sim<wbr></wbr>_loop</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_start_channels" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._start_channels">_start<wbr></wbr>_channels</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_stop_channels" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._stop_channels">_stop<wbr></wbr>_channels</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#send_message" class="internal-link" title="simreaduntil.simulator.simulator.ReadUntilDevice.send_message">send<wbr></wbr>_message</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#stop_receiving_batch" class="internal-link" title="simreaduntil.simulator.simulator.ReadUntilDevice.stop_receiving_batch">stop<wbr></wbr>_receiving<wbr></wbr>_batch</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#unblock_read_batch" class="internal-link" title="simreaduntil.simulator.simulator.ReadUntilDevice.unblock_read_batch">unblock<wbr></wbr>_read<wbr></wbr>_batch</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#_check_channels_available" class="internal-link" title="simreaduntil.simulator.simulator.ReadUntilDevice._check_channels_available">_check<wbr></wbr>_channels<wbr></wbr>_available</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#_onebased_available_channels" class="internal-link" title="simreaduntil.simulator.simulator.ReadUntilDevice._onebased_available_channels">_onebased<wbr></wbr>_available<wbr></wbr>_channels</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#lock_sim_state" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.lock_sim_state">lock<wbr></wbr>_sim<wbr></wbr>_state</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sim_params" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.sim_params">sim<wbr></wbr>_params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sim_state" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.sim_state">sim<wbr></wbr>_state</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#is_running" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.is_running">is<wbr></wbr>_running</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mk_run_dir" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.mk_run_dir">mk<wbr></wbr>_run<wbr></wbr>_dir</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#n_channels" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.n_channels">n<wbr></wbr>_channels</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#save_elems" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.save_elems">save<wbr></wbr>_elems</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_action_results" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._action_results">_action<wbr></wbr>_results</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_channel_status_fh" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._channel_status_fh">_channel<wbr></wbr>_status<wbr></wbr>_fh</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_channel_status_filename" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._channel_status_filename">_channel<wbr></wbr>_status<wbr></wbr>_filename</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_channels" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._channels">_channels</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_forward_sim_thread" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._forward_sim_thread">_forward<wbr></wbr>_sim<wbr></wbr>_thread</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_read_pool" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._read_pool">_read<wbr></wbr>_pool</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_reads_writer" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._reads_writer">_reads<wbr></wbr>_writer</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="simreaduntil.simulator.simulator.html" class="internal-link" title="The parent of this class">simulator</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.ActionType.html" class="internal-link" title="simreaduntil.simulator.simulator.ActionType"><wbr></wbr>Action<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.ONTSimulator.html" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator"><wbr></wbr>ONTSimulator</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.ReadUntilClientFromDevice.html" class="internal-link" title="simreaduntil.simulator.simulator.ReadUntilClientFromDevice"><wbr></wbr>Read<wbr></wbr>Until<wbr></wbr>Client<wbr></wbr>From<wbr></wbr>Device</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html" class="internal-link" title="simreaduntil.simulator.simulator.ReadUntilDevice"><wbr></wbr>Read<wbr></wbr>Until<wbr></wbr>Device</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.SimulationRunningState.html" class="internal-link" title="simreaduntil.simulator.simulator.SimulationRunningState"><wbr></wbr>Simulation<wbr></wbr>Running<wbr></wbr>State</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.InexistentChannelsException.html" class="internal-link" title="simreaduntil.simulator.simulator.InexistentChannelsException"><wbr></wbr>Inexistent<wbr></wbr>Channels<wbr></wbr>Exception</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html#assign_read_durations_to_channels" class="internal-link" title="simreaduntil.simulator.simulator.assign_read_durations_to_channels">assign<wbr></wbr>_read<wbr></wbr>_durations<wbr></wbr>_to<wbr></wbr>_channels</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html#convert_action_results_to_df" class="internal-link" title="simreaduntil.simulator.simulator.convert_action_results_to_df">convert<wbr></wbr>_action<wbr></wbr>_results<wbr></wbr>_to<wbr></wbr>_df</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html#get_simulator_delay_over_time_df" class="internal-link" title="simreaduntil.simulator.simulator.get_simulator_delay_over_time_df">get<wbr></wbr>_simulator<wbr></wbr>_delay<wbr></wbr>_over<wbr></wbr>_time<wbr></wbr>_df</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html#plot_action_success_rate" class="internal-link" title="simreaduntil.simulator.simulator.plot_action_success_rate">plot<wbr></wbr>_action<wbr></wbr>_success<wbr></wbr>_rate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html#plot_nb_actions_per_read" class="internal-link" title="simreaduntil.simulator.simulator.plot_nb_actions_per_read">plot<wbr></wbr>_nb<wbr></wbr>_actions<wbr></wbr>_per<wbr></wbr>_read</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html#plot_sim_actions" class="internal-link" title="simreaduntil.simulator.simulator.plot_sim_actions">plot<wbr></wbr>_sim<wbr></wbr>_actions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html#plot_simulator_delay_over_time" class="internal-link" title="simreaduntil.simulator.simulator.plot_simulator_delay_over_time">plot<wbr></wbr>_simulator<wbr></wbr>_delay<wbr></wbr>_over<wbr></wbr>_time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html#run_periodic_mux_scan_thread" class="internal-link" title="simreaduntil.simulator.simulator.run_periodic_mux_scan_thread">run<wbr></wbr>_periodic<wbr></wbr>_mux<wbr></wbr>_scan<wbr></wbr>_thread</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html#run_simulator_from_sampler_per_channel" class="internal-link" title="simreaduntil.simulator.simulator.run_simulator_from_sampler_per_channel">run<wbr></wbr>_simulator<wbr></wbr>_from<wbr></wbr>_sampler<wbr></wbr>_per<wbr></wbr>_channel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html#run_simulator_from_sampler_per_channel_parallel" class="internal-link" title="simreaduntil.simulator.simulator.run_simulator_from_sampler_per_channel_parallel">run<wbr></wbr>_simulator<wbr></wbr>_from<wbr></wbr>_sampler<wbr></wbr>_per<wbr></wbr>_channel<wbr></wbr>_parallel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html#simulator_stats_to_disk" class="internal-link" title="simreaduntil.simulator.simulator.simulator_stats_to_disk">simulator<wbr></wbr>_stats<wbr></wbr>_to<wbr></wbr>_disk</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html#stop_simulation_after_time_thread" class="internal-link" title="simreaduntil.simulator.simulator.stop_simulation_after_time_thread">stop<wbr></wbr>_simulation<wbr></wbr>_after<wbr></wbr>_time<wbr></wbr>_thread</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html#_get_spawnable_random_state" class="internal-link" title="simreaduntil.simulator.simulator._get_spawnable_random_state">_get<wbr></wbr>_spawnable<wbr></wbr>_random<wbr></wbr>_state</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html#_random_seqs_gen_from_lens_with_cycle" class="internal-link" title="simreaduntil.simulator.simulator._random_seqs_gen_from_lens_with_cycle">_random<wbr></wbr>_seqs<wbr></wbr>_gen<wbr></wbr>_from<wbr></wbr>_lens<wbr></wbr>_with<wbr></wbr>_cycle</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.simulator.html#logger" class="internal-link" title="simreaduntil.simulator.simulator.logger">logger</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">simreaduntil</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.html" class="internal-link" title="simreaduntil.simulator">simulator</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.simulator.html" class="internal-link" title="simreaduntil.simulator.simulator">simulator</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.simulator.ONTSimulator.html" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator">ONTSimulator</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">ONTSimulator</span>(<a href="simreaduntil.simulator.simulator.ReadUntilDevice.html" class="internal-link" title="simreaduntil.simulator.simulator.ReadUntilDevice">ReadUntilDevice</a>): <a href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L235" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.__init__">ONTSimulator(read_pool, reads_writer, sim_params, channel_status_filename)</a></code></p>
+          <p><a href="classIndex.html#simreaduntil.simulator.simulator.ONTSimulator">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>This simulates an ONT device with support for the ReadUntil API.
+It sets up a number of channels, the channels fetch reads from the ReadPool and write finished reads to the ReadsWriter.</p>
+<p>The ReadUntil API is supported by the following functions:
+- get_basecalled_read_chunks: get new chunks from the channels for the currently active reads
+- unblock_read: reject a read
+- stop_receiving_read: stop receiving a read
+Note: The channels are 1-based in the ReadUntil API (though the class internally uses 0-based indexing).</p>
+<p>Forwarding the simulation means forwarding each channel from the last time it was forwarded to the specified time. This leads to a number of
+reads being written.
+It supports two operating modes that should NOT be mixed:
+- async mode: run a thread to forward the simulation at regular time intervals, so reads get written once finished;
+acceleration_factor can be used to speed up the simulation
+methods: .start(), .stop(), .is_running
+- sync mode: forward the simulation whenever it is called; blocks the main thread
+methods: .sync_forward(t), .sync_start(t), .sync_stop(t)</p>
+<p>The reads are not necessarily written in an ordered fashion because the channels are traversed in a fixed order, not by read finishing time (difficult because a
+channel may write several reads at once when forwarded). If desired, implement this at the ReadsWriter level.</p>
+<p>The simulation parameters can be changed during the simulation. They will be automatically picked up.</p>
+<p>This class is thread-safe. start/stop can be called in parallel and acquire a lock. They return true/false whether they succeeded. The forward loop acquires
+the lock on each iteration when it is forwarding the channels, then releases it, so the simulation can be stopped.</p>
+<p>Note: The internal thread that forwards the simulation works because it only forwards channels which are thread-safe. When the simulation
+is stopped, the thread to forward the channels finishes and the channels are stopped then only.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">read<wbr></wbr>_pool</span></td><td class="fieldArgDesc">where reads come from</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">reads<wbr></wbr>_writer</span></td><td class="fieldArgDesc">reads writer, ideally of type RotatingFileReadsWriter with attribute .output_dir (used in .mk_run_dir attribute)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sim<wbr></wbr>_params</span></td><td class="fieldArgDesc">simulation parameters, can be modified during the simulation</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">channel<wbr></wbr>_status<wbr></wbr>_filename</span></td><td class="fieldArgDesc">where to write combined channel status at regular intervals</td></tr></table></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id94">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__getstate__" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.__getstate__">__getstate__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.__init__">__init__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__repr__" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.__repr__">__repr__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__setstate__" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.__setstate__">__setstate__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#device_info" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.device_info">device<wbr></wbr>_info</a></code></td>
+    <td>Print information about the device</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_action_results" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.get_action_results">get<wbr></wbr>_action<wbr></wbr>_results</a></code></td>
+    <td>Get action results of actions performed on simulator</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_basecalled_read_chunks" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.get_basecalled_read_chunks">get<wbr></wbr>_basecalled<wbr></wbr>_read<wbr></wbr>_chunks</a></code></td>
+    <td>It permutes the channels and gets at most 'batch_size' from them. Channels with no new chunks are filtered out.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_channel_stats" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.get_channel_stats">get<wbr></wbr>_channel<wbr></wbr>_stats</a></code></td>
+    <td>Get channel statuses, per channel</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_raw_chunks" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.get_raw_chunks">get<wbr></wbr>_raw<wbr></wbr>_chunks</a></code></td>
+    <td>Get raw chunks from channels</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#plot_channels" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.plot_channels">plot<wbr></wbr>_channels</a></code></td>
+    <td>Plot (a subset of) channels</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#run_mux_scan" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.run_mux_scan">run<wbr></wbr>_mux<wbr></wbr>_scan</a></code></td>
+    <td>Pass in duration on each channel rather than end time because the channel may already have been forwarded in-between</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#save_elems.setter" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.save_elems.setter">save<wbr></wbr>_elems<wbr></wbr>.setter</a></code></td>
+    <td>Set all channels to save their history (needed for plotting)</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#start" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.start">start</a></code></td>
+    <td>Start the simulation.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#stop" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.stop">stop</a></code></td>
+    <td>Stop simulation by stopping thread and stopping all channels.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#stop_receiving_read" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.stop_receiving_read">stop<wbr></wbr>_receiving<wbr></wbr>_read</a></code></td>
+    <td>Stop receiving from read</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#sync_forward" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.sync_forward">sync<wbr></wbr>_forward</a></code></td>
+    <td>Forward all channels to time t</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#sync_start" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.sync_start">sync<wbr></wbr>_start</a></code></td>
+    <td>Start all channels at time t</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#sync_stop" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.sync_stop">sync<wbr></wbr>_stop</a></code></td>
+    <td>Stop all channels</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#unblock_read" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.unblock_read">unblock<wbr></wbr>_read</a></code></td>
+    <td>Unblock read</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#lock_sim_state" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.lock_sim_state">lock<wbr></wbr>_sim<wbr></wbr>_state</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#sim_params" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.sim_params">sim<wbr></wbr>_params</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#sim_state" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.sim_state">sim<wbr></wbr>_state</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#is_running" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.is_running">is<wbr></wbr>_running</a></code></td>
+    <td>Whether the simulation is currently not stopped in asynchronous mode.</td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#mk_run_dir" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.mk_run_dir">mk<wbr></wbr>_run<wbr></wbr>_dir</a></code></td>
+    <td>Directory where full reads are written to</td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#n_channels" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.n_channels">n<wbr></wbr>_channels</a></code></td>
+    <td>Number of channels</td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#save_elems" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.save_elems">save<wbr></wbr>_elems</a></code></td>
+    <td>Whether channels are currently saving their history (needed for plotting)</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_all_channels_finished" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._all_channels_finished">_all<wbr></wbr>_channels<wbr></wbr>_finished</a></code></td>
+    <td>Whether no reads are left and all channels have finished</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_check_not_async_mode" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._check_not_async_mode">_check<wbr></wbr>_not<wbr></wbr>_async<wbr></wbr>_mode</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_compute_delta_t_sim" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._compute_delta_t_sim">_compute<wbr></wbr>_delta<wbr></wbr>_t<wbr></wbr>_sim</a></code></td>
+    <td>Compute time to advance simulation by, dynamically recomputed</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_forward_channels" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._forward_channels">_forward<wbr></wbr>_channels</a></code></td>
+    <td>Forward all channels to time t, optionally by delta</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_forward_sim_loop" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._forward_sim_loop">_forward<wbr></wbr>_sim<wbr></wbr>_loop</a></code></td>
+    <td>Helper method launched by .start() to forward the simulation.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_start_channels" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._start_channels">_start<wbr></wbr>_channels</a></code></td>
+    <td>Start channels, i.e. place first elements in channel</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_stop_channels" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._stop_channels">_stop<wbr></wbr>_channels</a></code></td>
+    <td>Stop all channels and flush any pending reads to disk etc.</td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_action_results" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._action_results">_action<wbr></wbr>_results</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_channel_status_fh" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._channel_status_fh">_channel<wbr></wbr>_status<wbr></wbr>_fh</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_channel_status_filename" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._channel_status_filename">_channel<wbr></wbr>_status<wbr></wbr>_filename</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_channels" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._channels">_channels</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_forward_sim_thread" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._forward_sim_thread">_forward<wbr></wbr>_sim<wbr></wbr>_thread</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_read_pool" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._read_pool">_read<wbr></wbr>_pool</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_reads_writer" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator._reads_writer">_reads<wbr></wbr>_writer</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html" class="internal-link" title="simreaduntil.simulator.simulator.ReadUntilDevice">ReadUntilDevice</a></code>:
+            </p>
+            <table class="children sortable" id="id95">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#send_message" class="internal-link" title="simreaduntil.simulator.simulator.ReadUntilDevice.send_message">send<wbr></wbr>_message</a></code></td>
+    <td>Send a message to the device</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#stop_receiving_batch" class="internal-link" title="simreaduntil.simulator.simulator.ReadUntilDevice.stop_receiving_batch">stop<wbr></wbr>_receiving<wbr></wbr>_batch</a></code></td>
+    <td>Stop receiving data from a set of reads</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#unblock_read_batch" class="internal-link" title="simreaduntil.simulator.simulator.ReadUntilDevice.unblock_read_batch">unblock<wbr></wbr>_read<wbr></wbr>_batch</a></code></td>
+    <td>Unblock a set of reads.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#_check_channels_available" class="internal-link" title="simreaduntil.simulator.simulator.ReadUntilDevice._check_channels_available">_check<wbr></wbr>_channels<wbr></wbr>_available</a></code></td>
+    <td>Check that the provided channels are available to block/stop receiving, get chunks from</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#_onebased_available_channels" class="internal-link" title="simreaduntil.simulator.simulator.ReadUntilDevice._onebased_available_channels">_onebased<wbr></wbr>_available<wbr></wbr>_channels</a></code></td>
+    <td>Available channels to block/stop receiving, get chunks from, 1-based</td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.__getstate__">
+    
+  </a>
+  <a name="__getstate__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__getstate__</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L704">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#__getstate__" title="simreaduntil.simulator.simulator.ONTSimulator.__getstate__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, read_pool: <code><a href="simreaduntil.simulator.readpool.ReadPool.html" class="internal-link" title="simreaduntil.simulator.readpool.ReadPool">ReadPool</a></code>, reads_writer: <code><a href="simreaduntil.simulator.readswriter.RotatingFileReadsWriter.html" class="internal-link" title="simreaduntil.simulator.readswriter.RotatingFileReadsWriter">RotatingFileReadsWriter</a></code>, sim_params: <code><a href="simreaduntil.simulator.simulator_params.SimParams.html" class="internal-link" title="simreaduntil.simulator.simulator_params.SimParams">SimParams</a></code>, channel_status_filename: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Union" class="intersphinx-link">Union</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>]]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L272">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#__init__" title="simreaduntil.simulator.simulator.ONTSimulator.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.__repr__">
+    
+  </a>
+  <a name="__repr__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__repr__</span><span class="function-signature">(self) -&gt; <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L320">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#__repr__" title="simreaduntil.simulator.simulator.ONTSimulator.__repr__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.__setstate__">
+    
+  </a>
+  <a name="__setstate__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__setstate__</span><span class="function-signature">(self, state)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L709">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#__setstate__" title="simreaduntil.simulator.simulator.ONTSimulator.__setstate__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.device_info">
+    
+  </a>
+  <a name="device_info">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">device_info</span><span class="function-signature">(self, sim_params=<a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>, channel_states=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>) -&gt; <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L299">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#device_info" title="simreaduntil.simulator.simulator.ONTSimulator.device_info">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#device_info" class="internal-link">simreaduntil.simulator.simulator.ReadUntilDevice.device_info</a></code></div>
+    <div><p>Print information about the device</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.get_action_results">
+    
+  </a>
+  <a name="get_action_results">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_action_results</span><span class="function-signature">(self, clear=<a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">List</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Tuple" class="intersphinx-link">Tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>, <wbr></wbr><a href="https://docs.python.org/3/library/functions.html#float" class="intersphinx-link">float</a>, <wbr></wbr><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a>, <wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>]]</code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L596">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_action_results" title="simreaduntil.simulator.simulator.ONTSimulator.get_action_results">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#get_action_results" class="internal-link">simreaduntil.simulator.simulator.ReadUntilDevice.get_action_results</a></code></div>
+    <div><p>Get action results of actions performed on simulator</p>
+<p>Not thread-safe if clear=True.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">clear</span></td><td class="fieldArgDesc">whether to clear the action results list after getting it</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">List</a></code> of action results</td><td class="fieldArgDesc">(read_id, time, channel, action, result)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.get_basecalled_read_chunks">
+    
+  </a>
+  <a name="get_basecalled_read_chunks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_basecalled_read_chunks</span><span class="function-signature">(self, batch_size=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, channel_subset=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">List</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Tuple" class="intersphinx-link">Tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>]]</code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L555">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_basecalled_read_chunks" title="simreaduntil.simulator.simulator.ONTSimulator.get_basecalled_read_chunks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#get_basecalled_read_chunks" class="internal-link">simreaduntil.simulator.simulator.ReadUntilDevice.get_basecalled_read_chunks</a></code></div>
+    <div><p>It permutes the channels and gets at most 'batch_size' from them.
+Channels with no new chunks are filtered out.</p>
+<p>If some channels are not running (because the simulation is stopped or is being stopped), the
+chunks from those channels are simply not returned, instead of raising an error</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">batch<wbr></wbr>_size</span></td><td class="fieldArgDesc">maximum number of channels to get reads from</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">channel<wbr></wbr>_subset</span></td><td class="fieldArgDesc">restrict to these channels (if provided), 1-based, influenced by batch_size</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">List</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Tuple" class="intersphinx-link">Tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>]]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Yields</td></tr><tr><td class="fieldArgContainer">basecalled chunks from channels</td><td class="fieldArgDesc">(channel_nb+1, read_id, chunk, quality, estimated ref len of all chunks returned so far for this read)
+channel_nb+1 is 1-based (since real ONT devices are)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.get_channel_stats">
+    
+  </a>
+  <a name="get_channel_stats">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_channel_stats</span><span class="function-signature">(self, combined=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.Union" class="intersphinx-link">Union</a>[<wbr></wbr><a href="simreaduntil.simulator.channel_stats.ChannelStats.html" class="internal-link" title="simreaduntil.simulator.channel_stats.ChannelStats">ChannelStats</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">List</a>[<wbr></wbr><a href="simreaduntil.simulator.channel_stats.ChannelStats.html" class="internal-link" title="simreaduntil.simulator.channel_stats.ChannelStats">ChannelStats</a>], <wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]</code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L323">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_channel_stats" title="simreaduntil.simulator.simulator.ONTSimulator.get_channel_stats">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get channel statuses, per channel</p>
+<p>This method is not thread-safe because it calls .stats on each channel, which is not thread-safe.
+If the method is called while the simulation is running, the channel statuses may be inconsistent.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">combined</span></td><td class="fieldArgDesc">if True, combine stats over all channels</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.Union" class="intersphinx-link">Union</a>[<wbr></wbr><a href="simreaduntil.simulator.channel_stats.ChannelStats.html" class="internal-link" title="simreaduntil.simulator.channel_stats.ChannelStats">ChannelStats</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">List</a>[<wbr></wbr><a href="simreaduntil.simulator.channel_stats.ChannelStats.html" class="internal-link" title="simreaduntil.simulator.channel_stats.ChannelStats">ChannelStats</a>], <wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]</code></td><td class="fieldArgDesc">list of channel statuses, or combined stats</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.get_raw_chunks">
+    
+  </a>
+  <a name="get_raw_chunks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_raw_chunks</span><span class="function-signature">(self, *args, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L586">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_raw_chunks" title="simreaduntil.simulator.simulator.ONTSimulator.get_raw_chunks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get raw chunks from channels</p>
+<p>Pore model must be set in sim_params
+Currently not implemented via the gRPC API</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.plot_channels">
+    
+  </a>
+  <a name="plot_channels">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_channels</span><span class="function-signature">(self, channel_subset=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, *args, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L688">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_channels" title="simreaduntil.simulator.simulator.ONTSimulator.plot_channels">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot (a subset of) channels</p>
+<p>Only those elements that were happening while .save_elems was True are plotted.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">channel<wbr></wbr>_subset</span></td><td class="fieldArgDesc">1-based, if None, all channels are plotted</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">*args</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.run_mux_scan">
+    
+  </a>
+  <a name="run_mux_scan">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">run_mux_scan</span><span class="function-signature">(self, t_duration: <code><a href="https://docs.python.org/3/library/functions.html#float" class="intersphinx-link">float</a></code>) -&gt; <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L630">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#run_mux_scan" title="simreaduntil.simulator.simulator.ONTSimulator.run_mux_scan">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#run_mux_scan" class="internal-link">simreaduntil.simulator.simulator.ReadUntilDevice.run_mux_scan</a></code></div>
+    <div><p>Pass in duration on each channel rather than end time because the channel may already have been forwarded in-between</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.save_elems.setter">
+    
+  </a>
+  <a name="save_elems.setter">
+    
+  </a>
+  <div class="functionHeader">
+    
+    @<a href="#save_elems.setter" class="internal-link" title="simreaduntil.simulator.simulator.ONTSimulator.save_elems.setter">save_elems.setter</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">save_elems</span><span class="function-signature">(self, val)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L682">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#save_elems.setter" title="simreaduntil.simulator.simulator.ONTSimulator.save_elems.setter">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Set all channels to save their history (needed for plotting)</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.start">
+    
+  </a>
+  <a name="start">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">start</span><span class="function-signature">(self, *args, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L380">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#start" title="simreaduntil.simulator.simulator.ONTSimulator.start">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#start" class="internal-link">simreaduntil.simulator.simulator.ReadUntilDevice.start</a></code></div>
+    <div><p>Start the simulation.</p>
+<p>This method starts a thread that forwards the simulation at regular intervals.
+The simulation stops if all channels are done (since no reads are left) or it is explicitly stopped
+The  execution is not deterministic because of the use of time.sleep().</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">*args</span></td><td class="fieldArgDesc">forwarded to _start</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc">forwarded to _start</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">Whether the simulation was started (i.e. it was not running)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.stop">
+    
+  </a>
+  <a name="stop">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">stop</span><span class="function-signature">(self, _join_thread=<a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L507">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#stop" title="simreaduntil.simulator.simulator.ONTSimulator.stop">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#stop" class="internal-link">simreaduntil.simulator.simulator.ReadUntilDevice.stop</a></code></div>
+    <div><p>Stop simulation by stopping thread and stopping all channels.</p>
+<p>It will stop at the next time step.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_join<wbr></wbr>_thread</span></td><td class="fieldArgDesc">whether to join the thread, only for internal use (set to False if stopping from the thread itself)</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">Whether the simulation was stopped (i.e. it was running and not in the process of being stopped)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.stop_receiving_read">
+    
+  </a>
+  <a name="stop_receiving_read">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">stop_receiving_read</span><span class="function-signature">(self, read_channel, read_id) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="simreaduntil.simulator.channel.StoppedReceivingResponse.html" class="internal-link" title="simreaduntil.simulator.channel.StoppedReceivingResponse">StoppedReceivingResponse</a>]</code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L623">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#stop_receiving_read" title="simreaduntil.simulator.simulator.ONTSimulator.stop_receiving_read">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#stop_receiving_read" class="internal-link">simreaduntil.simulator.simulator.ReadUntilDevice.stop_receiving_read</a></code></div>
+    <div><p>Stop receiving from read</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.sync_forward">
+    
+  </a>
+  <a name="sync_forward">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">sync_forward</span><span class="function-signature">(self, t, delta=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>, show_progress=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L652">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#sync_forward" title="simreaduntil.simulator.simulator.ONTSimulator.sync_forward">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Forward all channels to time t</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.sync_start">
+    
+  </a>
+  <a name="sync_start">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">sync_start</span><span class="function-signature">(self, t=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L659">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#sync_start" title="simreaduntil.simulator.simulator.ONTSimulator.sync_start">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Start all channels at time t</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">t</span></td><td class="fieldArgDesc">if None, starts at current time (slightly differs between channels as they are sequentially started)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.sync_stop">
+    
+  </a>
+  <a name="sync_stop">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">sync_stop</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L669">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#sync_stop" title="simreaduntil.simulator.simulator.ONTSimulator.sync_stop">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Stop all channels</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.unblock_read">
+    
+  </a>
+  <a name="unblock_read">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">unblock_read</span><span class="function-signature">(self, read_channel, read_id, unblock_duration=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a>]</code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L616">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#unblock_read" title="simreaduntil.simulator.simulator.ONTSimulator.unblock_read">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#unblock_read" class="internal-link">simreaduntil.simulator.simulator.ReadUntilDevice.unblock_read</a></code></div>
+    <div><p>Unblock read</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.lock_sim_state">
+    
+  </a>
+  <a name="lock_sim_state">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">lock_sim_state</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L287">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#lock_sim_state" title="simreaduntil.simulator.simulator.ONTSimulator.lock_sim_state">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.sim_params">
+    
+  </a>
+  <a name="sim_params">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">sim_params</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L277">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#sim_params" title="simreaduntil.simulator.simulator.ONTSimulator.sim_params">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.sim_state">
+    
+  </a>
+  <a name="sim_state">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">sim_state</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L288">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#sim_state" title="simreaduntil.simulator.simulator.ONTSimulator.sim_state">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.is_running">
+    
+  </a>
+  <a name="is_running">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="https://docs.python.org/3/library/functions.html#property" class="intersphinx-link">property</a><br />
+    <span class="py-defname">is_running</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L540">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#is_running" title="simreaduntil.simulator.simulator.ONTSimulator.is_running">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#is_running" class="internal-link">simreaduntil.simulator.simulator.ReadUntilDevice.is_running</a></code></div>
+    <div><p>Whether the simulation is currently not stopped in asynchronous mode.</p>
+<p>This is a momentary state, it may change at any time.
+If the simulation was started in synchronous mode, this will always return False.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">Whether the simulation is currently not stopped</td></tr></table></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.mk_run_dir">
+    
+  </a>
+  <a name="mk_run_dir">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="https://docs.python.org/3/library/functions.html#property" class="intersphinx-link">property</a><br />
+    <span class="py-defname">mk_run_dir</span>: <code><a href="https://docs.python.org/3/library/typing.html#typing.Union" class="intersphinx-link">Union</a>[<wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>, <wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]</code> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L292">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#mk_run_dir" title="simreaduntil.simulator.simulator.ONTSimulator.mk_run_dir">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#mk_run_dir" class="internal-link">simreaduntil.simulator.simulator.ReadUntilDevice.mk_run_dir</a></code></div>
+    <div><p>Directory where full reads are written to</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.n_channels">
+    
+  </a>
+  <a name="n_channels">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="https://docs.python.org/3/library/functions.html#property" class="intersphinx-link">property</a><br />
+    <span class="py-defname">n_channels</span>: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L316">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#n_channels" title="simreaduntil.simulator.simulator.ONTSimulator.n_channels">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.simulator.ReadUntilDevice.html#n_channels" class="internal-link">simreaduntil.simulator.simulator.ReadUntilDevice.n_channels</a></code></div>
+    <div><p>Number of channels</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator.save_elems">
+    
+  </a>
+  <a name="save_elems">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="https://docs.python.org/3/library/functions.html#property" class="intersphinx-link">property</a><br />
+    <span class="py-defname">save_elems</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L678">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#save_elems" title="simreaduntil.simulator.simulator.ONTSimulator.save_elems">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Whether channels are currently saving their history (needed for plotting)</p></div>
+    
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator._all_channels_finished">
+    
+  </a>
+  <a name="_all_channels_finished">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_all_channels_finished</span><span class="function-signature">(self) -&gt; <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L372">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_all_channels_finished" title="simreaduntil.simulator.simulator.ONTSimulator._all_channels_finished">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Whether no reads are left and all channels have finished</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator._check_not_async_mode">
+    
+  </a>
+  <a name="_check_not_async_mode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_check_not_async_mode</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L649">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_check_not_async_mode" title="simreaduntil.simulator.simulator.ONTSimulator._check_not_async_mode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator._compute_delta_t_sim">
+    
+  </a>
+  <a name="_compute_delta_t_sim">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_compute_delta_t_sim</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L498">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_compute_delta_t_sim" title="simreaduntil.simulator.simulator.ONTSimulator._compute_delta_t_sim">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute time to advance simulation by, dynamically recomputed</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">Length of one chunk in seconds (without acceleration)</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator._forward_channels">
+    
+  </a>
+  <a name="_forward_channels">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_forward_channels</span><span class="function-signature">(self, t, delta=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>, show_progress=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L341">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_forward_channels" title="simreaduntil.simulator.simulator.ONTSimulator._forward_channels">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Forward all channels to time t, optionally by delta</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">t</span></td><td class="fieldArgDesc">time to forward to</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">delta</span></td><td class="fieldArgDesc">if True, interpret t as time difference</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">show<wbr></wbr>_progress</span></td><td class="fieldArgDesc">show progress across channels with tqdm</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator._forward_sim_loop">
+    
+  </a>
+  <a name="_forward_sim_loop">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_forward_sim_loop</span><span class="function-signature">(self, acceleration_factor=1, update_method=<span class="rst-variable-quote">'</span><span class="rst-variable-string">realtime</span><span class="rst-variable-quote">'</span>, log_interval: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code> = 10, stop_if_no_reads=<a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L412">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_forward_sim_loop" title="simreaduntil.simulator.simulator.ONTSimulator._forward_sim_loop">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Helper method launched by .start() to forward the simulation.</p>
+<p>It forwards the simulation at regular time intervals.
+It always forwards the simulation by the same amount of time (provided the simulation parameters stay unchanged).
+It breaks once self._please_stop is set (at the next iteration) or all channels have finished (because no reads are left).
+The channel status (aggregated across all channels) is written to a file at regular intervals (if filename provided).</p>
+<p>For debugging, it can be invoked directly rather than through .start().</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">acceleration<wbr></wbr>_factor</span></td><td class="fieldArgDesc">by how much to speed up the simulation, it is safe to do so as long as the simulation can keep up with it (warnings are printed if not)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">update<wbr></wbr>_method</span></td><td class="fieldArgDesc">how to forward the simulation (taking into account acceleration)
+- "realtime": update simulation time so it matches real time (accounting for acceleration); relevant when a delay happens between iterations
+- "constant": always update simulation time by same amount</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">log<wbr></wbr>_interval:</span><code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code></td><td class="fieldArgDesc">number of steps between logging elapsed simulator time the combined channel status, set to 0 for no logging</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">stop<wbr></wbr>_if<wbr></wbr>_no<wbr></wbr>_reads</span></td><td class="fieldArgDesc">whether to stop the simulation if no reads are left</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator._start_channels">
+    
+  </a>
+  <a name="_start_channels">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_start_channels</span><span class="function-signature">(self, t=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L353">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_start_channels" title="simreaduntil.simulator.simulator.ONTSimulator._start_channels">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Start channels, i.e. place first elements in channel</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">t</span></td><td class="fieldArgDesc">start time, if None, start at current time</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator._stop_channels">
+    
+  </a>
+  <a name="_stop_channels">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_stop_channels</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L365">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_stop_channels" title="simreaduntil.simulator.simulator.ONTSimulator._stop_channels">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Stop all channels and flush any pending reads to disk etc.</p></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator._action_results">
+    
+  </a>
+  <a name="_action_results">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_action_results</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a></code> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L290">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_action_results" title="simreaduntil.simulator.simulator.ONTSimulator._action_results">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator._channel_status_fh">
+    
+  </a>
+  <a name="_channel_status_fh">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_channel_status_fh</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L440">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_channel_status_fh" title="simreaduntil.simulator.simulator.ONTSimulator._channel_status_fh">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator._channel_status_filename">
+    
+  </a>
+  <a name="_channel_status_filename">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_channel_status_filename</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L280">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_channel_status_filename" title="simreaduntil.simulator.simulator.ONTSimulator._channel_status_filename">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator._channels">
+    
+  </a>
+  <a name="_channels">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_channels</span>: <code><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">List</a>[<wbr></wbr><a href="simreaduntil.simulator.channel.Channel.html" class="internal-link" title="simreaduntil.simulator.channel.Channel">Channel</a>]</code> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L278">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_channels" title="simreaduntil.simulator.simulator.ONTSimulator._channels">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator._forward_sim_thread">
+    
+  </a>
+  <a name="_forward_sim_thread">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_forward_sim_thread</span>: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="simreaduntil.shared_utils.thread_helpers.ThreadWithResultsAndExceptions.html" class="internal-link" title="simreaduntil.shared_utils.thread_helpers.ThreadWithResultsAndExceptions">ThreadWithResultsAndExceptions</a>]</code> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L283">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_forward_sim_thread" title="simreaduntil.simulator.simulator.ONTSimulator._forward_sim_thread">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator._read_pool">
+    
+  </a>
+  <a name="_read_pool">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_read_pool</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L275">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_read_pool" title="simreaduntil.simulator.simulator.ONTSimulator._read_pool">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="simreaduntil.simulator.simulator.ONTSimulator._reads_writer">
+    
+  </a>
+  <a name="_reads_writer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_reads_writer</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/simulator.py#L276">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_reads_writer" title="simreaduntil.simulator.simulator.ONTSimulator._reads_writer">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.0 at 2023-10-06 08:21:16.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

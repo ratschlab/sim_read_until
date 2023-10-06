@@ -1,0 +1,1039 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>simreaduntil.usecase_helpers.utils</title>
+    <meta name="generator" content="pydoctor 23.9.0"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="simreaduntil.usecase_helpers.utils.html" class="internal-link" title="This module">utils</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#create_figures" class="internal-link" title="simreaduntil.usecase_helpers.utils.create_figures">create<wbr></wbr>_figures</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#create_simparams_if_inexistent" class="internal-link" title="simreaduntil.usecase_helpers.utils.create_simparams_if_inexistent">create<wbr></wbr>_simparams<wbr></wbr>_if<wbr></wbr>_inexistent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#extract_errfile_from_condor_jobad" class="internal-link" title="simreaduntil.usecase_helpers.utils.extract_errfile_from_condor_jobad">extract<wbr></wbr>_errfile<wbr></wbr>_from<wbr></wbr>_condor<wbr></wbr>_jobad</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_cleaned_seqsum_filename" class="internal-link" title="simreaduntil.usecase_helpers.utils.get_cleaned_seqsum_filename">get<wbr></wbr>_cleaned<wbr></wbr>_seqsum<wbr></wbr>_filename</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_fasta_open_method" class="internal-link" title="simreaduntil.usecase_helpers.utils.get_fasta_open_method">get<wbr></wbr>_fasta<wbr></wbr>_open<wbr></wbr>_method</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_gap_sampler_method" class="internal-link" title="simreaduntil.usecase_helpers.utils.get_gap_sampler_method">get<wbr></wbr>_gap<wbr></wbr>_sampler<wbr></wbr>_method</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_gen_nanosim_reads_cmd" class="internal-link" title="simreaduntil.usecase_helpers.utils.get_gen_nanosim_reads_cmd">get<wbr></wbr>_gen<wbr></wbr>_nanosim<wbr></wbr>_reads<wbr></wbr>_cmd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#normalize_fasta" class="internal-link" title="simreaduntil.usecase_helpers.utils.normalize_fasta">normalize<wbr></wbr>_fasta</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#normalize_fasta_cmd" class="internal-link" title="simreaduntil.usecase_helpers.utils.normalize_fasta_cmd">normalize<wbr></wbr>_fasta<wbr></wbr>_cmd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#normalize_fasta_gen" class="internal-link" title="simreaduntil.usecase_helpers.utils.normalize_fasta_gen">normalize<wbr></wbr>_fasta<wbr></wbr>_gen</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perfect_reads_gen" class="internal-link" title="simreaduntil.usecase_helpers.utils.perfect_reads_gen">perfect<wbr></wbr>_reads<wbr></wbr>_gen</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_condor_log_file_metrics" class="internal-link" title="simreaduntil.usecase_helpers.utils.plot_condor_log_file_metrics">plot<wbr></wbr>_condor<wbr></wbr>_log<wbr></wbr>_file<wbr></wbr>_metrics</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_log_file_metrics" class="internal-link" title="simreaduntil.usecase_helpers.utils.plot_log_file_metrics">plot<wbr></wbr>_log<wbr></wbr>_file<wbr></wbr>_metrics</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#random_nanosim_reads_gen" class="internal-link" title="simreaduntil.usecase_helpers.utils.random_nanosim_reads_gen">random<wbr></wbr>_nanosim<wbr></wbr>_reads<wbr></wbr>_gen</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#random_reads_gen" class="internal-link" title="simreaduntil.usecase_helpers.utils.random_reads_gen">random<wbr></wbr>_reads<wbr></wbr>_gen</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#remove_mux_scans_and_clean_if_inexistent" class="internal-link" title="simreaduntil.usecase_helpers.utils.remove_mux_scans_and_clean_if_inexistent">remove<wbr></wbr>_mux<wbr></wbr>_scans<wbr></wbr>_and<wbr></wbr>_clean<wbr></wbr>_if<wbr></wbr>_inexistent</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#logger" class="internal-link" title="simreaduntil.usecase_helpers.utils.logger">logger</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="simreaduntil.usecase_helpers.html" class="internal-link" title="The parent of this module">usecase<wbr></wbr>_helpers</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.usecase_helpers.readfish_plotting.html" class="internal-link" title="simreaduntil.usecase_helpers.readfish_plotting">readfish<wbr></wbr>_plotting</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.usecase_helpers.readfish_wrappers.html" class="internal-link" title="simreaduntil.usecase_helpers.readfish_wrappers">readfish<wbr></wbr>_wrappers</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.usecase_helpers.simulator_with_readfish.html" class="internal-link" title="simreaduntil.usecase_helpers.simulator_with_readfish">simulator<wbr></wbr>_with<wbr></wbr>_readfish</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.usecase_helpers.utils.html" class="internal-link" title="simreaduntil.usecase_helpers.utils">utils</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">simreaduntil</a></code><wbr></wbr>.<code><a href="simreaduntil.usecase_helpers.html" class="internal-link" title="simreaduntil.usecase_helpers">usecase_helpers</a></code><wbr></wbr>.<code><a href="simreaduntil.usecase_helpers.utils.html" class="internal-link" title="simreaduntil.usecase_helpers.utils">utils</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <a href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py" class="sourceLink">(source)</a>
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Utility functions to help with the usecase</p></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id115">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#create_figures" class="internal-link" title="simreaduntil.usecase_helpers.utils.create_figures">create<wbr></wbr>_figures</a></code></td>
+    <td>Create figures from a finished run</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#create_simparams_if_inexistent" class="internal-link" title="simreaduntil.usecase_helpers.utils.create_simparams_if_inexistent">create<wbr></wbr>_simparams<wbr></wbr>_if<wbr></wbr>_inexistent</a></code></td>
+    <td>Create simparams from sequencing summary and save to file, if no such file exists</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#extract_errfile_from_condor_jobad" class="internal-link" title="simreaduntil.usecase_helpers.utils.extract_errfile_from_condor_jobad">extract<wbr></wbr>_errfile<wbr></wbr>_from<wbr></wbr>_condor<wbr></wbr>_jobad</a></code></td>
+    <td>Extract the file where stderr is redriected to from a condor jobad file</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_cleaned_seqsum_filename" class="internal-link" title="simreaduntil.usecase_helpers.utils.get_cleaned_seqsum_filename">get<wbr></wbr>_cleaned<wbr></wbr>_seqsum<wbr></wbr>_filename</a></code></td>
+    <td>Filename to remove sequencing summary with removed mux scans, in same directory</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_fasta_open_method" class="internal-link" title="simreaduntil.usecase_helpers.utils.get_fasta_open_method">get<wbr></wbr>_fasta<wbr></wbr>_open<wbr></wbr>_method</a></code></td>
+    <td>Get the open method for a file; gzipped files are opened with gzip.open</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_gap_sampler_method" class="internal-link" title="simreaduntil.usecase_helpers.utils.get_gap_sampler_method">get<wbr></wbr>_gap<wbr></wbr>_sampler<wbr></wbr>_method</a></code></td>
+    <td>Get function to create a gap sampler given string description</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_gen_nanosim_reads_cmd" class="internal-link" title="simreaduntil.usecase_helpers.utils.get_gen_nanosim_reads_cmd">get<wbr></wbr>_gen<wbr></wbr>_nanosim<wbr></wbr>_reads<wbr></wbr>_cmd</a></code></td>
+    <td>Get command to generate NanoSim reads in a separate process, slurm also supported</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#normalize_fasta" class="internal-link" title="simreaduntil.usecase_helpers.utils.normalize_fasta">normalize<wbr></wbr>_fasta</a></code></td>
+    <td>Normalize a FASTA file to upper case and replacing N letters</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#normalize_fasta_cmd" class="internal-link" title="simreaduntil.usecase_helpers.utils.normalize_fasta_cmd">normalize<wbr></wbr>_fasta<wbr></wbr>_cmd</a></code></td>
+    <td>Command line script to normalize a FASTA file and write it back to a file</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#normalize_fasta_gen" class="internal-link" title="simreaduntil.usecase_helpers.utils.normalize_fasta_gen">normalize<wbr></wbr>_fasta<wbr></wbr>_gen</a></code></td>
+    <td>Generator to normalize FASTA to upper case and replacing N letters</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#perfect_reads_gen" class="internal-link" title="simreaduntil.usecase_helpers.utils.perfect_reads_gen">perfect<wbr></wbr>_reads<wbr></wbr>_gen</a></code></td>
+    <td>Generate perfect reads that align to the reference genome</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_condor_log_file_metrics" class="internal-link" title="simreaduntil.usecase_helpers.utils.plot_condor_log_file_metrics">plot<wbr></wbr>_condor<wbr></wbr>_log<wbr></wbr>_file<wbr></wbr>_metrics</a></code></td>
+    <td>Parse log filename from condor job add, then plot metrics from log</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_log_file_metrics" class="internal-link" title="simreaduntil.usecase_helpers.utils.plot_log_file_metrics">plot<wbr></wbr>_log<wbr></wbr>_file<wbr></wbr>_metrics</a></code></td>
+    <td>Parse log file and plot metrics</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#random_nanosim_reads_gen" class="internal-link" title="simreaduntil.usecase_helpers.utils.random_nanosim_reads_gen">random<wbr></wbr>_nanosim<wbr></wbr>_reads<wbr></wbr>_gen</a></code></td>
+    <td>Generate random reads with a valid NanoSim id; the reads will however not map to the reference genome</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#random_reads_gen" class="internal-link" title="simreaduntil.usecase_helpers.utils.random_reads_gen">random<wbr></wbr>_reads<wbr></wbr>_gen</a></code></td>
+    <td>Generator returning random reads with random ids</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#remove_mux_scans_and_clean_if_inexistent" class="internal-link" title="simreaduntil.usecase_helpers.utils.remove_mux_scans_and_clean_if_inexistent">remove<wbr></wbr>_mux<wbr></wbr>_scans<wbr></wbr>_and<wbr></wbr>_clean<wbr></wbr>_if<wbr></wbr>_inexistent</a></code></td>
+    <td>Remove mux scans from seqsum file, clean it and save to file, if no such file exists</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#logger" class="internal-link" title="simreaduntil.usecase_helpers.utils.logger">logger</a></code></td>
+    <td>module logger</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.create_figures">
+    
+  </a>
+  <a name="create_figures">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">create_figures</span><span class="function-signature">(seqsum, run_dir, figure_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, delete_existing_figure_dir=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L400">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#create_figures" title="simreaduntil.usecase_helpers.utils.create_figures">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create figures from a finished run</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">seqsum</span></td><td class="fieldArgDesc">sequencing summary file or dataframe to plot</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">run<wbr></wbr>_dir</span></td><td class="fieldArgDesc">run_dir containing outputs from the simulator</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">figure<wbr></wbr>_dir</span></td><td class="fieldArgDesc">where to store figures; if None, run_dir/figures; will be created if inexistent</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">delete<wbr></wbr>_existing<wbr></wbr>_figure<wbr></wbr>_dir</span></td><td class="fieldArgDesc">whether to delete directory if it exists</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc">to pass to create_plots_for_seqsum</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.create_simparams_if_inexistent">
+    
+  </a>
+  <a name="create_simparams_if_inexistent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">create_simparams_if_inexistent</span><span class="function-signature">(sim_params_filename, seqsum_param_extr_file, n_channels: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a>]</code>, gap_sampler_from_seqsum_fcn)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L343">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#create_simparams_if_inexistent" title="simreaduntil.usecase_helpers.utils.create_simparams_if_inexistent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create simparams from sequencing summary and save to file, if no such file exists</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sim<wbr></wbr>_params<wbr></wbr>_filename</span></td><td class="fieldArgDesc">path to sim params file, to load from or to save to if inexistent</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">seqsum<wbr></wbr>_param<wbr></wbr>_extr<wbr></wbr>_file</span></td><td class="fieldArgDesc">sequencing summary file to use for parameter extraction</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">n<wbr></wbr>_channels:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a>]</code></td><td class="fieldArgDesc">number of channels to simulate; if None, inferred from seqsum</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">gap<wbr></wbr>_sampler<wbr></wbr>_from<wbr></wbr>_seqsum<wbr></wbr>_fcn</span></td><td class="fieldArgDesc">function that takes a seqsum_df and returns a function that creates gap samplers</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">whether a params file was created</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.extract_errfile_from_condor_jobad">
+    
+  </a>
+  <a name="extract_errfile_from_condor_jobad">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">extract_errfile_from_condor_jobad</span><span class="function-signature">(jobad_filename)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L455">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#extract_errfile_from_condor_jobad" title="simreaduntil.usecase_helpers.utils.extract_errfile_from_condor_jobad">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Extract the file where stderr is redriected to from a condor jobad file</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.get_cleaned_seqsum_filename">
+    
+  </a>
+  <a name="get_cleaned_seqsum_filename">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_cleaned_seqsum_filename</span><span class="function-signature">(seqsum_filename)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L301">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_cleaned_seqsum_filename" title="simreaduntil.usecase_helpers.utils.get_cleaned_seqsum_filename">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Filename to remove sequencing summary with removed mux scans, in same directory</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.get_fasta_open_method">
+    
+  </a>
+  <a name="get_fasta_open_method">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_fasta_open_method</span><span class="function-signature">(filename, write: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code> = <a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L130">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_fasta_open_method" title="simreaduntil.usecase_helpers.utils.get_fasta_open_method">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get the open method for a file; gzipped files are opened with gzip.open</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filename</span></td><td class="fieldArgDesc">path to file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">write:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">whether to open for writing</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">open method</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.get_gap_sampler_method">
+    
+  </a>
+  <a name="get_gap_sampler_method">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_gap_sampler_method</span><span class="function-signature">(gap_sampler_type, n_channels_full=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L378">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_gap_sampler_method" title="simreaduntil.usecase_helpers.utils.get_gap_sampler_method">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get function to create a gap sampler given string description</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">gap<wbr></wbr>_sampler<wbr></wbr>_type</span></td><td class="fieldArgDesc">string description of gap sampler type</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">n<wbr></wbr>_channels<wbr></wbr>_full</span></td><td class="fieldArgDesc">number of channels of original run (the sequencing summary file does not contain completely broken channels)</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.get_gen_nanosim_reads_cmd">
+    
+  </a>
+  <a name="get_gen_nanosim_reads_cmd">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_gen_nanosim_reads_cmd</span><span class="function-signature">(nanosim_dir, nanosim_model_prefix, ref_genome_path, reads_dir, n_reads_per_sim, n_procs=4, perfect=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>, use_slurm=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L230">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_gen_nanosim_reads_cmd" title="simreaduntil.usecase_helpers.utils.get_gen_nanosim_reads_cmd">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get command to generate NanoSim reads in a separate process, slurm also supported</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nanosim<wbr></wbr>_dir</span></td><td class="fieldArgDesc">path to NanoSim directory</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nanosim<wbr></wbr>_model<wbr></wbr>_prefix</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ref<wbr></wbr>_genome<wbr></wbr>_path</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">reads<wbr></wbr>_dir</span></td><td class="fieldArgDesc">directory to save reads to</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">n<wbr></wbr>_reads<wbr></wbr>_per<wbr></wbr>_sim</span></td><td class="fieldArgDesc">number of reads to generate per simulation</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">n<wbr></wbr>_procs</span></td><td class="fieldArgDesc">number of processes per simulation</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">perfect</span></td><td class="fieldArgDesc">whether to generate perfect reads</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">use<wbr></wbr>_slurm</span></td><td class="fieldArgDesc">whether to use slurm and run a bunch of simulations in parallel</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">command as str to execute with print_cmd_and_run or os.system</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.normalize_fasta">
+    
+  </a>
+  <a name="normalize_fasta">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">normalize_fasta</span><span class="function-signature">(in_fasta_path, out_fasta_path, seq_names=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, random_state=np.random.default_rng(<wbr></wbr>2))</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L183">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#normalize_fasta" title="simreaduntil.usecase_helpers.utils.normalize_fasta">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Normalize a FASTA file to upper case and replacing N letters</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">in<wbr></wbr>_fasta<wbr></wbr>_path</span></td><td class="fieldArgDesc">path to input FASTA file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">out<wbr></wbr>_fasta<wbr></wbr>_path</span></td><td class="fieldArgDesc">path to output FASTA file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">seq<wbr></wbr>_names</span></td><td class="fieldArgDesc">sequences to include; if None, all</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">random<wbr></wbr>_state</span></td><td class="fieldArgDesc">random state; if not provided, repeated calls to this function return different values</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.normalize_fasta_cmd">
+    
+  </a>
+  <a name="normalize_fasta_cmd">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">normalize_fasta_cmd</span><span class="function-signature">()</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L208">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#normalize_fasta_cmd" title="simreaduntil.usecase_helpers.utils.normalize_fasta_cmd">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Command line script to normalize a FASTA file and write it back to a file</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.normalize_fasta_gen">
+    
+  </a>
+  <a name="normalize_fasta_gen">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">normalize_fasta_gen</span><span class="function-signature">(fasta_filename, seq_names=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, random_state=np.random.default_rng(<wbr></wbr>2))</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L150">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#normalize_fasta_gen" title="simreaduntil.usecase_helpers.utils.normalize_fasta_gen">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generator to normalize FASTA to upper case and replacing N letters</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fasta<wbr></wbr>_filename</span></td><td class="fieldArgDesc">path to fasta, can be gzipped</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">seq<wbr></wbr>_names</span></td><td class="fieldArgDesc">sequences to include; if None, all</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">random<wbr></wbr>_state</span></td><td class="fieldArgDesc">random state; if not provided, repeated calls to this function return different values</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Yields</td></tr><tr><td colspan="2">(sequence name, SeqIO.SeqRecord)</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.perfect_reads_gen">
+    
+  </a>
+  <a name="perfect_reads_gen">
+    
+  </a>
+  <div class="functionHeader">
+    
+    @<a href="simreaduntil.shared_utils.utils.html#force_eval_generator_function" class="internal-link" title="simreaduntil.shared_utils.utils.force_eval_generator_function">force_eval_generator_function</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">perfect_reads_gen</span><span class="function-signature">(fasta_filename: <code><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a></code>, read_lens_range, random_state=np.random.default_rng(<wbr></wbr>1), nanosim_read_id=<a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L76">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#perfect_reads_gen" title="simreaduntil.usecase_helpers.utils.perfect_reads_gen">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generate perfect reads that align to the reference genome</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fasta<wbr></wbr>_filename:</span><code><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a></code></td><td class="fieldArgDesc">filename</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">read<wbr></wbr>_lens<wbr></wbr>_range</span></td><td class="fieldArgDesc">range of read lengths</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">random<wbr></wbr>_state</span></td><td class="fieldArgDesc">random state; if not provided, repeated calls to this function return different values</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nanosim<wbr></wbr>_read<wbr></wbr>_id</span></td><td class="fieldArgDesc">whether to return a valid NanoSim id as read_id</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Yields</td></tr><tr><td colspan="2">(read_id, seq) where read_id is or is not a valid NanoSim id (read number starting at 1)</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.plot_condor_log_file_metrics">
+    
+  </a>
+  <a name="plot_condor_log_file_metrics">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_condor_log_file_metrics</span><span class="function-signature">(save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L464">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_condor_log_file_metrics" title="simreaduntil.usecase_helpers.utils.plot_condor_log_file_metrics">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse log filename from condor job add, then plot metrics from log</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.plot_log_file_metrics">
+    
+  </a>
+  <a name="plot_log_file_metrics">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_log_file_metrics</span><span class="function-signature">(log_filename, save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L441">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_log_file_metrics" title="simreaduntil.usecase_helpers.utils.plot_log_file_metrics">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse log file and plot metrics</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.random_nanosim_reads_gen">
+    
+  </a>
+  <a name="random_nanosim_reads_gen">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">random_nanosim_reads_gen</span><span class="function-signature">(random_state=np.random.default_rng(<wbr></wbr>2), length_range=(<wbr></wbr>8, <wbr></wbr>17))</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L47">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#random_nanosim_reads_gen" title="simreaduntil.usecase_helpers.utils.random_nanosim_reads_gen">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generate random reads with a valid NanoSim id; the reads will however not map to the reference genome</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">random<wbr></wbr>_state</span></td><td class="fieldArgDesc">random state; if not provided, repeated calls to this function return different values</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">length<wbr></wbr>_range</span></td><td class="fieldArgDesc">range of read lengths</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Yields</td></tr><tr><td colspan="2">(read_id, seq), where read_id is a valid NanoSim id</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.random_reads_gen">
+    
+  </a>
+  <a name="random_reads_gen">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">random_reads_gen</span><span class="function-signature">(random_state=np.random.default_rng(<wbr></wbr>2), length_range=(<wbr></wbr>8, <wbr></wbr>17))</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L115">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#random_reads_gen" title="simreaduntil.usecase_helpers.utils.random_reads_gen">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generator returning random reads with random ids</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">random<wbr></wbr>_state</span></td><td class="fieldArgDesc">random state to use</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">length<wbr></wbr>_range</span></td><td class="fieldArgDesc">range of read lengths to generate</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.remove_mux_scans_and_clean_if_inexistent">
+    
+  </a>
+  <a name="remove_mux_scans_and_clean_if_inexistent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">remove_mux_scans_and_clean_if_inexistent</span><span class="function-signature">(sequencing_summary_file)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L307">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#remove_mux_scans_and_clean_if_inexistent" title="simreaduntil.usecase_helpers.utils.remove_mux_scans_and_clean_if_inexistent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Remove mux scans from seqsum file, clean it and save to file, if no such file exists</p>
+<p>It creates two intermediate files, one for removed mux scans, the other after cleaning.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sequencing<wbr></wbr>_summary<wbr></wbr>_file</span></td><td class="fieldArgDesc">seqsum file from which to remove mux scans</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">sequencing summary with mux scans removed (data.frame)</td></tr></table></div>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="simreaduntil.usecase_helpers.utils.logger">
+    
+  </a>
+  <a name="logger">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">logger</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/usecase_helpers/utils.py#L44">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#logger" title="simreaduntil.usecase_helpers.utils.logger">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>module logger</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.0 at 2023-10-06 08:21:16.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

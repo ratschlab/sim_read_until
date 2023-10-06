@@ -1,0 +1,1141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>simreaduntil.simulator.channel_stats.ReadElementStats</title>
+    <meta name="generator" content="pydoctor 23.9.0"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="simreaduntil.simulator.channel_stats.ReadElementStats.html" class="internal-link" title="This class"><wbr></wbr>Read<wbr></wbr>Element<wbr></wbr>Stats</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__eq__" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.__eq__">__eq__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__repr__" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.__repr__">__repr__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#add_time" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.add_time">add<wbr></wbr>_time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#check_consistent" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.check_consistent">check<wbr></wbr>_consistent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#combine_with" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.combine_with">combine<wbr></wbr>_with</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#finish" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.finish">finish</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#add_full" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats.add_full">add<wbr></wbr>_full</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#add_time_and_finish" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats.add_time_and_finish">add<wbr></wbr>_time<wbr></wbr>_and<wbr></wbr>_finish</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#start" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats.start">start</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#start_and_add_time" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats.start_and_add_time">start<wbr></wbr>_and<wbr></wbr>_add<wbr></wbr>_time</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cur_number_stop_receiving" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.cur_number_stop_receiving">cur<wbr></wbr>_number<wbr></wbr>_stop<wbr></wbr>_receiving</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#fin_number_rejected" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.fin_number_rejected">fin<wbr></wbr>_number<wbr></wbr>_rejected</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#fin_number_stop_receiving" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.fin_number_stop_receiving">fin<wbr></wbr>_number<wbr></wbr>_stop<wbr></wbr>_receiving</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#number_bps_read" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.number_bps_read">number<wbr></wbr>_bps<wbr></wbr>_read</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#number_bps_rejected" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.number_bps_rejected">number<wbr></wbr>_bps<wbr></wbr>_rejected</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#number_bps_requested" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.number_bps_requested">number<wbr></wbr>_bps<wbr></wbr>_requested</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#number_rejected_missed" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.number_rejected_missed">number<wbr></wbr>_rejected<wbr></wbr>_missed</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#number_stop_receiving_missed" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.number_stop_receiving_missed">number<wbr></wbr>_stop<wbr></wbr>_receiving<wbr></wbr>_missed</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#cur_number" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats.cur_number">cur<wbr></wbr>_number</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#finished_number" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats.finished_number">finished<wbr></wbr>_number</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#time_spent" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats.time_spent">time<wbr></wbr>_spent</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="simreaduntil.simulator.channel_stats.html" class="internal-link" title="The parent of this class">channel<wbr></wbr>_stats</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.ChannelStats.html" class="internal-link" title="simreaduntil.simulator.channel_stats.ChannelStats"><wbr></wbr>Channel<wbr></wbr>Stats</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.ElementStats.html" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats"><wbr></wbr>Element<wbr></wbr>Stats</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.ReadElementStats.html" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats"><wbr></wbr>Read<wbr></wbr>Element<wbr></wbr>Stats</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.html#channel_stats_to_df" class="internal-link" title="simreaduntil.simulator.channel_stats.channel_stats_to_df">channel<wbr></wbr>_stats<wbr></wbr>_to<wbr></wbr>_df</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.html#combine_stats" class="internal-link" title="simreaduntil.simulator.channel_stats.combine_stats">combine<wbr></wbr>_stats</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.html#plot_channel_stats" class="internal-link" title="simreaduntil.simulator.channel_stats.plot_channel_stats">plot<wbr></wbr>_channel<wbr></wbr>_stats</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.html#plot_number_elems_per_channel" class="internal-link" title="simreaduntil.simulator.channel_stats.plot_number_elems_per_channel">plot<wbr></wbr>_number<wbr></wbr>_elems<wbr></wbr>_per<wbr></wbr>_channel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.html#plot_read_stats_per_channel" class="internal-link" title="simreaduntil.simulator.channel_stats.plot_read_stats_per_channel">plot<wbr></wbr>_read<wbr></wbr>_stats<wbr></wbr>_per<wbr></wbr>_channel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.html#plot_time_spent_per_channel" class="internal-link" title="simreaduntil.simulator.channel_stats.plot_time_spent_per_channel">plot<wbr></wbr>_time<wbr></wbr>_spent<wbr></wbr>_per<wbr></wbr>_channel</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.channel_stats.html#logger" class="internal-link" title="simreaduntil.simulator.channel_stats.logger">logger</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">simreaduntil</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.html" class="internal-link" title="simreaduntil.simulator">simulator</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.channel_stats.html" class="internal-link" title="simreaduntil.simulator.channel_stats">channel_stats</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.channel_stats.ReadElementStats.html" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats">ReadElementStats</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">ReadElementStats</span>(<a href="simreaduntil.simulator.channel_stats.ElementStats.html" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats">ElementStats</a>): <a href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/channel_stats.py#L91" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.__init__">ReadElementStats(cur_number, finished_number, time_spent, number_bps_requested, ...)</a></code></p>
+          <p><a href="classIndex.html#simreaduntil.simulator.channel_stats.ReadElementStats">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Extends ElementStats with read-specific statistics</p></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id62">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__eq__" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.__eq__">__eq__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.__init__">__init__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__repr__" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.__repr__">__repr__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#add_time" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.add_time">add<wbr></wbr>_time</a></code></td>
+    <td>Add time to an active element</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#check_consistent" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.check_consistent">check<wbr></wbr>_consistent</a></code></td>
+    <td>Check whether the stats are consistent</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#combine_with" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.combine_with">combine<wbr></wbr>_with</a></code></td>
+    <td>Combine with another ElementStats object</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#finish" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.finish">finish</a></code></td>
+    <td>Finish the active element</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cur_number_stop_receiving" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.cur_number_stop_receiving">cur<wbr></wbr>_number<wbr></wbr>_stop<wbr></wbr>_receiving</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#fin_number_rejected" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.fin_number_rejected">fin<wbr></wbr>_number<wbr></wbr>_rejected</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#fin_number_stop_receiving" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.fin_number_stop_receiving">fin<wbr></wbr>_number<wbr></wbr>_stop<wbr></wbr>_receiving</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#number_bps_read" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.number_bps_read">number<wbr></wbr>_bps<wbr></wbr>_read</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#number_bps_rejected" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.number_bps_rejected">number<wbr></wbr>_bps<wbr></wbr>_rejected</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#number_bps_requested" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.number_bps_requested">number<wbr></wbr>_bps<wbr></wbr>_requested</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#number_rejected_missed" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.number_rejected_missed">number<wbr></wbr>_rejected<wbr></wbr>_missed</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#number_stop_receiving_missed" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats.number_stop_receiving_missed">number<wbr></wbr>_stop<wbr></wbr>_receiving<wbr></wbr>_missed</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="simreaduntil.simulator.channel_stats.ElementStats.html" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats">ElementStats</a></code>:
+            </p>
+            <table class="children sortable" id="id63">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#add_full" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats.add_full">add<wbr></wbr>_full</a></code></td>
+    <td>Start, add_time and finish</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#add_time_and_finish" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats.add_time_and_finish">add<wbr></wbr>_time<wbr></wbr>_and<wbr></wbr>_finish</a></code></td>
+    <td>Combines start and add_time</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#start" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats.start">start</a></code></td>
+    <td>Start a new element</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#start_and_add_time" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats.start_and_add_time">start<wbr></wbr>_and<wbr></wbr>_add<wbr></wbr>_time</a></code></td>
+    <td>Combines start and add_time</td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#cur_number" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats.cur_number">cur<wbr></wbr>_number</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#finished_number" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats.finished_number">finished<wbr></wbr>_number</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#time_spent" class="internal-link" title="simreaduntil.simulator.channel_stats.ElementStats.time_spent">time<wbr></wbr>_spent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.channel_stats.ReadElementStats.__eq__">
+    
+  </a>
+  <a name="__eq__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__eq__</span><span class="function-signature">(self, other: <code><a href="simreaduntil.simulator.channel_stats.ReadElementStats.html" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats">ReadElementStats</a></code>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/channel_stats.py#L117">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#__eq__" title="simreaduntil.simulator.channel_stats.ReadElementStats.__eq__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#__eq__" class="internal-link">simreaduntil.simulator.channel_stats.ElementStats.__eq__</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.channel_stats.ReadElementStats.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, cur_number=0, finished_number=0, time_spent=0, number_bps_requested=0, number_bps_read=0, number_bps_rejected=0, cur_number_stop_receiving=0, fin_number_stop_receiving=0, fin_number_rejected=0, number_rejected_missed=0, number_stop_receiving_missed=0)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/channel_stats.py#L95">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#__init__" title="simreaduntil.simulator.channel_stats.ReadElementStats.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#__init__" class="internal-link">simreaduntil.simulator.channel_stats.ElementStats.__init__</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.channel_stats.ReadElementStats.__repr__">
+    
+  </a>
+  <a name="__repr__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__repr__</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/channel_stats.py#L114">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#__repr__" title="simreaduntil.simulator.channel_stats.ReadElementStats.__repr__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#__repr__" class="internal-link">simreaduntil.simulator.channel_stats.ElementStats.__repr__</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.channel_stats.ReadElementStats.add_time">
+    
+  </a>
+  <a name="add_time">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">add_time</span><span class="function-signature">(self, time, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/channel_stats.py#L149">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#add_time" title="simreaduntil.simulator.channel_stats.ReadElementStats.add_time">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#add_time" class="internal-link">simreaduntil.simulator.channel_stats.ElementStats.add_time</a></code></div>
+    <div><p>Add time to an active element</p>
+<p>time can be negative</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.channel_stats.ReadElementStats.check_consistent">
+    
+  </a>
+  <a name="check_consistent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">check_consistent</span><span class="function-signature">(self, n_channels_running)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/channel_stats.py#L124">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#check_consistent" title="simreaduntil.simulator.channel_stats.ReadElementStats.check_consistent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#check_consistent" class="internal-link">simreaduntil.simulator.channel_stats.ElementStats.check_consistent</a></code></div>
+    <div><p>Check whether the stats are consistent</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.channel_stats.ReadElementStats.combine_with">
+    
+  </a>
+  <a name="combine_with">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">combine_with</span><span class="function-signature">(self, other: <code><a href="simreaduntil.simulator.channel_stats.ReadElementStats.html" class="internal-link" title="simreaduntil.simulator.channel_stats.ReadElementStats">ReadElementStats</a></code>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/channel_stats.py#L137">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#combine_with" title="simreaduntil.simulator.channel_stats.ReadElementStats.combine_with">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#combine_with" class="internal-link">simreaduntil.simulator.channel_stats.ElementStats.combine_with</a></code></div>
+    <div><p>Combine with another ElementStats object</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.channel_stats.ReadElementStats.finish">
+    
+  </a>
+  <a name="finish">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">finish</span><span class="function-signature">(self, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/channel_stats.py#L156">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#finish" title="simreaduntil.simulator.channel_stats.ReadElementStats.finish">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.channel_stats.ElementStats.html#finish" class="internal-link">simreaduntil.simulator.channel_stats.ElementStats.finish</a></code></div>
+    <div><p>Finish the active element</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="simreaduntil.simulator.channel_stats.ReadElementStats.cur_number_stop_receiving">
+    
+  </a>
+  <a name="cur_number_stop_receiving">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cur_number_stop_receiving</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/channel_stats.py#L102">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#cur_number_stop_receiving" title="simreaduntil.simulator.channel_stats.ReadElementStats.cur_number_stop_receiving">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="simreaduntil.simulator.channel_stats.ReadElementStats.fin_number_rejected">
+    
+  </a>
+  <a name="fin_number_rejected">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">fin_number_rejected</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/channel_stats.py#L104">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#fin_number_rejected" title="simreaduntil.simulator.channel_stats.ReadElementStats.fin_number_rejected">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="simreaduntil.simulator.channel_stats.ReadElementStats.fin_number_stop_receiving">
+    
+  </a>
+  <a name="fin_number_stop_receiving">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">fin_number_stop_receiving</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/channel_stats.py#L103">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#fin_number_stop_receiving" title="simreaduntil.simulator.channel_stats.ReadElementStats.fin_number_stop_receiving">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="simreaduntil.simulator.channel_stats.ReadElementStats.number_bps_read">
+    
+  </a>
+  <a name="number_bps_read">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">number_bps_read</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/channel_stats.py#L107">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#number_bps_read" title="simreaduntil.simulator.channel_stats.ReadElementStats.number_bps_read">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="simreaduntil.simulator.channel_stats.ReadElementStats.number_bps_rejected">
+    
+  </a>
+  <a name="number_bps_rejected">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">number_bps_rejected</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/channel_stats.py#L108">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#number_bps_rejected" title="simreaduntil.simulator.channel_stats.ReadElementStats.number_bps_rejected">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="simreaduntil.simulator.channel_stats.ReadElementStats.number_bps_requested">
+    
+  </a>
+  <a name="number_bps_requested">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">number_bps_requested</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/channel_stats.py#L106">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#number_bps_requested" title="simreaduntil.simulator.channel_stats.ReadElementStats.number_bps_requested">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="simreaduntil.simulator.channel_stats.ReadElementStats.number_rejected_missed">
+    
+  </a>
+  <a name="number_rejected_missed">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">number_rejected_missed</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/channel_stats.py#L111">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#number_rejected_missed" title="simreaduntil.simulator.channel_stats.ReadElementStats.number_rejected_missed">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="simreaduntil.simulator.channel_stats.ReadElementStats.number_stop_receiving_missed">
+    
+  </a>
+  <a name="number_stop_receiving_missed">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">number_stop_receiving_missed</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/simulator/channel_stats.py#L112">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#number_stop_receiving_missed" title="simreaduntil.simulator.channel_stats.ReadElementStats.number_stop_receiving_missed">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.0 at 2023-10-06 08:21:16.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

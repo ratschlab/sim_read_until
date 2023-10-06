@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker</title>
+    <meta name="generator" content="pydoctor 23.9.0"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.html" class="internal-link" title="This class"><wbr></wbr>Blockwise<wbr></wbr>Coverage<wbr></wbr>Tracker</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#empty_from_lens" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.empty_from_lens">empty<wbr></wbr>_from<wbr></wbr>_lens</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#empty_from_ref_genomes" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.empty_from_ref_genomes">empty<wbr></wbr>_from<wbr></wbr>_ref<wbr></wbr>_genomes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#add_read" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.add_read">add<wbr></wbr>_read</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#add_reads" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.add_reads">add<wbr></wbr>_reads</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#avg_chrom_coverage" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.avg_chrom_coverage">avg<wbr></wbr>_chrom<wbr></wbr>_coverage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_chrom_lens" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.get_chrom_lens">get<wbr></wbr>_chrom<wbr></wbr>_lens</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_chrom_start_len" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.get_chrom_start_len">get<wbr></wbr>_chrom<wbr></wbr>_start<wbr></wbr>_len</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_fraction_cov_atleast" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.get_fraction_cov_atleast">get<wbr></wbr>_fraction<wbr></wbr>_cov<wbr></wbr>_atleast</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_state" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.plot_state">plot<wbr></wbr>_state</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_zero_arr_and_len_per_chrom" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker._zero_arr_and_len_per_chrom">_zero<wbr></wbr>_arr<wbr></wbr>_and<wbr></wbr>_len<wbr></wbr>_per<wbr></wbr>_chrom</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_avg_cov_per_block" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker._avg_cov_per_block">_avg<wbr></wbr>_cov<wbr></wbr>_per<wbr></wbr>_block</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_block_sizes" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker._block_sizes">_block<wbr></wbr>_sizes</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#blocksize" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.blocksize">blocksize</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#chrom_lens" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.chrom_lens">chrom<wbr></wbr>_lens</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#coverage_per_chrom" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.coverage_per_chrom">coverage<wbr></wbr>_per<wbr></wbr>_chrom</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="simreaduntil.seqsum_tools.coverage_tracker.html" class="internal-link" title="The parent of this class">coverage<wbr></wbr>_tracker</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.seqsum_tools.coverage_tracker.BasepairCoverageTracker.html" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BasepairCoverageTracker"><wbr></wbr>Basepair<wbr></wbr>Coverage<wbr></wbr>Tracker</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.html" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker"><wbr></wbr>Blockwise<wbr></wbr>Coverage<wbr></wbr>Tracker</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.seqsum_tools.coverage_tracker.NanoSimCoverageTracker.html" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.NanoSimCoverageTracker"><wbr></wbr>Nano<wbr></wbr>Sim<wbr></wbr>Coverage<wbr></wbr>Tracker</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.seqsum_tools.coverage_tracker.PafCoverageTracker.html" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.PafCoverageTracker"><wbr></wbr>Paf<wbr></wbr>Coverage<wbr></wbr>Tracker</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.seqsum_tools.coverage_tracker.html#get_fraction_at_least" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.get_fraction_at_least">get<wbr></wbr>_fraction<wbr></wbr>_at<wbr></wbr>_least</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.seqsum_tools.coverage_tracker.html#plot_cov_per_position_lineplot" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.plot_cov_per_position_lineplot">plot<wbr></wbr>_cov<wbr></wbr>_per<wbr></wbr>_position<wbr></wbr>_lineplot</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.seqsum_tools.coverage_tracker.html#plot_covs_hist" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.plot_covs_hist">plot<wbr></wbr>_covs<wbr></wbr>_hist</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.seqsum_tools.coverage_tracker.html#_add_count_to_blocked_array" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker._add_count_to_blocked_array">_add<wbr></wbr>_count<wbr></wbr>_to<wbr></wbr>_blocked<wbr></wbr>_array</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.seqsum_tools.coverage_tracker.html#_compute_bin_edges" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker._compute_bin_edges">_compute<wbr></wbr>_bin<wbr></wbr>_edges</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.seqsum_tools.coverage_tracker.html#_divide_round_up" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker._divide_round_up">_divide<wbr></wbr>_round<wbr></wbr>_up</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.seqsum_tools.coverage_tracker.html#logger" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.logger">logger</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">simreaduntil</a></code><wbr></wbr>.<code><a href="simreaduntil.seqsum_tools.html" class="internal-link" title="simreaduntil.seqsum_tools">seqsum_tools</a></code><wbr></wbr>.<code><a href="simreaduntil.seqsum_tools.coverage_tracker.html" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker">coverage_tracker</a></code><wbr></wbr>.<code><a href="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.html" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker">BlockwiseCoverageTracker</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">BlockwiseCoverageTracker</span>: <a href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L318" class="sourceLink">(source)</a></code></p><p>Known subclasses: <code><a href="simreaduntil.seqsum_tools.coverage_tracker.NanoSimCoverageTracker.html" class="internal-link">simreaduntil.seqsum_tools.coverage_tracker.NanoSimCoverageTracker</a></code>, <code><a href="simreaduntil.seqsum_tools.coverage_tracker.PafCoverageTracker.html" class="internal-link">simreaduntil.seqsum_tools.coverage_tracker.PafCoverageTracker</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.__init__">BlockwiseCoverageTracker(coverage_per_chrom, chrom_lens, blocksize)</a></code></p>
+          <p><a href="classIndex.html#simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Track coverage per chromosome in a genome or metagenome in blocks, given the read position (e.g. parsed from NanoSim id or from a PAF file)</p>
+<p>Each chromosome [0, L) is divided into blocks of size L (called blocksize), the last possibly being shorter.
+When we add a read that overlaps with m basepairs of a block, we increment that block's count by m.</p>
+<p>For larger blocksize, the metric get_fraction_cov_atleast becomes less representative of the basepairs covered at least x times since
+it requires the average of a block to be above a threshold to count all basepairs in that block.
+Larger blocksize reduces memory usage and increases speed.</p>
+<p>Make sure that the number of basepairs covered by reads in each block fits into a np.uint32 and the total number
+of basepairs fits into a np.uint64.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">coverage<wbr></wbr>_per<wbr></wbr>_chrom</span></td><td class="fieldArgDesc">coverage per chromosome, as a dict of {chrom: np.ndarray of shape (L / blocksize,)}</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">chrom<wbr></wbr>_lens</span></td><td class="fieldArgDesc">chromosome lengths, as a dict of {chrom: int}</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">blocksize</span></td><td class="fieldArgDesc">block size</td></tr></table></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id5">
+  
+  
+  <tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#empty_from_lens" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.empty_from_lens">empty<wbr></wbr>_from<wbr></wbr>_lens</a></code></td>
+    <td>Create empty coverage arrays according to lengths</td>
+  </tr><tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#empty_from_ref_genomes" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.empty_from_ref_genomes">empty<wbr></wbr>_from<wbr></wbr>_ref<wbr></wbr>_genomes</a></code></td>
+    <td>Create empty coverage arrays (with shapes of the reference genomes) in the file</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.__init__">__init__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#add_read" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.add_read">add<wbr></wbr>_read</a></code></td>
+    <td>Add a single read with this read_id.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#add_reads" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.add_reads">add<wbr></wbr>_reads</a></code></td>
+    <td>Add new reads that were sequenced (as this influences coverage)</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#avg_chrom_coverage" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.avg_chrom_coverage">avg<wbr></wbr>_chrom<wbr></wbr>_coverage</a></code></td>
+    <td>Compute average coverage of a chromosome</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_chrom_lens" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.get_chrom_lens">get<wbr></wbr>_chrom<wbr></wbr>_lens</a></code></td>
+    <td>Get lengths of chromosomes</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_chrom_start_len" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.get_chrom_start_len">get<wbr></wbr>_chrom<wbr></wbr>_start<wbr></wbr>_len</a></code></td>
+    <td>Map a read to its chromosome, start and length on the reference</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_fraction_cov_atleast" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.get_fraction_cov_atleast">get<wbr></wbr>_fraction<wbr></wbr>_cov<wbr></wbr>_atleast</a></code></td>
+    <td>Compute the fraction of basepairs in blocks with average basepair coverage above a given threshold.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#plot_state" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.plot_state">plot<wbr></wbr>_state</a></code></td>
+    <td>Plot coverage per chromosome with one axis per chromosome, as a line plot (over chromosome position) or histogram</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#blocksize" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.blocksize">blocksize</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#chrom_lens" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.chrom_lens">chrom<wbr></wbr>_lens</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#coverage_per_chrom" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.coverage_per_chrom">coverage<wbr></wbr>_per<wbr></wbr>_chrom</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="#_zero_arr_and_len_per_chrom" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker._zero_arr_and_len_per_chrom">_zero<wbr></wbr>_arr<wbr></wbr>_and<wbr></wbr>_len<wbr></wbr>_per<wbr></wbr>_chrom</a></code></td>
+    <td>Initialize an array with zeros for each chromosome in the genome</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_avg_cov_per_block" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker._avg_cov_per_block">_avg<wbr></wbr>_cov<wbr></wbr>_per<wbr></wbr>_block</a></code></td>
+    <td>Compute average coverage per basepair for each block in a chromosome, accounting for last block being shorter</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_block_sizes" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker._block_sizes">_block<wbr></wbr>_sizes</a></code></td>
+    <td>Compute the sizes of each block in a chromosome</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="baseclassmethod">
+  
+  
+  <a name="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.empty_from_lens">
+    
+  </a>
+  <a name="empty_from_lens">
+    
+  </a>
+  <div class="functionHeader">
+    
+    @<a href="https://docs.python.org/3/library/functions.html#classmethod" class="intersphinx-link">classmethod</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">empty_from_lens</span><span class="function-signature">(cls, chrom_lens: <code><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a>]</code>, blocksize=1, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L378">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#empty_from_lens" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.empty_from_lens">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create empty coverage arrays according to lengths</p></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  
+  <a name="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.empty_from_ref_genomes">
+    
+  </a>
+  <a name="empty_from_ref_genomes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    @<a href="https://docs.python.org/3/library/functions.html#classmethod" class="intersphinx-link">classmethod</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">empty_from_ref_genomes</span><span class="function-signature">(cls, ref_genomes: <code><a href="https://docs.python.org/3/library/typing.html#typing.Union" class="intersphinx-link">Union</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Union" class="intersphinx-link">Union</a>[<wbr></wbr><a href="https://docs.python.org/3/library/os.html#os.PathLike" class="intersphinx-link">os.PathLike</a>, <wbr></wbr><a href="https://docs.python.org/3/library/numbers.html#numbers.Number" class="intersphinx-link">Number</a>]], <wbr></wbr><a href="https://docs.python.org/3/library/os.html#os.PathLike" class="intersphinx-link">os.PathLike</a>]</code>, blocksize=1, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L346">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#empty_from_ref_genomes" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.empty_from_ref_genomes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create empty coverage arrays (with shapes of the reference genomes) in the file</p>
+<p>For a dict {genome_name: genome_file}, it prefixes each chromosome name with the genome name.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ref<wbr></wbr>_genomes:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Union" class="intersphinx-link">Union</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Union" class="intersphinx-link">Union</a>[<wbr></wbr><a href="https://docs.python.org/3/library/os.html#os.PathLike" class="intersphinx-link">os.PathLike</a>, <wbr></wbr><a href="https://docs.python.org/3/library/numbers.html#numbers.Number" class="intersphinx-link">Number</a>]], <wbr></wbr><a href="https://docs.python.org/3/library/os.html#os.PathLike" class="intersphinx-link">os.PathLike</a>]</code></td><td class="fieldArgDesc">dict of {genome_name: genome_file} or path to a single genome file, or dict {chrom_name: chrom_len}</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">blocksize</span></td><td class="fieldArgDesc">block size</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc">passed to constructor</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, coverage_per_chrom, chrom_lens, blocksize)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L337">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#__init__" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="simreaduntil.seqsum_tools.coverage_tracker.PafCoverageTracker.html" class="internal-link">simreaduntil.seqsum_tools.coverage_tracker.PafCoverageTracker</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.add_read">
+    
+  </a>
+  <a name="add_read">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">add_read</span><span class="function-signature">(self, read_id)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L445">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#add_read" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.add_read">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Add a single read with this read_id.</p>
+<p>Circular genomes are not supported currently.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.add_reads">
+    
+  </a>
+  <a name="add_reads">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">add_reads</span><span class="function-signature">(self, read_ids: <code><a href="https://docs.python.org/3/library/typing.html#typing.Iterable" class="intersphinx-link">Iterable</a></code>, verbose=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L418">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#add_reads" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.add_reads">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Add new reads that were sequenced (as this influences coverage)</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">read<wbr></wbr>_ids:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Iterable" class="intersphinx-link">Iterable</a></code></td><td class="fieldArgDesc">list or generator of read ids, should be parsable by NanoSimId.parse,
+ref_len should be adapted if read was rejected in the middle</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose</span></td><td class="fieldArgDesc">whether to output regularly how many reads have been added</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">per chromosome, (number of reads added, number of basepairs added)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.avg_chrom_coverage">
+    
+  </a>
+  <a name="avg_chrom_coverage">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">avg_chrom_coverage</span><span class="function-signature">(self, chrom, metric=<span class="rst-variable-quote">'</span><span class="rst-variable-string">mean</span><span class="rst-variable-quote">'</span>) -&gt; <code><a href="https://docs.python.org/3/library/functions.html#float" class="intersphinx-link">float</a></code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L475">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#avg_chrom_coverage" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.avg_chrom_coverage">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute average coverage of a chromosome</p>
+<p>For "mean", computes the average coverage of the basepairs.
+For "median", it computes the median of the average coverage of basepairs per block (the last block is shorter)</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">chrom</span></td><td class="fieldArgDesc">chromosome</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">metric</span></td><td class="fieldArgDesc">metric to use, either "mean" or "median"</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/functions.html#float" class="intersphinx-link">float</a></code></td><td class="fieldArgDesc">average coverage for the chromosome</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.get_chrom_lens">
+    
+  </a>
+  <a name="get_chrom_lens">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_chrom_lens</span><span class="function-signature">(self) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a>]</code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L509">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_chrom_lens" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.get_chrom_lens">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get lengths of chromosomes</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.get_chrom_start_len">
+    
+  </a>
+  <a name="get_chrom_start_len">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_chrom_start_len</span><span class="function-signature">(self, read_id) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Tuple" class="intersphinx-link">Tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>, <wbr></wbr><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a>, <wbr></wbr><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a>]]</code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L406">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_chrom_start_len" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.get_chrom_start_len">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="simreaduntil.seqsum_tools.coverage_tracker.NanoSimCoverageTracker.html" class="internal-link">simreaduntil.seqsum_tools.coverage_tracker.NanoSimCoverageTracker</a></code>, <code><a href="simreaduntil.seqsum_tools.coverage_tracker.PafCoverageTracker.html" class="internal-link">simreaduntil.seqsum_tools.coverage_tracker.PafCoverageTracker</a></code></div>
+    <div><p>Map a read to its chromosome, start and length on the reference</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">read<wbr></wbr>_id</span></td><td class="fieldArgDesc">a NanoSim read id</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Tuple" class="intersphinx-link">Tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>, <wbr></wbr><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a>, <wbr></wbr><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a>]]</code></td><td class="fieldArgDesc">Tuple (chrom, ref_start, ref_len) with respect to forward strand; None</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.get_fraction_cov_atleast">
+    
+  </a>
+  <a name="get_fraction_cov_atleast">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_fraction_cov_atleast</span><span class="function-signature">(self, threshold, chroms: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">List</a>]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>) -&gt; <code><a href="https://docs.python.org/3/library/functions.html#float" class="intersphinx-link">float</a></code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L494">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_fraction_cov_atleast" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.get_fraction_cov_atleast">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute the fraction of basepairs in blocks with average basepair coverage above a given threshold.</p>
+<p>Count the fraction of basepairs which are in blocks with average coverage above a given threshold, then normalize.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">threshold</span></td><td class="fieldArgDesc">coverage threshold</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">chroms:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">List</a>]</code></td><td class="fieldArgDesc">chromosomes to consider for fraction</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/functions.html#float" class="intersphinx-link">float</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.plot_state">
+    
+  </a>
+  <a name="plot_state">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_state</span><span class="function-signature">(self, plot_type, target_coverage=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L515">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_state" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.plot_state">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot coverage per chromosome with one axis per chromosome, as a line plot (over chromosome position) or histogram</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">plot<wbr></wbr>_type</span></td><td class="fieldArgDesc">"line" or "hist"</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">target<wbr></wbr>_coverage</span></td><td class="fieldArgDesc">if given, plot a dashed line at this coverage level</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.blocksize">
+    
+  </a>
+  <a name="blocksize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">blocksize</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L344">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#blocksize" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.blocksize">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.chrom_lens">
+    
+  </a>
+  <a name="chrom_lens">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">chrom_lens</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L341">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#chrom_lens" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.chrom_lens">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.coverage_per_chrom">
+    
+  </a>
+  <a name="coverage_per_chrom">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">coverage_per_chrom</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L339">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#coverage_per_chrom" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker.coverage_per_chrom">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassmethod private">
+  
+  
+  <a name="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker._zero_arr_and_len_per_chrom">
+    
+  </a>
+  <a name="_zero_arr_and_len_per_chrom">
+    
+  </a>
+  <div class="functionHeader">
+    
+    @<a href="https://docs.python.org/3/library/functions.html#classmethod" class="intersphinx-link">classmethod</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">_zero_arr_and_len_per_chrom</span><span class="function-signature">(cls, genome_filename, seq_prefix=<span class="rst-variable-quote">'</span><span class="rst-variable-string"></span><span class="rst-variable-quote">'</span>, blocksize=1) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr>np.ndarray]</code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L386">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_zero_arr_and_len_per_chrom" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker._zero_arr_and_len_per_chrom">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Initialize an array with zeros for each chromosome in the genome</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">genome<wbr></wbr>_filename</span></td><td class="fieldArgDesc">fasta file to identify chromosome names</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">seq<wbr></wbr>_prefix</span></td><td class="fieldArgDesc">prefix to add to each chromosome name</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">blocksize</span></td><td class="fieldArgDesc">the block size to use for the coverage array, collapsing this many positions into one (except for the last)</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr>np.ndarray]</code></td><td class="fieldArgDesc">tuple of dict mapping chromosome to a zero array, dict mapping chromosome to its length</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker._avg_cov_per_block">
+    
+  </a>
+  <a name="_avg_cov_per_block">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_avg_cov_per_block</span><span class="function-signature">(self, chrom) -&gt; <code><a href="https://docs.python.org/3/library/functions.html#float" class="intersphinx-link">float</a></code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L462">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_avg_cov_per_block" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker._avg_cov_per_block">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute average coverage per basepair for each block in a chromosome, accounting for last block being shorter</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker._block_sizes">
+    
+  </a>
+  <a name="_block_sizes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_block_sizes</span><span class="function-signature">(self, chrom) -&gt; <code>np.ndarray</code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/coverage_tracker.py#L468">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_block_sizes" title="simreaduntil.seqsum_tools.coverage_tracker.BlockwiseCoverageTracker._block_sizes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute the sizes of each block in a chromosome</p></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.0 at 2023-10-06 08:21:16.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

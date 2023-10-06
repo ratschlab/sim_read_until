@@ -1,0 +1,1650 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>simreaduntil.seqsum_tools.seqsum_plotting</title>
+    <meta name="generator" content="pydoctor 23.9.0"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="simreaduntil.seqsum_tools.seqsum_plotting.html" class="internal-link" title="This module">seqsum<wbr></wbr>_plotting</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#add_group_and_reflen_from_nanosim_id" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.add_group_and_reflen_from_nanosim_id">add<wbr></wbr>_group<wbr></wbr>_and<wbr></wbr>_reflen<wbr></wbr>_from<wbr></wbr>_nanosim<wbr></wbr>_id</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#add_group_and_reflen_from_paf" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.add_group_and_reflen_from_paf">add<wbr></wbr>_group<wbr></wbr>_and<wbr></wbr>_reflen<wbr></wbr>_from<wbr></wbr>_paf</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#compute_coverage_per_group_df" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.compute_coverage_per_group_df">compute<wbr></wbr>_coverage<wbr></wbr>_per<wbr></wbr>_group<wbr></wbr>_df</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#create_plots_for_seqsum" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.create_plots_for_seqsum">create<wbr></wbr>_plots<wbr></wbr>_for<wbr></wbr>_seqsum</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#keep_largest_gaps_only" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.keep_largest_gaps_only">keep<wbr></wbr>_largest<wbr></wbr>_gaps<wbr></wbr>_only</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#main" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.main">main</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_channel_occupation_fraction_over_time" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_channel_occupation_fraction_over_time">plot<wbr></wbr>_channel<wbr></wbr>_occupation<wbr></wbr>_fraction<wbr></wbr>_over<wbr></wbr>_time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_channels_over_time" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_channels_over_time">plot<wbr></wbr>_channels<wbr></wbr>_over<wbr></wbr>_time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_coverage_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_coverage_per_group">plot<wbr></wbr>_coverage<wbr></wbr>_per<wbr></wbr>_group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_fraction_never_requested_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_fraction_never_requested_per_group">plot<wbr></wbr>_fraction<wbr></wbr>_never<wbr></wbr>_requested<wbr></wbr>_per<wbr></wbr>_group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_fraction_read_per_group_per_rejected" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_fraction_read_per_group_per_rejected">plot<wbr></wbr>_fraction<wbr></wbr>_read<wbr></wbr>_per<wbr></wbr>_group<wbr></wbr>_per<wbr></wbr>_rejected</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_fraction_states_per_channel" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_fraction_states_per_channel">plot<wbr></wbr>_fraction<wbr></wbr>_states<wbr></wbr>_per<wbr></wbr>_channel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_mux_over_time" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_mux_over_time">plot<wbr></wbr>_mux<wbr></wbr>_over<wbr></wbr>_time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_number_channels_per_group_over_time" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_channels_per_group_over_time">plot<wbr></wbr>_number<wbr></wbr>_channels<wbr></wbr>_per<wbr></wbr>_group<wbr></wbr>_over<wbr></wbr>_time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_number_full_reads_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_full_reads_per_group">plot<wbr></wbr>_number<wbr></wbr>_full<wbr></wbr>_reads<wbr></wbr>_per<wbr></wbr>_group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_number_never_requested_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_never_requested_per_group">plot<wbr></wbr>_number<wbr></wbr>_never<wbr></wbr>_requested<wbr></wbr>_per<wbr></wbr>_group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_number_reads_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_reads_per_group">plot<wbr></wbr>_number<wbr></wbr>_reads<wbr></wbr>_per<wbr></wbr>_group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_number_ref_bps_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_ref_bps_per_group">plot<wbr></wbr>_number<wbr></wbr>_ref<wbr></wbr>_bps<wbr></wbr>_per<wbr></wbr>_group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_number_rejectedbps_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_rejectedbps_per_group">plot<wbr></wbr>_number<wbr></wbr>_rejectedbps<wbr></wbr>_per<wbr></wbr>_group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_number_rejections_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_rejections_per_group">plot<wbr></wbr>_number<wbr></wbr>_rejections<wbr></wbr>_per<wbr></wbr>_group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_number_sequenced_bps_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_sequenced_bps_per_group">plot<wbr></wbr>_number<wbr></wbr>_sequenced<wbr></wbr>_bps<wbr></wbr>_per<wbr></wbr>_group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_number_stop_receiving_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_stop_receiving_per_group">plot<wbr></wbr>_number<wbr></wbr>_stop<wbr></wbr>_receiving<wbr></wbr>_per<wbr></wbr>_group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_processed_seqsum" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_processed_seqsum">plot<wbr></wbr>_processed<wbr></wbr>_seqsum</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_read_duration_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_read_duration_per_group">plot<wbr></wbr>_read<wbr></wbr>_duration<wbr></wbr>_per<wbr></wbr>_group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_read_end_reason_hist" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_read_end_reason_hist">plot<wbr></wbr>_read<wbr></wbr>_end<wbr></wbr>_reason<wbr></wbr>_hist</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_read_length_per_group_per_decisiontype" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_read_length_per_group_per_decisiontype">plot<wbr></wbr>_read<wbr></wbr>_length<wbr></wbr>_per<wbr></wbr>_group<wbr></wbr>_per<wbr></wbr>_decisiontype</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_read_stats_by_channel_hists" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_read_stats_by_channel_hists">plot<wbr></wbr>_read<wbr></wbr>_stats<wbr></wbr>_by<wbr></wbr>_channel<wbr></wbr>_hists</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#seqsum_add_cols_for_plotting_selseq_performance" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.seqsum_add_cols_for_plotting_selseq_performance">seqsum<wbr></wbr>_add<wbr></wbr>_cols<wbr></wbr>_for<wbr></wbr>_plotting<wbr></wbr>_selseq<wbr></wbr>_performance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set_plots_groupby_column" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.set_plots_groupby_column">set<wbr></wbr>_plots<wbr></wbr>_groupby<wbr></wbr>_column</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GROUP_COLUMN" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.GROUP_COLUMN">GROUP<wbr></wbr>_COLUMN</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#logger" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.logger">logger</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="simreaduntil.seqsum_tools.html" class="internal-link" title="The parent of this module">seqsum<wbr></wbr>_tools</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.seqsum_tools.coverage_tracker.html" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker">coverage<wbr></wbr>_tracker</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.seqsum_tools.mux_scan_detection.html" class="internal-link" title="simreaduntil.seqsum_tools.mux_scan_detection">mux<wbr></wbr>_scan<wbr></wbr>_detection</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.seqsum_tools.seqsum_plotting.html" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting">seqsum<wbr></wbr>_plotting</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.seqsum_tools.seqsum_preprocessing.html" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_preprocessing">seqsum<wbr></wbr>_preprocessing</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">simreaduntil</a></code><wbr></wbr>.<code><a href="simreaduntil.seqsum_tools.html" class="internal-link" title="simreaduntil.seqsum_tools">seqsum_tools</a></code><wbr></wbr>.<code><a href="simreaduntil.seqsum_tools.seqsum_plotting.html" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting">seqsum_plotting</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <a href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py" class="sourceLink">(source)</a>
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Analyze and plot a sequencing summary file from the simulator</p>
+<p>If save_dir is provided, the plots are closed to save memory.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id11">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#add_group_and_reflen_from_nanosim_id" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.add_group_and_reflen_from_nanosim_id">add<wbr></wbr>_group<wbr></wbr>_and<wbr></wbr>_reflen<wbr></wbr>_from<wbr></wbr>_nanosim<wbr></wbr>_id</a></code></td>
+    <td>Parse the chromosome (as group) and reference length from the NanoSim read ids, in-place</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#add_group_and_reflen_from_paf" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.add_group_and_reflen_from_paf">add<wbr></wbr>_group<wbr></wbr>_and<wbr></wbr>_reflen<wbr></wbr>_from<wbr></wbr>_paf</a></code></td>
+    <td>Adds the group (to group by) as well as the reference length (nb_ref_bps) from the PAF file</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#compute_coverage_per_group_df" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.compute_coverage_per_group_df">compute<wbr></wbr>_coverage<wbr></wbr>_per<wbr></wbr>_group<wbr></wbr>_df</a></code></td>
+    <td>Compute coverage per group at regular intervals</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#create_plots_for_seqsum" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.create_plots_for_seqsum">create<wbr></wbr>_plots<wbr></wbr>_for<wbr></wbr>_seqsum</a></code></td>
+    <td>Create plots for a sequencing summary file</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#keep_largest_gaps_only" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.keep_largest_gaps_only">keep<wbr></wbr>_largest<wbr></wbr>_gaps<wbr></wbr>_only</a></code></td>
+    <td>Keep the largest k gaps (or less if there are less gaps) between segments, remove the smaller gaps by merging the corresponding segments.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#main" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.main">main</a></code></td>
+    <td>CLI entrypoint to create plots from a sequencing summary file</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_channel_occupation_fraction_over_time" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_channel_occupation_fraction_over_time">plot<wbr></wbr>_channel<wbr></wbr>_occupation<wbr></wbr>_fraction<wbr></wbr>_over<wbr></wbr>_time</a></code></td>
+    <td>Plot channel occupation (active percentage) over time</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_channels_over_time" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_channels_over_time">plot<wbr></wbr>_channels<wbr></wbr>_over<wbr></wbr>_time</a></code></td>
+    <td>Plot reads and gaps over time for all channels</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_coverage_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_coverage_per_group">plot<wbr></wbr>_coverage<wbr></wbr>_per<wbr></wbr>_group</a></code></td>
+    <td>Plot fraction covered per group for each coverage, then per coverage for each group</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_fraction_never_requested_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_fraction_never_requested_per_group">plot<wbr></wbr>_fraction<wbr></wbr>_never<wbr></wbr>_requested<wbr></wbr>_per<wbr></wbr>_group</a></code></td>
+    <td>Plot fraction of reads that were never requested by readuntil</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_fraction_read_per_group_per_rejected" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_fraction_read_per_group_per_rejected">plot<wbr></wbr>_fraction<wbr></wbr>_read<wbr></wbr>_per<wbr></wbr>_group<wbr></wbr>_per<wbr></wbr>_rejected</a></code></td>
+    <td>Plot fraction of basepairs read over time, for rejected reads</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_fraction_states_per_channel" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_fraction_states_per_channel">plot<wbr></wbr>_fraction<wbr></wbr>_states<wbr></wbr>_per<wbr></wbr>_channel</a></code></td>
+    <td>Plot time spent reading, in long gaps and short gaps per channel.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_mux_over_time" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_mux_over_time">plot<wbr></wbr>_mux<wbr></wbr>_over<wbr></wbr>_time</a></code></td>
+    <td>Plots the mux over time per channel</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_number_channels_per_group_over_time" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_channels_per_group_over_time">plot<wbr></wbr>_number<wbr></wbr>_channels<wbr></wbr>_per<wbr></wbr>_group<wbr></wbr>_over<wbr></wbr>_time</a></code></td>
+    <td>Plot how many channels are reading a read from a group over time, creates one normalized and one unnormalized plot</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_number_full_reads_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_full_reads_per_group">plot<wbr></wbr>_number<wbr></wbr>_full<wbr></wbr>_reads<wbr></wbr>_per<wbr></wbr>_group</a></code></td>
+    <td>Plot number of full reads</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_number_never_requested_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_never_requested_per_group">plot<wbr></wbr>_number<wbr></wbr>_never<wbr></wbr>_requested<wbr></wbr>_per<wbr></wbr>_group</a></code></td>
+    <td>Plot number of reads that were never requested by readuntil</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_number_reads_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_reads_per_group">plot<wbr></wbr>_number<wbr></wbr>_reads<wbr></wbr>_per<wbr></wbr>_group</a></code></td>
+    <td>Plot number of reads</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_number_ref_bps_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_ref_bps_per_group">plot<wbr></wbr>_number<wbr></wbr>_ref<wbr></wbr>_bps<wbr></wbr>_per<wbr></wbr>_group</a></code></td>
+    <td>Plot number of basepairs (reference bps) over time</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_number_rejectedbps_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_rejectedbps_per_group">plot<wbr></wbr>_number<wbr></wbr>_rejectedbps<wbr></wbr>_per<wbr></wbr>_group</a></code></td>
+    <td>Plot number of basepairs rejected (with respect to full read)</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_number_rejections_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_rejections_per_group">plot<wbr></wbr>_number<wbr></wbr>_rejections<wbr></wbr>_per<wbr></wbr>_group</a></code></td>
+    <td>Plot number of user rejections</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_number_sequenced_bps_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_sequenced_bps_per_group">plot<wbr></wbr>_number<wbr></wbr>_sequenced<wbr></wbr>_bps<wbr></wbr>_per<wbr></wbr>_group</a></code></td>
+    <td>Plot number of basepairs over time</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_number_stop_receiving_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_stop_receiving_per_group">plot<wbr></wbr>_number<wbr></wbr>_stop<wbr></wbr>_receiving<wbr></wbr>_per<wbr></wbr>_group</a></code></td>
+    <td>Plot number of reads successfully set to stop receiving</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_processed_seqsum" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_processed_seqsum">plot<wbr></wbr>_processed<wbr></wbr>_seqsum</a></code></td>
+    <td>Plot a bunch of stuff from the processed seqsum_df, subsampling when sensible</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_read_duration_per_group" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_read_duration_per_group">plot<wbr></wbr>_read<wbr></wbr>_duration<wbr></wbr>_per<wbr></wbr>_group</a></code></td>
+    <td>Plot read duration over time</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_read_end_reason_hist" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_read_end_reason_hist">plot<wbr></wbr>_read<wbr></wbr>_end<wbr></wbr>_reason<wbr></wbr>_hist</a></code></td>
+    <td>Plot histogram over read end reasons</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_read_length_per_group_per_decisiontype" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_read_length_per_group_per_decisiontype">plot<wbr></wbr>_read<wbr></wbr>_length<wbr></wbr>_per<wbr></wbr>_group<wbr></wbr>_per<wbr></wbr>_decisiontype</a></code></td>
+    <td>Plot number of basepairs in read over time</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_read_stats_by_channel_hists" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_read_stats_by_channel_hists">plot<wbr></wbr>_read<wbr></wbr>_stats<wbr></wbr>_by<wbr></wbr>_channel<wbr></wbr>_hists</a></code></td>
+    <td>Plot statistics about the reads, e.g. number of reads per channel, number of reads per second etc.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#seqsum_add_cols_for_plotting_selseq_performance" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.seqsum_add_cols_for_plotting_selseq_performance">seqsum<wbr></wbr>_add<wbr></wbr>_cols<wbr></wbr>_for<wbr></wbr>_plotting<wbr></wbr>_selseq<wbr></wbr>_performance</a></code></td>
+    <td>Add columns for plotting, e.g. cumulative number of rejections, per group</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#set_plots_groupby_column" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.set_plots_groupby_column">set<wbr></wbr>_plots<wbr></wbr>_groupby<wbr></wbr>_column</a></code></td>
+    <td>Set the column to group by, for this module</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#GROUP_COLUMN" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.GROUP_COLUMN">GROUP<wbr></wbr>_COLUMN</a></code></td>
+    <td>column to group by, e.g. chromosome</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#logger" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.logger">logger</a></code></td>
+    <td>module logger</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.add_group_and_reflen_from_nanosim_id">
+    
+  </a>
+  <a name="add_group_and_reflen_from_nanosim_id">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">add_group_and_reflen_from_nanosim_id</span><span class="function-signature">(seqsum_df, group_column=<a href="#GROUP_COLUMN" class="internal-link" title="simreaduntil.seqsum_tools.seqsum_plotting.GROUP_COLUMN">GROUP_COLUMN</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L51">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#add_group_and_reflen_from_nanosim_id" title="simreaduntil.seqsum_tools.seqsum_plotting.add_group_and_reflen_from_nanosim_id">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse the chromosome (as group) and reference length from the NanoSim read ids, in-place</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">seqsum<wbr></wbr>_df</span></td><td class="fieldArgDesc">seqsummary dataframe</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">group<wbr></wbr>_column</span></td><td class="fieldArgDesc">column to group by, e.g. chromosome</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.add_group_and_reflen_from_paf">
+    
+  </a>
+  <a name="add_group_and_reflen_from_paf">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">add_group_and_reflen_from_paf</span><span class="function-signature">(seqsum_df, paf_file, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L78">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#add_group_and_reflen_from_paf" title="simreaduntil.seqsum_tools.seqsum_plotting.add_group_and_reflen_from_paf">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Adds the group (to group by) as well as the reference length (nb_ref_bps) from the PAF file</p>
+<p>If the read ids are NanoSim ids, you should not call this function if the sequencing summary file comes from the simulator since it should already contain it.
+ReadFish's sequencing summary file usually contains a subset of the ids because it may not see all reads, therefore use minimap2 to map the reads to the reference.
+Reads that are in the sequencing summary file but not in the PAF file receive group_column 'unmapped' and 'nb_ref_bps' is set to 'sequence_length_template'.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">seqsum<wbr></wbr>_df</span></td><td class="fieldArgDesc">seqsummary dataframe</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">paf<wbr></wbr>_file</span></td><td class="fieldArgDesc">PAF file without duplicated ids (using --secondary=no in minimap2)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">group<wbr></wbr>_column</span></td><td class="fieldArgDesc">column to group by, e.g. chromosome</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">seqsum_df with additional columns 'group_column' and 'nb_ref_bps'; must not initially be present</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.compute_coverage_per_group_df">
+    
+  </a>
+  <a name="compute_coverage_per_group_df">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">compute_coverage_per_group_df</span><span class="function-signature">(seqsum_df, cov_tracker: <code><a href="simreaduntil.seqsum_tools.coverage_tracker.NanoSimCoverageTracker.html" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.NanoSimCoverageTracker">NanoSimCoverageTracker</a></code>, cov_thresholds=[<wbr></wbr>1, <wbr></wbr>2, <wbr></wbr>3, <wbr></wbr>4, <wbr></wbr>5, <wbr></wbr>6], coverage_every=1, chrom_column=<span class="rst-variable-quote">'</span><span class="rst-variable-string">chrom</span><span class="rst-variable-quote">'</span>, group_to_chroms=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L175">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#compute_coverage_per_group_df" title="simreaduntil.seqsum_tools.seqsum_plotting.compute_coverage_per_group_df">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute coverage per group at regular intervals</p>
+<p>This function assumes that group_column corresponds to the chromosome.
+It adds a column named "group".</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">seqsum<wbr></wbr>_df</span></td><td class="fieldArgDesc">seqsummary dataframe</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cov<wbr></wbr>_tracker:</span><code><a href="simreaduntil.seqsum_tools.coverage_tracker.NanoSimCoverageTracker.html" class="internal-link" title="simreaduntil.seqsum_tools.coverage_tracker.NanoSimCoverageTracker">NanoSimCoverageTracker</a></code></td><td class="fieldArgDesc">initial cov tracker to which reads are added</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cov<wbr></wbr>_thresholds</span></td><td class="fieldArgDesc">target coverages to compute</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">coverage<wbr></wbr>_every</span></td><td class="fieldArgDesc">compute coverage every coverage_every reads</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">chrom<wbr></wbr>_column</span></td><td class="fieldArgDesc">column containing chromosome info</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">group<wbr></wbr>_to<wbr></wbr>_chroms</span></td><td class="fieldArgDesc">chromosomes per group; if None, separate group per chromosome except "unmapped"</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">dataframe with coverage per group at regular intervals, with "group" column</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.create_plots_for_seqsum">
+    
+  </a>
+  <a name="create_plots_for_seqsum">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">create_plots_for_seqsum</span><span class="function-signature">(seqsum_df, nrows=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_to_units: <code><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">List</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>]]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, ref_genome_path=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, paf_file=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, cov_thresholds=[<wbr></wbr>1, <wbr></wbr>2, <wbr></wbr>3, <wbr></wbr>4, <wbr></wbr>5, <wbr></wbr>6], cov_every=1, save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, close_figures=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L891">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#create_plots_for_seqsum" title="simreaduntil.seqsum_tools.seqsum_plotting.create_plots_for_seqsum">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create plots for a sequencing summary file</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">seqsum<wbr></wbr>_df</span></td><td class="fieldArgDesc">path to sequencing summary file, or dataframe</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nrows</span></td><td class="fieldArgDesc">only read the first nrows reads</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">group<wbr></wbr>_to<wbr></wbr>_units:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">List</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>]]</code></td><td class="fieldArgDesc">dictionary {group_name: units} where units form a subset of the unique values in group_column; if None, groups have size 1</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">group<wbr></wbr>_column</span></td><td class="fieldArgDesc">column in sequencing summary file to group by; if "all", use one group called "all"; if None, use GROUP_COLUMN</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ref<wbr></wbr>_genome<wbr></wbr>_path</span></td><td class="fieldArgDesc">path to reference genome; if None, don't plot coverage</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">paf<wbr></wbr>_file</span></td><td class="fieldArgDesc">path to PAF file to map reads to unit; if None, unit is the chromosome extracted from NanoSim read id</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cov<wbr></wbr>_thresholds</span></td><td class="fieldArgDesc">coverage thresholds to plot</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cov<wbr></wbr>_every</span></td><td class="fieldArgDesc">coverage is calculated every cov_every reads</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">save<wbr></wbr>_dir</span></td><td class="fieldArgDesc">directory to save plots to, if None, plots are not saved</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">close<wbr></wbr>_figures</span></td><td class="fieldArgDesc">close figures after saving, if None, close figures if save_dir is not None</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">seqsum_df, cov_df</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.keep_largest_gaps_only">
+    
+  </a>
+  <a name="keep_largest_gaps_only">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">keep_largest_gaps_only</span><span class="function-signature">(segments, k)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L505">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#keep_largest_gaps_only" title="simreaduntil.seqsum_tools.seqsum_plotting.keep_largest_gaps_only">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Keep the largest k gaps (or less if there are less gaps) between segments, remove the smaller gaps by merging the corresponding segments.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">segments</span></td><td class="fieldArgDesc">list of segments [[(x_start, y), (x_end, y)], ..]
+assumes y is the same for all entries</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">k</span></td><td class="fieldArgDesc">maximum number of gaps to keep</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.main">
+    
+  </a>
+  <a name="main">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">main</span><span class="function-signature">()</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L995">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#main" title="simreaduntil.seqsum_tools.seqsum_plotting.main">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>CLI entrypoint to create plots from a sequencing summary file</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_channel_occupation_fraction_over_time">
+    
+  </a>
+  <a name="plot_channel_occupation_fraction_over_time">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_channel_occupation_fraction_over_time</span><span class="function-signature">(seqsum_df, timepoints=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, mux_scan_interval=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L449">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_channel_occupation_fraction_over_time" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_channel_occupation_fraction_over_time">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot channel occupation (active percentage) over time</p>
+<p>A channel is active until it has produced its last read.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">seqsum<wbr></wbr>_df</span></td><td class="fieldArgDesc">dataframe with columns "start_time", "end_time", "channel"</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">timepoints</span></td><td class="fieldArgDesc">timepoints to plot at; if None, a linspace between the min and max start_time is used</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mux<wbr></wbr>_scan<wbr></wbr>_interval</span></td><td class="fieldArgDesc">interval at which the mux scan is performed (in seconds); if None, no vertical lines are plotted</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">save<wbr></wbr>_dir</span></td><td class="fieldArgDesc">directory to save plot to; if None, not saving plot</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">axis object</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_channels_over_time">
+    
+  </a>
+  <a name="plot_channels_over_time">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_channels_over_time</span><span class="function-signature">(seqsum_df, long_gap_threshold=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, figsize=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, max_num_gaps_per_channel=50) -&gt; <code>plt.Axes</code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L533">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_channels_over_time" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_channels_over_time">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot reads and gaps over time for all channels</p>
+<p>Note: It is better to use the argument "max_num_gaps_per_channel" than setting it to None and storing the image as a
+low-resolution png (to save space) since the plotting still is done before which is time-consuming.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">seqsum<wbr></wbr>_df</span></td><td class="fieldArgDesc">dataframe with columns "start_time", "end_time", "channel"</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">long<wbr></wbr>_gap<wbr></wbr>_threshold</span></td><td class="fieldArgDesc">threshold for long gaps (in seconds); if None, computed from data (requires "prev_gap_duration" column)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">figsize</span></td><td class="fieldArgDesc">figure size</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">save<wbr></wbr>_dir</span></td><td class="fieldArgDesc">directory to save plot to; if None, not saving plot</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">max<wbr></wbr>_num<wbr></wbr>_gaps<wbr></wbr>_per<wbr></wbr>_channel</span></td><td class="fieldArgDesc">maximum number of gaps to plot per channel (to reduce number of points to plot); if None, all gaps are plotted</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>plt.Axes</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_coverage_per_group">
+    
+  </a>
+  <a name="plot_coverage_per_group">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_coverage_per_group</span><span class="function-signature">(cov_df, cov_thresholds=[<wbr></wbr>1, <wbr></wbr>2, <wbr></wbr>3, <wbr></wbr>4, <wbr></wbr>5, <wbr></wbr>6], save_dir: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_column=<span class="rst-variable-quote">'</span><span class="rst-variable-string">group</span><span class="rst-variable-quote">'</span>, close_figures=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L857">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_coverage_per_group" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_coverage_per_group">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot fraction covered per group for each coverage, then per coverage for each group</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_fraction_never_requested_per_group">
+    
+  </a>
+  <a name="plot_fraction_never_requested_per_group">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_fraction_never_requested_per_group</span><span class="function-signature">(seqsum_df, save_dir: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L280">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_fraction_never_requested_per_group" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_fraction_never_requested_per_group">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot fraction of reads that were never requested by readuntil</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_fraction_read_per_group_per_rejected">
+    
+  </a>
+  <a name="plot_fraction_read_per_group_per_rejected">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_fraction_read_per_group_per_rejected</span><span class="function-signature">(seqsum_df, save_dir: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L382">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_fraction_read_per_group_per_rejected" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_fraction_read_per_group_per_rejected">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot fraction of basepairs read over time, for rejected reads</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_fraction_states_per_channel">
+    
+  </a>
+  <a name="plot_fraction_states_per_channel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_fraction_states_per_channel</span><span class="function-signature">(seqsum_df, long_gap_threshold=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, end_time=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L731">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_fraction_states_per_channel" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_fraction_states_per_channel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot time spent reading, in long gaps and short gaps per channel.</p>
+<p>Mux scans should be removed beforehand.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">seqsum<wbr></wbr>_df</span></td><td class="fieldArgDesc">sequencing summary dataframe</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">long<wbr></wbr>_gap<wbr></wbr>_threshold</span></td><td class="fieldArgDesc">threshold for long gaps; if None, it is computed from the data</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">end<wbr></wbr>_time</span></td><td class="fieldArgDesc">end time of the sequencing run; if None, it is computed from the data</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">save<wbr></wbr>_dir</span></td><td class="fieldArgDesc">if not None, save the figure to this directory</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_mux_over_time">
+    
+  </a>
+  <a name="plot_mux_over_time">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_mux_over_time</span><span class="function-signature">(seqsum_df, figsize=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, max_points_per_channel=20)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L623">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_mux_over_time" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_mux_over_time">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plots the mux over time per channel</p>
+<p>Each channel is plotted at a y position and the offset indicates the mux.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">seqsum<wbr></wbr>_df</span></td><td class="fieldArgDesc">dataframe with columns "start_time", "end_time", "channel", "mux"</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">figsize</span></td><td class="fieldArgDesc">figure size</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">save<wbr></wbr>_dir</span></td><td class="fieldArgDesc">directory to save plot to; if None, not saving plot</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">max<wbr></wbr>_points<wbr></wbr>_per<wbr></wbr>_channel</span></td><td class="fieldArgDesc">maximum number of points to plot per channel by sampling (to reduce plotting time); if None, do not reduce</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">axis object</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_channels_per_group_over_time">
+    
+  </a>
+  <a name="plot_number_channels_per_group_over_time">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_number_channels_per_group_over_time</span><span class="function-signature">(seqsum_df, timepoints=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L400">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_number_channels_per_group_over_time" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_channels_per_group_over_time">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot how many channels are reading a read from a group over time, creates one normalized and one unnormalized plot</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_full_reads_per_group">
+    
+  </a>
+  <a name="plot_number_full_reads_per_group">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_number_full_reads_per_group</span><span class="function-signature">(seqsum_df, save_dir: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L224">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_number_full_reads_per_group" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_full_reads_per_group">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot number of full reads</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_never_requested_per_group">
+    
+  </a>
+  <a name="plot_number_never_requested_per_group">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_number_never_requested_per_group</span><span class="function-signature">(seqsum_df, save_dir: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L266">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_number_never_requested_per_group" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_never_requested_per_group">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot number of reads that were never requested by readuntil</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_reads_per_group">
+    
+  </a>
+  <a name="plot_number_reads_per_group">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_number_reads_per_group</span><span class="function-signature">(seqsum_df, save_dir: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L209">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_number_reads_per_group" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_reads_per_group">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot number of reads</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_ref_bps_per_group">
+    
+  </a>
+  <a name="plot_number_ref_bps_per_group">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_number_ref_bps_per_group</span><span class="function-signature">(seqsum_df, save_dir: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L323">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_number_ref_bps_per_group" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_ref_bps_per_group">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot number of basepairs (reference bps) over time</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_rejectedbps_per_group">
+    
+  </a>
+  <a name="plot_number_rejectedbps_per_group">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_number_rejectedbps_per_group</span><span class="function-signature">(seqsum_df, save_dir: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L295">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_number_rejectedbps_per_group" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_rejectedbps_per_group">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot number of basepairs rejected (with respect to full read)</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_rejections_per_group">
+    
+  </a>
+  <a name="plot_number_rejections_per_group">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_number_rejections_per_group</span><span class="function-signature">(seqsum_df, save_dir: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L238">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_number_rejections_per_group" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_rejections_per_group">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot number of user rejections</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_sequenced_bps_per_group">
+    
+  </a>
+  <a name="plot_number_sequenced_bps_per_group">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_number_sequenced_bps_per_group</span><span class="function-signature">(seqsum_df, save_dir: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L309">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_number_sequenced_bps_per_group" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_sequenced_bps_per_group">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot number of basepairs over time</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_stop_receiving_per_group">
+    
+  </a>
+  <a name="plot_number_stop_receiving_per_group">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_number_stop_receiving_per_group</span><span class="function-signature">(seqsum_df, save_dir: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L252">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_number_stop_receiving_per_group" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_number_stop_receiving_per_group">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot number of reads successfully set to stop receiving</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_processed_seqsum">
+    
+  </a>
+  <a name="plot_processed_seqsum">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_processed_seqsum</span><span class="function-signature">(seqsum_df, save_dir: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, close_figures: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a>]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L790">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_processed_seqsum" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_processed_seqsum">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot a bunch of stuff from the processed seqsum_df, subsampling when sensible</p>
+<p>Use ignore_tight_layout_warning to silence the warnings from matplotlib about the tight_layout.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">seqsum<wbr></wbr>_df</span></td><td class="fieldArgDesc">processed seqsum_df</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">save<wbr></wbr>_dir:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>]</code></td><td class="fieldArgDesc">directory to save plots to; if None, not saving them</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">group<wbr></wbr>_column</span></td><td class="fieldArgDesc">column to group by, e.g. chromosome</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">close<wbr></wbr>_figures:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a>]</code></td><td class="fieldArgDesc">whether to close each figure after saving it (reduces memory usage as this function plots a lot)</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_read_duration_per_group">
+    
+  </a>
+  <a name="plot_read_duration_per_group">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_read_duration_per_group</span><span class="function-signature">(seqsum_df, save_dir: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L337">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_read_duration_per_group" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_read_duration_per_group">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot read duration over time</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_read_end_reason_hist">
+    
+  </a>
+  <a name="plot_read_end_reason_hist">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_read_end_reason_hist</span><span class="function-signature">(seqsum_df, save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L776">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_read_end_reason_hist" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_read_end_reason_hist">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot histogram over read end reasons</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_read_length_per_group_per_decisiontype">
+    
+  </a>
+  <a name="plot_read_length_per_group_per_decisiontype">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_read_length_per_group_per_decisiontype</span><span class="function-signature">(seqsum_df, save_dir: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a>]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L356">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_read_length_per_group_per_decisiontype" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_read_length_per_group_per_decisiontype">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot number of basepairs in read over time</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.plot_read_stats_by_channel_hists">
+    
+  </a>
+  <a name="plot_read_stats_by_channel_hists">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_read_stats_by_channel_hists</span><span class="function-signature">(seqsum_df, nbins=30, hue_col=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L675">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_read_stats_by_channel_hists" title="simreaduntil.seqsum_tools.seqsum_plotting.plot_read_stats_by_channel_hists">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plot statistics about the reads, e.g. number of reads per channel, number of reads per second etc.</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.seqsum_add_cols_for_plotting_selseq_performance">
+    
+  </a>
+  <a name="seqsum_add_cols_for_plotting_selseq_performance">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">seqsum_add_cols_for_plotting_selseq_performance</span><span class="function-signature">(seqsum_df, group_column=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>) -&gt; <code>pd.DataFrame</code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L123">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#seqsum_add_cols_for_plotting_selseq_performance" title="simreaduntil.seqsum_tools.seqsum_plotting.seqsum_add_cols_for_plotting_selseq_performance">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Add columns for plotting, e.g. cumulative number of rejections, per group</p>
+<p>The data frame is sorted by end time to compute the cumulative number of rejections until that tim, per group.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">seqsum<wbr></wbr>_df</span></td><td class="fieldArgDesc">seqsummary dataframe</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">group<wbr></wbr>_column</span></td><td class="fieldArgDesc">column to group by, e.g. chromosome</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>pd.DataFrame</code></td><td class="fieldArgDesc">seqsum_df with additional columns to plot</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.set_plots_groupby_column">
+    
+  </a>
+  <a name="set_plots_groupby_column">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_plots_groupby_column</span><span class="function-signature">(group_column)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L39">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#set_plots_groupby_column" title="simreaduntil.seqsum_tools.seqsum_plotting.set_plots_groupby_column">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Set the column to group by, for this module</p>
+<p>This method has side effects.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">group<wbr></wbr>_column</span></td><td class="fieldArgDesc">column to group by, e.g. chromosome</td></tr></table></div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.GROUP_COLUMN">
+    
+  </a>
+  <a name="GROUP_COLUMN">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">GROUP_COLUMN</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L33">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#GROUP_COLUMN" title="simreaduntil.seqsum_tools.seqsum_plotting.GROUP_COLUMN">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>column to group by, e.g. chromosome</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">chrom</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="simreaduntil.seqsum_tools.seqsum_plotting.logger">
+    
+  </a>
+  <a name="logger">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">logger</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/90441f0884b82a65d584b6a5086ced72d0e8328a/src/simreaduntil/seqsum_tools/seqsum_plotting.py#L36">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#logger" title="simreaduntil.seqsum_tools.seqsum_plotting.logger">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>module logger</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.0 at 2023-10-06 08:21:16.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>
