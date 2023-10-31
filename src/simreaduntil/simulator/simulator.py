@@ -100,7 +100,7 @@ class ReadUntilDevice:
         if not set(channel_subset).issubset(self._onebased_available_channels()):
             raise InexistentChannelsException(message=f"Tried to use {channel_subset}, but only channels {self._onebased_available_channels()} are available (channels are 1-based!)")
     
-    def start(self):
+    def start(self, **kwargs):
         """
         Start the sequencing.
         """
@@ -141,7 +141,7 @@ class ReadUntilDevice:
         """
         raise NotImplementedError()
     
-    def get_action_results(self) -> List[Tuple[Any, float, int, str, Any]]:
+    def get_action_results(self, **kwargs) -> List[Tuple[Any, float, int, str, Any]]:
         """
         Get new results of actions that were performed with unblock and stop_receiving (mux scans etc not included)
         
@@ -409,7 +409,7 @@ class ONTSimulator(ReadUntilDevice):
             
             return True
         
-    def _forward_sim_loop(self, acceleration_factor=1, update_method="realtime", log_interval: int=10, stop_if_no_reads=True, **kwargs):
+    def _forward_sim_loop(self, acceleration_factor=1.0, update_method="realtime", log_interval: int=10, stop_if_no_reads=True, **kwargs):
         """
         Helper method launched by .start() to forward the simulation.
         
@@ -444,7 +444,7 @@ class ONTSimulator(ReadUntilDevice):
             logger.debug(f"Simulation has been running for real {cur_ns_time() - t_real_start:.2f} seconds with acceleration factor {acceleration_factor:.2f} (t_sim={t_sim:.2f}, i={i})")
                 
             combined_channel_statuses = self.get_channel_stats(combined=True)
-            logger.debug("\nCombined channel status: " + str(combined_channel_statuses))
+            logger.info("\nCombined channel status: " + str(combined_channel_statuses))
             
             if self._channel_status_filename is not None:
                 print(combined_channel_statuses.get_table_line(), file=self._channel_status_fh)
@@ -618,6 +618,7 @@ class ONTSimulator(ReadUntilDevice):
         self._check_channels_available([read_channel])
         action_res = self._channels[read_channel-1].unblock(unblock_duration=unblock_duration, read_id=read_id)
         self._action_results.append((read_id, self._channels[read_channel-1].t, read_channel, ActionType.Unblock, action_res))
+        logger.info(f"Unblocking read {read_id} on channel {read_channel}, result: {action_res.to_str()}")
         return action_res
         
     def stop_receiving_read(self, read_channel, read_id) -> Optional[StoppedReceivingResponse]:
@@ -625,6 +626,7 @@ class ONTSimulator(ReadUntilDevice):
         self._check_channels_available([read_channel])
         action_res = self._channels[read_channel-1].stop_receiving(read_id=read_id)
         self._action_results.append((read_id, self._channels[read_channel-1].t, read_channel, ActionType.StopReceiving, action_res))
+        logger.info(f"Stopping receiving from read {read_id} on channel {read_channel}, result: {action_res.to_str()}")
         return action_res
     
     def run_mux_scan(self, t_duration: float) -> int:

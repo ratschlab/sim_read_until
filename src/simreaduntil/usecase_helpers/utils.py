@@ -210,7 +210,7 @@ def normalize_fasta_cmd():
     Command line script to normalize a FASTA file and write it back to a file
     """
     
-    add_comprehensive_stream_handler_to_logger(level=logging.INFO)
+    add_comprehensive_stream_handler_to_logger(None, level=logging.INFO)
     
     # argparse to parse in_fasta_path, out_fasta_path
     parser = argparse.ArgumentParser(description="Normalize a FASTA file to upper case and replacing N letters")
@@ -397,6 +397,32 @@ def get_gap_sampler_method(gap_sampler_type, n_channels_full=None):
     else:
         assert gap_sampler_type is None, f"unknown gap sampler type '{gap_sampler_type}'"
 
+def plot_sim_stats(run_dir, figure_dir):
+    """
+    Plot statistics from the simulator
+    
+    Args:
+        run_dir: directory containing simulator outputs, e.g. action_results.csv, channel_stats.dill, log file
+        figure_dir: directory to save figures to, must exist
+    """
+    assert figure_dir.exists()
+    
+    action_results_filename = run_dir / "action_results.csv"
+    if action_results_filename.exists():
+        logger.info(f"Loading simulator action results from '{action_results_filename}'")
+        action_results_df = pd.read_csv(action_results_filename, sep="\t")
+        logger.info(f"Loaded simulator action results from '{action_results_filename}'")
+        if len(action_results_df) > 0:
+            plot_sim_actions(action_results_df, save_dir=figure_dir)
+        else:
+            logger.warning("No actions were performed during the simulation")
+
+    channel_stats_filename = run_dir / "channel_stats.dill"
+    if channel_stats_filename.exists():
+        logger.debug("Plotting channel stats")
+        channel_stats: List[ChannelStats] = dill_load(channel_stats_filename)
+        plot_channel_stats(channel_stats, save_dir=figure_dir)
+    
 def create_figures(seqsum, run_dir, figure_dir=None, delete_existing_figure_dir=False, **kwargs):
     """
     Create figures from a finished run
@@ -422,21 +448,9 @@ def create_figures(seqsum, run_dir, figure_dir=None, delete_existing_figure_dir=
         # warnings.filterwarnings("ignore", message="Only plotting full reads")
         nb_reads = len(seqsum) if isinstance(seqsum, pd.DataFrame) else num_lines_in_file(seqsum) - 1
         seqsum_df, cov_df = create_plots_for_seqsum(seqsum, cov_every=max(1, int(nb_reads/100)), save_dir=figure_dir, **kwargs)
-
-        action_results_filename = run_dir / "action_results.csv"
-        if action_results_filename.exists():
-            logger.info(f"Loading simulator action results from '{action_results_filename}'")
-            action_results_df = pd.read_csv(action_results_filename, sep="\t")
-            if len(action_results_df) > 0:
-                plot_sim_actions(action_results_df, save_dir=figure_dir)
-            else:
-                logger.warning("No actions were performed during the simulation")
-
-        channel_stats_filename = run_dir / "channel_stats.dill"
-        if channel_stats_filename.exists():
-            logger.debug("Plotting channel stats")
-            channel_stats: List[ChannelStats] = dill_load(channel_stats_filename)
-            plot_channel_stats(channel_stats, save_dir=figure_dir)
+        
+        plot_sim_stats(run_dir, figure_dir)
+        
         
 def plot_log_file_metrics(log_filename, save_dir=None):
     """Parse log file and plot metrics"""

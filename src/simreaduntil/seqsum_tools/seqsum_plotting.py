@@ -996,7 +996,7 @@ def main():
     """
     CLI entrypoint to create plots from a sequencing summary file
     """
-    add_comprehensive_stream_handler_to_logger(logging.DEBUG)
+    add_comprehensive_stream_handler_to_logger(None, logging.DEBUG)
     
     if is_test_mode():
         args = argparse.Namespace()
@@ -1009,10 +1009,10 @@ def main():
         args.paf_file = None
     else:
         parser = argparse.ArgumentParser(description="Plotting script for sequencing summary file from the simulator")
-        parser.add_argument("ref_genome_path", type=Path, help="Path to the reference genome")
         parser.add_argument("seqsummary_filename", type=Path, help="Path to the sequencing summary file")
         parser.add_argument("--nrows", type=int, default=None, help="Number of rows to read from the sequencing summary file")
-        parser.add_argument("--save_dir", type=Path, default=None, help="Directory to save plots to")
+        parser.add_argument("--ref_genome_path", type=Path, help="Path to the reference genome", default=None)
+        parser.add_argument("--save_dir", type=Path, default=None, help="Directory to save plots to; display if None")
         parser.add_argument("--cov_thresholds", type=str, default="1,2,3,4,5,6", help="Comma-separated list of target coverages to plot; set to '' if non-NanoSim reads")
         parser.add_argument("--targets", type=str, default=None, help="if provided, a comma-separated list, e.g. 'chr1,chr2'. Creates two groups on the plot, opposing targets to the rest")
         parser.add_argument("--cov_every", type=int, default=1, help="Compute coverage every x reads")

@@ -1,7 +1,7 @@
 """
 Plot an existing sequencing summary file (that possibly comes with a PAF file).
 
-This is similar to the entrypoint `plot_sim_seqsum`, but adapted to the cluster with sensible defaults.
+This is similar to the entrypoint `plot_seqsum`, but adapted to the cluster with sensible defaults.
 It cleans up directories and plots figures from the simulator run as well, if they are present.
 """
 
@@ -23,8 +23,8 @@ logging.getLogger(__name__).setLevel(logging.DEBUG)
 sequencing_summary_file = "sequencing_summary.txt"
 
 paf_file = None
-# paf_file = "/Users/maximilianmordig/ont_project_all/ont_project/runs/enrich_usecase/data/20190809_zymo_uncalled.paf"
-# paf_file = "/Users/maximilianmordig/ont_project_all/ont_project/runs/enrich_usecase/data/deduped_20190809_zymo_uncalled.paf"
+# paf_file = "~/ont_project_all/ont_project/runs/enrich_usecase/data/20190809_zymo_uncalled.paf"
+# paf_file = "~/ont_project_all/ont_project/runs/enrich_usecase/data/deduped_20190809_zymo_uncalled.paf"
 
 # sequencing_summary_file = Path("~/ont_project_all/ont_project/runs/data/20190809_zymo_seqsum.txt").expanduser()
 # sim_run_dir = Path("zymo_realrun_plots/")

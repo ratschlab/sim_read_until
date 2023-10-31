@@ -40,6 +40,9 @@ mkdir protos_generated
 # replace imports so they work with the project structure ("ont_simulator" must be on the python path)
 python -m grpc_tools.protoc -Iprotos/ --python_out=protos_generated/ --pyi_out=protos_generated/ --grpc_python_out=protos_generated/ protos/ont_device.proto && \
     sed -i -E "s%import (.*)_pb2 as%import simreaduntil.simulator.protos_generated.\1_pb2 as%g" protos_generated/ont_device_pb2_grpc.py
+
+# todo: check
+cd src && python -m grpc_tools.protoc -Isimreaduntil/simulator/protos/ --python_out=simreaduntil/simulator/protos_generated/ --pyi_out=simreaduntil/simulator/protos_generated/ --grpc_python_out=simreaduntil/simulator/protos_generated/ simreaduntil/simulator/protos/ont_device.proto
 ```
 
 

@@ -98,7 +98,8 @@ class ONTDeviceServicer(ont_device_pb2_grpc.ONTDeviceServicer):
         for action_desc in request.actions:
             channel, read_id = action_desc.channel, action_desc.read_id
             if action_desc.WhichOneof("action") == "unblock":
-                res.append(self.device.unblock_read(channel, read_id=read_id, unblock_duration=action_desc.unblock.unblock_duration))
+                unblock_duration = None if action_desc.unblock.unblock_duration < 0 else action_desc.unblock.unblock_duration
+                res.append(self.device.unblock_read(channel, read_id=read_id, unblock_duration=unblock_duration))
             else:
                 res.append(self.device.stop_receiving_read(channel, read_id=read_id)) #todo2: current conversion from enum 0,1,2 to bool is not ideal
         return ont_device_pb2.ActionResultImmediateResponse(succeeded=res)
@@ -112,7 +113,8 @@ class ONTDeviceServicer(ont_device_pb2_grpc.ONTDeviceServicer):
     def GetBasecalledChunks(self, request, context):
         # channel_subset=None on request side means that field was not set
         channel_subset = request.channels.value if request.HasField("channels") else None
-        for (channel, read_id, seq, quality_seq, estimated_ref_len_so_far) in self.device.get_basecalled_read_chunks(batch_size=request.batch_size, channel_subset=channel_subset):
+        batch_size = request.batch_size if request.batch_size > 0 else None
+        for (channel, read_id, seq, quality_seq, estimated_ref_len_so_far) in self.device.get_basecalled_read_chunks(batch_size=batch_size, channel_subset=channel_subset):
             yield ont_device_pb2.BasecalledReadChunkResponse(channel=channel, read_id=read_id, seq=seq, quality_seq=quality_seq, estimated_ref_len_so_far=estimated_ref_len_so_far)
 
     @print_nongen_exceptions
@@ -122,7 +124,8 @@ class ONTDeviceServicer(ont_device_pb2_grpc.ONTDeviceServicer):
         
         Returns: whether it succeeded (i.e. if simulation was not running)
         """
-        return ont_device_pb2.BoolResponse(value=self.device.start(request.acceleration_factor))
+        acceleration_factor = request.acceleration_factor if request.acceleration_factor <= 0 else 1.0
+        return ont_device_pb2.BoolResponse(value=self.device.start(acceleration_factor=acceleration_factor, update_method=request.update_method, log_interval=request.log_interval, stop_if_no_reads=request.stop_if_no_reads))
     
     @print_nongen_exceptions
     # stop simulation, returns whether it succeeded (i.e. if simulation was running)
@@ -131,6 +134,7 @@ class ONTDeviceServicer(ont_device_pb2_grpc.ONTDeviceServicer):
         
     @print_nongen_exceptions
     def RunMuxScan(self, request, context):
+        assert request.HasField("t_duration"), "t_duration must be set"
         return ont_device_pb2.MuxScanStartedInfo(value=self.device.run_mux_scan(t_duration=request.t_duration))
     
     @print_nongen_exceptions

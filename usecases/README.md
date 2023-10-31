@@ -1,4 +1,43 @@
-# Usecases
+# CLI Usecase
+
+Here, we show how to use the simulator with the CLI interface and provide an example client that randomly decides what action to take. 
+Note that the client does not use the official ReadUntil API as our setup is slightly different. Since our tool is for research, SSL encryption is not needed (as of now), we restrict to only the essential ReadUntil API methods and the API returns basecalled rather than raw chunks (raise an issue if you want it added).
+
+Assuming you have followed the installation instructions, do the following starting from a directory of your choice:
+```{bash}
+mkdir server_client_cli_example
+cd server_client_cli_example
+
+source ~/ont_project_all/ont_project_venv/bin/activate
+usecase_generate_random_reads random_reads.fasta
+# or: python ~/ont_project_all/ont_project/src/simreaduntil/usecase_helpers/generate_random_reads.py random_reads.fasta
+
+source ~/ont_project_all/ont_project_venv/bin/activate
+simulator_server_cli random_reads.fasta example_run --overwrite --verbosity info --dont_start --port 12000
+# or: python ~/ont_project_all/ont_project/src/simreaduntil/usecase_helpers/simulator_server_cli.py random_reads.fasta example_run --overwrite --verbosity info --dont_start --port 12000
+```
+
+Open a new terminal window and run the following command:
+```{bash}
+source ~/ont_project_all/ont_project_venv/bin/activate
+usecase_simulator_client_cli 12000
+# or: python ~/ont_project_all/ont_project/src/simreaduntil/usecase_helpers/simulator_client_cli.py 12000
+```
+
+You can stop the client with `Ctrl-C`. Also stop the server with `Ctrl-C` in the other terminal window, so that the final summary files get written (action results and sequencing summary).
+You can also stop the server directly with `Ctrl-C` without doing so first for the client.
+
+Create plots with:
+```{bash}
+sim_plots_cli example_run --verbosity info
+plot_seqsum example_run/sequencing_summary.txt --save_dir example_run/figures/
+# also possible to plot coverage of a reference by providing relevant args to "plot_seqsum"
+```
+
+Typically, you can leave the server cli script as it is, but want to modify the client and input reads.
+You can take a look at the available options with `--help` appended to the commands.
+
+# Advanced Usecases
 
 Config files are located in the directory `configs` which contain configs for the simulator (and ReadFish).
 The paths in these scripts may need to be adapted to your local setup.

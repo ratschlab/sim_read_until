@@ -56,7 +56,7 @@ message ReadActionsRequest {
         message StopReceivingAction {}
     
         message UnblockAction {
-            double unblock_duration = 1;
+            double unblock_duration = 1; // set to <0 to take default, otherwise sets to 0!
         }
     
         uint32 channel = 1;
@@ -86,7 +86,7 @@ message ActionResultResponse {
 }
 
 message StartRequest {
-    double acceleration_factor = 1;
+    double acceleration_factor = 1; // <= 0 interpreted as 1.0
     string update_method = 2;
     uint32 log_interval = 3;
     bool stop_if_no_reads = 4;

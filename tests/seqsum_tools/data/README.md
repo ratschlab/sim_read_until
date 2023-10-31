@@ -21,7 +21,7 @@ with open("tests/param_extractor/data/simreads.fasta", "w") as f:
 
 From a real run
 ```{python}
-sequencing_summary_file = "/Users/maximilianmordig/Desktop/ont_sequencing/data/sequencing_summaries/uncalled/20190809_zymo_seqsum.txt" # from UNCALLED
+sequencing_summary_file = "~/Desktop/ont_sequencing/data/sequencing_summaries/uncalled/20190809_zymo_seqsum.txt" # from UNCALLED
 df_read = pd.read_csv(sequencing_summary_file, sep="\t")
 sub_seqsum_df = df_read[(df_read["start_time"] < 13000) & (df_read["channel"] < 10)]
 sub_seqsum_df["end_reason"] = "signal_positive"

@@ -72,10 +72,16 @@ readfish = [
 ]
 
 [project.scripts]
-plot_sim_seqsum = "simreaduntil.seqsum_tools.seqsum_plotting:main"
+plot_seqsum = "simreaduntil.seqsum_tools.seqsum_plotting:main"
 simfasta_to_seqsum = "simreaduntil.simulator.simfasta_to_seqsum:main"
 simulator_with_readfish = "simreaduntil.usecase_helpers.simulator_with_readfish:main"
 normalize_fasta = "simreaduntil.usecase_helpers.utils:normalize_fasta_cmd"
+# helpers for the usecase
+usecase_generate_random_reads = "simreaduntil.usecase_helpers.cli_usecase.generate_random_reads:main"
+simulator_server_cli = "simreaduntil.usecase_helpers.cli_usecase.simulator_server_cli:main"
+usecase_simulator_client_cli = "simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli:main"
+sim_plots_cli = "simreaduntil.usecase_helpers.cli_usecase.sim_plots_cli:main"
+
 
 [project.urls]
 "Homepage" = "https://github.com/ratschlab/sim_read_until"

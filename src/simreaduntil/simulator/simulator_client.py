@@ -91,12 +91,12 @@ class DeviceGRPCClient(ReadUntilDevice):
         """
         return self._stub.GetServerInfo(ont_device_pb2.EmptyRequest()).unique_id
         
-    def start(self, acceleration_factor: float = 1.0):
+    def start(self, acceleration_factor: float = 1.0, update_method: str ="realtime", log_interval: int=10, stop_if_no_reads: bool = True):
         """
         Start the sequencing.
         """
         self._check_connected()
-        return self._stub.StartSim(ont_device_pb2.StartRequest(acceleration_factor=acceleration_factor)).value
+        return self._stub.StartSim(ont_device_pb2.StartRequest(acceleration_factor=acceleration_factor, update_method=update_method, log_interval=log_interval, stop_if_no_reads=stop_if_no_reads)).value
     
     def stop(self):
         """
@@ -110,7 +110,7 @@ class DeviceGRPCClient(ReadUntilDevice):
         Run mux scan
         """
         self._check_connected()
-        return self._stub.RunMuxScan(ont_device_pb2.RunMuxScanRequest()).nb_reads_rejected
+        return self._stub.RunMuxScan(ont_device_pb2.RunMuxScanRequest(t_duration=t_duration)).nb_reads_rejected
     
     @property
     def is_running(self):
@@ -129,6 +129,7 @@ class DeviceGRPCClient(ReadUntilDevice):
             channels = None
         else:
             channels = ont_device_pb2.BasecalledChunksRequest.Channels(value=channel_subset)
+        # batch_size = None does not set it, so proto3 assigns it a value of 0
         for chunk in self._stub.GetBasecalledChunks(ont_device_pb2.BasecalledChunksRequest(batch_size=batch_size, channels=channels)):
             yield (chunk.channel, chunk.read_id, chunk.seq, chunk.quality_seq, chunk.estimated_ref_len_so_far)
             
@@ -145,19 +146,40 @@ class DeviceGRPCClient(ReadUntilDevice):
         """
         Unblock read_id on channel; returns whether the action was performed (not performed if the read was already over)
         """
-        self._check_connected()
-        return self._stub.PerformActions(ont_device_pb2.ReadActionsRequest(actions=[
-            ont_device_pb2.ReadActionsRequest.Action(channel=read_channel, read_id=read_id, unblock=ont_device_pb2.ReadActionsRequest.Action.UnblockAction(unblock_duration=unblock_duration))    
-        ])).succeeded[0]
+        # self._check_connected()
+        # return self._stub.PerformActions(ont_device_pb2.ReadActionsRequest(actions=[
+        #     ont_device_pb2.ReadActionsRequest.Action(channel=read_channel, read_id=read_id, unblock=ont_device_pb2.ReadActionsRequest.Action.UnblockAction(unblock_duration=unblock_duration if unblock_duration is not None else -1))    
+        # ])).succeeded[0]
+        return self.unblock_read_batch([(read_channel, read_id)], unblock_duration=unblock_duration)[0]
         
     def stop_receiving_read(self, read_channel, read_id):
         """
         Stop receiving read_id on channel; returns whether the action was performed (not performed if the read was already over)
         """
+        # self._check_connected()
+        # return self._stub.PerformActions(ont_device_pb2.ReadActionsRequest(actions=[
+        #     ont_device_pb2.ReadActionsRequest.Action(channel=read_channel, read_id=read_id, stop_further_data=ont_device_pb2.ReadActionsRequest.Action.StopReceivingAction()),
+        # ])).succeeded[0]
+        return self.stop_receiving_read_batch([(read_channel, read_id)])[0]
+        
+    # batch methods
+    def unblock_read_batch(self, channel_and_ids, unblock_duration=None):
+        """
+        Unblock a batch of reads on channel; returns whether the actions were performed (not performed if the read was already over)
+        """
         self._check_connected()
         return self._stub.PerformActions(ont_device_pb2.ReadActionsRequest(actions=[
-            ont_device_pb2.ReadActionsRequest.Action(channel=read_channel, read_id=read_id, stop_further_data=ont_device_pb2.ReadActionsRequest.Action.StopReceivingAction()),
-        ])).succeeded[0]
+            ont_device_pb2.ReadActionsRequest.Action(channel=read_channel, read_id=read_id, unblock=ont_device_pb2.ReadActionsRequest.Action.UnblockAction(unblock_duration=unblock_duration if unblock_duration is not None else -1))    
+        for (read_channel, read_id) in channel_and_ids])).succeeded
+        
+    def stop_receiving_read_batch(self, channel_and_ids):
+        """
+        Stop receiving a batch of reads on channel; returns whether the actions were performed (not performed if the read was already over)
+        """
+        self._check_connected()
+        return self._stub.PerformActions(ont_device_pb2.ReadActionsRequest(actions=[
+            ont_device_pb2.ReadActionsRequest.Action(channel=read_channel, read_id=read_id, stop_further_data=ont_device_pb2.ReadActionsRequest.Action.StopReceivingAction())
+        for (read_channel, read_id) in channel_and_ids])).succeeded
     
     @property
     def mk_run_dir(self):

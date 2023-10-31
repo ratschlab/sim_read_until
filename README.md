@@ -7,7 +7,7 @@
 
 This repository provides a simulator for an ONT device controlled by the ReadUntil API either directly or via gRPC, and can be accelerated (e.g. factor 10 with 512 channels). It takes full-length reads as input, plays them back with suitable gaps in between, and responds to ReadUntil actions.
 The code is well-tested with `pytest` and an example usecase combining the simulator with ReadFish and NanoSim is provided.
-Access the documentation [here](https://ratschlab.github.io/ont_project/).
+Access the documentation [here](https://ratschlab.github.io/sim_read_until/).
 
 See below for a [quick start](#quick-start).
 
