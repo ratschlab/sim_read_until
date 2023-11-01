@@ -9,7 +9,53 @@ This repository provides a simulator for an ONT device controlled by the ReadUnt
 The code is well-tested with `pytest` and an example usecase combining the simulator with ReadFish and NanoSim is provided.
 Access the documentation [here](https://ratschlab.github.io/sim_read_until/).
 
-See below for a [quick start](#quick-start).
+A video for the CLI interface of the simulator (as described in [usecases](usecases/README.md)) is available here: [CLI interface Youtube](https://youtu.be/8GDTD4Memes)
+See below for an [overview](#overview).
+
+## Quick Start
+
+Clone the repository, install the virtual environment and run the usecase, as explained below.
+
+### Installation and Setup
+
+We have tested the code with python3.10 and python3.8 on Linux and Mac OS X, so try to use it:
+```{bash}
+# create a shared directory:
+mkdir ~/ont_project_all
+cd ~/ont_project_all
+
+git clone --depth 1 git@github.com:ratschlab/sim_read_until.git ont_project
+# the NanoSim repository (integrated as a submodule here) is quite large (2Gb) due to pre-computed models, so we omit it here
+# if you want it, do: git clone --recurse-submodules git@github.com:ratschlab/sim_read_until.git ont_project
+
+# conda deactivate # if you have a conda environment activated, including base env
+python3.10 -m venv ont_project_venv
+source ~/ont_project_all/ont_project_venv/bin/activate
+pip install --upgrade pip
+pip install ont_project/
+pip install --upgrade seaborn
+```
+
+Take a look at the directory [usecase](usecases/) to run some example usecases.
+
+If the installation fails due to dependency issues, you can alternatively run it as a Docker image that comes with the dependencies and runs Jupyter lab:
+```{bash}
+# to update the Docker image if a new one was published
+# note: it may not always be up-to-date with the main branch, check the release date online
+docker pull ghcr.io/ratschlab/sim_read_until:main_dev
+
+cd ~/ont_project_all
+./ont_project/start_docker_container.sh
+# to see the options
+# ./ont_project/start_docker_container.sh -h
+```
+Several Docker containers can run in parallel, provided you modify the port and container name via the options `-n` and `-p`.
+
+**Note**: Conda is not officially supported, but you can set up your environment with:
+```{bash}
+conda create -y -n ont_project_venv python=3.10 pip
+```
+Some scripts activate the virtual environment, so you have to change it to `conda activate ont_project_venv`.
 
 ## Overview
 
@@ -57,52 +103,7 @@ The repository contains the following directories (as submodules):
 - `runs`: for local runs; in `.gitignore`
 - `apidocs`: location for API docs; in `.gitignore`
 
-## Quick Start
-
-Clone the repository, install the virtual environment and run the usecase, as explained below.
-
-### Installation and Setup
-
-We have tested the code with python3.10 and python3.8, so try to use it:
-```{bash}
-# create a shared directory:
-mkdir ~/ont_project_all
-cd ~/ont_project_all
-
-git clone --depth 1 git@github.com:ratschlab/sim_read_until.git ont_project
-# the NanoSim repository (integrated as a submodule here) is quite large (2Gb) due to pre-computed models, so we omit it here
-# if you want it, do: git clone --recurse-submodules git@github.com:ratschlab/sim_read_until.git ont_project
-
-# conda deactivate # if you have a conda environment activated, including base env
-python3.10 -m venv ont_project_venv
-source ~/ont_project_all/ont_project_venv/bin/activate
-pip install --upgrade pip
-pip install ont_project/
-pip install --upgrade seaborn
-```
-
-Take a look at the directory [usecase](usecases/) to run some example usecases.
-
-If the installation fails due to dependency issues, you can alternatively run it as a Docker image that comes with the dependencies and runs Jupyter lab:
-```{bash}
-# to update the Docker image if a new one was published
-# note: it may not always be up-to-date with the main branch, check the release date online
-docker pull ghcr.io/ratschlab/sim_read_until:main_dev
-
-cd ~/ont_project_all
-./ont_project/start_docker_container.sh
-# to see the options
-# ./ont_project/start_docker_container.sh -h
-```
-Several Docker containers can run in parallel, provided you modify the port and container name via the options `-n` and `-p`.
-
-**Note**: Conda is not officially supported, but you can set up your environment with:
-```{bash}
-conda create -y -n ont_project_venv python=3.10 pip
-```
-Some scripts activate the virtual environment, so you have to change it to `conda activate ont_project_venv`.
-
-### Comparison with UNCALLED
+## Comparison with UNCALLED
 
 We tried comparing with UNCALLED, but it didn't work due to a segmentation fault without any useful error message, see [uncalled_comparison](uncalled_comparison.md) for details.
 According to the authors, the UNCALLED simulator is superseeded by the recent tool Icarust, which is a tool that addresses a similar setting as we do.

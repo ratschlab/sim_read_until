@@ -129,7 +129,7 @@ jobs:
             ln -s ../configs/chr202122_run/sampler_per_window configs
             python ~/ont_project_all/ont_project/usecases/enrich_usecase.py
 
-            tar -cvzf figures.tar.gz readfish_run/figures
+            tar -cvzf figures.tar.gz simulator_run/figures
       - 
         name: Archive figures
         uses: actions/upload-artifact@v3

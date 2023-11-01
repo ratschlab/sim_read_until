@@ -103,7 +103,7 @@ def test_launchable_device_grpc_server():
             
             stub.GetActionResults(ont_device_pb2.ActionResultsRequest(clear=True))
             
-            assert stub.StartSim(ont_device_pb2.StartRequest(acceleration_factor=2)).value
+            assert stub.StartSim(ont_device_pb2.StartRequest(acceleration_factor=2, update_method="realtime", log_interval=10)).value
             
             # unblocking inexistent read
             assert not stub.PerformActions(ont_device_pb2.ReadActionsRequest(actions=[

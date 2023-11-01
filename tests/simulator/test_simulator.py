@@ -7,6 +7,7 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 import dill
+from simreaduntil.shared_utils.merge_axes import save_fig_and_pickle
 
 from simreaduntil.shared_utils.timing import cur_ns_time
 from simreaduntil.simulator import channel
@@ -215,6 +216,7 @@ def test_random_ops_synchronous(simulator, async_mode, channel_write_zero_length
     # make all elements roughly the same length, reads have length 8-17 -> take about 1.2s
     sim_params = SimParams(
         gap_samplers={f"channel_{i}": ConstantGapsUntilBlocked(short_gap_length=1.2, long_gap_length=1.2, prob_long_gap=0.35, time_until_blocked=200, read_delay=0) for i in range(2)},
+        # gap_samplers={f"channel_{i}": ConstantGapsUntilBlocked(short_gap_length=1.2, long_gap_length=5.2, prob_long_gap=0.25, time_until_blocked=200, read_delay=0) for i in range(2)},
         bp_per_second=10, chunk_size=4, default_unblock_duration=1.2, seed=0,
     )
     
@@ -249,7 +251,7 @@ def test_random_ops_synchronous(simulator, async_mode, channel_write_zero_length
         if nb_actions["forward"] > 0:
             pass
             # print(1)
-            # ax = simulator.plot_channels(); import matplotlib.pyplot as plt; plt.show(block=True); save_fig_and_pickle(ax.figure, "simulator_example.png");  #note: for README.md figure, zoom into appropriate region, then save the figure, keep it commented out
+            # ax = simulator.plot_channels(); import matplotlib.pyplot as plt; plt.show(block=True); #save_fig_and_pickle(ax.figure, "simulator_example.png");  #note: for README.md figure, zoom into appropriate region, then save the figure, keep it commented out
             
         simulator.stop() if async_mode else simulator.sync_stop()
         check_simulator_actions_agree_with_reads_writer(simulator, cum_nb_actions, check_nb_rejected=(j==0))

@@ -1,5 +1,7 @@
 # CLI Usecase
 
+A video of this usecase is available here: [CLI interface Youtube](https://youtu.be/8GDTD4Memes)
+
 Here, we show how to use the simulator with the CLI interface and provide an example client that randomly decides what action to take. 
 Note that the client does not use the official ReadUntil API as our setup is slightly different. Since our tool is for research, SSL encryption is not needed (as of now), we restrict to only the essential ReadUntil API methods and the API returns basecalled rather than raw chunks (raise an issue if you want it added).
 
@@ -32,6 +34,9 @@ Create plots with:
 sim_plots_cli example_run --verbosity info
 plot_seqsum example_run/sequencing_summary.txt --save_dir example_run/figures/
 # also possible to plot coverage of a reference by providing relevant args to "plot_seqsum"
+
+# put all into an overview html page
+usecase_make_html_report example_run/figures/ && open example_run/figures/figures.html
 ```
 
 Typically, you can leave the server cli script as it is, but want to modify the client and input reads.
@@ -46,12 +51,10 @@ Activate the environment and start jupyter lab:
 ```{bash}
 source ~/ont_project_all/ont_project_venv/bin/activate
 cd ~/ont_project_all/ont_project
-jupyter lab
+jupyter lab # for convenience
 ```
 
-## Setup
-
-### TLDR
+### Setup (Data + Extra Dependencies)
 
 You can get the data and install the dependencies with:
 ```{bash}
@@ -72,22 +75,69 @@ cd ..
 # install ReadFish
 git submodule update --init --depth 1 external/ont_readfish
 source ~/ont_project_all/ont_project_venv/bin/activate
-pip install -e './[readfish]'
+pip install -e './[readfish]' # -e for dev version
 
-# optional: install NanoSim and minimap2
+# optional: install NanoSim and minimap2, but the usecase also works without
 # git submodule update --init --depth 1 external/ont_nanosim
 # bash usecases/install_usecase_deps.sh
+```
 
-# adapt config in ~/ont_project_all/ont_project/usecases/configs/ to fit your setup
+You may want to check out the Docker image as described in the `README.md` in the repo root, if the installation does not work.
+See below for how the data was obtained.
+
+After possibly adapting the config files at `~/ont_project_all/ont_project/usecases/configs/`, you can run the usecases described further below:
+```{bash}
 ~/ont_project_all/ont_project/usecases/replicate_run_submission.sh "sampler_per_rolling_window_channel"
 ~/ont_project_all/ont_project/usecases/enrich_usecase_submission.sh
 ```
 
-You may want to check out the Docker image as described in the `README.md` in the repo root, if it does not work.
+## Enrichment with ReadFish
 
-### Explanation
+This combines `ReadFish` with the `SimReadUntil` simulator. Reads are generated on the fly by sampling read start position, length and strand. With this ground-truth information, the alignment step in ReadFish can be accelerated which is useful when we accelerate the run by a factor of 10 where minimap2 alignment may otherwise become a bottleneck.
+Alternatively, a reads file can be provided by adding `reads_file = <path>` to the simulator config.
+If the read ids are NanoSim ids with ground-truth alignment information, `minimap2` is not needed. Alternatively, a minimap2 reference index can be provided by adding it in the ReadFish config file. The index itself can be created by uncommenting the line `create_minimap_index_if_inexistent` in the usecase file.
 
-We provide more details:
+Files:
+- `enrich_usecase.py`: end-to-end script that runs an enrichment with ReadFish connected to the simulator, see the instructions in that file
+- `enrich_usecase_submission.sh`: condor submission script, can also be run locally
+- `install_usecase_deps.sh`: to install `minimap2` and `NanoSim` (optional), launch it from the repo root
+- `create_nanosim_reads.ipynb`: notebook to create NanoSim reads that can be fed into the simulator by modifying the config file
+
+## Parameter Extraction from an Existing Run
+
+This experiment learns parameters from an existing run and then simulated a run with the learned parameters.
+The gaps are learnt from the run.
+Since the input to the simulator is in terms of basecalled reads, reads consisting of random letters are generated to match the read durations during the real run as closely as possible.
+
+Files:
+- `replicate_run.py`: end-to-end script that runs the parameter extraction and simulation, see the instructions in that file
+- `replicate_run_submission.sh`: condor submission script, can also be run locally
+- `compare_replication_methods.ipynb`: merge plots into one (for the paper) to compare the different parameter extraction methods
+
+Parameter extraction takes some time (few minutes) since the sequencing summary file must be loaded. Therefore, we implement a caching mechanism in the function `create_simparams_if_inexistent`:
+```{bash}
+sequencing summary from an existing run 
+--> sequencing summary with mux scans removed (prefixed with 'no_mux_scans_') 
+--> cleaned sequencing summary (prefixed with 'cleaned_'): some reads of a channel overlap, so we shift them
+--> sim params (per channel, saved in one '.npz' file)
+```
+We check from the back whether any of the files already exists and use the existing file if possible.
+Make sure to delete the appropriate files when changing relevant parameters.
+When running several configurations in parallel and some cache files do not exist, make sure they don't get created by different processes at the same time.
+
+## Other Files
+
+These files are for our own reference and may not work for you out of the box:
+- `analyze_readfish_outputs.py`: to check whether ReadFish is mapping reads correctly by parsing the ground-truth from the read id
+- `plot_existing_seqsum.py`: to plot an existing sequencing summary file, e.g., from a real run
+- `remove_mux_scans.ipynb`: notebook showing how mux scans are removed (you don't need to run this, this is done automatically in the usecases)
+- `prepare_small_refgenome.py`: to create a small reference genome for the usecase
+- `results_preparation.md`: commands to create the results in the paper
+- `plot_existing_seqsum_submission.sh`: condor submission script, can also be run locally
+
+## How the data was obtained
+
+We provide more details on how the usecase data was created that you downloaded before. You do not need to run this.
 
 ```{bash}
 cd ~/ont_project_all/ont_project
@@ -112,61 +162,3 @@ mkdir run_replication && cd run_replication
 ln -s ~/ont_project_all/ont_project/usecases/configs/run_replication configs
 ln -s ../data data
 ```
-
-If you want to run the usecase, install the dependencies with:
-```{bash}
-source ~/ont_project_all/ont_project_venv/bin/activate
-pip install -e './[readfish]'
-git submodule update --init --depth 1 external/ont_readfish
-```
-
-Optionally, to install minimap2 and NanoSim as well:
-```{bash}
-# you need to have conda or mamba installed
-git submodule update --init --depth 1 external/ont_nanosim
-bash usecases/install_usecase_deps.sh
-```
-
-## Parameter Extraction from an Existing Run
-
-This experiment learns parameters from an existing run and then simulated a run with the learned parameters.
-The gaps are learnt from the run.
-Since the input to the simulator is in terms of basecalled reads, reads consisting of random letters are generated to match the read durations during the real run as closely as possible.
-
-Files:
-- `replicate_run.py`: end-to-end script that runs the parameter extraction and simulation, see the instructions in that file
-- `replicate_run_submission.sh`: condor submission script, can also be run locally
-- `compare_replication_methods.ipynb`: merge plots into one (for the paper) to compare the different parameter extraction methods
-
-Parameter extraction takes some time (few minutes) since the sequencing summary file must be loaded. Therefore, we implement a caching mechanism in the function `create_simparams_if_inexistent`:
-```{bash}
-sequencing summary from an existing run 
---> sequencing summary with mux scans removed (prefixed with 'no_mux_scans_') 
---> cleaned sequencing summary (prefixed with 'cleaned_'): some reads of a channel overlap, so we shift them
---> sim params (per channel, saved in one '.npz' file)
-```
-We check from the back whether any of the files already exists and use the existing file if possible.
-Make sure to delete the appropriate files when changing relevant parameters.
-When running several configurations in parallel and some cache files do not exist, make sure they don't get created by different processes at the same time.
-
-## Enrichment with ReadFish
-
-This combines `ReadFish` with the `SimReadUntil` simulator. Reads are generated on the fly by sampling read start position, length and strand. With this ground-truth information, the alignment step in ReadFish can be accelerated which is useful when we accelerate the run by a factor of 10 where minimap2 alignment may otherwise become a bottleneck.
-Alternatively, a reads file can be provided by adding `reads_file = <path>` to the simulator config.
-If the read ids are NanoSim ids with ground-truth alignment information, `minimap2` is not needed. Alternatively, a minimap2 reference index can be provided by adding it in the ReadFish config file. The index itself can be created by uncommenting the line `create_minimap_index_if_inexistent` in the usecase file.
-
-Files:
-- `enrich_usecase.py`: end-to-end script that runs an enrichment with ReadFish connected to the simulator, see the instructions in that file
-- `enrich_usecase_submission.sh`: condor submission script, can also be run locally
-- `install_usecase_deps.sh`: to install `minimap2` and `NanoSim` (optional), launch it from the repo root
-- `create_nanosim_reads.ipynb`: notebook to create NanoSim reads that can be fed into the simulator by modifying the config file
-
-## Other Files
-
-These files are for our own reference and may not work for you out of the box:
-- `analyze_readfish_outputs.py`: to check whether ReadFish is mapping reads correctly by parsing the ground-truth from the read id
-- `plot_existing_seqsum.py`: to plot an existing sequencing summary file, e.g., from a real run
-- `remove_mux_scans.ipynb`: notebook showing how mux scans are removed (you don't need to run this, this is done automatically in the usecases)
-- `prepare_small_refgenome.py`: to create a small reference genome for the usecase
-- `results_preparation.md`: commands to create the results in the paper
-- `plot_existing_seqsum_submission.sh`: condor submission script, can also be run locally

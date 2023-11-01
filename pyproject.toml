@@ -81,6 +81,7 @@ usecase_generate_random_reads = "simreaduntil.usecase_helpers.cli_usecase.genera
 simulator_server_cli = "simreaduntil.usecase_helpers.cli_usecase.simulator_server_cli:main"
 usecase_simulator_client_cli = "simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli:main"
 sim_plots_cli = "simreaduntil.usecase_helpers.cli_usecase.sim_plots_cli:main"
+usecase_make_html_report = "simreaduntil.usecase_helpers.cli_usecase.make_html_report:main"
 
 
 [project.urls]
