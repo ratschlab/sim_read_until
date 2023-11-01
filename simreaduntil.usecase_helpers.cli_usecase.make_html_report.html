@@ -6,7 +6,7 @@
 
   <head>
     
-    <title>simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli</title>
+    <title>simreaduntil.usecase_helpers.cli_usecase.make_html_report</title>
     <meta name="generator" content="pydoctor 23.9.0"> 
         
     </meta>
@@ -142,7 +142,7 @@
 
       <div class="thingTitle">
         <span>Module</span>
-        <code class="thisobject"><a href="simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli.html" class="internal-link" title="This module">simulator<wbr></wbr>_client<wbr></wbr>_cli</a></code> 
+        <code class="thisobject"><a href="simreaduntil.usecase_helpers.cli_usecase.make_html_report.html" class="internal-link" title="This module">make<wbr></wbr>_html<wbr></wbr>_report</a></code> 
       </div>
       
       <div>
@@ -163,7 +163,7 @@
         
 
         
-            <div class="itemName"><code><a href="#main" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli.main">main</a></code>
+            <div class="itemName"><code><a href="#main" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.make_html_report.main">main</a></code>
             </div>
         
 
@@ -173,7 +173,7 @@
         
 
         
-            <div class="itemName"><code><a href="#parse_args" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli.parse_args">parse<wbr></wbr>_args</a></code>
+            <div class="itemName"><code><a href="#parse_args" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.make_html_report.parse_args">parse<wbr></wbr>_args</a></code>
             </div>
         
 
@@ -192,7 +192,27 @@
         
 
         
-            <div class="itemName"><code><a href="#logger" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli.logger">logger</a></code>
+            <div class="itemName"><code><a href="#figure_template" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.make_html_report.figure_template">figure<wbr></wbr>_template</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#logger" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.make_html_report.logger">logger</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mainpage_template" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.make_html_report.mainpage_template">mainpage<wbr></wbr>_template</a></code>
             </div>
         
 
@@ -226,7 +246,7 @@
             </div>
         
 
-    </li><li class="">
+    </li><li class=" thisobject">
         
         
         
@@ -246,7 +266,7 @@
             </div>
         
 
-    </li><li class=" thisobject">
+    </li><li class="">
         
         
         
@@ -303,7 +323,7 @@
         
 
         <div class="page-header">
-          <h1 class="module"><code><code><a href="index.html" class="internal-link">simreaduntil</a></code><wbr></wbr>.<code><a href="simreaduntil.usecase_helpers.html" class="internal-link" title="simreaduntil.usecase_helpers">usecase_helpers</a></code><wbr></wbr>.<code><a href="simreaduntil.usecase_helpers.cli_usecase.html" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase">cli_usecase</a></code><wbr></wbr>.<code><a href="simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli.html" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli">simulator_client_cli</a></code></code></h1>
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">simreaduntil</a></code><wbr></wbr>.<code><a href="simreaduntil.usecase_helpers.html" class="internal-link" title="simreaduntil.usecase_helpers">usecase_helpers</a></code><wbr></wbr>.<code><a href="simreaduntil.usecase_helpers.cli_usecase.html" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase">cli_usecase</a></code><wbr></wbr>.<code><a href="simreaduntil.usecase_helpers.cli_usecase.make_html_report.html" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.make_html_report">make_html_report</a></code></code></h1>
           <div id="showPrivate">
             <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
           </div>
@@ -314,33 +334,43 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/cli_usecase/simulator_client_cli.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/cli_usecase/make_html_report.py" class="sourceLink">(source)</a>
           <p></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p class="undocumented">Undocumented</p></div>
+          <div><p>Make an overview page from all figures in the directory</p></div>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id111">
+          <table class="children sortable" id="id109">
   
   
   <tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#main" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli.main">main</a></code></td>
+    <td><code><a href="#main" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.make_html_report.main">main</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#parse_args" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli.parse_args">parse<wbr></wbr>_args</a></code></td>
+    <td><code><a href="#parse_args" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.make_html_report.parse_args">parse<wbr></wbr>_args</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="variable">
     
     <td>Variable</td>
-    <td><code><a href="#logger" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli.logger">logger</a></code></td>
+    <td><code><a href="#figure_template" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.make_html_report.figure_template">figure<wbr></wbr>_template</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#logger" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.make_html_report.logger">logger</a></code></td>
     <td>module logger</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#mainpage_template" class="internal-link" title="simreaduntil.usecase_helpers.cli_usecase.make_html_report.mainpage_template">mainpage<wbr></wbr>_template</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
           
@@ -352,7 +382,7 @@
           <div class="basefunction">
   
   
-  <a name="simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli.main">
+  <a name="simreaduntil.usecase_helpers.cli_usecase.make_html_report.main">
     
   </a>
   <a name="main">
@@ -362,11 +392,11 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">main</span><span class="function-signature">()</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/cli_usecase/simulator_client_cli.py#L26">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/cli_usecase/make_html_report.py#L55">
       
       (source)
     </a>
-    <a class="headerLink" href="#main" title="simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli.main">
+    <a class="headerLink" href="#main" title="simreaduntil.usecase_helpers.cli_usecase.make_html_report.main">
       
       
       ¶
@@ -379,7 +409,7 @@
 </div><div class="basefunction">
   
   
-  <a name="simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli.parse_args">
+  <a name="simreaduntil.usecase_helpers.cli_usecase.make_html_report.parse_args">
     
   </a>
   <a name="parse_args">
@@ -388,12 +418,12 @@
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">parse_args</span><span class="function-signature">()</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/cli_usecase/simulator_client_cli.py#L18">
+    <span class="py-keyword">def</span> <span class="py-defname">parse_args</span><span class="function-signature">(args=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/cli_usecase/make_html_report.py#L47">
       
       (source)
     </a>
-    <a class="headerLink" href="#parse_args" title="simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli.parse_args">
+    <a class="headerLink" href="#parse_args" title="simreaduntil.usecase_helpers.cli_usecase.make_html_report.parse_args">
       
       
       ¶
@@ -406,7 +436,34 @@
 </div><div class="basevariable">
   
   
-  <a name="simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli.logger">
+  <a name="simreaduntil.usecase_helpers.cli_usecase.make_html_report.figure_template">
+    
+  </a>
+  <a name="figure_template">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">figure_template</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/cli_usecase/make_html_report.py#L38">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#figure_template" title="simreaduntil.usecase_helpers.cli_usecase.make_html_report.figure_template">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="simreaduntil.usecase_helpers.cli_usecase.make_html_report.logger">
     
   </a>
   <a name="logger">
@@ -415,11 +472,11 @@
   <div class="functionHeader">
     
     <span class="py-defname">logger</span> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/cli_usecase/simulator_client_cli.py#L15">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/cli_usecase/make_html_report.py#L11">
       
       (source)
     </a>
-    <a class="headerLink" href="#logger" title="simreaduntil.usecase_helpers.cli_usecase.simulator_client_cli.logger">
+    <a class="headerLink" href="#logger" title="simreaduntil.usecase_helpers.cli_usecase.make_html_report.logger">
       
       
       ¶
@@ -428,6 +485,33 @@
   <div class="functionBody">
     
     <div><p>module logger</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="simreaduntil.usecase_helpers.cli_usecase.make_html_report.mainpage_template">
+    
+  </a>
+  <a name="mainpage_template">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">mainpage_template</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/cli_usecase/make_html_report.py#L14">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#mainpage_template" title="simreaduntil.usecase_helpers.cli_usecase.make_html_report.mainpage_template">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div>
