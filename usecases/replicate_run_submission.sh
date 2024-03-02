@@ -4,6 +4,7 @@
 # takes about 8GB of memory
 ##CONDOR request_memory=32G
 ##CONDOR request_disk=100G
+##CONDOR +JobBatchName = "ont_replicate_run"
 ##CONDOR log = /home/mmordig/joblogs/job-$(ClusterId)-$(ProcId).log
 ##CONDOR output = /home/mmordig/joblogs/job-$(ClusterId)-$(ProcId).out
 ##CONDOR error = /home/mmordig/joblogs/job-$(ClusterId)-$(ProcId).err
@@ -25,9 +26,9 @@ source ~/.bashrc
 cd ~/ont_project_all/ont_project/
 
 source ~/ont_project_all/ont_project_venv/bin/activate
+set -ex
 export PATH=~/ont_project_all/tools/bin:$PATH && which minimap2
 
-set -ex
 cd runs/run_replication
 
 method=$1

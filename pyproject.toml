@@ -70,6 +70,9 @@ readfish = [
   "read-until @ git+https://github.com/nanoporetech/read_until_api@v3.4.1",
   "readfish @ {root:uri}/external/ont_readfish",
 ]
+rawsignal = [
+  "pyslow5",
+]
 
 [project.scripts]
 plot_seqsum = "simreaduntil.seqsum_tools.seqsum_plotting:main"
@@ -91,7 +94,7 @@ usecase_make_html_report = "simreaduntil.usecase_helpers.cli_usecase.make_html_r
 
 [tool.hatch.version]
 source = "vcs"
-fallback-version = "unknown_version"
+fallback-version = "0.0.0.7999" # dummy version to recognize it
 
 [tool.hatch.metadata]
 # to install from git

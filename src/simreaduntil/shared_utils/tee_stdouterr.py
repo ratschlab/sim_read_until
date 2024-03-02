@@ -13,7 +13,7 @@ class TeeStdouterr:
     
     We use the logging module to ensure thread-safety when writing to it. Do not use this logger or its children for anything else.
     
-    Unlike common implementations seen on the Internet, this implementation correctly logs stdout and stderr to the respective 
+    Unlike common implementations seen on the Internet, this implementation logs stdout and stderr to the respective 
     streams (instead of merging them into one stream).
     
     Args:

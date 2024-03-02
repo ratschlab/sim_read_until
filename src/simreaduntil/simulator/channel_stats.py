@@ -367,6 +367,7 @@ def channel_stats_to_df(channel_stats: List[ChannelStats]):
 
     df = pd.DataFrame(
         [(
+            channel,
             channel.short_gaps.finished_number, channel.short_gaps.time_spent, 
             channel.long_gaps.finished_number, channel.long_gaps.time_spent, 
             channel.unblock_delays.finished_number, channel.unblock_delays.time_spent, 
@@ -377,6 +378,7 @@ def channel_stats_to_df(channel_stats: List[ChannelStats]):
             channel.reads.fin_number_rejected, channel.reads.number_rejected_missed, channel.reads.number_stop_receiving_missed, 
             channel.no_reads_left.finished_number, channel.no_reads_left.time_spent
         ) for channel in channel_stats], columns=[
+            'channel',
             'short_gaps_finished_number', 'short_gaps_time_spent', 'long_gaps_finished_number', 'long_gaps_time_spent', 'unblock_delays_finished_number', 'unblock_delays_time_spent', 
             'mux_scans_finished_number', 'mux_scans_time_spent', 'channel_broken_finished_number', 'channel_broken_time_spent', 
             'reads_finished_number', 'reads_time_spent', 'reads_number_bps_requested', 'reads_number_bps_read', 'reads_number_bps_rejected', 
@@ -389,7 +391,7 @@ def channel_stats_to_df(channel_stats: List[ChannelStats]):
     return df
 
 def plot_read_stats_per_channel(df, save_dir=None):
-    """Plot stats about reads per channel"""
+    """Plot stats about reads per channel, df coming from channel_stats_to_df"""
     df_reads = df[[col for col in df.columns if col.startswith("reads_")]].copy()
     df_reads["reads_number_bps_notrequested"] = df_reads["reads_number_bps_read"] - df_reads["reads_number_bps_requested"] # silently read, but never requested by ReadUntil
 

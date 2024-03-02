@@ -1,0 +1,28 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "rsync to mpi",
+			"command": [
+				// "rsync -avzh --exclude /ont_project/runs --exclude /ont_project/usecase_data.tar.gz --exclude /ont_project/.tox/ --exclude /ont_project/.git/ --exclude /ont_project/external/ont_nanosim --progress --delete ~/ont_project_all/ont_project mpi:/home/mmordig/ont_project_all &&",
+				// also syncing nanosim
+				"rsync -avzh --exclude /ont_project/runs --exclude /ont_project/usecase_data.tar.gz --exclude /ont_project/.tox/ --exclude /ont_project/.git/ --progress --delete ~/ont_project_all/ont_project mpi:/home/mmordig/ont_project_all &&",
+				
+				// sync to biomed
+				// "rsync -avzh --exclude /ont_project/runs --exclude /ont_project/usecase_data.tar.gz --exclude /ont_project/.tox/ --exclude /ont_project/.git/ --exclude /ont_project/external/ont_nanosim --progress --delete ~/ont_project_all/ont_project biomed:/cluster/home/mmordig/ont_project_all &&",
+				// // sync figures back from biomed
+				// "rsync -avzh --progress --include='*/' --include '**/figures/*.png' --include '**/configs/*' --include '**/pickled_figures/*.dill' --exclude '*' --delete biomed:/cluster/work/grlab/projects/mmordig/selseq_runs/ ~/ont_project_all/figures_biomed_cluster &&",
+
+				"echo Current time: $(date)"
+			],
+			"problemMatcher": [],
+			// in keybindings.json
+			// {
+			// 	"key": "cmd+m cmd+p",
+			// 	"command": "workbench.action.tasks.runTask",
+			// 	"args": "rsync to mpi"
+			// }
+		}
+	]
+}

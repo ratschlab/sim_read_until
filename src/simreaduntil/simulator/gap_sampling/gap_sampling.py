@@ -107,6 +107,8 @@ class RandomGapSampler(GapSampler):
     Gap sampler with random gap lengths, for testing mostly
     
     Channel breaks with some probability
+    
+    Called random_gaps in the paper
     """
     def __init__(self, prob_long_gap=0.5) -> None:
         super().__init__()

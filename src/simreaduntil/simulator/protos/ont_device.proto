@@ -15,7 +15,7 @@ service ONTDevice {
     rpc GetMKRunDir(EmptyRequest) returns (MKRunDirResponse) {}
     
     // request actions to perform on channels
-    rpc PerformActions(ReadActionsRequest) returns (ActionResultImmediateResponse) {}
+    rpc PerformActions(ReadActionsRequest) returns (EmptyResponse) {}
     // get new chunks
     rpc GetBasecalledChunks(BasecalledChunksRequest) returns (stream BasecalledReadChunkResponse) {}
     // get action results (only those that were not yet received)
@@ -25,7 +25,7 @@ service ONTDevice {
     rpc StartSim(StartRequest) returns (BoolResponse) {}
     // stop simulation, returns whether it succeeded (i.e. if simulation was running)
     rpc StopSim(EmptyRequest) returns (BoolResponse) {}
-    rpc RunMuxScan(RunMuxScanRequest) returns (MuxScanStartedInfo) {}
+    rpc RunMuxScan(RunMuxScanRequest) returns (RunMuxScanResponse) {}
 
     // whether simulation is running
     rpc IsRunning(EmptyRequest) returns (BoolResponse) {}
@@ -69,10 +69,6 @@ message ReadActionsRequest {
     repeated Action actions = 1;
 }
 
-message ActionResultImmediateResponse {
-    repeated bool succeeded = 1;
-}
-
 message ActionResultsRequest {
     bool clear = 1; // whether to clear the action results after getting them
 }
@@ -100,7 +96,7 @@ message RunMuxScanRequest {
     double t_duration = 1;
 }
 
-message MuxScanStartedInfo {
+message RunMuxScanResponse {
     uint32 nb_reads_rejected = 1;
 }
 

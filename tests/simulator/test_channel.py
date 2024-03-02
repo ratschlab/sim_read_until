@@ -21,7 +21,7 @@ gen_from_list = pytest.helpers.gen_from_list
 def sim_params() -> SimParams:
     return SimParams(
         gap_samplers={"channel1": ConstantGapsUntilBlocked(short_gap_length=0.4, long_gap_length=10.1, prob_long_gap=0, time_until_blocked=np.inf, read_delay=0)},
-        bp_per_second=10, chunk_size=4, default_unblock_duration=1.4, seed=0,
+        bp_per_second=10, min_chunk_size=4, default_unblock_duration=1.4, seed=0,
     )
     
 @pytest.fixture()
@@ -88,15 +88,16 @@ def test_channel_stats(sim_params, channel_stats: ChannelStats):
     chan.start(t_start)
     
     chan.forward(t_start + 1.1 + eps)
+    # initial read gap of 0.4
     channel_stats.reads.start_and_add_time(0.7 + eps, nb_new_bps=7)
     assert chan.stats == channel_stats
     
-    chan.get_new_chunks()
-    channel_stats.reads.number_bps_requested = 4
+    chan.get_new_samples()
+    channel_stats.reads.number_bps_requested = 7
     assert chan.stats == channel_stats
     
     chan.stop_receiving()
-    chan.get_new_chunks() # no chunks
+    chan.get_new_samples() # no chunks
     channel_stats.reads.cur_number_stop_receiving = 1
     assert chan.stats == channel_stats
     
@@ -104,10 +105,16 @@ def test_channel_stats(sim_params, channel_stats: ChannelStats):
     channel_stats.reads.cur_number_stop_receiving = 1
     assert chan.stats == channel_stats
     
-    chan.forward(t_start + 1.7 + eps)
-    channel_stats.reads.add_time(0.6, nb_new_bps=6)
+    chan.forward(t_start + 1.3 + eps)
+    chan.get_new_samples() # no chunks since less than min chunk size
+    channel_stats.reads.add_time(0.2, nb_new_bps=2)
     assert chan.stats == channel_stats
     
+    chan.forward(t_start + 1.7 + eps)
+    channel_stats.reads.add_time(0.4, nb_new_bps=4)
+    assert chan.stats == channel_stats
+    
+    # read ends and gap starts
     chan.forward(t_start + 1.9 + eps)
     channel_stats.reads.add_time_and_finish(0.1, nb_new_bps=1, stopped_receiving=True)
     channel_stats.short_gaps.start_and_add_time(0.1)
@@ -176,13 +183,13 @@ def test_stopreceiving_then_unblock(sim_params, channel_stats: ChannelStats):
     
     chan.start(t_start)
     chan.forward(t_start + 1.0 + eps)
-    chan.get_new_chunks()
+    chan.get_new_samples()
     assert chan.stop_receiving() == StoppedReceivingResponse.STOPPED_RECEIVING
     assert chan.stop_receiving() == StoppedReceivingResponse.ALREADY_STOPPED_RECEIVING
     
     channel_stats.reads.start_and_add_time(0.6 + eps, nb_new_bps=6)
     channel_stats.reads.cur_number_stop_receiving += 1
-    channel_stats.reads.number_bps_requested += 4
+    channel_stats.reads.number_bps_requested += 6
     assert chan.stats == channel_stats
     
     assert chan.unblock(0.3)
@@ -237,7 +244,7 @@ def test_channel_restart(sim_params, channel_stats: ChannelStats):
     assert channel_stats.n_channels_running == 0
     assert chan.stats == channel_stats
     
-def test_get_new_chunks(sim_params):
+def test_get_new_samples(sim_params):
     # reads of length 14, 10, 10, 10
     read_pool = ReadPoolFromIterable(gen_from_list((("read1", "AAAAGGGGCCCCTT"), ("read2", "TTTTAAAACC"), ("read3", "TTTTAAAACC"), ("read4", "TTTTAAAACC"))))
     reads_writer = ArrayReadsWriter()
@@ -247,13 +254,13 @@ def test_get_new_chunks(sim_params):
     chan.start(-0.4)
     chan.forward(0.3 + eps)
     assert [x[:2] for x in reads_writer.reads] == []
-    assert chan.get_new_chunks()[:2] == ("", "read1")
+    assert chan.get_new_samples()[:2] == ("", "read1")
     chan.forward(0.4 + eps)
-    assert chan.get_new_chunks()[:2] == ("AAAA", "read1")
-    assert chan.get_new_chunks()[:2] == ("", "read1") # already returned chunks
+    assert chan.get_new_samples()[:2] == ("AAAA", "read1")
+    assert chan.get_new_samples()[:2] == ("", "read1") # already returned chunks
     assert [x[:2] for x in reads_writer.reads] == []
     chan.forward(1.3 + eps)
-    assert chan.get_new_chunks()[:2] == ("GGGGCCCC", "read1")
+    assert chan.get_new_samples()[:2] == ("GGGGCCCCT", "read1")
     assert [x[:2] for x in reads_writer.reads] == []
     chan.forward(1.4 + eps)
     assert [x[:2] for x in reads_writer.reads] == [("read1", "AAAAGGGGCCCCTT")]
@@ -262,13 +269,14 @@ def test_get_new_chunks(sim_params):
     chan.forward(0.4 + 2.4 + eps) # 14+10
     assert [x[:2] for x in reads_writer.reads] == [("read1", "AAAAGGGGCCCCTT"), ('read2', 'TTTTAAAACC')]
 
-    assert chan.get_new_chunks()[:2] == ("", None)
+    assert chan.get_new_samples()[:2] == ("", None)
     chan.forward(2*0.4 + 3.1 + eps) # 14+10+7
-    assert chan.get_new_chunks()[:2] == ("TTTT", "read3")
+    assert chan.get_new_samples()[:2] == ("TTTTAAA", "read3")
     
     chan.stop()
-    chan.get_new_chunks() # no exception
+    chan.get_new_samples() # no exception
     
+    # todo: remove
     # ax = plot_channels([chan], time_interval=[0.9, 6.2], figsize=(6, 2))
     # ax.figure.show()
 
@@ -279,16 +287,18 @@ def test_read_stop_receiving(sim_params):
     
     chan.start(2-0.4)
     chan.forward(2.6 + eps)
-    assert chan.get_new_chunks()[:2] == ("AAAA", "read1")
+    assert chan.get_new_samples()[:2] == ("AAAAGG", "read1")
     assert chan.stop_receiving() == StoppedReceivingResponse.STOPPED_RECEIVING
     assert chan.stop_receiving() == StoppedReceivingResponse.ALREADY_STOPPED_RECEIVING
-    assert chan.get_new_chunks()[:2] == ("", "read1")
+    assert chan.get_new_samples()[:2] == ("", "read1")
+    chan.forward(2.9 + eps)
+    assert chan.get_new_samples()[:2] == ("", "read1")
     
     assert chan.stop_receiving(read_id="inexistent") == StoppedReceivingResponse.MISSED
     
     chan.forward(3.5 + eps)
     assert chan.stop_receiving() == StoppedReceivingResponse.MISSED
-    assert chan.get_new_chunks()[:2] == ("", None), "in a gap"
+    assert chan.get_new_samples()[:2] == ("", None), "in a gap"
 
 def test_mux_scan(sim_params, channel_stats):
     read_pool = ReadPoolFromIterable(gen_from_list((("read1", "AAAAGGGGCCCCTT"), ("read2", "TTTTAAAACC"))))
@@ -338,7 +348,7 @@ def test_poreblockage_continues_after_mux_scan():
     
     sim_params = SimParams(
         gap_samplers={"channel1": ConstantGapsUntilBlocked(short_gap_length=0.4, long_gap_length=10.4, prob_long_gap=0.9, time_until_blocked=np.inf, read_delay=0)},
-        bp_per_second=10, chunk_size=4, default_unblock_duration=1.4, seed=0,
+        bp_per_second=10, min_chunk_size=4, default_unblock_duration=1.4, seed=0,
     )
     read_pool = ReadPoolFromIterable(gen_from_list((("read1", "AAAAGGGGCCCCTT"), ("read2", "TTTTAAAACC"))))
     reads_writer = ArrayReadsWriter()
@@ -386,7 +396,7 @@ def test_plotting(sim_params):
                 # print(chan.cur_elem)
                 pass
             else:
-                chunks = chan.get_new_chunks()[0]
+                chunks = chan.get_new_samples()[0]
                 # if len(chunks) > 0:
                 #     print(f"{delta_t}: {chunks}")
         channels.append(chan)
@@ -408,7 +418,7 @@ def test_channel_normal_operation(sim_params):
     chan.start(t_start)
     for t in (t_start + 1e-8 + np.arange(0, 3, 0.05)):
         chan.forward(t)
-        chunks = chan.get_new_chunks()[0]
+        chunks = chan.get_new_samples()[0]
         if len(chunks) > 0:
             print(f"{t}: {chunks}")#, end=", ")
 
@@ -451,7 +461,7 @@ def perform_random_channel_ops(chan: Channel, random_state: np.random.Generator,
             chan.forward(t_duration + 0.01, delta=True)
         
         if random_state.uniform() < 0.2:
-            chan.get_new_chunks()
+            chan.get_new_samples()
     
     # finish simulation
     nb_actions["sim_stopped_unblock"] += int(isinstance(chan.cur_elem, ChunkedRead))
@@ -495,7 +505,7 @@ def test_random_operations(sim_params, channel_write_zero_length_reads):
     # make all elements roughly the same length, reads have length 8-17 -> take about 1.2s
     sim_params = SimParams(
         gap_samplers={"channel1": ConstantGapsUntilBlocked(short_gap_length=1.2, long_gap_length=1.2, prob_long_gap=0.15, time_until_blocked=np.inf, read_delay=0)},
-        bp_per_second=10, chunk_size=4, default_unblock_duration=1.2, seed=0,
+        bp_per_second=10, min_chunk_size=4, default_unblock_duration=1.2, seed=0,
     )
     
     plotted_once = False

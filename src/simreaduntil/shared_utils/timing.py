@@ -62,7 +62,7 @@ class StepAndTotalElapsedTimer:
 _time_offset = time.time_ns() - time.perf_counter_ns() # time when this module is loaded, minus offset
 def cur_ns_time():
     """
-    Get monotonic current time with nanosecond precision
+    Get monotonic current time with nanosecond precision, in seconds, includes time during sleep
     
     Notes:
     time.time_ns() is not monotonic, so when waking up the machine again, the time might decrease by 1 second or so, so it is not monotonic

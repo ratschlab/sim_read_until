@@ -1,0 +1,29 @@
+run_dir = "simulator_run" # where reads, logs, pafs etc. will be written to
+n_channels = 512
+acceleration_factor = 10
+run_duration = 20000
+
+#################################################
+# Optional arguments
+#################################################
+
+# reads_file = "nanosim_reads/perfect_reads_seed1_aligned_reads.fasta"
+ref_genome_path = "data/chm13v2.0_normalized.fa.gz"
+sim_params_file = "sim_params.dill"
+rotating_writeout = true
+# mux_scan_period = 5400 # 90 minutes
+# mux_scan_duration = 100 # seconds
+
+# readfish params
+readfish_config_file = "configs/readfish_enrich_chr2021.toml"
+# readfish_method = "unblock_all"
+readfish_method = "targeted_seq"
+# readfish_method = "control"
+
+#################################################
+# Parameter extraction arguments
+#################################################
+seqsum_param_extr_file = "data/20190809_zymo_seqsum.txt"
+n_channels_full = 512
+# gap_sampler_type = "sampler_per_window"
+gap_sampler_type = "sampler_per_rolling_window_channel"

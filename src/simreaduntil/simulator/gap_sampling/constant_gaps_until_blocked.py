@@ -18,6 +18,9 @@ from typing import Tuple
 class ConstantGapsUntilBlocked(GapSampler):
     """
     Chooses short and long gaps of constant length, where a long gap is chosen with some probability, until the channel is blocked.
+    
+    Called constant_gaps in the paper
+    
     Args:
         short_gap_length: length of short gaps
         long_gap_length: length of long gaps

@@ -32,9 +32,9 @@ def in_interval(x, interval):
 
 # pylint: disable=invalid-name
 _counter = _count()
-def new_thread_name(template_str="ont-sim-{}"):
+def new_thread_name(template_str="thread-{}"):
     """
-    Helper to generate new thread names
+    Helper to generate new thread names, thread name is unlikely to exist because we use a counter
     
     Args:
         template_str: string with one placeholder for the counter
@@ -53,3 +53,11 @@ def set_package_log_level(log_level=logging.INFO):
     with temp_logging_level(logging.getLogger("ru"), log_level):
         with temp_logging_level(logging.getLogger("simreaduntil"), log_level):
             yield
+
+            # sys.stdout = Tee(old_stdout, out_file)
+            # sys.stderr = Tee(old_stderr, err_file)
+            # yield
+            # sys.stdout = old_stdout
+            # sys.stderr = old_stderr
+            
+    

@@ -17,7 +17,6 @@ perform_random_sim_ops = pytest.helpers.perform_random_sim_ops
             
 def test_grpc_client(channel_write_zero_length_reads):
     reads_writer = ArrayReadsWriter()
-    reads_writer.output_dir = "dummy_dir" # patch attribute
     
     sim_params = SimParams(
         gap_samplers={f"channel_{i}": ConstantGapsUntilBlocked(short_gap_length=0.4, long_gap_length=10.1, prob_long_gap=0, time_until_blocked=np.inf, read_delay=0) for i in range(2)},
@@ -26,6 +25,7 @@ def test_grpc_client(channel_write_zero_length_reads):
         read_pool=ReadPoolFromIterable(random_reads_gen(random_state=np.random.default_rng(3), length_range=(10, 50))), 
         reads_writer=reads_writer,
         sim_params=sim_params,
+        output_dir="<unavailable>",
     )
     
     port, server, unique_id = launchable_device_grpc_server(simulator)
@@ -40,7 +40,7 @@ def test_grpc_client(channel_write_zero_length_reads):
             
             assert client.unique_id == unique_id, f"mismatching unique_ids, probably connected to an existing server: {client.unique_id} != {unique_id}"
             
-            assert str(client.mk_run_dir) == "dummy_dir"
+            assert str(client.mk_run_dir) == "<unavailable>"
             assert not client.is_running
             
             assert client.start(acceleration_factor=acceleration_factor)

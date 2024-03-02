@@ -48,7 +48,7 @@ def test_step_and_total_elapsed_timer():
     assert in_interval(time_since_last_call, (0.4, 0.42))
     assert in_interval(time_since_last_reset, (0.4, 0.42))
     
-def test_cur_time_ns():
+def test_cur_ns_time():
     # less than 1 microsecond deviation
     # print(cur_ns_time())
     time_difference = time.time_ns()/1_000_000_000 - cur_ns_time()

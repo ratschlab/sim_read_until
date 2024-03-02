@@ -1,7 +1,12 @@
+import signal
+import sys
+import threading
+import time
 from matplotlib import pyplot as plt
 import pytest
 
 from simreaduntil.shared_utils.plotting import make_tight_layout
+from simreaduntil.shared_utils.utils import set_signal_handler, tee_stdouterr_to_file
 from simreaduntil.simulator.utils import format_percentage, in_interval, new_thread_name
 
 

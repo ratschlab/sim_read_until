@@ -16,6 +16,6 @@ targets = ["chr20", "chr21"]
 single_on = "stop_receiving"
 multi_on = "stop_receiving"
 single_off = "unblock"
-multi_off = "unblock"
+multi_off = "proceed"
 no_seq = "proceed" # unclear what it is, does not seem to be used
 no_map = "proceed" # if no_map happens after mux_chunks were received, the read is rejected

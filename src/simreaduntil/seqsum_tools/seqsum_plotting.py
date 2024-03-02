@@ -139,7 +139,7 @@ def seqsum_add_cols_for_plotting_selseq_performance(seqsum_df, group_column=None
         seqsum_df["end_reason"] = "unknown"
     seqsum_df["end_reason"] = seqsum_df["end_reason"].astype("category")
         
-    seqsum_df["is_user_rejection"] = seqsum_df["end_reason"] == "data_service_unblock_mux_change" # user rejections only, rejections due to mux scan may also happen
+    seqsum_df["is_user_rejection"] = seqsum_df["end_reason"] == "data_service_unblock_mux_change" # user rejections only, rejections due to mux scan or simulation end may also happen
     seqsum_df["is_full_read"] = seqsum_df["end_reason"] == "signal_positive" # number of full reads
     seqsum_df["end_time"] = seqsum_df["start_time"] + seqsum_df["duration"]
     
@@ -167,7 +167,9 @@ def seqsum_add_cols_for_plotting_selseq_performance(seqsum_df, group_column=None
         seqsum_df[f"cum_nb_never_requested_per_{group_column}"] = seqsum_df.groupby(group_column, observed=True)["never_requested"].cumsum()
 
     if "nb_ref_bps_full" in seqsum_df.columns:
-        assert all(~seqsum_df["is_user_rejection"] | seqsum_df["nb_rejectedbps"] > 0) # user rejected => nb_rejectedbps > 0
+        pass
+        # not always true when using real data, e.g. if read was already over when rejected but still logging as rejected
+        # assert all(~seqsum_df["is_user_rejection"] | seqsum_df["nb_rejectedbps"] > 0) # user rejected => nb_rejectedbps > 0
     
     return seqsum_df
 
@@ -446,7 +448,7 @@ def plot_number_channels_per_group_over_time(seqsum_df, timepoints=None, group_c
         
     return fig
 
-def plot_channel_occupation_fraction_over_time(seqsum_df, timepoints=None, mux_scan_interval=None, save_dir=None):
+def plot_channel_occupation_over_time(seqsum_df, timepoints=None, mux_scan_interval=None, save_dir=None):
     """
     Plot channel occupation (active percentage) over time
     
@@ -498,7 +500,7 @@ def plot_channel_occupation_fraction_over_time(seqsum_df, timepoints=None, mux_s
     make_tight_layout(fig)
     
     if save_dir is not None:
-        save_fig_and_pickle(fig, save_dir / f"channel_occupation_fraction_over_time.{FIGURE_EXT}")
+        save_fig_and_pickle(fig, save_dir / f"channel_occupation_over_time.{FIGURE_EXT}")
     
     return ax
 
@@ -787,6 +789,29 @@ def plot_read_end_reason_hist(seqsum_df, save_dir=None):
     
     return ax
 
+def plot_read_length_by_end_reason(seqsum_df, save_dir=None, end_reasons=None):
+    """
+    Plot histogram of read length for different end reasons (fully read, stop_receiving, rejected, never_requested)
+    """
+    fig, ax = plt.subplots()
+    if end_reasons is None:
+        df = seqsum_df
+    else:
+        df = seqsum_df[seqsum_df["end_reason"].isin(end_reasons)]
+        df["end_reason"] = df["end_reason"].cat.remove_unused_categories() # raises a SettingWithCopyWarning warning, not really clear why
+    if len(df) > 0:
+        # seaborn: error when no data
+        sns.histplot(df, x="sequence_length_template", hue="end_reason", multiple="dodge", ax=ax)
+    make_tight_layout(fig)
+    
+    if save_dir is not None:
+        base_filename = "read_length_by_end_reason"
+        if end_reasons is not None:
+            base_filename += "_" + "_".join(end_reasons)
+        save_fig_and_pickle(fig, save_dir / f"{base_filename}.{FIGURE_EXT}")
+        
+    return ax
+
 def plot_processed_seqsum(seqsum_df, save_dir: Optional[Path]=None, group_column=None, close_figures: Optional[bool]=None):
     """
     Plot a bunch of stuff from the processed seqsum_df, subsampling when sensible
@@ -806,7 +831,7 @@ def plot_processed_seqsum(seqsum_df, save_dir: Optional[Path]=None, group_column
     def close_fig(fig):
         if close_figures:
             plt.close(fig)
-           
+                   
     # # compute instantaneous rates
     # # take difference (x[i+step] - x[i-step]) while keeping array size the same by extending the array on both sides by the step
     # take_diff = lambda x, step=3: np.concatenate((x[step:] - x[:-step], [np.NaN]*step))
@@ -846,14 +871,18 @@ def plot_processed_seqsum(seqsum_df, save_dir: Optional[Path]=None, group_column
     
     # require full seqsum_df
     fig = plot_number_channels_per_group_over_time(seqsum_df, save_dir=save_dir, group_column=group_column); logger.debug("Created 1 plot"); close_fig(fig)
-    ax = plot_channel_occupation_fraction_over_time(seqsum_df, save_dir=save_dir); logger.debug("Created 1 plot"); close_fig(ax.figure)
+    ax = plot_channel_occupation_over_time(seqsum_df, save_dir=save_dir); logger.debug("Created 1 plot"); close_fig(ax.figure)
     ax = plot_channels_over_time(seqsum_df, save_dir=save_dir); logger.debug("Created 1 plot"); close_fig(ax.figure)
     if "mux" in seqsum_df.columns and (seqsum_df["mux"].nunique() > 1):
         ax = plot_mux_over_time(seqsum_df, save_dir=save_dir); logger.debug("Created 1 plot"); close_fig(ax.figure)
     fig, _ = plot_read_stats_by_channel_hists(seqsum_df, save_dir=save_dir); logger.debug("Created 1 plot"); close_fig(fig)
     ax = plot_fraction_states_per_channel(seqsum_df, save_dir=save_dir); logger.debug("Created 1 plot"); close_fig(ax.figure)
     ax = plot_read_end_reason_hist(seqsum_df, save_dir=save_dir); logger.debug("Created 1 plot"); close_fig(ax.figure)
-
+    
+    # ax = plot_read_length_by_end_reason(seqsum_df, save_dir=save_dir); logger.debug("Created 1 plot"); close_fig(ax.figure)
+    ax = plot_read_length_by_end_reason(seqsum_df, save_dir=save_dir, end_reasons=["signal_positive"]); logger.debug("Created 1 plot"); close_fig(ax.figure)
+    ax = plot_read_length_by_end_reason(seqsum_df, save_dir=save_dir, end_reasons=["data_service_unblock_mux_change"]); logger.debug("Created 1 plot"); close_fig(ax.figure)
+    
 def plot_coverage_per_group(cov_df, cov_thresholds=[1, 2, 3, 4, 5, 6], save_dir: Optional[Path]=None, group_column="group", close_figures=None):
     """Plot fraction covered per group for each coverage, then per coverage for each group"""
     if close_figures is None:
@@ -888,43 +917,24 @@ def plot_coverage_per_group(cov_df, cov_thresholds=[1, 2, 3, 4, 5, 6], save_dir:
             save_fig_and_pickle(fig, save_dir / f"fraction_covered_{group}.{FIGURE_EXT}")
         logger.debug("Created 1 plot"); close_fig(ax.figure)
             
-def create_plots_for_seqsum(seqsum_df, nrows=None, group_to_units: Dict[str, List[Any]]=None, group_column=None, 
-                            ref_genome_path=None, paf_file=None, cov_thresholds=[1, 2, 3, 4, 5, 6], cov_every=1, 
-                            save_dir=None, close_figures=None):
-    """
-    Create plots for a sequencing summary file
-    
-    Args:
-        seqsum_df: path to sequencing summary file, or dataframe
-        nrows: only read the first nrows reads
-        group_to_units: dictionary {group_name: units} where units form a subset of the unique values in group_column; if None, groups have size 1
-        group_column: column in sequencing summary file to group by; if "all", use one group called "all"; if None, use GROUP_COLUMN
-        
-        ref_genome_path: path to reference genome; if None, don't plot coverage
-        paf_file: path to PAF file to map reads to unit; if None, unit is the chromosome extracted from NanoSim read id
-        cov_thresholds: coverage thresholds to plot
-        cov_every: coverage is calculated every cov_every reads
-        
-        save_dir: directory to save plots to, if None, plots are not saved
-        close_figures: close figures after saving, if None, close figures if save_dir is not None
-        
-    Returns:
-        seqsum_df, cov_df
-    """
+# for doc, see create_plots_for_seqsum
+def preprocess_seqsum_df_for_plotting(seqsum_df, nrows=None, group_to_units=None, group_column=None, paf_file=None):
     group_column = group_column or GROUP_COLUMN
+    chrom_column = group_column # column to use for coverage or to compute groups
         
-    if save_dir is not None:
-        save_dir.mkdir(exist_ok=True)
-    
     if not isinstance(seqsum_df, pd.DataFrame):
         logger.debug(f"Reading {nrows if nrows is not None else 'all'} reads from sequencing summary file '{seqsum_df}'")
         seqsum_df_filename = seqsum_df
-        seqsum_df = pd.read_csv(seqsum_df_filename, sep="\t", nrows=nrows)
+        try:
+            seqsum_df = pd.read_csv(seqsum_df_filename, sep="\t", nrows=nrows)
+        except pd.errors.EmptyDataError:
+            logger.warning(f"Empty sequencing summary file '{seqsum_df}'")
+            seqsum_df = pd.DataFrame() # empty, will exit below
         logger.debug(f"Done reading sequencing summary file '{seqsum_df_filename}'")
     
     if len(seqsum_df) == 0:
-        logger.warning(f"Empty sequencing summary file '{seqsum_df}'")
-        return seqsum_df, None
+        logger.warning(f"Empty sequencing summary")
+        return seqsum_df, None, chrom_column
     
     logger.info(f"Sorting and cleaning seqsummary file of shape {seqsum_df.shape}")
     seqsum_df = sort_and_clean_seqsum_df(seqsum_df)
@@ -941,18 +951,17 @@ def create_plots_for_seqsum(seqsum_df, nrows=None, group_to_units: Dict[str, Lis
         logger.info(f"Adding group column from NanoSim read id")
         add_group_and_reflen_from_nanosim_id(seqsum_df, group_column=group_column)
     
-    chrom_column = group_column
     if group_to_units is not None:
         # create column to group by, e.g. several chromosomes in one group
-        units_in_group = set.union(*[set(units) for units in group_to_units.values()])
+        all_units = set.union(*[set(units) for units in group_to_units.values()])
         observed_units = set(seqsum_df[group_column].unique())
-        if not units_in_group.issubset(observed_units):
-            logger.warning(f"No reads were observed from the following groups: {units_in_group - observed_units}")
-        other_group = observed_units - units_in_group
+        if not all_units.issubset(observed_units):
+            logger.warning(f"No reads were observed from the following groups: {all_units - observed_units}")
+        other_group = observed_units - all_units
         if len(other_group) > 0:
             assert "other" not in group_to_units
             group_to_units["other"] = other_group
-        logger.info(f"Plotting according to groups {group_to_units}")
+        logger.info(f"Splitting according to groups {group_to_units}")
         
         group_column = "group"
         assert group_column not in seqsum_df.columns, f"New column '{group_column}' already in sequencing summary df with columns {seqsum_df.columns}"
@@ -961,6 +970,38 @@ def create_plots_for_seqsum(seqsum_df, nrows=None, group_to_units: Dict[str, Lis
         seqsum_df[group_column].fillna("other", inplace=True)
     logger.info("Adding extra columns for plotting")
     seqsum_df = seqsum_add_cols_for_plotting_selseq_performance(seqsum_df, group_column=group_column)
+    
+    return seqsum_df, group_column, chrom_column
+
+def create_plots_for_seqsum(seqsum_df, nrows=None, group_to_units: Dict[str, List[Any]]=None, group_column=None, 
+                            ref_genome_path=None, paf_file=None, cov_thresholds=[1, 2, 3, 4, 5, 6], cov_every=1, 
+                            save_dir=None, close_figures=None):
+    """
+    Create plots for a sequencing summary file
+    
+    Args:
+        seqsum_df: path to sequencing summary file, or dataframe
+        nrows: only read the first nrows reads
+        group_to_units: dictionary {group_name: units} where units form a subset of the unique values in group_column;
+            if None, groups have size 1; each read should belong to exactly one group
+        group_column: column in sequencing summary file to group by; if "all", use one group called "all"; if None, use GROUP_COLUMN
+        
+        ref_genome_path: path to reference genome; if None, don't plot coverage
+        paf_file: path to PAF file to map reads to unit; if None, unit is the chromosome extracted from NanoSim read id
+        cov_thresholds: coverage thresholds to plot
+        cov_every: coverage is calculated every cov_every reads
+        
+        save_dir: directory to save plots to, if None, plots are not saved
+        close_figures: close figures after saving, if None, close figures if save_dir is not None
+        
+    Returns:
+        seqsum_df, cov_df
+    """
+    
+    if save_dir is not None:
+        save_dir.mkdir(exist_ok=True)
+    
+    seqsum_df, group_column, chrom_column = preprocess_seqsum_df_for_plotting(seqsum_df, nrows=nrows, group_to_units=group_to_units, group_column=group_column, paf_file=paf_file)
     
     logger.debug("Creating plots for seqsum...")
     plot_processed_seqsum(seqsum_df, group_column=group_column, save_dir=save_dir, close_figures=close_figures)
@@ -996,7 +1037,7 @@ def main():
     """
     CLI entrypoint to create plots from a sequencing summary file
     """
-    add_comprehensive_stream_handler_to_logger(None, logging.DEBUG)
+    add_comprehensive_stream_handler_to_logger(logger, logging.DEBUG)
     
     if is_test_mode():
         args = argparse.Namespace()
@@ -1027,6 +1068,8 @@ def main():
     else:
         group_units = {"targets": args.targets.split(",")}
     create_plots_for_seqsum(seqsum_df=args.seqsummary_filename, nrows=args.nrows, group_to_units=group_units, ref_genome_path=args.ref_genome_path, paf_file=args.paf_file, cov_thresholds=cov_thresholds, cov_every=args.cov_every, save_dir=args.save_dir)
+    # # todo: enable above
+    # create_plots_for_seqsum(seqsum_df=args.seqsummary_filename, nrows=args.nrows, group_column="all", ref_genome_path=args.ref_genome_path, paf_file=args.paf_file, cov_thresholds=cov_thresholds, cov_every=args.cov_every, save_dir=args.save_dir)
     
     logger.debug("Done with plotting script")
     

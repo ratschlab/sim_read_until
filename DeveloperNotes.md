@@ -8,7 +8,13 @@ This is only applicable if you want to develop the package.
 
 After changing the package entrypoints, you have to reinstall the package with
 ```{bash}
+# test it with `python -c "import ru"`.
 pip uninstall -y simreaduntil; pip install -e './[test,readfish,dev]'
+
+# need to reinstall readfish to use our modified version
+# Hatch does not support installing dependencies like readfish in editable mode, so we install it manually with "-e".
+# ReadFish imports its own files with `ru.*`, so it assumes that the ReadFish directory is in the `PYTHONPATH`. 
+pip uninstall -y readfish; pip install -e ./external/ont_readfish
 ```
 This is also necessary when modifying the readfish dependency because it cannot easily be installed in editable mode with hatch: https://(github.com/pypa/hatch/issues/588).
 
@@ -37,11 +43,6 @@ python -m pytest --cov=. tests/simulator/gap_sampling/test_gap_sampling.py::test
 
 pydoctor "./src/simreaduntil"
 # can also put one file to just compile it
-
-# manually install ReadFish
-# ReadFish imports its own files with `ru.*`, so it assumes that the ReadFish directory is in the `PYTHONPATH`. 
-pip install -e ./external/ont_readfish
-# test it with `python -c "import ru"`.
 
 git submodule add <url> [<dir>]
 git config --add oh-my-zsh.hide-dirty 1 # otherwise cd into NanoSim directory is slow

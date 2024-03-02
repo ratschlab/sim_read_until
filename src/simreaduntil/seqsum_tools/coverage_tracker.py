@@ -189,7 +189,7 @@ class BasepairCoverageTracker:
             read_id: a NanoSim read id
         
         Returns:
-            Tuple (chrom, ref_start, ref_len) with respect to forward strand; None
+            Tuple (chrom, ref_start, ref_len) with respect to forward strand; None if could not be mapped
         """
         raise NotImplementedError()
     
@@ -255,6 +255,9 @@ class BasepairCoverageTracker:
         """
         if chroms is None:
             chroms = list(self.coverage_per_chrom.keys())
+        if len(chroms) == 0:
+            logger.warning("get_fraction_cov_atleast called with empty chroms, returning 1.0")
+            return 1.0
         return sum((self.coverage_per_chrom[chrom] >= threshold).sum(dtype=np.uint64) for chrom in chroms) / sum(len(self.coverage_per_chrom[chrom]) for chrom in chroms)
         
     def get_chrom_lens(self) -> Dict[str, int]:
@@ -503,6 +506,9 @@ class BlockwiseCoverageTracker:
         """
         if chroms is None:
             chroms = list(self.coverage_per_chrom.keys())
+        if len(chroms) == 0:
+            logger.warning("get_fraction_cov_atleast called with empty chroms, returning 1.0")
+            return 1.0
         # last block can be shorter, so we also have to weight it differently
         return sum(((self._avg_cov_per_block(chrom) >= threshold) * self._block_sizes(chrom)).sum(dtype=np.uint64) for chrom in chroms) / sum(self.chrom_lens[chrom] for chrom in chroms)
         
@@ -548,9 +554,13 @@ CovTrackerClass = BlockwiseCoverageTracker # todo2
 class NanoSimCoverageTracker(CovTrackerClass):
     """
     Track coverage by parsing the location from the NanoSim read ids
+    
+    NanoSim unaligned reads do not map.
     """
     def get_chrom_start_len(self, read_id):
         nanosim_id = NanoSimId.from_str(read_id)
+        if nanosim_id.read_type == "unaligned":
+            return None
         return (nanosim_id.chrom, nanosim_id.ref_pos, nanosim_id.ref_len)
     
 class PafCoverageTracker(CovTrackerClass):

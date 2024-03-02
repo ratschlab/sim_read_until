@@ -1,0 +1,21 @@
+[caller_settings]
+config_name = "ignored"
+host = "ignored"
+port = 9999
+
+[conditions]
+# reference = "data/chm13v2.0_normalized.mmi"
+reference = "fake_mapper"
+
+[conditions.0]
+name = "enrich_chr_9_14"
+control = false
+min_chunks = 0 # no decision made whenever <= min_chunks have been received from a read
+max_chunks = 12
+targets = ["chr9", "chr10", "chr11", "chr12", "chr13", "chr14"]
+single_on = "stop_receiving"
+multi_on = "stop_receiving"
+single_off = "unblock"
+multi_off = "proceed"
+no_seq = "proceed" # unclear what it is, does not seem to be used
+no_map = "proceed" # if no_map happens after mux_chunks were received, the read is rejected

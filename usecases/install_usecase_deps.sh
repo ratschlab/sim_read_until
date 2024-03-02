@@ -16,6 +16,9 @@ trap on_exit ERR
 
 tools_dir=~/ont_project_all/tools
 conda_or_mamba="conda" # very slow
+# if mamba is available, use mamba
+which mamba && conda_or_mamba="mamba"
+echo "Using $conda_or_mamba for conda environment creation"
 
 usage() {
     echo "Usage: $0 [-h] [-e <env>] [-t <tools_dir>]"
@@ -49,10 +52,6 @@ echo "The current base directory to install minimap to is: $tools_dir"
 #     tools_dir=${new_value}
 #     echo "Updated path to: $tools_dir"
 # fi
-
-# if mamba is available, use mamba
-which mamba && conda_or_mamba="mamba"
-echo "Using $conda_or_mamba for conda environment creation"
 
 # check we are in the right directory by checking for a directory "external"
 [ -d "external" ] || (echo "Error: not in the right directory. Run this script from the ont_project root directory containing the external directory"; exit 1)
@@ -94,6 +93,7 @@ echo "Installed minimap2 to location: $(which minimap2)"
 echo "Make sure to add this to your PATH variable, e.g."
 echo "export \"PATH=$tools_dir/bin:\$PATH\""
 
+# exit 0
 
 ####################################################
 # install NanoSim conda env

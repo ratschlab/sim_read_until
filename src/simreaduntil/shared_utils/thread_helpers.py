@@ -54,6 +54,8 @@ def create_thread_safe_maker():
         return inner_wrapper
     return wrapper
 
+# todo: remove
+
 class MakeThreadSafe:
     """
     Inheriting from this class makes instance method and instance attribute access thread-safe.

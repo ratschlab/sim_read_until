@@ -2,6 +2,7 @@
 Combines SimReadUntil with ReadFish
 
 This script shows how to combine the SimReadUntil with ReadFish.
+It creates the output in the current directory.
 
 It first learns a gap sampler from an existing run and saves it.
 Then, it runs the simulator in combination with ReadFish. on perfect reads generated from a reference genome, or from a reads file (if the config is adapted, e.g. NanoSim reads).
@@ -41,67 +42,33 @@ from pathlib import Path
 import sys
 import warnings
 import numpy as np
+import pandas as pd
 import toml
 
 from simreaduntil.shared_utils.debugging_helpers import is_test_mode
-from simreaduntil.shared_utils.logging_utils import add_comprehensive_stream_handler_to_logger, print_logging_levels, setup_logger_simple
+from simreaduntil.shared_utils.logging_utils import add_comprehensive_stream_handler_to_logger, logging_output_formatter, print_logging_levels, setup_logger_simple
 from simreaduntil.shared_utils.plotting import filter_seaborn_warnings
-from simreaduntil.shared_utils.tee_stdouterr import TeeStdouterr
-from simreaduntil.shared_utils.utils import delete_dir_if_exists, dill_dump, dill_load, print_cmd_and_run
+# from simreaduntil.shared_utils.tee_stdouterr import TeeStdouterr
+from simreaduntil.shared_utils.utils import delete_dir_if_exists, dill_dump, dill_load, print_cmd_and_run, tee_stdouterr_to_file
 from simreaduntil.simulator.utils import set_package_log_level
 from simreaduntil.usecase_helpers import simulator_with_readfish
-from simreaduntil.usecase_helpers.utils import create_simparams_if_inexistent, get_gap_sampler_method, plot_condor_log_file_metrics
+from simreaduntil.usecase_helpers.utils import create_simparams_if_inexistent, get_gap_sampler_method, plot_log_file_metrics
 from simreaduntil.usecase_helpers.utils import create_figures
 
 logger = setup_logger_simple(__name__)
 
 add_comprehensive_stream_handler_to_logger(None)
 set_package_log_level(logging.INFO).__enter__()
-print_logging_levels()
 logging.getLogger(__name__).setLevel(logging.DEBUG)
 # logging.getLogger().setLevel(logging.DEBUG) # warnings from everywhere, not desired
+file_handler = logging.FileHandler("log.txt", mode="a") # append in case we are just running the plotting part of the script
+logging_output_formatter(file_handler)
+logging.getLogger(None).addHandler(file_handler)
+print_logging_levels()
 
 # import warnings
 # warnings.filterwarnings("error")
 filter_seaborn_warnings()
-
-################################
-## PARAMS
-################################
-
-if is_test_mode():
-    # todo
-    # import os; os.chdir(Path("~/ont_project_all/ont_project/runs/enrich_usecase/dummy_replication").expanduser())
-    # import os; os.chdir(Path("~/ont_project_all/ont_project/runs/enrich_usecase/full_run_sampler_per_window/").expanduser())
-    # import os; os.chdir(Path("~/ont_project_all/ont_project/runs/enrich_usecase/full_genome_run_sampler_per_window").expanduser())
-    # import os; os.chdir(Path("~/ont_project_all/ont_project/runs/enrich_usecase/chr202122_run").expanduser())
-    import os; os.chdir(Path("~/ont_project_all/ont_project/runs/enrich_usecase/full_genome_run_sampler_per_window").expanduser())
-    # import os; os.chdir(Path("/Volumes/mmordig/ont_project/runs/enrich_usecase/full_genome_run_sampler_per_window").expanduser()) # not found due to samba bug not syncing config folder
-sim_config_file = Path("configs/config.toml")
-# ask_dir_deletion = True
-ask_dir_deletion = False
-
-################################
-## SCRIPT
-################################
-
-sim_config = toml.load(sim_config_file)
-run_dir = Path(sim_config["run_dir"])
-# TeeStdouterr(run_dir / "stdouterr.txt").redirect()
-logger.debug(f"Read in simulation config file '{sim_config_file}'")
-
-ref_genome_path = sim_config.get("ref_genome_path", None)
-sim_params_filename = Path(sim_config["sim_params_file"]) if "sim_params_file" in sim_config else None
-seqsum_param_extr_file = Path(sim_config["seqsum_param_extr_file"]) if "seqsum_param_extr_file" in sim_config else None
-gap_sampler_type = sim_config.get("gap_sampler_type", None)
-gap_sampler_method = get_gap_sampler_method(gap_sampler_type, n_channels_full=sim_config["n_channels_full"])
-
-logger.info("#"*80)
-logger.info(f"Loaded config file '{sim_config_file}' with content:\n{sim_config_file.read_text()}")
-logger.info("#"*80)
-logger.info("#"*80)
-logger.info(f"""Loading ReadFish config file with content:\n{Path(sim_config["readfish_config_file"]).read_text()}""")
-logger.info("#"*80)
 
 def create_minimap_index_if_inexistent():
     if sim_config["readfish_method"] != "unblock_all":
@@ -135,6 +102,42 @@ def run_readfish_simulation():
     
     return seqsum_file
 
+################################
+## PARAMS
+################################
+
+if is_test_mode():
+    # todo
+    # import os; os.chdir(Path("~/ont_project_all/ont_project/runs/enrich_usecase/dummy_replication").expanduser())
+    # import os; os.chdir(Path("~/ont_project_all/ont_project/runs/enrich_usecase/full_run_sampler_per_window/").expanduser())
+    # import os; os.chdir(Path("~/ont_project_all/ont_project/runs/enrich_usecase/full_genome_run_sampler_per_window").expanduser())
+    # import os; os.chdir(Path("~/ont_project_all/ont_project/runs/enrich_usecase/chr202122_run").expanduser())
+    import os; os.chdir(Path("~/ont_project_all/ont_project/runs/enrich_usecase/full_genome_run_sampler_per_window").expanduser())
+    # import os; os.chdir(Path("/Volumes/mmordig/ont_project/runs/enrich_usecase/full_genome_run_sampler_per_window").expanduser()) # not found due to samba bug not syncing config folder
+sim_config_file = Path("configs/config.toml")
+# ask_dir_deletion = True
+ask_dir_deletion = False
+
+################################
+## SCRIPT
+################################
+
+sim_config = toml.load(sim_config_file)
+logger.debug(f"Read in simulation config file '{sim_config_file}'")
+run_dir = Path(sim_config["run_dir"])
+ref_genome_path = sim_config.get("ref_genome_path", None)
+sim_params_filename = Path(sim_config["sim_params_file"]) if "sim_params_file" in sim_config else None
+seqsum_param_extr_file = Path(sim_config["seqsum_param_extr_file"]) if "seqsum_param_extr_file" in sim_config else None
+gap_sampler_type = sim_config.get("gap_sampler_type", None)
+gap_sampler_method = get_gap_sampler_method(gap_sampler_type, n_channels_full=sim_config["n_channels_full"])
+
+logger.info("#"*80)
+logger.info(f"Loaded config file '{sim_config_file}' with content:\n{sim_config_file.read_text()}")
+logger.info("#"*80)
+logger.info("#"*80)
+logger.info(f"""Loading ReadFish config file with content:\n{Path(sim_config["readfish_config_file"]).read_text()}""")
+logger.info("#"*80)
+
 # comment out as needed
 create_minimap_index_if_inexistent() # comment this out if you want to use minimap2 to align to a reference
 if sim_params_filename is None:
@@ -149,11 +152,32 @@ figure_dir = run_dir / "figures"
 delete_dir_if_exists(figure_dir, ask=ask_dir_deletion)
 figure_dir.mkdir(exist_ok=True)
 
-plot_condor_log_file_metrics(figure_dir)
-create_figures(
-    seqsum_filename, run_dir=run_dir, figure_dir=figure_dir,
-    ref_genome_path=ref_genome_path, cov_thresholds=[1, 2, 3, 4],
-    group_to_units={"target": toml.load(sim_config["readfish_config_file"])["conditions"]["0"]["targets"]},
-)
+file_handler.flush() # logger writes to stderr
+plot_log_file_metrics(file_handler.baseFilename, save_dir=figure_dir)
+
+readfish_conditions = [v for v in toml.load(sim_config["readfish_config_file"])["conditions"].values() if isinstance(v, dict)]
+channel_assignments_toml = run_dir / "channels.toml"
+channel_assignments_per_cond = toml.load(channel_assignments_toml)
+channels_per_condition = {condition_dict["name"]: condition_dict["channels"] for condition_dict in channel_assignments_per_cond["conditions"].values()}
+
+logger.debug(f"Reading sequencing summary file '{seqsum_filename}'")
+full_seqsum_df = pd.read_csv(seqsum_filename, sep="\t")#, nrows=100) # todo
+logger.debug(f"Done reading sequencing summary file '{seqsum_filename}'")
+
+for condition in readfish_conditions:
+    condition_name = condition["name"]
+    subchannels = channels_per_condition[condition_name]
+    logger.info(f"Creating figures for condition '{condition_name}' with subchannels {subchannels}")
+    
+    partial_seqsum_df = full_seqsum_df[full_seqsum_df["channel"].isin([f"ch{i}" for i in subchannels])]
+    create_figures(
+        partial_seqsum_df, run_dir=run_dir, figure_dir=figure_dir / ("condition_" + condition_name),
+        ref_genome_path=ref_genome_path, cov_thresholds=[1, 2, 3, 4],
+        group_to_units={"target": condition["targets"]},
+    )
+    
+    logger.info(f"Done creating figures for condition '{condition_name}'")
+    
+    # break # todo
 
 logger.debug(f"Done with usecase script")

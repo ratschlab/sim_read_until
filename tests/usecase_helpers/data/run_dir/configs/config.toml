@@ -1,5 +1,5 @@
 run_dir = "simulator_run" # where reads, logs, pafs etc. will be written to
-n_channels = 200
+n_channels = 20
 # n_channels = 4
 acceleration_factor = 10
 run_duration = 100.0
@@ -9,9 +9,11 @@ run_duration = 100.0
 #################################################
 
 # reads_file = "nanosim_reads/perfect_reads_seed1_aligned_reads.fasta"
+# reads_file = "/home/mmordig/rawhash_project/rawhash2/test/data/d2_ecoli_r94/small_slow5_files"
+reads_len_range = [5_000, 10_000]
 ref_genome_path = "data/chm13v2.0_normalized1000000firsttwo.fa.gz"
 # sim_params_file = "sim_params.dill"
-rotating = true
+rotating_writeout = true
 mux_scan_period = 50 # seconds, accounting for acceleration
 mux_scan_duration = 10 # seconds
 

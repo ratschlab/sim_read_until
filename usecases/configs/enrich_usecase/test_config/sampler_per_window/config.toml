@@ -10,7 +10,7 @@ run_duration = 200
 # reads_file = "nanosim_reads/perfect_reads_seed1_aligned_reads.fasta"
 ref_genome_path = "data/chm13v2.0_normalized.fa.gz"
 sim_params_file = "sim_params.dill"
-rotating = true
+rotating_writeout = true
 # mux_scan_period = 5400 # 90 minutes
 # mux_scan_duration = 100 # seconds
 

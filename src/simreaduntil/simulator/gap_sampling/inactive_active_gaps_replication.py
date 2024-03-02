@@ -213,6 +213,8 @@ class SingleChannelInactiveActiveReplicator(GapSampler):
     Whenever an inactive period finishes, you must call mark_long_gap_end. This moves to the next (active) period.
     Within an active period, the short gaps are recycled from the observed short gaps within the active period.
     It ignores the time spent in mux scans.
+    
+    Called gap_replication in the paper
     """
     def __init__(self, inactive_active_periods_tracker: ChannelInactiveActivePeriodsTracker, read_delay) -> None:
         super().__init__()

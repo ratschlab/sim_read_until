@@ -15,23 +15,61 @@
 
         {
             "name": "Python: Current File",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
-            "program": "${file}",
+            
+            // "program": "${file}",
+            
+            "program": "/home/mmordig/ont_project_all/ont_project/usecases/enrich_usecase.py",
+            "cwd": "/home/mmordig/ont_project_all/ont_project/runs/enrich_usecase/full_genome_run_sampler_per_window",
+
             "console": "integratedTerminal",
             // "justMyCode": true
             "justMyCode": false // to debug external library code
         },
         {
             "name": "Python: Attach to python process",
-            "type": "python",
+            "type": "debugpy",
             "request": "attach",
-            "processId": "${command:pickProcess}",
+            "processId": "${command:pickProcess}", // ctrl+Z, fg to get pid; requires "echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope" on Linux, see https://code.visualstudio.com/docs/python/debugging, may need to launch program from within vscode
+            // "logToFile": true, // in case it fails
             "justMyCode": false
-        }
+        },
         // {
         //     // "host": "compute-biomed-01",
         //     ""
         // }
+
+        {
+            "name": "Python: enrich usecase",
+            "type": "debugpy",
+            "request": "launch",
+            "python": "/home/mmordig/miniforge3/envs/nanosim/bin/python",
+            
+            // (cd /home/mmordig/ont_project_all/ont_project/runs/enrich_usecase/chr202122_run && python ~/ont_project_all/ont_project/usecases/enrich_usecase.py)
+            
+            "program": "/home/mmordig/ont_project_all/ont_project/usecases/enrich_usecase.py",
+            // "cwd": "/home/mmordig/ont_project_all/ont_project/runs/enrich_usecase/chr202122_run",
+            "cwd": "/home/mmordig/ont_project_all/ont_project/runs/enrich_usecase/readfish_exp/results_readfishexp_realreads",
+
+            "console": "integratedTerminal",
+            // "justMyCode": true
+            "justMyCode": false // to debug external library code
+        },
+        
+        {
+            "name": "Python: debug nanosim",
+            "type": "debugpy",
+            "request": "launch",
+            
+            "python": "/home/mmordig/miniforge3/envs/nanosim/bin/python",
+            "program": "external/ont_nanosim/src/simulator.py", 
+            "args": ["genome", "--model_prefix", "runs/nanosim_models/human_NA12878_DNA_FAB49712_guppy/training", "--ref_g", "runs/data/random_genome.fasta", "-dna_type", "linear", "-med", "15000", "-max", "20000", "-min", "400", "-sd", "6.9", "--output", "runs/data/nanosim_reads/human_genome_med15000/reads_seed3", "--number", "100000", "--seed", "3", "--strandness", "0.5", "--basecaller", "guppy", "--aligned_rate", "100%", "--num_threads", "1", "--no_flanking", "--no_error_profile"],
+            "cwd": "/home/mmordig/ont_project_all/ont_project/",
+
+            "console": "integratedTerminal",
+            // "justMyCode": true
+            "justMyCode": false // to debug external library code
+        },
     ]
 }

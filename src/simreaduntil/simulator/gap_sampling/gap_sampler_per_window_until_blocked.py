@@ -44,6 +44,8 @@ class GapSamplerPerWindowUntilBlocked(GapSampler):
     """
     Gap sampler that has separate sample distributions per time window and eventually blocks.
     
+    Called window_all_channels in the paper
+    
     Args:
         short_gaps_per_window: array of short gaps for each time window
         long_gaps_per_window: array of long gaps for each time window
@@ -101,7 +103,7 @@ class GapSamplerPerWindowUntilBlocked(GapSampler):
             read_delay: delay between read starting and first bp being read; if None, compute median read delay
             time_and_aggregation_windows: tuple of array of time windows (window_start, window_end) and array 
                 of data aggregation windows (window_start, window_end);
-                if None, use windows with 50% overlap, i.e. [t, t+4] window with data from [t-2, t+6]
+                if None, use 4h windows with 50% overlap, i.e. [t, t+4] window with data from [t-2, t+6]
         
         Returns:
             function to create a gap sampler, so it is flexible with respect to the number of channels

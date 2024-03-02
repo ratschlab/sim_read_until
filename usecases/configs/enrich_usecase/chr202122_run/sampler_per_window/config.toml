@@ -9,10 +9,11 @@ run_duration = 3600.0
 #################################################
 
 # reads_file = "nanosim_reads/perfect_reads_seed1_aligned_reads.fasta"
+reads_len_range = [12000, 16000]
 ref_genome_path = "data/chm13v2.0_normalized3chroms.fa.gz"
 sim_params_file = "sim_params.dill"
-rotating = true
-mux_scan_period = 240 # 90 minutes
+rotating_writeout = true
+mux_scan_period = 240 # seconds
 mux_scan_duration = 40 # seconds
 
 use_grpc = true

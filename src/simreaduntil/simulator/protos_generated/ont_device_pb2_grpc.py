@@ -29,7 +29,7 @@ class ONTDeviceStub(object):
         self.PerformActions = channel.unary_unary(
                 '/ontdevice.ONTDevice/PerformActions',
                 request_serializer=ont__device__pb2.ReadActionsRequest.SerializeToString,
-                response_deserializer=ont__device__pb2.ActionResultImmediateResponse.FromString,
+                response_deserializer=ont__device__pb2.EmptyResponse.FromString,
                 )
         self.GetBasecalledChunks = channel.unary_stream(
                 '/ontdevice.ONTDevice/GetBasecalledChunks',
@@ -54,7 +54,7 @@ class ONTDeviceStub(object):
         self.RunMuxScan = channel.unary_unary(
                 '/ontdevice.ONTDevice/RunMuxScan',
                 request_serializer=ont__device__pb2.RunMuxScanRequest.SerializeToString,
-                response_deserializer=ont__device__pb2.MuxScanStartedInfo.FromString,
+                response_deserializer=ont__device__pb2.RunMuxScanResponse.FromString,
                 )
         self.IsRunning = channel.unary_unary(
                 '/ontdevice.ONTDevice/IsRunning',
@@ -157,7 +157,7 @@ def add_ONTDeviceServicer_to_server(servicer, server):
             'PerformActions': grpc.unary_unary_rpc_method_handler(
                     servicer.PerformActions,
                     request_deserializer=ont__device__pb2.ReadActionsRequest.FromString,
-                    response_serializer=ont__device__pb2.ActionResultImmediateResponse.SerializeToString,
+                    response_serializer=ont__device__pb2.EmptyResponse.SerializeToString,
             ),
             'GetBasecalledChunks': grpc.unary_stream_rpc_method_handler(
                     servicer.GetBasecalledChunks,
@@ -182,7 +182,7 @@ def add_ONTDeviceServicer_to_server(servicer, server):
             'RunMuxScan': grpc.unary_unary_rpc_method_handler(
                     servicer.RunMuxScan,
                     request_deserializer=ont__device__pb2.RunMuxScanRequest.FromString,
-                    response_serializer=ont__device__pb2.MuxScanStartedInfo.SerializeToString,
+                    response_serializer=ont__device__pb2.RunMuxScanResponse.SerializeToString,
             ),
             'IsRunning': grpc.unary_unary_rpc_method_handler(
                     servicer.IsRunning,
@@ -253,7 +253,7 @@ class ONTDevice(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ontdevice.ONTDevice/PerformActions',
             ont__device__pb2.ReadActionsRequest.SerializeToString,
-            ont__device__pb2.ActionResultImmediateResponse.FromString,
+            ont__device__pb2.EmptyResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -338,7 +338,7 @@ class ONTDevice(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ontdevice.ONTDevice/RunMuxScan',
             ont__device__pb2.RunMuxScanRequest.SerializeToString,
-            ont__device__pb2.MuxScanStartedInfo.FromString,
+            ont__device__pb2.RunMuxScanResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

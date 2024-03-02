@@ -6,6 +6,7 @@ Write finished reads, e.g., to a file or list
 import logging
 import os
 from pathlib import Path
+import queue
 import shutil
 import sys
 import tempfile
@@ -13,6 +14,7 @@ from textwrap import indent
 import threading
 from Bio import SeqIO
 from Bio.Seq import Seq
+from simreaduntil.shared_utils.thread_helpers import ThreadWithResultsAndExceptions
 from simreaduntil.shared_utils.utils import is_empty_dir, setup_logger_simple
 
 logger = setup_logger_simple(__name__)
@@ -45,12 +47,74 @@ class ReadsWriter:
     def _flush(self):
         """thread-safe helper method for flush"""
         raise NotImplementedError
+    
+    def finish(self):
+        self.flush()
+        
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.finish()
 
+"""
+Wrapper arounds ReadsWriter that writes reads in a separate thread
+"""
+class ThreadedReadsWriterWrapper(ReadsWriter):
+    def __init__(self, reads_writer: ReadsWriter):
+        super().__init__()
+        self._reads_writer = reads_writer
+        self._reads_queue = queue.Queue()
+        self._writer_thread = ThreadWithResultsAndExceptions(target=self._write_received_reads, name="ThreadedReadsWriterWrapper")
+        self._writer_thread.start()
+        
+    def __repr__(self):
+        return f"ThreadedReadsWriterWrapper(reads_writer={self._reads_writer})"
+    
+    def _write_received_reads(self):
+        while True:
+            read = self._reads_queue.get()
+            if read is None:
+                break
+            self._reads_writer.write_read(read)
+        self.flush()
+        
+    def write_read(self, read: SeqIO.SeqRecord):
+        self._reads_queue.put(read)
+        
+    def _flush(self):
+        self._reads_writer.flush()
+        
+    def finish(self):
+        self._reads_queue.put(None)
+        self._writer_thread.join()
+        self._writer_thread.raise_if_error()
+        self._reads_writer.finish()
+    
+"""
+Combines several ReadsWriters into one, calling them sequentially
+"""        
+class CompoundReadsWriter(ReadsWriter):
+    def __init__(self, reads_writers):
+        super().__init__()
+        self.reads_writers = reads_writers
+        
+    def __repr__(self):
+        return f"CompoundReadsWriter(reads_writers={self.reads_writers})"
+    
+    def write_read(self, read: SeqIO.SeqRecord):
+        [rw.write_read(read) for rw in self.reads_writers]
+        
+    def flush(self):
+        [rw.flush() for rw in self.reads_writers]
+        
+    def finish(self):
+        [rw.finish() for rw in self.reads_writers]
+    
 class SingleFileReadsWriter(ReadsWriter):
     """
     Write reads to one file (by default stdout), appending reads to the file as they are written (possibly with buffering)
     
-    When pickling the file, the file is flushed. When reloading it, the filehandler is not restored and must be set directly.
+    When pickling this class, the file is flushed. When reloading it, the filehandler is not restored and must be set directly.
     This class is useful for debugging by writing to sys.stdout.
     
     Args:
@@ -84,6 +148,12 @@ class SingleFileReadsWriter(ReadsWriter):
         # pickling file handlers does not work as expected, e.g. when mode="w", reloading them will discard the existing file (which happens for example when running in parallel and serializing/deserializing the object)
         state["fh"] = None
         return state
+    
+    def finish(self):
+        if self.fh not in [sys.stdout, sys.stderr]:
+            self.fh.close()
+        else:
+            self.fh.flush()
     
 class RotatingFileReadsWriter(ReadsWriter):
     """
@@ -196,7 +266,6 @@ class ArrayReadsWriter(ReadsWriter):
         super().__init__()
         
         self.reads = []
-        self.output_dir = None # for compatibility with the ONTSimulator
         
     def __repr__(self) -> str:
         return f"ArrayReadsWriter(nb_reads={len(self.reads)})"

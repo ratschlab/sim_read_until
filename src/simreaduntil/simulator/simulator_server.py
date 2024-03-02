@@ -102,7 +102,7 @@ class ONTDeviceServicer(ont_device_pb2_grpc.ONTDeviceServicer):
                 res.append(self.device.unblock_read(channel, read_id=read_id, unblock_duration=unblock_duration))
             else:
                 res.append(self.device.stop_receiving_read(channel, read_id=read_id)) #todo2: current conversion from enum 0,1,2 to bool is not ideal
-        return ont_device_pb2.ActionResultImmediateResponse(succeeded=res)
+        return ont_device_pb2.EmptyResponse()
     
     @print_gen_exceptions
     def GetActionResults(self, request, context):
@@ -134,8 +134,8 @@ class ONTDeviceServicer(ont_device_pb2_grpc.ONTDeviceServicer):
         
     @print_nongen_exceptions
     def RunMuxScan(self, request, context):
-        assert request.HasField("t_duration"), "t_duration must be set"
-        return ont_device_pb2.MuxScanStartedInfo(value=self.device.run_mux_scan(t_duration=request.t_duration))
+        # assert request.HasField("t_duration"), "t_duration must be set" # implicitly set
+        return ont_device_pb2.RunMuxScanResponse(nb_reads_rejected=self.device.run_mux_scan(t_duration=request.t_duration))
     
     @print_nongen_exceptions
     # whether simulation is running

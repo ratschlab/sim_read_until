@@ -127,7 +127,7 @@ class DummyBasecaller:
             (channel, read_number), read_id, sequence, sequence_length, quality
         """
         
-        time_start = time.perf_counter_ns() # in nanoseconds, only offsets are correct
+        time_start = cur_ns_time()
         total_wait_time = 0
         nb_called_bps = 0
         for (channel, read_info) in reads:
@@ -136,7 +136,7 @@ class DummyBasecaller:
             # to imitate the guppy basecaller which runs in parallel, we do not delay each time something is requested, but rather since the function was called
             nb_called_bps += len(read_info.seq)
             if self.time_per_bp > 0:
-                wait_time = nb_called_bps * self.time_per_bp - (time.perf_counter_ns() - time_start)/1_000_000_000
+                wait_time = nb_called_bps * self.time_per_bp - (cur_ns_time() - time_start)
                 if wait_time > 0:
                     time.sleep(wait_time)
                     total_wait_time += wait_time
@@ -203,13 +203,15 @@ class NanoSimMapper:
         
     @staticmethod
     def _map_seq(read_id, seq_len):
-        parsed = NanoSimId.from_str(read_id)
+        parsed_id = NanoSimId.from_str(read_id)
         
-        return NanoSimMapper.Alignment(
+        if parsed_id.read_type == "unaligned":
+            return []
+        return [NanoSimMapper.Alignment(
             query_name=read_id, query_len=seq_len, query_start=0, query_end=seq_len, 
-            target_strand=1 if parsed.direction == "F" else -1, target_name=parsed.chrom, target_len="*", target_start=parsed.ref_pos, target_end=parsed.ref_len, 
+            target_strand=1 if parsed_id.direction == "F" else -1, target_name=parsed_id.chrom, target_len="*", target_start=parsed_id.ref_pos, target_end=parsed_id.ref_len, 
             num_matches=seq_len, alignment_block_length=seq_len, mapping_quality=255
-        )
+        )]
     
     def map_reads_2(self, calls):
         """Align reads against a reference
@@ -222,7 +224,7 @@ class NanoSimMapper:
         """
         for read_info, read_id, seq, seq_len, quality in calls:
             assert len(seq) == seq_len
-            yield read_info, read_id, seq_len, [self._map_seq(read_id, seq_len)]
+            yield read_info, read_id, seq_len, self._map_seq(read_id, seq_len)
             
 @contextmanager
 def replace_ru_mapper(replace):

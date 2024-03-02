@@ -16,7 +16,6 @@ logger = setup_logger_simple(__name__)
 
 class RollingWindowGapSampler(GapSampler):
     """
-    Rolling window gap sampler. Takes into account the whole gaps, so it mixes channels.
     
     Args:
         gaps_df: pd.DataFrame with columns "gap_start", "gap_end", "gap_duration", "gap_type" (long or short)
@@ -56,6 +55,7 @@ class RollingWindowGapSampler(GapSampler):
             
     @classmethod
     def from_seqsum_df(cls, seqsum_df, read_delay=None, long_gap_threshold=None, window_width=None):
+        """mixes gaps from all channels"""
         if read_delay is None:
             read_delay = compute_median_read_delay(seqsum_df)
         
@@ -144,6 +144,8 @@ class RollingWindowGapSamplerPerChannel:
     Similar to RollingWindowGapSampler, but samples the gaps for each channel separately, not mixing gaps between channels.
     
     For each channel, it samples the corresponding channel in the originak dataset
+    
+    Called rolling_window_per_channel in the paper
     
     """
     def __init__(self):

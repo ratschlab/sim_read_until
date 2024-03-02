@@ -85,7 +85,8 @@ def test_launchable_device_grpc_server():
     simulator = ONTSimulator(
         read_pool=ReadPoolFromIterable(random_reads_gen(random_state=np.random.default_rng(3), length_range=(10, 50))), 
         reads_writer=ArrayReadsWriter(),
-        sim_params=sim_params
+        sim_params=sim_params,
+        output_dir="<unavailable>",
     )
     
     # import os; os.environ["GRPC_VERBOSITY"] = "DEBUG"; os.environ["GRPC_TRACE"] = "http"
@@ -106,13 +107,13 @@ def test_launchable_device_grpc_server():
             assert stub.StartSim(ont_device_pb2.StartRequest(acceleration_factor=2, update_method="realtime", log_interval=10)).value
             
             # unblocking inexistent read
-            assert not stub.PerformActions(ont_device_pb2.ReadActionsRequest(actions=[
+            stub.PerformActions(ont_device_pb2.ReadActionsRequest(actions=[
                 ont_device_pb2.ReadActionsRequest.Action(channel=2, read_id="inexistent", unblock=ont_device_pb2.ReadActionsRequest.Action.UnblockAction(unblock_duration=0.2))
-            ])).succeeded[0]
+            ]))
             
-            assert not stub.PerformActions(ont_device_pb2.ReadActionsRequest(actions=[
+            stub.PerformActions(ont_device_pb2.ReadActionsRequest(actions=[
                 ont_device_pb2.ReadActionsRequest.Action(channel=1, read_id="inexistent", stop_further_data=ont_device_pb2.ReadActionsRequest.Action.StopReceivingAction()),
-            ])).succeeded[0]
+            ]))
             
             assert stub.StopSim(ont_device_pb2.EmptyRequest()).value
             

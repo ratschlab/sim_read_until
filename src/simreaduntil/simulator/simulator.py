@@ -8,6 +8,7 @@ import datetime
 import enum
 import itertools
 from pathlib import Path
+import queue
 from textwrap import dedent, indent
 import threading
 import time
@@ -133,7 +134,7 @@ class ReadUntilDevice:
         """
         raise NotImplementedError()
     
-    def get_basecalled_read_chunks(self, batch_size=None, channel_subset=None) -> List[Any]:
+    def get_basecalled_read_chunks(self, batch_size=None, channel_subset=None) -> Generator[Any, None, None]:
         """
         Get available read chunks from the selected channels, from at most 'batch_size' channels
         
@@ -141,7 +142,7 @@ class ReadUntilDevice:
         """
         raise NotImplementedError()
     
-    def get_action_results(self, **kwargs) -> List[Tuple[Any, float, int, str, Any]]:
+    def get_action_results(self, **kwargs) -> Generator[Tuple[Any, float, int, str, Any], Any, Any]:
         """
         Get new results of actions that were performed with unblock and stop_receiving (mux scans etc not included)
         
@@ -268,8 +269,9 @@ class ONTSimulator(ReadUntilDevice):
         reads_writer: reads writer, ideally of type RotatingFileReadsWriter with attribute .output_dir (used in .mk_run_dir attribute)
         sim_params: simulation parameters, can be modified during the simulation
         channel_status_filename: where to write combined channel status at regular intervals
+        output_dir: output dir returned by self.mk_run_dir, this is where files will be put
     """
-    def __init__(self, read_pool: ReadPool, reads_writer: RotatingFileReadsWriter, sim_params: SimParams, channel_status_filename: Optional[Union[str, Path]]=None):
+    def __init__(self, read_pool: ReadPool, reads_writer: RotatingFileReadsWriter, sim_params: SimParams, channel_status_filename: Optional[Union[str, Path]]=None, output_dir="<unavailable>"):
         logger.debug(f"Creating ONT device simulator")
         
         self._read_pool = read_pool
@@ -278,6 +280,7 @@ class ONTSimulator(ReadUntilDevice):
         self._channels: List[Channel] = [Channel(channel_name, read_pool, reads_writer, sim_params=sim_params) for channel_name in sim_params.gap_samplers.keys()]
         
         self._channel_status_filename = channel_status_filename
+        self._output_dir = output_dir
         
         # thread that forwards simulation at regular time intervals, may not be alive, so call .is_running() to check if simulation is currently running
         self._forward_sim_thread: Optional[ThreadWithResultsAndExceptions] = None
@@ -287,14 +290,12 @@ class ONTSimulator(ReadUntilDevice):
         self.lock_sim_state = threading.RLock() # lock to hold running state of simulation fixed
         self.sim_state = SimulationRunningState.Stopped
         
+        self.action_queue = queue.Queue() # queue for actions to perform on the simulator to avoid lock contention, do it at the end of each forward
         self._action_results = []
         
     @property
     def mk_run_dir(self) -> Union[Path, str]:
-        try:
-            return self._reads_writer.output_dir
-        except AttributeError:
-            return "<unknown>"
+        return self._output_dir
     
     def device_info(self, sim_params=True, channel_states=False) -> str:
         """
@@ -336,7 +337,7 @@ class ONTSimulator(ReadUntilDevice):
             if combined:
                 return combine_stats((channel.stats for channel in self._channels))
             else:
-                return [channel.stats for channel in self._channels]    
+                return [channel.stats for channel in self._channels]
     
     def _forward_channels(self, t, delta=False, show_progress=False):
         """
@@ -367,7 +368,7 @@ class ONTSimulator(ReadUntilDevice):
         for channel in self._channels:
             assert channel.is_running
             channel.stop()
-        self._reads_writer.flush()
+        self._reads_writer.finish()
         
     def _all_channels_finished(self) -> bool:
         """Whether no reads are left and all channels have finished"""
@@ -400,7 +401,7 @@ class ONTSimulator(ReadUntilDevice):
             
             # don't set as daemon because reads in-progress need to be written to a file
             self._forward_sim_thread = ThreadWithResultsAndExceptions(
-                target=self._forward_sim_loop, name=new_thread_name(), args=args, kwargs=kwargs
+                target=self._forward_sim_loop, name=new_thread_name("simforw-{}"), args=args, kwargs=kwargs
             )
             logger.info("Starting the simulation")
             
@@ -434,6 +435,7 @@ class ONTSimulator(ReadUntilDevice):
             self.sim_state = SimulationRunningState.Running
             
         logger.debug("Simulator forward thread started...")
+        logger.info(f"Device info: {self.device_info()}")
         assert acceleration_factor > 0, f"invalid acceleration_factor {acceleration_factor}"
         
         if self._channel_status_filename is not None:
@@ -479,6 +481,7 @@ class ONTSimulator(ReadUntilDevice):
                 logger.debug(f"Forwarding to time {t_sim}")
                 t_real_last_forward = cur_ns_time()
                 self._forward_channels(t_sim)
+                self._process_actions()
             
             if (log_interval != -1) and (i % log_interval == 0):
                 _log()
@@ -502,7 +505,7 @@ class ONTSimulator(ReadUntilDevice):
         Returns:
             Length of one chunk in seconds (without acceleration)
         """
-        return self.sim_params.chunk_size / self.sim_params.bp_per_second
+        return self.sim_params.min_chunk_size / self.sim_params.bp_per_second
     
     def stop(self, _join_thread=True):
         """
@@ -515,6 +518,7 @@ class ONTSimulator(ReadUntilDevice):
             
         Returns:
             Whether the simulation was stopped (i.e. it was running and not in the process of being stopped)
+            The simulation has not necessarily stopped when this method returns False, it only started the stopping process.
         """
         
         logger.info("Stop request received, stopping simulation...")
@@ -527,6 +531,7 @@ class ONTSimulator(ReadUntilDevice):
         
         if _join_thread:
             self._forward_sim_thread.join()  # block, try hard for .cancel() on stream
+            self._forward_sim_thread.raise_if_error()
             assert not self._forward_sim_thread.is_alive()
         self._forward_sim_thread = None
         
@@ -552,7 +557,7 @@ class ONTSimulator(ReadUntilDevice):
     
     ############## chunk related methods ##############
     
-    def get_basecalled_read_chunks(self, batch_size=None, channel_subset=None) -> List[Tuple[Any]]:
+    def get_basecalled_read_chunks(self, batch_size=None, channel_subset=None) -> Generator[Tuple[Any], None, None]:
         """
         It permutes the channels and gets at most 'batch_size' from them.
         Channels with no new chunks are filtered out.
@@ -577,9 +582,9 @@ class ONTSimulator(ReadUntilDevice):
         for channel in self.sim_params.random_state.permutation(channel_subset):
             if nb_chunks >= batch_size:
                 break
-            chunks, read_id, estimated_ref_len_so_far = self._channels[channel-1].get_new_chunks() # if simulation was already stopped (in between), just returns ""
+            chunks, read_id, estimated_ref_len_so_far = self._channels[channel-1].get_new_samples() # if simulation was already stopped (in between), just returns ""
             # ignore if no new chunks (e.g. if channel does not have a read currently)
-            if chunks != "":
+            if len(chunks) > 0: # chunks is either str or array of raw signals
                 nb_chunks += 1
                 yield (channel, read_id, chunks, "noquality", estimated_ref_len_so_far)
                 
@@ -593,7 +598,7 @@ class ONTSimulator(ReadUntilDevice):
         for (channel, read_id, chunks, quality, estimated_ref_len_so_far) in self.get_basecalled_read_chunks(*args, **kwargs):
             yield (channel, read_id, self.sim_params.pore_model.to_raw(chunks), quality, estimated_ref_len_so_far)
                 
-    def get_action_results(self, clear=True) -> List[Tuple[Any, float, int, str, Any]]:
+    def get_action_results(self, clear=True) -> Generator[Tuple[Any, float, int, str, Any], Any, Any]:
         """
         Get action results of actions performed on simulator
         
@@ -613,27 +618,47 @@ class ONTSimulator(ReadUntilDevice):
         else:
             return self._action_results.copy()
     
-    def unblock_read(self, read_channel, read_id, unblock_duration=None) -> Optional[bool]:
+    def unblock_read(self, read_channel, read_id, unblock_duration=None):
+        self.action_queue.put((ActionType.Unblock, (read_channel, read_id, unblock_duration)))
+        
+    def stop_receiving_read(self, read_channel, read_id):
+        self.action_queue.put((ActionType.StopReceiving, (read_channel, read_id)))
+        
+    # process actions asynchronously after calling forward since otherwise, there is a lot of lock contention which
+    # means we cannot run at acceleration factor 10
+    def _process_actions(self):
+        while True:
+            try:
+                action_type, args = self.action_queue.get_nowait()
+            except queue.Empty:
+                return
+            if action_type == ActionType.Unblock:
+                self._unblock_read(*args)
+            else:
+                assert action_type == ActionType.StopReceiving
+                self._stop_receiving_read(*args)
+        
+    def _unblock_read(self, read_channel, read_id, unblock_duration=None) -> Optional[bool]:
         """Unblock read"""
         self._check_channels_available([read_channel])
         action_res = self._channels[read_channel-1].unblock(unblock_duration=unblock_duration, read_id=read_id)
         self._action_results.append((read_id, self._channels[read_channel-1].t, read_channel, ActionType.Unblock, action_res))
-        logger.info(f"Unblocking read {read_id} on channel {read_channel}, result: {action_res.to_str()}")
+        # logger.info(f"Unblocking read {read_id} on channel {read_channel}, result: {action_res.to_str()}")
         return action_res
         
-    def stop_receiving_read(self, read_channel, read_id) -> Optional[StoppedReceivingResponse]:
+    def _stop_receiving_read(self, read_channel, read_id) -> Optional[StoppedReceivingResponse]:
         """Stop receiving from read"""
         self._check_channels_available([read_channel])
         action_res = self._channels[read_channel-1].stop_receiving(read_id=read_id)
         self._action_results.append((read_id, self._channels[read_channel-1].t, read_channel, ActionType.StopReceiving, action_res))
-        logger.info(f"Stopping receiving from read {read_id} on channel {read_channel}, result: {action_res.to_str()}")
+        # logger.info(f"Stopping receiving from read {read_id} on channel {read_channel}, result: {action_res.to_str()}")
         return action_res
     
-    def run_mux_scan(self, t_duration: float) -> int:
+    def run_mux_scan(self, t_duration: float, is_sync=False) -> int:
         """Pass in duration on each channel rather than end time because the channel may already have been forwarded in-between"""
         with self.lock_sim_state:
             # the lock ensures that channels are not forwarded
-            if self.sim_state != SimulationRunningState.Running:
+            if (not is_sync) and self.sim_state != SimulationRunningState.Running:
                 logger.warning("Simulation not (or no longer) running, mux scan ignored")
                 return 0
             if self._channels[0].has_active_mux_scan():
@@ -653,9 +678,12 @@ class ONTSimulator(ReadUntilDevice):
         
     def sync_forward(self, t, delta=False, show_progress=False):
         """
-        Forward all channels to time t
+        Process actions and forward all channels to time t
+        
+        Using (t=0, delta=True) means actions are processed
         """
         self._check_not_async_mode()
+        self._process_actions()
         return self._forward_channels(t, delta=delta, show_progress=show_progress)
     
     def sync_start(self, t=None):
@@ -728,7 +756,7 @@ def convert_action_results_to_df(action_results):
         action_results_df = pd.DataFrame.from_records(action_results, columns=["read_id", "time", "channel", "action_type", "success"])
         return action_results_df
     
-def simulator_stats_to_disk(simulators, output_dir=None):
+def write_simulator_stats(simulators, output_dir=None):
     """
     Dump action results (success or missed) and channel statistics to the run dir
     
@@ -788,9 +816,9 @@ def plot_nb_actions_per_read(action_results_df, save_dir=None):
     reads_with_multiple_actions = nb_actions_per_read[nb_actions_per_read > 1].index.values
     reads_with_contradicting_actions = nb_unique_actions_per_read[nb_unique_actions_per_read > 1].index.values
     if len(reads_with_multiple_actions) > 0:
-        logger.warning(f"There are {len(reads_with_multiple_actions)} reads with multiple actions: {reads_with_multiple_actions}")
+        logger.warning(f"There are {len(reads_with_multiple_actions)} reads with multiple actions (possible same actions): {reads_with_multiple_actions}")
     if len(reads_with_contradicting_actions) > 0:
-        logger.warning(f"There are {len(reads_with_contradicting_actions)} reads with contradicting actions: {reads_with_contradicting_actions}")
+        logger.warning(f"There are {len(reads_with_contradicting_actions)} reads with contradicting actions (e.g. stop_receiving and unblock): {reads_with_contradicting_actions}")
 
 
     fig, (ax1, ax2, ax3) = plt.subplots(ncols=3, figsize=(15, 4))
@@ -854,58 +882,58 @@ def plot_action_success_rate(action_results_df, save_dir=None):
     
     return fig
 
-class ReadUntilClientFromDevice(ReadUntilDevice):
-    """
-    ReadUntilClient with ReadUntil actions operating on a batch of reads
+# class ReadUntilClientFromDevice(ReadUntilDevice):
+#     """
+#     ReadUntilClient with ReadUntil actions operating on a batch of reads
     
-    Named ReadUntilClientFromDevice to avoid nameclash with ReadUntilClient
+#     Named ReadUntilClientFromDevice to avoid nameclash with ReadUntilClient
     
-    start, stop, device_info not implemented. They should be directly called on the device.
-    """
-    def __init__(self, device : ReadUntilDevice):
-        self._device = device
+#     start, stop, device_info not implemented. They should be directly called on the device.
+#     """
+#     def __init__(self, device : ReadUntilDevice):
+#         self._device = device
         
-    def __repr__(self):
-        res = "ReadUntilClientFromDevice of the following device:\n"
-        res += indent(repr(self._device), "    ")
-        return res
+#     def __repr__(self):
+#         res = "ReadUntilClientFromDevice of the following device:\n"
+#         res += indent(repr(self._device), "    ")
+#         return res
     
-    @property
-    def n_channels(self) -> int:
-        """
-        Number of channels
-        """
-        return len(self._device.n_channels)
+#     @property
+#     def n_channels(self) -> int:
+#         """
+#         Number of channels
+#         """
+#         return len(self._device.n_channels)
     
-    @property
-    def is_running(self) -> bool:
-        """
-        Whether the device is sequencing
-        """
-        return self._device.is_running
+#     @property
+#     def is_running(self) -> bool:
+#         """
+#         Whether the device is sequencing
+#         """
+#         return self._device.is_running
     
-    @property
-    def mk_run_dir(self):
-        return self._device.mk_run_dir
+#     @property
+#     def mk_run_dir(self):
+#         return self._device.mk_run_dir
     
-    def get_basecalled_read_chunks(self, batch_size=None, channel_subset=None):
-        """
-        Yield basecalled chunks from channels
+#     def get_basecalled_read_chunks(self, batch_size=None, channel_subset=None):
+#         """
+#         Yield basecalled chunks from channels
         
-        Args:
-            batch_size: maximum number of channels to get reads from
-            channel_subset: restrict to these channels (if provided)
+#         Args:
+#             batch_size: maximum number of channels to get reads from
+#             channel_subset: restrict to these channels (if provided)
         
-        Yields:
-            basecalled chunks from channels in the form (chan_key, read_id, chunk, quality, estimated ref len of all chunks returned so far for this read)
-        """
-        yield from self._device.get_basecalled_read_chunks(batch_size, channel_subset)
+#         Yields:
+#             basecalled chunks from channels in the form (chan_key, read_id, chunk, quality, estimated ref len of all chunks returned so far for this read)
+#         """
+#         yield from self._device.get_basecalled_read_chunks(batch_size, channel_subset)
         
-    def unblock_read(self, read_channel, read_id, unblock_duration=None) -> bool:
-       return self._device.unblock_read(read_channel, read_id=read_id, unblock_duration=unblock_duration)
+#     def unblock_read(self, read_channel, read_id, unblock_duration=None) -> bool:
+#        return self._device.unblock_read(read_channel, read_id=read_id, unblock_duration=unblock_duration)
         
-    def stop_receiving_read(self, read_channel, read_id) -> StoppedReceivingResponse:
-        return self._device.stop_receiving_read(read_channel, read_id=read_id)
+#     def stop_receiving_read(self, read_channel, read_id) -> StoppedReceivingResponse:
+#         return self._device.stop_receiving_read(read_channel, read_id=read_id)
     
 def stop_simulation_after_time_thread(simulator: ONTSimulator, t: float):
     """
@@ -951,7 +979,7 @@ def run_periodic_mux_scan_thread(simulator: ONTSimulator, period: float, scan_du
         warnings.warn(f"Period between mux scans may be so short that mux scans happen the whole time: scan_duration={scan_duration:.2f}s, period={period:.2f}s")
     
     def _run_periodic_mux_scan():
-        logger.info(f"Running periodic mux scan every {period:.2f}s (sim time), acceleration factor {acceleration_factor:.2f}")
+        logger.info(f"Running periodic mux scan every {period:.2f}s (sim time) with duration {scan_duration:.2f}s, acceleration factor {acceleration_factor:.2f}")
         i = 1
         time_start = cur_ns_time()
         while True:
@@ -1036,6 +1064,7 @@ def run_simulator_from_sampler_per_channel(
             read_pool=read_pool,
             reads_writer=reads_writer,
             sim_params=sim_params,
+            output_dir=reads_writer.output_dir,
         )
 
         simulator.sync_start(0)
@@ -1118,6 +1147,7 @@ def run_simulator_from_sampler_per_channel_parallel(
                 read_pool=read_pool,
                 reads_writer=reads_writer,
                 sim_params=sim_params,
+                output_dir="<unavailable>",
             )
 
             simulator.sync_start(0)
@@ -1185,7 +1215,7 @@ def get_simulator_delay_over_time_df(log_filename):
     return df
 
 def plot_simulator_delay_over_time(df, n_delays=200, save_dir=None):
-    """Plot simulator delay over time"""
+    """Plot simulator delay over time for the loop updating the channels"""
 
     # df = df.sample(min(len(df), 200))
     # restrict to the largest rather than sample
@@ -1194,13 +1224,13 @@ def plot_simulator_delay_over_time(df, n_delays=200, save_dir=None):
     fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(11, 4))
     
     sns.lineplot(df, x="time", y="delay", ax=ax1)
-    ax1.set_xlabel("Time (of iteration) (s)")
+    ax1.set_xlabel("Real time (of iteration) (s)")
     ax1.set_ylabel("Delay (s)")
     sns.lineplot(df, x="iteration", y="delay", ax=ax2)
     ax2.set_xlabel("Iteration")
     ax2.set_ylabel("Delay (s)")
     
-    fig.suptitle(f"Simulator delays (largest {n_delays})")
+    fig.suptitle(f"Simulator loop delays (largest {n_delays})")
 
     make_tight_layout(fig)
     if save_dir is not None:

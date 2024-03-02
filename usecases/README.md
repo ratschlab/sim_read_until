@@ -75,7 +75,7 @@ cd ..
 # install ReadFish
 git submodule update --init --depth 1 external/ont_readfish
 source ~/ont_project_all/ont_project_venv/bin/activate
-pip install -e './[readfish]' # -e for dev version
+pip uninstall -y readfish; pip install './[readfish]'; pip show readfish
 
 # optional: install NanoSim and minimap2, but the usecase also works without
 # git submodule update --init --depth 1 external/ont_nanosim
@@ -100,8 +100,9 @@ If the read ids are NanoSim ids with ground-truth alignment information, `minima
 Files:
 - `enrich_usecase.py`: end-to-end script that runs an enrichment with ReadFish connected to the simulator, see the instructions in that file
 - `enrich_usecase_submission.sh`: condor submission script, can also be run locally
+- `compute_absolute_enrichment.ipynb`: compute the absolute enrichment for the enrich usecase by comparing to control
 - `install_usecase_deps.sh`: to install `minimap2` and `NanoSim` (optional), launch it from the repo root
-- `create_nanosim_reads.ipynb`: notebook to create NanoSim reads that can be fed into the simulator by modifying the config file
+- `generate_nanosim_reads.sh`: script to create NanoSim reads that can be fed into the simulator
 
 ## Parameter Extraction from an Existing Run
 
@@ -129,7 +130,7 @@ When running several configurations in parallel and some cache files do not exis
 
 These files are for our own reference and may not work for you out of the box:
 - `analyze_readfish_outputs.py`: to check whether ReadFish is mapping reads correctly by parsing the ground-truth from the read id
-- `plot_existing_seqsum.py`: to plot an existing sequencing summary file, e.g., from a real run
+- `plot_existing_seqsum.py`: to plot an existing sequencing summary file, e.g., from a real run; probably needs to be adapted to your setting
 - `remove_mux_scans.ipynb`: notebook showing how mux scans are removed (you don't need to run this, this is done automatically in the usecases)
 - `prepare_small_refgenome.py`: to create a small reference genome for the usecase
 - `results_preparation.md`: commands to create the results in the paper

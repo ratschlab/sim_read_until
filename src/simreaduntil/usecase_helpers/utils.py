@@ -39,7 +39,7 @@ from simreaduntil.simulator.gap_sampling.rolling_window_gap_sampler import Rolli
 from simreaduntil.simulator.simulator import get_simulator_delay_over_time_df, plot_sim_actions, plot_simulator_delay_over_time
 from simreaduntil.simulator.simulator_params import SimParams
 from simreaduntil.simulator.utils import set_package_log_level
-from simreaduntil.usecase_helpers.readfish_plotting import get_extra_basecall_delay_over_time_df, get_processing_time_per_read_over_time_df, get_throttle_over_time_df, plot_extra_basecalling_delay_per_iter, plot_readfish_processing_time, plot_throttle_over_time
+from simreaduntil.usecase_helpers.readfish_plotting import get_chunk_mapping_time_over_time_df, get_chunk_wait_time_over_time_df, get_extra_basecall_delay_over_time_df, get_processing_time_per_read_over_time_df, get_throttle_over_time_df, plot_chunk_mapping_time, plot_chunk_waiting_time, plot_extra_basecalling_delay_per_iter, plot_readfish_processing_time, plot_throttle_over_time
 
 logger = setup_logger_simple(__name__)
 """module logger"""
@@ -74,7 +74,7 @@ def random_nanosim_reads_gen(random_state=np.random.default_rng(2), length_range
 
 # to load the FASTA file when the function is called rather than when the first read is requested (which may delay the simulation if an index has to be built first)
 @force_eval_generator_function
-def perfect_reads_gen(fasta_filename: Path, read_lens_range, random_state=np.random.default_rng(1), nanosim_read_id=True):
+def perfect_reads_gen(fasta_filename: Path, read_lens_range: tuple[int], random_state=np.random.default_rng(1), nanosim_read_id=True):
     """
     Generate perfect reads that align to the reference genome
     
@@ -367,7 +367,7 @@ def create_simparams_if_inexistent(sim_params_filename, seqsum_param_extr_file, 
         random_state = np.random.default_rng(1) # todo2: one random state, also in on_sim
         sim_params = SimParams(
             gap_samplers={f"ch{i+1}": gap_sampler_maker(random_state=random_state)[1] for i in range(n_channels)},
-            bp_per_second=compute_median_pore_speed(seqsum_df), chunk_size=200, default_unblock_duration=0.1, seed=0,
+            bp_per_second=compute_median_pore_speed(seqsum_df), min_chunk_size=200, default_unblock_duration=0.1, seed=0,
         )
 
         logger.debug(f"Saving sim_params to file '{sim_params_filename}'")
@@ -454,6 +454,8 @@ def create_figures(seqsum, run_dir, figure_dir=None, delete_existing_figure_dir=
         
 def plot_log_file_metrics(log_filename, save_dir=None):
     """Parse log file and plot metrics"""
+    logger.info(f"Plotting metrics from log file '{log_filename}' and saving to '{save_dir}'")
+    
     df = get_simulator_delay_over_time_df(log_filename)
     fig = plot_simulator_delay_over_time(df, save_dir=save_dir); logger.debug("Created 1 plot"); plt.close(fig)
     
@@ -466,8 +468,14 @@ def plot_log_file_metrics(log_filename, save_dir=None):
     basecall_delay_df = get_extra_basecall_delay_over_time_df(log_filename)
     fig = plot_extra_basecalling_delay_per_iter(basecall_delay_df, save_dir=save_dir); logger.debug("Created 1 plot"); plt.close(fig)
     
+    chunk_waiting_time_df = get_chunk_wait_time_over_time_df(log_filename)
+    fig = plot_chunk_waiting_time(chunk_waiting_time_df, save_dir=save_dir); logger.debug("Created 1 plot"); plt.close(fig)
+    
+    chunk_mapping_time_df = get_chunk_mapping_time_over_time_df(log_filename)
+    fig = plot_chunk_mapping_time(chunk_mapping_time_df, save_dir=save_dir); logger.debug("Created 1 plot"); plt.close(fig)
+    
 def extract_errfile_from_condor_jobad(jobad_filename):
-    """Extract the file where stderr is redriected to from a condor jobad file"""
+    """Extract the file where stderr is redirected to from a condor jobad file"""
     # find first match of "Err = "
     with open(jobad_filename, "r") as f:
         for line in f:
@@ -475,16 +483,16 @@ def extract_errfile_from_condor_jobad(jobad_filename):
                 return line[6:].strip()[1:-1] # temporary hack to get rid of quotes; could use htcondor's pythonbindings instead: python package classad
     return None
 
-def plot_condor_log_file_metrics(save_dir=None):
-    """Parse log filename from condor job add, then plot metrics from log"""
-    jobad_filename = os.environ.get("_CONDOR_JOB_AD", None)
-    if jobad_filename is not None:
-        # parse log filename from condor job ad, then process it
-        log_filename = extract_errfile_from_condor_jobad(jobad_filename)
-        if log_filename is not None:
-            logger.info(f"Plotting metrics from condor log file '{log_filename}'")
-            plot_log_file_metrics(log_filename, save_dir=save_dir)
-        else:
-            logger.warning(f"Did not find log file in condor job ad: {jobad_filename}")
-    else:
-        logger.warning("Did not find condor job ad environment variable '_CONDOR_JOB_AD', cannot plot metrics")
+# def plot_condor_log_file_metrics(save_dir=None):
+#     """Parse log filename from condor job add, then plot metrics from log"""
+#     jobad_filename = os.environ.get("_CONDOR_JOB_AD", None)
+#     if jobad_filename is not None:
+#         # parse log filename from condor job ad, then process it
+#         log_filename = extract_errfile_from_condor_jobad(jobad_filename)
+#         if log_filename is not None:
+#             logger.info(f"Plotting metrics from condor log file '{log_filename}'")
+#             plot_log_file_metrics(log_filename, save_dir=save_dir)
+#         else:
+#             logger.warning(f"Did not find log file in condor job ad: {jobad_filename}")
+#     else:
+#         logger.warning("Did not find condor job ad environment variable '_CONDOR_JOB_AD', cannot plot metrics")

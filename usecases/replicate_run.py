@@ -32,7 +32,7 @@ from simreaduntil.shared_utils.plotting import filter_seaborn_warnings, ignore_t
 from simreaduntil.shared_utils.utils import delete_dir_if_exists, dill_dump, dill_load, num_lines_in_file, subset_dict
 from simreaduntil.simulator.gap_sampling.inactive_active_gaps_replication import get_read_durations_per_channel
 from simreaduntil.simulator.simfasta_to_seqsum import convert_simfasta_dir_to_seqsum, convert_simfasta_to_seqsum
-from simreaduntil.simulator.simulator import assign_read_durations_to_channels, run_simulator_from_sampler_per_channel, run_simulator_from_sampler_per_channel_parallel, simulator_stats_to_disk
+from simreaduntil.simulator.simulator import assign_read_durations_to_channels, run_simulator_from_sampler_per_channel, run_simulator_from_sampler_per_channel_parallel, write_simulator_stats
 from simreaduntil.simulator.simulator_params import SimParams
 from simreaduntil.simulator.utils import set_package_log_level
 from simreaduntil.usecase_helpers.utils import get_cleaned_seqsum_filename, create_figures, create_simparams_if_inexistent, get_gap_sampler_method, remove_mux_scans_and_clean_if_inexistent
@@ -116,7 +116,7 @@ def run_simulator(seqsum_filename):
     logger.debug(f"#################################################################")
 
     logger.info("Saving simulator statistics")
-    simulator_stats_to_disk([simulator for (simulator, _) in simulators_and_read_filenames], output_dir=run_dir)
+    write_simulator_stats([simulator for (simulator, _) in simulators_and_read_filenames], output_dir=run_dir)
     logger.info(f"Writing sequencing summary file '{seqsum_filename}'")
     convert_simfasta_dir_to_seqsum(reads_dir, seqsummary_filename=seqsum_filename)
     logger.info("Wrote sequencing summary file")

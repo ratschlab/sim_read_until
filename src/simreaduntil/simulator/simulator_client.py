@@ -3,7 +3,7 @@ gRPC Client to connect to a gRPC server exposing an ONTSimulator
 """
 
 import grpc
-from typing import Any, List, Optional, Tuple
+from typing import Any, Generator, List, Optional, Tuple
 
 from simreaduntil.simulator.channel import StoppedReceivingResponse, UnblockResponse
 from simreaduntil.simulator.simulator import ActionType
@@ -133,11 +133,11 @@ class DeviceGRPCClient(ReadUntilDevice):
         for chunk in self._stub.GetBasecalledChunks(ont_device_pb2.BasecalledChunksRequest(batch_size=batch_size, channels=channels)):
             yield (chunk.channel, chunk.read_id, chunk.seq, chunk.quality_seq, chunk.estimated_ref_len_so_far)
             
-    def get_action_results(self, clear=True) -> List[Tuple[Any, float, int, str, Any]]:
+    def get_action_results(self, clear=True) -> Generator[Tuple[Any, float, int, str, Any], Any, Any]:
         """
         Get action results
         """
-        for action_response in self._stub.GetActionResults(ont_device_pb2.ActionResultsRequest(clear=clear)).actions:
+        for action_response in self._stub.GetActionResults(ont_device_pb2.ActionResultsRequest(clear=clear)):
             action_type = ActionType(action_response.action_type)
             action_result = (StoppedReceivingResponse if action_type == ActionType.StopReceiving else UnblockResponse)(action_response.result)
             yield (action_response.read_id, action_response.time, action_response.channel, action_type, action_result)
@@ -150,7 +150,7 @@ class DeviceGRPCClient(ReadUntilDevice):
         # return self._stub.PerformActions(ont_device_pb2.ReadActionsRequest(actions=[
         #     ont_device_pb2.ReadActionsRequest.Action(channel=read_channel, read_id=read_id, unblock=ont_device_pb2.ReadActionsRequest.Action.UnblockAction(unblock_duration=unblock_duration if unblock_duration is not None else -1))    
         # ])).succeeded[0]
-        return self.unblock_read_batch([(read_channel, read_id)], unblock_duration=unblock_duration)[0]
+        self.unblock_read_batch([(read_channel, read_id)], unblock_duration=unblock_duration)
         
     def stop_receiving_read(self, read_channel, read_id):
         """
@@ -160,7 +160,7 @@ class DeviceGRPCClient(ReadUntilDevice):
         # return self._stub.PerformActions(ont_device_pb2.ReadActionsRequest(actions=[
         #     ont_device_pb2.ReadActionsRequest.Action(channel=read_channel, read_id=read_id, stop_further_data=ont_device_pb2.ReadActionsRequest.Action.StopReceivingAction()),
         # ])).succeeded[0]
-        return self.stop_receiving_read_batch([(read_channel, read_id)])[0]
+        self.stop_receiving_read_batch([(read_channel, read_id)])
         
     # batch methods
     def unblock_read_batch(self, channel_and_ids, unblock_duration=None):
@@ -168,18 +168,20 @@ class DeviceGRPCClient(ReadUntilDevice):
         Unblock a batch of reads on channel; returns whether the actions were performed (not performed if the read was already over)
         """
         self._check_connected()
-        return self._stub.PerformActions(ont_device_pb2.ReadActionsRequest(actions=[
+        self._stub.PerformActions(ont_device_pb2.ReadActionsRequest(actions=[
             ont_device_pb2.ReadActionsRequest.Action(channel=read_channel, read_id=read_id, unblock=ont_device_pb2.ReadActionsRequest.Action.UnblockAction(unblock_duration=unblock_duration if unblock_duration is not None else -1))    
-        for (read_channel, read_id) in channel_and_ids])).succeeded
+            for (read_channel, read_id) in channel_and_ids
+        ]))
         
     def stop_receiving_read_batch(self, channel_and_ids):
         """
         Stop receiving a batch of reads on channel; returns whether the actions were performed (not performed if the read was already over)
         """
         self._check_connected()
-        return self._stub.PerformActions(ont_device_pb2.ReadActionsRequest(actions=[
+        self._stub.PerformActions(ont_device_pb2.ReadActionsRequest(actions=[
             ont_device_pb2.ReadActionsRequest.Action(channel=read_channel, read_id=read_id, stop_further_data=ont_device_pb2.ReadActionsRequest.Action.StopReceivingAction())
-        for (read_channel, read_id) in channel_and_ids])).succeeded
+            for (read_channel, read_id) in channel_and_ids
+        ]))
     
     @property
     def mk_run_dir(self):

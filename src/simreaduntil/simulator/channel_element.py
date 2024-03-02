@@ -6,6 +6,7 @@ Channel element within a channel, e.g., a read, a gap between reads, an unblock 
 import enum
 from numbers import Number
 from functools import cached_property
+from threading import Lock
 from typing import Any, List, Optional, Tuple, Union
 from Bio import SeqIO
 from Bio.Seq import Seq
@@ -170,7 +171,7 @@ def estimate_ref_len(orig_ref_len, orig_seq_len, new_seq_len):
 # StrEnum does not exist yet in Python3.8, see PythonDoc for IntEnum for this recipe
 # allows printing as "field" instead of "class.field", where class is a class derived from enum
 class ReadEndReason(str, enum.Enum):
-    """Reason why a read ended"""
+    """Reason why a read ended, stop receiving is not part of it"""
     
     # read ended prematurely
     SIM_STOPPED = "sim_stopped_unblocked" # simulation was stopped while read was still in-progress
@@ -191,7 +192,7 @@ class ReadTags(str, enum.Enum):
     """
     Tags to attach to a read, multiple are possible!
     """
-    RU_NEVER_REQUESTED = "never_requested" # never requested by ReadUntil
+    RU_NEVER_REQUESTED = "never_requested" # never returned data (may have been requested, but data length below chunk size)
     RU_STOPPED_RECEIVING = "stopped_receiving" # read was set to stop_receiving
     
 class ChunkedRead(ChannelElement):
@@ -201,8 +202,8 @@ class ChunkedRead(ChannelElement):
     Chunks can be received from the read, it can be ended prematurely with .finish(), the sequence record or sequence summary record can be retrieved.
     If the read has a NanoSim read id, its id is modified to reflect the estimated reference length if it is ended prematurely.
     
-    A read with n basepairs starts at t_start + t_delay, goes to time n*dt and the ith basepair (i>=1) is read after time i*dt, where dt=1/bp_per_second.
-    Basepairs are returned in chunks of size chunk_size.
+    A read with n basepairs/signals starts at t_start + t_delay, goes to time n*dt and the ith basepair (i>=1) is read after time i*dt, where dt=1/bp_per_second.
+    Basepairs/signals are returned in chunks of size at least min_chunk_size.
     
     t_start, t_delay, t_end, t_duration should not be modified once this class was instantiated. A read can be terminated early by calling .finish_now().
     
@@ -210,16 +211,16 @@ class ChunkedRead(ChannelElement):
         read_id: id of read
         seq: read sequence
         t_start: time at which the read starts
-        read_speed: speed at which the read is read, in basepairs per second, defaults to SIM_PARAMS.bp_per_second
-        chunk_size: size of chunks that .get_new_chunks() returns, defaults to SIM_PARAMS.chunk_size
-        t_delay: delay before read starts (template_start - read_start), 0 basepairs are read during this delay, end time is shifted accordingly
+        read_speed: speed at which the read is read, in basepairs/signals per second, defaults to SIM_PARAMS.bp_per_second
+        min_chunk_size: minimum size of chunks that .get_new_chunks() returns, defaults to SIM_PARAMS.min_chunk_size
+        t_delay: delay before read starts (template_start - read_start), 0 basepairs/signals are read during this delay, end time is shifted accordingly
     """
-    def __init__(self, read_id: str, seq: str, t_start: Number, read_speed: Number=None, chunk_size: Number=None, t_delay:float = 0):
+    def __init__(self, read_id: str, seq: str, t_start: Number, read_speed: Number=None, min_chunk_size: Number=None, t_delay: float = 0):
         # copy params in case they change while the read is in-progress
         assert read_speed > 0
-        assert chunk_size > 0
+        assert min_chunk_size > 0
         self._read_speed = read_speed
-        self._chunk_size = chunk_size
+        self._min_chunk_size = min_chunk_size
         super().__init__(t_start,  len(seq) / self._read_speed + t_delay)
         
         self.full_read_id = read_id
@@ -228,6 +229,7 @@ class ChunkedRead(ChannelElement):
         assert t_delay >= 0
         self._t_delay = t_delay
         
+        # self._ref_len: length of sequence on reference sequence, seq can be shorter/longer due to indels, constant
         if NanoSimId.is_valid(read_id):
             # whether the read id is from NanoSim -> read id will be changed when read is terminated early
             self._nanosim_read_id = NanoSimId.from_str(read_id)
@@ -238,65 +240,77 @@ class ChunkedRead(ChannelElement):
             self._ref_len = len(self._full_seq)
         
         self.stopped_receiving = False # whether to receive chunks from the read
-        self._next_chunk_idx = 0 # start idx of next chunks to return
-        self.end_reason = None # action used to finish read
+        self._num_samples_returned = 0 # number of samples returned so far
+        self.end_reason : Optional[ReadEndReason] = None # action used to finish read (excluding stop receiving!)
+        
+        # lock to ensure get_new_samples is not called in parallel, other methods reading from self._num_samples_returned 
+        # can only assume the value is valid, but it may have changed when accessing it again, see
+        # https://docs.python.org/3/faq/library.html#what-kinds-of-global-value-mutation-are-thread-safe
+        # this applies to self.end_reason, self._num_samples_returned, self.stopped_receiving
+        self._get_new_samples_lock = Lock()
         
     def __repr__(self):
-        return f"ChunkedRead '{self.full_read_id}': '{self._full_seq}' between [{self.t_start}, {self.t_end}], num chunks returned: {self._next_chunk_idx}, end_reason: {self.end_reason}"
+        return f"ChunkedRead '{self.full_read_id}': '{self._full_seq}' between [{self.t_start}, {self.t_end}], num samples returned: {self._num_samples_returned}, end_reason: {self.end_reason}"
     
     def __eq__(self, other) -> bool:
         assert isinstance(other, ChunkedRead)
         return self.t_start == other.t_start and self.t_duration == other.t_duration \
             and self._t_delay == other._t_delay \
             and self.full_read_id == other.full_read_id and self._full_seq == other._full_seq and self._read_speed == other._read_speed \
-            and self._chunk_size == other._chunk_size and self.stopped_receiving == other.stopped_receiving \
-            and self._next_chunk_idx == other._next_chunk_idx and self.end_reason == other.end_reason
-    
-    @property
-    def _nb_chunks(self):
-        """Number of chunks the read is divided into"""
-        return (len(self._full_seq) + self._chunk_size - 1) // self._chunk_size # round up
+            and self._min_chunk_size == other._min_chunk_size and self.stopped_receiving == other.stopped_receiving \
+            and self._num_samples_returned == other._num_samples_returned and self.end_reason == other.end_reason
     
     def full_duration(self) -> Number:
         return self._t_delay + len(self._full_seq) / self._read_speed
     
-    @property
-    def _has_received_chunks(self):
-        """Whether at least one non-empty chunk was returned (via get_new_chunks)"""
-        return self._next_chunk_idx > 0
-    
-    def all_chunks_consumed(self) -> bool:
-        """Whether all chunks have been consumed, i.e. read has finished"""
-        return self._next_chunk_idx >= self._nb_chunks
-    
-    @cached_property # lazy
-    def _chunk_end_positions(self):
-        """
-        End positions of the chunks (cumulative chunk lengths), exclusive
+    def full_seq_length(self):
+        """number of basepairs/signals of full read"""
+        return len(self._full_seq)
         
-        cached because they may not be needed if the simulation passes over the read (because time forwarded a lot).
-        """
-        cum_lens = [(i+1)*self._chunk_size for i in range(self._nb_chunks)]
-        cum_lens[-1] = len(self._full_seq)
-        return cum_lens
+    def num_samples_returned(self):
+        """Number of basepairs/signals that were returned so far (if stopped receiving or if not getting chunks)"""
+        return self._num_samples_returned
     
-    def _get_chunks(self, fr: int, to: int):
-        """Get concatenated chunks [from, to)"""
-        return self._full_seq[fr * self._chunk_size:to * self._chunk_size]
+    @property
+    def _has_received_data(self):
+        """Whether at least one new sample was returned (via get_new_samples)"""
+        return self._num_samples_returned > 0
     
-    def _estimate_ref_len(self, nb_bps_read):
+    def all_samples_consumed(self) -> bool:
+        """Whether read has been fully read (so also has finished)"""
+        return self._num_samples_returned >= self.full_seq_length()
+    
+    def _estimate_ref_len(self, read_seq_length):
         """
-        Estimate reference length given number of basepairs read, not exact due to indels
+        Estimate reference length given number of basepairs/signals read, not exact due to indels
+        
+        If it is a NanoSim read, it also removes the head or tail length
         
         Requires correct estimation of ref length of full read (which is available for NanoSim eads)
         """
         # round rather than round down (with int())
-        assert nb_bps_read <= len(self._full_seq)
-        return estimate_ref_len(orig_ref_len=self._ref_len, orig_seq_len=len(self._full_seq), new_seq_len=nb_bps_read)
+        full_len = self.full_seq_length()
+        assert read_seq_length <= full_len
+        if self._nanosim_read_id:
+            # remove head and tail length
+            head_len, tail_len = self._nanosim_read_id.head_len, self._nanosim_read_id.tail_len
+            assert head_len + tail_len <= full_len
+            if self._nanosim_read_id.direction == "R":
+                # swap
+                head_len, tail_len = tail_len, head_len
+            full_len_no_flanking = full_len - (head_len + tail_len)
+            # constrain (read_seq_length - head_len) to interval [0, full_len_no_flanking]
+            read_seq_length = min(
+                max(0, read_seq_length - head_len), 
+                full_len_no_flanking
+            )
+        else:
+            full_len_no_flanking = full_len
+        return estimate_ref_len(orig_ref_len=self._ref_len, orig_seq_len=full_len_no_flanking, new_seq_len=read_seq_length)
     
-    def nb_basepairs(self, t: Number):
+    def actual_seq_length(self, t: Number):
         """
-        Number of basepairs of read up to time t, first basepair emitted at time t_start
+        Number of basepairs/signals of read up to time t, first basepair emitted at time t_start
         
         If .has_finished_by(t) returns True and the full read was read or .finish() 
         not yet called, it is guaranteed to return the full length of the 
@@ -305,21 +319,13 @@ class ChunkedRead(ChannelElement):
         real_start = self.t_start + self._t_delay
         if t < real_start:
             return 0
-        if (self.has_finished_by(t) and self.end_reason in [None, ReadEndReason.READ_ENDED_NORMALLY]):
-            # special case due to floating point problem with addition
+        if self.has_finished_by(t) and self.end_reason in [None, ReadEndReason.READ_ENDED_NORMALLY]:
+            # special case due to floating point precision loss with addition, when read ended normally, make sure to return full length when t>=t_end
             return len(self._full_seq)
         return min(
             len(self._full_seq), 
             int((min(t, self.t_end) - real_start) * self._read_speed) # round down
         )
-        
-    def nb_basepairs_full(self):
-        """number of basepairs of full read"""
-        return len(self._full_seq)
-        
-    def nb_basepairs_returned(self):
-        """Number of basepairs not yet returned (if stopped receiving or if not getting chunks)"""
-        return min(len(self._full_seq), self._next_chunk_idx * self._chunk_size)
         
     def finish(self, t=None, end_reason: Optional[ReadEndReason]=None) -> SeqIO.SeqRecord:
         """
@@ -329,18 +335,17 @@ class ChunkedRead(ChannelElement):
         
         Arguments:
             t: time when read ends, read is ended prematurely if less than full read end; full read if None or t exceeds full read end
-            end_reason: action that caused read to be written to file
+            end_reason: action that caused read to finish, must be 'valid' if t is not None and before end of full read
         Returns:
             SeqRecord of read that can be written to fasta file
         """
-        assert self.end_reason is None, f"already ended read with action {self.end_reason}"
+        assert self.end_reason is None, f"trying to end with {end_reason}, but already ended read with action {self.end_reason}"
         
         if t is not None:
             if not self.has_finished_by(t):
                 assert end_reason in [ReadEndReason.UNBLOCKED, ReadEndReason.MUX_SCAN_STARTED, ReadEndReason.SIM_STOPPED], "end reason must be set"
             
-            nb_bps_returned = self.nb_basepairs_returned()
-            assert t >= self.t_start + self._t_delay * (nb_bps_returned > 0) + nb_bps_returned / self._read_speed, "cannot finish earlier than last returned chunk"
+            assert t >= self.t_start + self._t_delay * (self._num_samples_returned > 0) + self._num_samples_returned / self._read_speed, "cannot finish earlier than last returned chunk"
             
             self.t_end = min(self.t_end, t)
         # t_end contains end time of read now
@@ -366,10 +371,10 @@ class ChunkedRead(ChannelElement):
         if self.end_reason == ReadEndReason.READ_ENDED_NORMALLY:
             seq = self._full_seq
         else:
-            seq = self._full_seq[:self.nb_basepairs(self.t_end)]
+            seq = self._full_seq[:self.actual_seq_length(self.t_end)]
             if self._nanosim_read_id is not None and (len(seq) < len(self._full_seq)):
                 # adapt reference length, as read was stopped early
-                actual_ref_len = self._estimate_ref_len(self.nb_basepairs(self.t_end))
+                actual_ref_len = self._estimate_ref_len(self.actual_seq_length(self.t_end))
                 self._nanosim_read_id.change_ref_len(actual_ref_len) # if this method is called again, the read id will not change again because the ref len is the same
                 adapted_read_id = str(self._nanosim_read_id)
         
@@ -377,13 +382,17 @@ class ChunkedRead(ChannelElement):
         read_tags = []
         if self.stopped_receiving:
             read_tags.append(ReadTags.RU_STOPPED_RECEIVING)
-        if not self._has_received_chunks:
+        if not self._has_received_data:
             read_tags.append(ReadTags.RU_NEVER_REQUESTED)
             
         # append full sequence length (in case read was unblocked)
-        description = f"full_seqlen={self.nb_basepairs_full()} t_start={self.t_start} t_end={self.t_end} t_delay={self._t_delay} ended={self.end_reason} tags={','.join(read_tags)} full_read_id={self.full_read_id}"
-        return SeqIO.SeqRecord(Seq(seq), id=adapted_read_id, description=description)
+        description = f"full_seqlen={self.full_seq_length()} t_start={self.t_start} t_end={self.t_end} t_delay={self._t_delay} ended={self.end_reason} tags={','.join(read_tags)} full_read_id={self.full_read_id}"
+        return SeqIO.SeqRecord(Seq(seq if self.is_nucleotide_seq(seq) else ""), id=adapted_read_id, description=description)
     
+    @staticmethod
+    def is_nucleotide_seq(seq):
+        """Whether the read is a nucleotide sequence"""
+        return isinstance(seq, str)
     
     SEQ_SUMMARY_HEADER = ["read_id", "channel", "mux", "start_time", "duration", "passes_filtering", "template_start", "template_duration", "sequence_length_template", "end_reason"]
     def get_seq_summary_record(self) -> Optional[List[str]]:
@@ -391,19 +400,19 @@ class ChunkedRead(ChannelElement):
         Get list of entries for sequence summary file, see SEQ_SUMMARY_HEADER for field names
         
         Returns:
-            list of string entries, or None if read has no basepairs (e.g. due to delay)
+            list of string entries, or None if read has no basepairs/signals (e.g. due to delay)
         """
         # read_id, channel, mux, start_time, duration, passes_filtering, template_start, template_duration, sequence_length_template, end_reason
         mux = 1
         passes_filtering = "True"
         template_duration = self.t_duration - self._t_delay
-        nb_bps_read = self.nb_basepairs(self.t_end)
-        if nb_bps_read <= 0:
+        read_seq_length = self.actual_seq_length(self.t_end)
+        if read_seq_length <= 0:
             return None
         return [
             self.full_read_id, self.channel, mux, self.t_start, self.t_duration, passes_filtering, 
             self.t_start + self._t_delay, template_duration, 
-            nb_bps_read, self.end_reason
+            read_seq_length, self.end_reason
         ]
         
     def stop_receiving(self, value=True) -> bool:
@@ -422,29 +431,33 @@ class ChunkedRead(ChannelElement):
         self.stopped_receiving = value
         return True
     
-    def get_new_chunks(self, t: Number) -> Tuple[str, str, Optional[int]]:
+    def get_new_samples(self, t: Number) -> Tuple[str, str, Optional[int]]:
         """
-        Get new read chunks up to time <= t, only new data since last call to this function
+        Get new read samples up to time <= t, only new data since last call to this function
         
-        Implicitly forwards to time t (choosing chunk index of chunk containing t)
+        Implicitly forwards to time t
+        
+        Still works when other methods are called in parallel (e.g. finish, stop_receiving), 
+        though be careful about interpreting the results if it is finished before the time t provided here
         
         Returns:
-            (all chunks concatenated, read_id, estimated_ref_len_so_far).
+            (samples, read_id, estimated_ref_len_so_far).
             
-            Empty chunks "" if stop_receiving is True
-            estimated_ref_len_so_far is the estimated number of basepairs covered by chunks returned so far
-        """
-        assert self.end_reason is None, f"already ended read with action {self.end_reason}"
+            Empty samples "" if stop_receiving is True
+            estimated_ref_len_so_far is the estimated number of basepairs/signals covered by samples returned so far
+        """        
+        if self.stopped_receiving or self.end_reason is not None: # may be set in parallel
+            return "", self.full_read_id, self._estimate_ref_len(self._num_samples_returned)
         
-        if self.stopped_receiving:
-            return "", self.full_read_id, self._estimate_ref_len(self.nb_basepairs_returned())
-        
-        # choose chunk index of chunk containing t
-        next_chunk_idx = np.searchsorted(self._chunk_end_positions, v=self.nb_basepairs(t), side='right') # index such that a[i-1] <= v < a[i]
-        old_next_chunk_idx = self._next_chunk_idx
-        self._next_chunk_idx = next_chunk_idx
-        estimated_ref_len_so_far = self._estimate_ref_len(self.nb_basepairs_returned()) # takes into account _next_chunk_idx
-        return self._get_chunks(old_next_chunk_idx, self._next_chunk_idx), self.full_read_id, estimated_ref_len_so_far
+        with self._get_new_samples_lock:
+            old_num_samples_returned = self._num_samples_returned
+            new_num_samples_returned = self.actual_seq_length(t) # depends on self.end_reason which may be set in parallel, this is okay
+            if new_num_samples_returned < old_num_samples_returned + self._min_chunk_size:
+                return "", self.full_read_id, self._estimate_ref_len(self._num_samples_returned)
+            
+            self._num_samples_returned = new_num_samples_returned
+            estimated_ref_len_so_far = self._estimate_ref_len(new_num_samples_returned) # takes into account _next_chunk_idx
+            return self._full_seq[old_num_samples_returned:new_num_samples_returned], self.full_read_id, estimated_ref_len_so_far
 
 
 class ReadDescriptionParser:

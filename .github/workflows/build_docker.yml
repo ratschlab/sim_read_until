@@ -33,7 +33,7 @@ jobs:
       packages: write
       contents: read
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       -
         name: Checkout
@@ -83,6 +83,7 @@ jobs:
       - 
         name: Test docker image in python3.10
         uses: addnab/docker-run-action@v3
+        timeout-minutes: 20
         with:
           image: ${{ env.TEST_TAG }}
           shell: /bin/bash
@@ -97,6 +98,7 @@ jobs:
       -
         name: Push docker image
         uses: docker/build-push-action@v4
+        timeout-minutes: 20
         id: Push
         with:
           context: .
@@ -108,6 +110,7 @@ jobs:
       - 
         name: Run full usecase (in Docker container)
         uses: addnab/docker-run-action@v3
+        timeout-minutes: 20
         with:
           image: ${{ env.TEST_TAG }}
           shell: /bin/bash
@@ -133,6 +136,7 @@ jobs:
       - 
         name: Archive figures
         uses: actions/upload-artifact@v3
+        timeout-minutes: 10
         with:
           name: usecase-figures
           path: figures.tar.gz

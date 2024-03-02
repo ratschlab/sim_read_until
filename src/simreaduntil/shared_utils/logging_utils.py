@@ -66,6 +66,13 @@ def make_handler_support_end(handler: logging.Handler):
 END_WITH_CARRIAGE_RETURN = {"extra": {"end": "\r"}}
 """use together with make_handler_support_end to print to logger with a carriage return (move to beginning of line, overwriting content)"""
 
+def logging_output_formatter(handler):
+    """configures handler to use a specific formatter"""
+    formatter = logging.Formatter("%(asctime)s - %(message)s --- %(filename)s:%(lineno)d (%(funcName)s) %(levelname)s ##")
+    # "--- vscode://%(pathname)s:%(lineno)d - %(levelname)s"
+    make_handler_support_end(handler)
+    handler.setFormatter(formatter)
+    
 _STREAM_HANDLER_ATTR_NAME = "COMPREHENSIVE_STREAM_HANDLER"
 def add_comprehensive_stream_handler_to_logger(logger: Union[str, logging.Logger, None]=None, level=logging.NOTSET):
     """
@@ -91,14 +98,11 @@ def add_comprehensive_stream_handler_to_logger(logger: Union[str, logging.Logger
         return False
 
     handler = logging.StreamHandler() # outputs to sys.stderr
-    
+    logging_output_formatter(handler)
     handler.setLevel(level)
     setattr(handler, _STREAM_HANDLER_ATTR_NAME, True)
 
-    formatter = logging.Formatter("%(asctime)s - %(message)s --- %(filename)s:%(lineno)d (%(funcName)s) %(levelname)s ##")
-    # "--- vscode://%(pathname)s:%(lineno)d - %(levelname)s"
-    make_handler_support_end(handler)
-    handler.setFormatter(formatter)
+    
     logger.addHandler(handler)
     
     logging.captureWarnings(True)

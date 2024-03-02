@@ -34,6 +34,9 @@ def test_simulator_with_readfish(shared_datadir, tmp_path):
     
     assert Path("simulator_run/reads").exists()
     assert Path("simulator_run/sequencing_summary.txt").exists()
+    assert Path("simulator_run/live_sequencing_summary.txt").exists()
+    
+    assert Path("simulator_run/sequencing_summary.txt").read_text() == Path("simulator_run/live_sequencing_summary.txt").read_text()
     
     action_results_df = pd.read_csv("simulator_run/action_results.csv", sep="\t")
     plot_sim_actions(action_results_df, close_figures=True)

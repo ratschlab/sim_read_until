@@ -12,7 +12,7 @@ class NanoSimId:
     Integer-like strings will be converted.
     """
     def __init__(self, chrom, ref_pos, read_nb, direction, ref_len, head_len=0, tail_len=0, read_type="aligned"):
-        assert read_type in ["aligned", "perfect"]
+        assert read_type in ["aligned", "unaligned", "perfect"]
         assert direction in ["R", "F"]
         ref_pos = int(ref_pos)
         ref_len = int(ref_len)
@@ -20,8 +20,8 @@ class NanoSimId:
         head_len = int(head_len)
         tail_len = int(tail_len)
         # if read_type == "perfect":
-        assert head_len == 0
-        assert tail_len == 0
+        # assert head_len == 0
+        # assert tail_len == 0
         
         self.chrom = chrom
         self.ref_pos = ref_pos
@@ -42,11 +42,14 @@ class NanoSimId:
         E.g.
         chr2_920875_perfect_proc0:1_F_0_8346_0
         chr2_649870_aligned_proc0:2_F_0_10399_0
+        chr-18_12681_aligned_proc3:68_F_5_13231_10
+        genome1-chr-6_236227_unaligned_proc5:16_R_0_16119_0
         
         This is of the form {genome}-{chromosome}_{ref_pos}_{read_type}_{read_nb}_{strand}_{head_len}_{segment_lengths}_{tail_len}
         The ref_pos is 0-based and the read spans [ref_pos:ref_pos+ref_len] on the forward strand, independent of the the direction which is F or R (forward, reverse).
         We assume here that the head and tail flanking lengths are 0.
         read_nb: proc{process_nb}:{read_nb_for_process}
+        head and tail len are with respect to read on forward strand, so when the read is reversed, the read starts with the tail length
         
         Note (not relevant here): for chimeric reads, '{genome-chromosome}_{position}' and 'segment_lengths' are joined by ";" etc.
         """

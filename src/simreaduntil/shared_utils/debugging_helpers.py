@@ -40,14 +40,14 @@ def warn_debugging():
     def helper():
         # also print, in case logging is disabled
         [print("#"*80) for _ in range(5)]
-        print("Running in test mode")
+        print("Running in debug mode")
         [print("#"*80) for _ in range(5)]
 
         [logger.info("#"*80) for _ in range(5)]
-        logger.info("Running in test mode", stacklevel=2)
+        logger.info("Running in debug mode", stacklevel=2)
         [logger.info("#"*80) for _ in range(5)]
     helper()
-    # also print when program terminates
+    # also print when program terminates, but only once
     global __WARN_DEBUGGING_REGISTERED
     if not __WARN_DEBUGGING_REGISTERED:
         import atexit
