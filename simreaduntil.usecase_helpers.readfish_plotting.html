@@ -7,7 +7,7 @@
   <head>
     
     <title>simreaduntil.usecase_helpers.readfish_plotting</title>
-    <meta name="generator" content="pydoctor 23.9.0"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -163,6 +163,26 @@
         
 
         
+            <div class="itemName"><code><a href="#get_chunk_mapping_time_over_time_df" class="internal-link" title="simreaduntil.usecase_helpers.readfish_plotting.get_chunk_mapping_time_over_time_df">get<wbr></wbr>_chunk<wbr></wbr>_mapping<wbr></wbr>_time<wbr></wbr>_over<wbr></wbr>_time<wbr></wbr>_df</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_chunk_wait_time_over_time_df" class="internal-link" title="simreaduntil.usecase_helpers.readfish_plotting.get_chunk_wait_time_over_time_df">get<wbr></wbr>_chunk<wbr></wbr>_wait<wbr></wbr>_time<wbr></wbr>_over<wbr></wbr>_time<wbr></wbr>_df</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#get_extra_basecall_delay_over_time_df" class="internal-link" title="simreaduntil.usecase_helpers.readfish_plotting.get_extra_basecall_delay_over_time_df">get<wbr></wbr>_extra<wbr></wbr>_basecall<wbr></wbr>_delay<wbr></wbr>_over<wbr></wbr>_time<wbr></wbr>_df</a></code>
             </div>
         
@@ -184,6 +204,26 @@
 
         
             <div class="itemName"><code><a href="#get_throttle_over_time_df" class="internal-link" title="simreaduntil.usecase_helpers.readfish_plotting.get_throttle_over_time_df">get<wbr></wbr>_throttle<wbr></wbr>_over<wbr></wbr>_time<wbr></wbr>_df</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_chunk_mapping_time" class="internal-link" title="simreaduntil.usecase_helpers.readfish_plotting.plot_chunk_mapping_time">plot<wbr></wbr>_chunk<wbr></wbr>_mapping<wbr></wbr>_time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plot_chunk_waiting_time" class="internal-link" title="simreaduntil.usecase_helpers.readfish_plotting.plot_chunk_waiting_time">plot<wbr></wbr>_chunk<wbr></wbr>_waiting<wbr></wbr>_time</a></code>
             </div>
         
 
@@ -341,7 +381,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/readfish_plotting.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/readfish_plotting.py" class="sourceLink">(source)</a>
           <p></p>
         </div>
 
@@ -350,10 +390,20 @@
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id113">
+          <table class="children sortable" id="id120">
   
   
   <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_chunk_mapping_time_over_time_df" class="internal-link" title="simreaduntil.usecase_helpers.readfish_plotting.get_chunk_mapping_time_over_time_df">get<wbr></wbr>_chunk<wbr></wbr>_mapping<wbr></wbr>_time<wbr></wbr>_over<wbr></wbr>_time<wbr></wbr>_df</a></code></td>
+    <td>cumulative time mapping chunks from the device per iteration</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_chunk_wait_time_over_time_df" class="internal-link" title="simreaduntil.usecase_helpers.readfish_plotting.get_chunk_wait_time_over_time_df">get<wbr></wbr>_chunk<wbr></wbr>_wait<wbr></wbr>_time<wbr></wbr>_over<wbr></wbr>_time<wbr></wbr>_df</a></code></td>
+    <td>cumulative time waiting for chunks from the device per iteration</td>
+  </tr><tr class="function">
     
     <td>Function</td>
     <td><code><a href="#get_extra_basecall_delay_over_time_df" class="internal-link" title="simreaduntil.usecase_helpers.readfish_plotting.get_extra_basecall_delay_over_time_df">get<wbr></wbr>_extra<wbr></wbr>_basecall<wbr></wbr>_delay<wbr></wbr>_over<wbr></wbr>_time<wbr></wbr>_df</a></code></td>
@@ -368,6 +418,16 @@
     <td>Function</td>
     <td><code><a href="#get_throttle_over_time_df" class="internal-link" title="simreaduntil.usecase_helpers.readfish_plotting.get_throttle_over_time_df">get<wbr></wbr>_throttle<wbr></wbr>_over<wbr></wbr>_time<wbr></wbr>_df</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_chunk_mapping_time" class="internal-link" title="simreaduntil.usecase_helpers.readfish_plotting.plot_chunk_mapping_time">plot<wbr></wbr>_chunk<wbr></wbr>_mapping<wbr></wbr>_time</a></code></td>
+    <td>Plots the time spent mapping chunks from the device per iteration and time.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#plot_chunk_waiting_time" class="internal-link" title="simreaduntil.usecase_helpers.readfish_plotting.plot_chunk_waiting_time">plot<wbr></wbr>_chunk<wbr></wbr>_waiting<wbr></wbr>_time</a></code></td>
+    <td>Plots the time spent waiting for chunks from the device per iteration and time.</td>
   </tr><tr class="function">
     
     <td>Function</td>
@@ -394,6 +454,60 @@
           <div class="basefunction">
   
   
+  <a name="simreaduntil.usecase_helpers.readfish_plotting.get_chunk_mapping_time_over_time_df">
+    
+  </a>
+  <a name="get_chunk_mapping_time_over_time_df">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_chunk_mapping_time_over_time_df</span><span class="function-signature">(log_filename)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/readfish_plotting.py#L248">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_chunk_mapping_time_over_time_df" title="simreaduntil.usecase_helpers.readfish_plotting.get_chunk_mapping_time_over_time_df">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>cumulative time mapping chunks from the device per iteration</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.readfish_plotting.get_chunk_wait_time_over_time_df">
+    
+  </a>
+  <a name="get_chunk_wait_time_over_time_df">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_chunk_wait_time_over_time_df</span><span class="function-signature">(log_filename)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/readfish_plotting.py#L224">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_chunk_wait_time_over_time_df" title="simreaduntil.usecase_helpers.readfish_plotting.get_chunk_wait_time_over_time_df">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>cumulative time waiting for chunks from the device per iteration</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
   <a name="simreaduntil.usecase_helpers.readfish_plotting.get_extra_basecall_delay_over_time_df">
     
   </a>
@@ -404,7 +518,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">get_extra_basecall_delay_over_time_df</span><span class="function-signature">(log_filename)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/readfish_plotting.py#L17">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/readfish_plotting.py#L17">
       
       (source)
     </a>
@@ -431,7 +545,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">get_processing_time_per_read_over_time_df</span><span class="function-signature">(log_filename)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/readfish_plotting.py#L84">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/readfish_plotting.py#L144">
       
       (source)
     </a>
@@ -458,7 +572,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">get_throttle_over_time_df</span><span class="function-signature">(log_filename)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/readfish_plotting.py#L141">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/readfish_plotting.py#L201">
       
       (source)
     </a>
@@ -475,6 +589,64 @@
 </div><div class="basefunction">
   
   
+  <a name="simreaduntil.usecase_helpers.readfish_plotting.plot_chunk_mapping_time">
+    
+  </a>
+  <a name="plot_chunk_mapping_time">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_chunk_mapping_time</span><span class="function-signature">(df, save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, n_points=200)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/readfish_plotting.py#L116">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_chunk_mapping_time" title="simreaduntil.usecase_helpers.readfish_plotting.plot_chunk_mapping_time">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plots the time spent mapping chunks from the device per iteration and time.</p>
+<p>Sorts by mapping_time, then takes the n_points largest.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.usecase_helpers.readfish_plotting.plot_chunk_waiting_time">
+    
+  </a>
+  <a name="plot_chunk_waiting_time">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot_chunk_waiting_time</span><span class="function-signature">(df, save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, n_points=200)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/readfish_plotting.py#L88">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plot_chunk_waiting_time" title="simreaduntil.usecase_helpers.readfish_plotting.plot_chunk_waiting_time">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Plots the time spent waiting for chunks from the device per iteration and time.</p>
+<p>Sorts by waiting_time, then takes the n_points largest.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
   <a name="simreaduntil.usecase_helpers.readfish_plotting.plot_extra_basecalling_delay_per_iter">
     
   </a>
@@ -484,8 +656,8 @@
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot_extra_basecalling_delay_per_iter</span><span class="function-signature">(df, save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/readfish_plotting.py#L45">
+    <span class="py-keyword">def</span> <span class="py-defname">plot_extra_basecalling_delay_per_iter</span><span class="function-signature">(df, save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, n_points=200)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/readfish_plotting.py#L45">
       
       (source)
     </a>
@@ -498,7 +670,8 @@
   <div class="docstring functionBody">
     
     <div><p>Plots the extra basecalling delay per iteration.</p>
-<p>One iteration is a called to get_basecalled_read_chunks() which logs the total time spent due to basecalling.
+<p>Sort by avg_extra_wait_time, then take the n_points largest.</p>
+<p>One iteration is a call to get_basecalled_read_chunks() which logs the total time spent due to basecalling.
 The basecalling starts right when the function is called, so if the processing of the basecalled data takes longer,
 there is no extra delay due to basecalling.</p>
 </div>
@@ -516,7 +689,7 @@ there is no extra delay due to basecalling.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">plot_readfish_processing_time</span><span class="function-signature">(df, save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/readfish_plotting.py#L110">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/readfish_plotting.py#L170">
       
       (source)
     </a>
@@ -542,8 +715,8 @@ there is no extra delay due to basecalling.</p>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">plot_throttle_over_time</span><span class="function-signature">(df, save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/readfish_plotting.py#L164">
+    <span class="py-keyword">def</span> <span class="py-defname">plot_throttle_over_time</span><span class="function-signature">(df, save_dir=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, n_points=200)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/readfish_plotting.py#L272">
       
       (source)
     </a>
@@ -569,7 +742,7 @@ there is no extra delay due to basecalling.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.0 at 2023-11-01 13:25:58.
+    23.9.1 at 2024-03-02 12:33:21.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

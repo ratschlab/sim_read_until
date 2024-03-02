@@ -7,7 +7,7 @@
   <head>
     
     <title>simreaduntil.usecase_helpers.simulator_with_readfish</title>
-    <meta name="generator" content="pydoctor 23.9.0"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -174,6 +174,16 @@
 
         
             <div class="itemName"><code><a href="#get_read_pool" class="internal-link" title="simreaduntil.usecase_helpers.simulator_with_readfish.get_read_pool">get<wbr></wbr>_read<wbr></wbr>_pool</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_reads_file_type" class="internal-link" title="simreaduntil.usecase_helpers.simulator_with_readfish.get_reads_file_type">get<wbr></wbr>_reads<wbr></wbr>_file<wbr></wbr>_type</a></code>
             </div>
         
 
@@ -354,7 +364,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/simulator_with_readfish.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/simulator_with_readfish.py" class="sourceLink">(source)</a>
           <p></p>
         </div>
 
@@ -363,7 +373,7 @@
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id120">
+          <table class="children sortable" id="id127">
   
   
   <tr class="function">
@@ -376,6 +386,11 @@
     <td>Function</td>
     <td><code><a href="#get_read_pool" class="internal-link" title="simreaduntil.usecase_helpers.simulator_with_readfish.get_read_pool">get<wbr></wbr>_read<wbr></wbr>_pool</a></code></td>
     <td>Get read pool either from reads_file or perfect reads from ref_fasta</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_reads_file_type" class="internal-link" title="simreaduntil.usecase_helpers.simulator_with_readfish.get_reads_file_type">get<wbr></wbr>_reads<wbr></wbr>_file<wbr></wbr>_type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="function">
     
     <td>Function</td>
@@ -422,7 +437,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">compute_nonselective_coverage</span><span class="function-signature">(ref_genome_path, reads_file)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/simulator_with_readfish.py#L48">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/simulator_with_readfish.py#L50">
       
       (source)
     </a>
@@ -448,8 +463,8 @@
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">get_read_pool</span><span class="function-signature">(reads_file, ref_genome_path)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/simulator_with_readfish.py#L84">
+    <span class="py-keyword">def</span> <span class="py-defname">get_read_pool</span><span class="function-signature">(reads_file_type, reads_file, ref_genome_path, n_channels, reads_len_range=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/simulator_with_readfish.py#L94">
       
       (source)
     </a>
@@ -466,6 +481,33 @@
 </div><div class="basefunction">
   
   
+  <a name="simreaduntil.usecase_helpers.simulator_with_readfish.get_reads_file_type">
+    
+  </a>
+  <a name="get_reads_file_type">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_reads_file_type</span><span class="function-signature">(reads_file: <code><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a></code>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/simulator_with_readfish.py#L140">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_reads_file_type" title="simreaduntil.usecase_helpers.simulator_with_readfish.get_reads_file_type">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
   <a name="simreaduntil.usecase_helpers.simulator_with_readfish.get_reads_writer">
     
   </a>
@@ -475,8 +517,8 @@
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">get_reads_writer</span><span class="function-signature">(run_dir: <code><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a></code>, rotating: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/simulator_with_readfish.py#L54">
+    <span class="py-keyword">def</span> <span class="py-defname">get_reads_writer</span><span class="function-signature">(run_dir: <code><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" class="intersphinx-link">Path</a></code>, rotating_writeout: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/simulator_with_readfish.py#L60">
       
       (source)
     </a>
@@ -503,7 +545,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">get_sim_params</span><span class="function-signature">(sim_params_file, n_channels) -&gt; <code><a href="simreaduntil.simulator.simulator_params.SimParams.html" class="internal-link" title="simreaduntil.simulator.simulator_params.SimParams">SimParams</a></code></span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/simulator_with_readfish.py#L69">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/simulator_with_readfish.py#L77">
       
       (source)
     </a>
@@ -530,7 +572,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">main</span><span class="function-signature">(toml_file)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/simulator_with_readfish.py#L108">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/simulator_with_readfish.py#L157">
       
       (source)
     </a>
@@ -561,7 +603,7 @@ The chunk log file contains information about the chunk decisions.</p>
     
     @<a href="https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager" class="intersphinx-link">contextmanager</a><br />
     <span class="py-keyword">def</span> <span class="py-defname">wrap_simulator_in_grpc</span><span class="function-signature">(simulator, use_grpc)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/simulator_with_readfish.py#L95">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/simulator_with_readfish.py#L115">
       
       (source)
     </a>
@@ -587,7 +629,7 @@ The chunk log file contains information about the chunk decisions.</p>
   <div class="functionHeader">
     
     <span class="py-defname">logger</span> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/usecase_helpers/simulator_with_readfish.py#L32">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/usecase_helpers/simulator_with_readfish.py#L34">
       
       (source)
     </a>
@@ -614,7 +656,7 @@ The chunk log file contains information about the chunk decisions.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.0 at 2023-11-01 13:25:58.
+    23.9.1 at 2024-03-02 12:33:21.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

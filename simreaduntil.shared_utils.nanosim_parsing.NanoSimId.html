@@ -7,7 +7,7 @@
   <head>
     
     <title>simreaduntil.shared_utils.nanosim_parsing.NanoSimId</title>
-    <meta name="generator" content="pydoctor 23.9.0"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -397,7 +397,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">NanoSimId</span>: <a href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/nanosim_parsing.py#L8" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="simreaduntil.shared_utils.nanosim_parsing.NanoSimId.__init__">NanoSimId(chrom, ref_pos, read_nb, direction, ...)</a></code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">NanoSimId</span>: <a href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/nanosim_parsing.py#L8" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="simreaduntil.shared_utils.nanosim_parsing.NanoSimId.__init__">NanoSimId(chrom, ref_pos, read_nb, direction, ...)</a></code></p>
           <p><a href="classIndex.html#simreaduntil.shared_utils.nanosim_parsing.NanoSimId">View In Hierarchy</a></p>
         </div>
 
@@ -497,7 +497,7 @@
     
     @<a href="https://docs.python.org/3/library/functions.html#staticmethod" class="intersphinx-link">staticmethod</a><br />
     <span class="py-keyword">def</span> <span class="py-defname">from_str</span><span class="function-signature">(read_id: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/nanosim_parsing.py#L35">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/nanosim_parsing.py#L35">
       
       (source)
     </a>
@@ -513,11 +513,14 @@
 <p>Note: Perfect reads are not chimeric (in NanoSim).</p>
 <p>E.g.
 chr2_920875_perfect_proc0:1_F_0_8346_0
-chr2_649870_aligned_proc0:2_F_0_10399_0</p>
+chr2_649870_aligned_proc0:2_F_0_10399_0
+chr-18_12681_aligned_proc3:68_F_5_13231_10
+genome1-chr-6_236227_unaligned_proc5:16_R_0_16119_0</p>
 <p>This is of the form {genome}-{chromosome}_{ref_pos}_{read_type}_{read_nb}_{strand}_{head_len}_{segment_lengths}_{tail_len}
 The ref_pos is 0-based and the read spans [ref_pos:ref_pos+ref_len] on the forward strand, independent of the the direction which is F or R (forward, reverse).
 We assume here that the head and tail flanking lengths are 0.
-read_nb: proc{process_nb}:{read_nb_for_process}</p>
+read_nb: proc{process_nb}:{read_nb_for_process}
+head and tail len are with respect to read on forward strand, so when the read is reversed, the read starts with the tail length</p>
 <p>Note (not relevant here): for chimeric reads, '{genome-chromosome}_{position}' and 'segment_lengths' are joined by ";" etc.</p>
 </div>
   </div>
@@ -534,7 +537,7 @@ read_nb: proc{process_nb}:{read_nb_for_process}</p>
     
     @<a href="https://docs.python.org/3/library/functions.html#staticmethod" class="intersphinx-link">staticmethod</a><br />
     <span class="py-keyword">def</span> <span class="py-defname">is_valid</span><span class="function-signature">(read_id: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/nanosim_parsing.py#L56">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/nanosim_parsing.py#L59">
       
       (source)
     </a>
@@ -561,7 +564,7 @@ read_nb: proc{process_nb}:{read_nb_for_process}</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, chrom, ref_pos, read_nb, direction, ref_len, head_len=0, tail_len=0, read_type=<span class="rst-variable-quote">'</span><span class="rst-variable-string">aligned</span><span class="rst-variable-quote">'</span>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/nanosim_parsing.py#L14">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/nanosim_parsing.py#L14">
       
       (source)
     </a>
@@ -588,7 +591,7 @@ read_nb: proc{process_nb}:{read_nb_for_process}</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">__repr__</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/nanosim_parsing.py#L89">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/nanosim_parsing.py#L92">
       
       (source)
     </a>
@@ -615,7 +618,7 @@ read_nb: proc{process_nb}:{read_nb_for_process}</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">change_ref_len</span><span class="function-signature">(self, new_ref_len: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/nanosim_parsing.py#L63">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/nanosim_parsing.py#L66">
       
       (source)
     </a>
@@ -644,7 +647,7 @@ the method returns early if the reference length is already the same.</td></tr><
   <div class="functionHeader">
     
     <span class="py-defname">chrom</span> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/nanosim_parsing.py#L26">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/nanosim_parsing.py#L26">
       
       (source)
     </a>
@@ -671,7 +674,7 @@ the method returns early if the reference length is already the same.</td></tr><
   <div class="functionHeader">
     
     <span class="py-defname">direction</span> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/nanosim_parsing.py#L29">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/nanosim_parsing.py#L29">
       
       (source)
     </a>
@@ -698,7 +701,7 @@ the method returns early if the reference length is already the same.</td></tr><
   <div class="functionHeader">
     
     <span class="py-defname">head_len</span> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/nanosim_parsing.py#L31">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/nanosim_parsing.py#L31">
       
       (source)
     </a>
@@ -725,7 +728,7 @@ the method returns early if the reference length is already the same.</td></tr><
   <div class="functionHeader">
     
     <span class="py-defname">read_nb</span> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/nanosim_parsing.py#L28">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/nanosim_parsing.py#L28">
       
       (source)
     </a>
@@ -752,7 +755,7 @@ the method returns early if the reference length is already the same.</td></tr><
   <div class="functionHeader">
     
     <span class="py-defname">read_type</span> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/nanosim_parsing.py#L33">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/nanosim_parsing.py#L33">
       
       (source)
     </a>
@@ -779,7 +782,7 @@ the method returns early if the reference length is already the same.</td></tr><
   <div class="functionHeader">
     
     <span class="py-defname">ref_len</span> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/nanosim_parsing.py#L30">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/nanosim_parsing.py#L30">
       
       (source)
     </a>
@@ -806,7 +809,7 @@ the method returns early if the reference length is already the same.</td></tr><
   <div class="functionHeader">
     
     <span class="py-defname">ref_pos</span> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/nanosim_parsing.py#L27">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/nanosim_parsing.py#L27">
       
       (source)
     </a>
@@ -833,7 +836,7 @@ the method returns early if the reference length is already the same.</td></tr><
   <div class="functionHeader">
     
     <span class="py-defname">tail_len</span> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/nanosim_parsing.py#L32">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/nanosim_parsing.py#L32">
       
       (source)
     </a>
@@ -860,7 +863,7 @@ the method returns early if the reference length is already the same.</td></tr><
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.0 at 2023-11-01 13:25:58.
+    23.9.1 at 2024-03-02 12:33:21.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

@@ -6,7 +6,7 @@
 
   <head>
     
-    <title>simreaduntil.simulator.readswriter.ArrayReadsWriter</title>
+    <title>simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper</title>
     <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
@@ -142,7 +142,7 @@
 
       <div class="thingTitle">
         <span>Class</span>
-        <code class="thisobject"><a href="simreaduntil.simulator.readswriter.ArrayReadsWriter.html" class="internal-link" title="This class"><wbr></wbr>Array<wbr></wbr>Reads<wbr></wbr>Writer</a></code> 
+        <code class="thisobject"><a href="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.html" class="internal-link" title="This class"><wbr></wbr>Threaded<wbr></wbr>Reads<wbr></wbr>Writer<wbr></wbr>Wrapper</a></code> 
       </div>
       
       <div>
@@ -163,7 +163,7 @@
         
 
         
-            <div class="itemName"><code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.readswriter.ArrayReadsWriter.__init__">__init__</a></code>
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.__init__">__init__</a></code>
             </div>
         
 
@@ -173,7 +173,7 @@
         
 
         
-            <div class="itemName"><code><a href="#__repr__" class="internal-link" title="simreaduntil.simulator.readswriter.ArrayReadsWriter.__repr__">__repr__</a></code>
+            <div class="itemName"><code><a href="#__repr__" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.__repr__">__repr__</a></code>
             </div>
         
 
@@ -183,7 +183,17 @@
         
 
         
-            <div class="itemName"><code><a href="#extended_repr" class="internal-link" title="simreaduntil.simulator.readswriter.ArrayReadsWriter.extended_repr">extended<wbr></wbr>_repr</a></code>
+            <div class="itemName"><code><a href="#finish" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.finish">finish</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#write_read" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.write_read">write<wbr></wbr>_read</a></code>
             </div>
         
 
@@ -193,7 +203,7 @@
         
 
         
-            <div class="itemName"><code><a href="#_flush" class="internal-link" title="simreaduntil.simulator.readswriter.ArrayReadsWriter._flush">_flush</a></code>
+            <div class="itemName"><code><a href="#_flush" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._flush">_flush</a></code>
             </div>
         
 
@@ -203,7 +213,7 @@
         
 
         
-            <div class="itemName"><code><a href="#_write_read" class="internal-link" title="simreaduntil.simulator.readswriter.ArrayReadsWriter._write_read">_write<wbr></wbr>_read</a></code>
+            <div class="itemName"><code><a href="#_write_received_reads" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._write_received_reads">_write<wbr></wbr>_received<wbr></wbr>_reads</a></code>
             </div>
         
 
@@ -239,27 +249,17 @@
         
 
         
-            <div class="itemName"><code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#finish" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter.finish">finish</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
             <div class="itemName"><code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#flush" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter.flush">flush</a></code>
             </div>
         
 
-    </li><li class="">
+    </li><li class="private">
         
         
         
 
         
-            <div class="itemName"><code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#write_read" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter.write_read">write<wbr></wbr>_read</a></code>
+            <div class="itemName"><code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#_write_read" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter._write_read">_write<wbr></wbr>_read</a></code>
             </div>
         
 
@@ -269,13 +269,33 @@
         <div class="childrenKindTitle">Attributes</div>
         <ul>
     
-    <li class="">
+    <li class="private">
         
         
         
 
         
-            <div class="itemName"><code><a href="#reads" class="internal-link" title="simreaduntil.simulator.readswriter.ArrayReadsWriter.reads">reads</a></code>
+            <div class="itemName"><code><a href="#_reads_queue" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._reads_queue">_reads<wbr></wbr>_queue</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_reads_writer" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._reads_writer">_reads<wbr></wbr>_writer</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_writer_thread" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._writer_thread">_writer<wbr></wbr>_thread</a></code>
             </div>
         
 
@@ -315,7 +335,7 @@
         <div class="childrenKindTitle">Classes</div>
         <ul>
     
-    <li class=" thisobject">
+    <li class="">
         
         
         
@@ -365,7 +385,7 @@
             </div>
         
 
-    </li><li class="">
+    </li><li class=" thisobject">
         
         
         
@@ -422,7 +442,7 @@
         
 
         <div class="page-header">
-          <h1 class="class"><code><code><a href="index.html" class="internal-link">simreaduntil</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.html" class="internal-link" title="simreaduntil.simulator">simulator</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.readswriter.html" class="internal-link" title="simreaduntil.simulator.readswriter">readswriter</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.readswriter.ArrayReadsWriter.html" class="internal-link" title="simreaduntil.simulator.readswriter.ArrayReadsWriter">ArrayReadsWriter</a></code></code></h1>
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">simreaduntil</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.html" class="internal-link" title="simreaduntil.simulator">simulator</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.readswriter.html" class="internal-link" title="simreaduntil.simulator.readswriter">readswriter</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.html" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper">ThreadedReadsWriterWrapper</a></code></code></h1>
           <div id="showPrivate">
             <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
           </div>
@@ -433,55 +453,70 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">ArrayReadsWriter</span>(<a href="simreaduntil.simulator.readswriter.ReadsWriter.html" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter">ReadsWriter</a>): <a href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L261" class="sourceLink">(source)</a></code></p>
-          <p><a href="classIndex.html#simreaduntil.simulator.readswriter.ArrayReadsWriter">View In Hierarchy</a></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">ThreadedReadsWriterWrapper</span>(<a href="simreaduntil.simulator.readswriter.ReadsWriter.html" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter">ReadsWriter</a>): <a href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L62" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.__init__">ThreadedReadsWriterWrapper(reads_writer)</a></code></p>
+          <p><a href="classIndex.html#simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p>Write reads to array, useful for debugging and testing</p></div>
+          <div><p class="undocumented">Undocumented</p></div>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id93">
+          <table class="children sortable" id="id85">
   
   
   <tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.readswriter.ArrayReadsWriter.__init__">__init__</a></code></td>
+    <td><code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.__init__">__init__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#__repr__" class="internal-link" title="simreaduntil.simulator.readswriter.ArrayReadsWriter.__repr__">__repr__</a></code></td>
+    <td><code><a href="#__repr__" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.__repr__">__repr__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#extended_repr" class="internal-link" title="simreaduntil.simulator.readswriter.ArrayReadsWriter.extended_repr">extended<wbr></wbr>_repr</a></code></td>
+    <td><code><a href="#finish" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.finish">finish</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
+  </tr><tr class="method">
     
-    <td>Instance Variable</td>
-    <td><code><a href="#reads" class="internal-link" title="simreaduntil.simulator.readswriter.ArrayReadsWriter.reads">reads</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Method</td>
+    <td><code><a href="#write_read" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.write_read">write<wbr></wbr>_read</a></code></td>
+    <td>write a read (or save it to write it later when flush is called)</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_flush" class="internal-link" title="simreaduntil.simulator.readswriter.ArrayReadsWriter._flush">_flush</a></code></td>
+    <td><code><a href="#_flush" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._flush">_flush</a></code></td>
     <td>thread-safe helper method for flush</td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_write_read" class="internal-link" title="simreaduntil.simulator.readswriter.ArrayReadsWriter._write_read">_write<wbr></wbr>_read</a></code></td>
-    <td>thread-safe helper method for write_read</td>
+    <td><code><a href="#_write_received_reads" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._write_received_reads">_write<wbr></wbr>_received<wbr></wbr>_reads</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_reads_queue" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._reads_queue">_reads<wbr></wbr>_queue</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_reads_writer" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._reads_writer">_reads<wbr></wbr>_writer</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_writer_thread" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._writer_thread">_writer<wbr></wbr>_thread</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
           
             <p class="inheritedFrom">
               Inherited from <code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter">ReadsWriter</a></code>:
             </p>
-            <table class="children sortable" id="id94">
+            <table class="children sortable" id="id86">
   
   
   <tr class="basemethod">
@@ -497,18 +532,13 @@
   </tr><tr class="basemethod">
     
     <td>Method</td>
-    <td><code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#finish" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter.finish">finish</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
     <td><code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#flush" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter.flush">flush</a></code></td>
     <td>Flush reads that were not yet written</td>
-  </tr><tr class="basemethod">
+  </tr><tr class="basemethod private">
     
     <td>Method</td>
-    <td><code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#write_read" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter.write_read">write<wbr></wbr>_read</a></code></td>
-    <td>write a read (or save it to write it later when flush is called)</td>
+    <td><code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#_write_read" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter._write_read">_write<wbr></wbr>_read</a></code></td>
+    <td>thread-safe helper method for write_read</td>
   </tr><tr class="baseinstancevariable private">
     
     <td>Instance Variable</td>
@@ -525,7 +555,7 @@
           <div class="basemethod">
   
   
-  <a name="simreaduntil.simulator.readswriter.ArrayReadsWriter.__init__">
+  <a name="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.__init__">
     
   </a>
   <a name="__init__">
@@ -534,12 +564,12 @@
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L265">
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, reads_writer: <code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter">ReadsWriter</a></code>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L63">
       
       (source)
     </a>
-    <a class="headerLink" href="#__init__" title="simreaduntil.simulator.readswriter.ArrayReadsWriter.__init__">
+    <a class="headerLink" href="#__init__" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.__init__">
       
       
       ¶
@@ -552,7 +582,7 @@
 </div><div class="basemethod">
   
   
-  <a name="simreaduntil.simulator.readswriter.ArrayReadsWriter.__repr__">
+  <a name="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.__repr__">
     
   </a>
   <a name="__repr__">
@@ -561,12 +591,12 @@
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">__repr__</span><span class="function-signature">(self) -&gt; <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L270">
+    <span class="py-keyword">def</span> <span class="py-defname">__repr__</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L70">
       
       (source)
     </a>
-    <a class="headerLink" href="#__repr__" title="simreaduntil.simulator.readswriter.ArrayReadsWriter.__repr__">
+    <a class="headerLink" href="#__repr__" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.__repr__">
       
       
       ¶
@@ -579,61 +609,61 @@
 </div><div class="basemethod">
   
   
-  <a name="simreaduntil.simulator.readswriter.ArrayReadsWriter.extended_repr">
+  <a name="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.finish">
     
   </a>
-  <a name="extended_repr">
+  <a name="finish">
     
   </a>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">extended_repr</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L273">
+    <span class="py-keyword">def</span> <span class="py-defname">finish</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L87">
       
       (source)
     </a>
-    <a class="headerLink" href="#extended_repr" title="simreaduntil.simulator.readswriter.ArrayReadsWriter.extended_repr">
+    <a class="headerLink" href="#finish" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.finish">
       
       
       ¶
     </a>
   </div>
   <div class="docstring functionBody">
-    
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#finish" class="internal-link">simreaduntil.simulator.readswriter.ReadsWriter.finish</a></code></div>
     <div><p class="undocumented">Undocumented</p></div>
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="basemethod">
   
   
-  <a name="simreaduntil.simulator.readswriter.ArrayReadsWriter.reads">
+  <a name="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.write_read">
     
   </a>
-  <a name="reads">
+  <a name="write_read">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">reads</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a></code> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L268">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">write_read</span><span class="function-signature">(self, read: <code>SeqIO.SeqRecord</code>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L81">
       
       (source)
     </a>
-    <a class="headerLink" href="#reads" title="simreaduntil.simulator.readswriter.ArrayReadsWriter.reads">
+    <a class="headerLink" href="#write_read" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.write_read">
       
       
       ¶
     </a>
   </div>
-  <div class="functionBody">
-    
-    <div><p class="undocumented">Undocumented</p></div>
-    
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#write_read" class="internal-link">simreaduntil.simulator.readswriter.ReadsWriter.write_read</a></code></div>
+    <div><p>write a read (or save it to write it later when flush is called)</p></div>
   </div>
 </div><div class="basemethod private">
   
   
-  <a name="simreaduntil.simulator.readswriter.ArrayReadsWriter._flush">
+  <a name="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._flush">
     
   </a>
   <a name="_flush">
@@ -643,11 +673,11 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">_flush</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L277">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L84">
       
       (source)
     </a>
-    <a class="headerLink" href="#_flush" title="simreaduntil.simulator.readswriter.ArrayReadsWriter._flush">
+    <a class="headerLink" href="#_flush" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._flush">
       
       
       ¶
@@ -660,29 +690,110 @@
 </div><div class="basemethod private">
   
   
-  <a name="simreaduntil.simulator.readswriter.ArrayReadsWriter._write_read">
+  <a name="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._write_received_reads">
     
   </a>
-  <a name="_write_read">
+  <a name="_write_received_reads">
     
   </a>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">_write_read</span><span class="function-signature">(self, read: <code>SeqIO.SeqRecord</code>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L280">
+    <span class="py-keyword">def</span> <span class="py-defname">_write_received_reads</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L73">
       
       (source)
     </a>
-    <a class="headerLink" href="#_write_read" title="simreaduntil.simulator.readswriter.ArrayReadsWriter._write_read">
+    <a class="headerLink" href="#_write_received_reads" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._write_received_reads">
       
       
       ¶
     </a>
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#_write_read" class="internal-link">simreaduntil.simulator.readswriter.ReadsWriter._write_read</a></code></div>
-    <div><p>thread-safe helper method for write_read</p></div>
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._reads_queue">
+    
+  </a>
+  <a name="_reads_queue">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_reads_queue</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L66">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_reads_queue" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._reads_queue">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._reads_writer">
+    
+  </a>
+  <a name="_reads_writer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_reads_writer</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L65">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_reads_writer" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._reads_writer">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._writer_thread">
+    
+  </a>
+  <a name="_writer_thread">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_writer_thread</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L67">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_writer_thread" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper._writer_thread">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div>
         </div>

@@ -6,7 +6,7 @@
 
   <head>
     
-    <title>simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel</title>
+    <title>simreaduntil.simulator.readpool.ThreadedReadPoolWrapper</title>
     <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
@@ -142,7 +142,7 @@
 
       <div class="thingTitle">
         <span>Class</span>
-        <code class="thisobject"><a href="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.html" class="internal-link" title="This class"><wbr></wbr>Read<wbr></wbr>Pool<wbr></wbr>From<wbr></wbr>Iterable<wbr></wbr>Per<wbr></wbr>Channel</a></code> 
+        <code class="thisobject"><a href="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.html" class="internal-link" title="This class"><wbr></wbr>Threaded<wbr></wbr>Read<wbr></wbr>Pool<wbr></wbr>Wrapper</a></code> 
       </div>
       
       <div>
@@ -163,7 +163,7 @@
         
 
         
-            <div class="itemName"><code><a href="#__getstate__" class="internal-link" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.__getstate__">__getstate__</a></code>
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.__init__">__init__</a></code>
             </div>
         
 
@@ -173,7 +173,7 @@
         
 
         
-            <div class="itemName"><code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.__init__">__init__</a></code>
+            <div class="itemName"><code><a href="#__repr__" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.__repr__">__repr__</a></code>
             </div>
         
 
@@ -183,7 +183,17 @@
         
 
         
-            <div class="itemName"><code><a href="#__repr__" class="internal-link" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.__repr__">__repr__</a></code>
+            <div class="itemName"><code><a href="#can_handle" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.can_handle">can<wbr></wbr>_handle</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#finish" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.finish">finish</a></code>
             </div>
         
 
@@ -193,7 +203,17 @@
         
 
         
-            <div class="itemName"><code><a href="#_get_new_read" class="internal-link" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel._get_new_read">_get<wbr></wbr>_new<wbr></wbr>_read</a></code>
+            <div class="itemName"><code><a href="#_fill_queue" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._fill_queue">_fill<wbr></wbr>_queue</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_get_new_read" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._get_new_read">_get<wbr></wbr>_new<wbr></wbr>_read</a></code>
             </div>
         
 
@@ -229,16 +249,6 @@
         
 
         
-            <div class="itemName"><code><a href="simreaduntil.simulator.readpool.ReadPool.html#finish" class="internal-link" title="simreaduntil.simulator.readpool.ReadPool.finish">finish</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
             <div class="itemName"><code><a href="simreaduntil.simulator.readpool.ReadPool.html#get_new_read" class="internal-link" title="simreaduntil.simulator.readpool.ReadPool.get_new_read">get<wbr></wbr>_new<wbr></wbr>_read</a></code>
             </div>
         
@@ -255,7 +265,37 @@
         
 
         
-            <div class="itemName"><code><a href="#reads_iterable_per_channel" class="internal-link" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.reads_iterable_per_channel">reads<wbr></wbr>_iterable<wbr></wbr>_per<wbr></wbr>_channel</a></code>
+            <div class="itemName"><code><a href="#definitely_empty" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.definitely_empty">definitely<wbr></wbr>_empty</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_read_pool" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._read_pool">_read<wbr></wbr>_pool</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_reader_thread" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._reader_thread">_reader<wbr></wbr>_thread</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_reads_queue" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._reads_queue">_reads<wbr></wbr>_queue</a></code>
             </div>
         
 
@@ -266,16 +306,6 @@
         <ul>
     
     <li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="simreaduntil.simulator.readpool.ReadPool.html#definitely_empty" class="internal-link" title="simreaduntil.simulator.readpool.ReadPool.definitely_empty">definitely<wbr></wbr>_empty</a></code>
-            </div>
-        
-
-    </li><li class="">
         
         
         
@@ -355,7 +385,7 @@
             </div>
         
 
-    </li><li class=" thisobject">
+    </li><li class="">
         
         
         
@@ -365,7 +395,7 @@
             </div>
         
 
-    </li><li class="">
+    </li><li class=" thisobject">
         
         
         
@@ -455,7 +485,7 @@
         
 
         <div class="page-header">
-          <h1 class="class"><code><code><a href="index.html" class="internal-link">simreaduntil</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.html" class="internal-link" title="simreaduntil.simulator">simulator</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.readpool.html" class="internal-link" title="simreaduntil.simulator.readpool">readpool</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.html" class="internal-link" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel">ReadPoolFromIterablePerChannel</a></code></code></h1>
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">simreaduntil</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.html" class="internal-link" title="simreaduntil.simulator">simulator</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.readpool.html" class="internal-link" title="simreaduntil.simulator.readpool">readpool</a></code><wbr></wbr>.<code><a href="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.html" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper">ThreadedReadPoolWrapper</a></code></code></h1>
           <div id="showPrivate">
             <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
           </div>
@@ -466,50 +496,75 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">ReadPoolFromIterablePerChannel</span>(<a href="simreaduntil.simulator.readpool.ReadPool.html" class="internal-link" title="simreaduntil.simulator.readpool.ReadPool">ReadPool</a>): <a href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L127" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.__init__">ReadPoolFromIterablePerChannel(reads_iterable_per_channel)</a></code></p>
-          <p><a href="classIndex.html#simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel">View In Hierarchy</a></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">ThreadedReadPoolWrapper</span>(<a href="simreaduntil.simulator.readpool.ReadPool.html" class="internal-link" title="simreaduntil.simulator.readpool.ReadPool">ReadPool</a>): <a href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L188" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.__init__">ThreadedReadPoolWrapper(read_pool, queue_size)</a></code></p>
+          <p><a href="classIndex.html#simreaduntil.simulator.readpool.ThreadedReadPoolWrapper">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p>Read pool that requests reads from channel-specific generator</p></div>
+          <div><p class="undocumented">Undocumented</p></div>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id76">
+          <table class="children sortable" id="id81">
   
   
   <tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#__getstate__" class="internal-link" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.__getstate__">__getstate__</a></code></td>
+    <td><code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.__init__">__init__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.__init__">__init__</a></code></td>
+    <td><code><a href="#__repr__" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.__repr__">__repr__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#__repr__" class="internal-link" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.__repr__">__repr__</a></code></td>
+    <td><code><a href="#can_handle" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.can_handle">can<wbr></wbr>_handle</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#finish" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.finish">finish</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#reads_iterable_per_channel" class="internal-link" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.reads_iterable_per_channel">reads<wbr></wbr>_iterable<wbr></wbr>_per<wbr></wbr>_channel</a></code></td>
+    <td><code><a href="#definitely_empty" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.definitely_empty">definitely<wbr></wbr>_empty</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method private">
     
     <td>Method</td>
-    <td><code><a href="#_get_new_read" class="internal-link" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel._get_new_read">_get<wbr></wbr>_new<wbr></wbr>_read</a></code></td>
+    <td><code><a href="#_fill_queue" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._fill_queue">_fill<wbr></wbr>_queue</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_get_new_read" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._get_new_read">_get<wbr></wbr>_new<wbr></wbr>_read</a></code></td>
     <td>Get new read (not thread-safe), overwrite in subclasses</td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_read_pool" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._read_pool">_read<wbr></wbr>_pool</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_reader_thread" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._reader_thread">_reader<wbr></wbr>_thread</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_reads_queue" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._reads_queue">_reads<wbr></wbr>_queue</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
           
             <p class="inheritedFrom">
               Inherited from <code><a href="simreaduntil.simulator.readpool.ReadPool.html" class="internal-link" title="simreaduntil.simulator.readpool.ReadPool">ReadPool</a></code>:
             </p>
-            <table class="children sortable" id="id77">
+            <table class="children sortable" id="id82">
   
   
   <tr class="basemethod">
@@ -525,18 +580,8 @@
   </tr><tr class="basemethod">
     
     <td>Method</td>
-    <td><code><a href="simreaduntil.simulator.readpool.ReadPool.html#finish" class="internal-link" title="simreaduntil.simulator.readpool.ReadPool.finish">finish</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="basemethod">
-    
-    <td>Method</td>
     <td><code><a href="simreaduntil.simulator.readpool.ReadPool.html#get_new_read" class="internal-link" title="simreaduntil.simulator.readpool.ReadPool.get_new_read">get<wbr></wbr>_new<wbr></wbr>_read</a></code></td>
     <td>Get new read (thread-safe)</td>
-  </tr><tr class="baseinstancevariable">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="simreaduntil.simulator.readpool.ReadPool.html#definitely_empty" class="internal-link" title="simreaduntil.simulator.readpool.ReadPool.definitely_empty">definitely<wbr></wbr>_empty</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="baseinstancevariable">
     
     <td>Instance Variable</td>
@@ -563,34 +608,7 @@
           <div class="basemethod">
   
   
-  <a name="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.__getstate__">
-    
-  </a>
-  <a name="__getstate__">
-    
-  </a>
-  <div class="functionHeader">
-    
-    
-    <span class="py-keyword">def</span> <span class="py-defname">__getstate__</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L146">
-      
-      (source)
-    </a>
-    <a class="headerLink" href="#__getstate__" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.__getstate__">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="docstring functionBody">
-    
-    <div><p class="undocumented">Undocumented</p></div>
-  </div>
-</div><div class="basemethod">
-  
-  
-  <a name="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.__init__">
+  <a name="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.__init__">
     
   </a>
   <a name="__init__">
@@ -599,12 +617,12 @@
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, reads_iterable_per_channel: <code><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Generator" class="intersphinx-link">Generator</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, <wbr></wbr><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>]]</code>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L131">
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, read_pool: <code><a href="simreaduntil.simulator.readpool.ReadPool.html" class="internal-link" title="simreaduntil.simulator.readpool.ReadPool">ReadPool</a></code>, queue_size: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L189">
       
       (source)
     </a>
-    <a class="headerLink" href="#__init__" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.__init__">
+    <a class="headerLink" href="#__init__" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.__init__">
       
       
       ¶
@@ -617,7 +635,7 @@
 </div><div class="basemethod">
   
   
-  <a name="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.__repr__">
+  <a name="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.__repr__">
     
   </a>
   <a name="__repr__">
@@ -626,12 +644,12 @@
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">__repr__</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L142">
+    <span class="py-keyword">def</span> <span class="py-defname">__repr__</span><span class="function-signature">(self) -&gt; <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L220">
       
       (source)
     </a>
-    <a class="headerLink" href="#__repr__" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.__repr__">
+    <a class="headerLink" href="#__repr__" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.__repr__">
       
       
       ¶
@@ -641,23 +659,158 @@
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="basemethod">
   
   
-  <a name="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.reads_iterable_per_channel">
+  <a name="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.can_handle">
     
   </a>
-  <a name="reads_iterable_per_channel">
+  <a name="can_handle">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">reads_iterable_per_channel</span> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L134">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">can_handle</span><span class="function-signature">(self, *args, **kwargs) -&gt; <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L201">
       
       (source)
     </a>
-    <a class="headerLink" href="#reads_iterable_per_channel" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.reads_iterable_per_channel">
+    <a class="headerLink" href="#can_handle" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.can_handle">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.finish">
+    
+  </a>
+  <a name="finish">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">finish</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L238">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#finish" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.finish">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.readpool.ReadPool.html#finish" class="internal-link">simreaduntil.simulator.readpool.ReadPool.finish</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.definitely_empty">
+    
+  </a>
+  <a name="definitely_empty">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">definitely_empty</span>: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L196">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#definitely_empty" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.definitely_empty">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.readpool.ReadPool.html#definitely_empty" class="internal-link">simreaduntil.simulator.readpool.ReadPool.definitely_empty</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._fill_queue">
+    
+  </a>
+  <a name="_fill_queue">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_fill_queue</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L204">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_fill_queue" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._fill_queue">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._get_new_read">
+    
+  </a>
+  <a name="_get_new_read">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_get_new_read</span><span class="function-signature">(self) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.Tuple" class="intersphinx-link">Tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>]</code></span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L224">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_get_new_read" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._get_new_read">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.readpool.ReadPool.html#_get_new_read" class="internal-link">simreaduntil.simulator.readpool.ReadPool._get_new_read</a></code></div>
+    <div><p>Get new read (not thread-safe), overwrite in subclasses</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">channel</span></td><td class="fieldArgDesc">channel for which to get read, only provided if self.reads_per_channel is True</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.Tuple" class="intersphinx-link">Tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>]</code></td><td class="fieldArgDesc">tuple (read, read signal)</td></tr></table></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._read_pool">
+    
+  </a>
+  <a name="_read_pool">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_read_pool</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L191">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_read_pool" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._read_pool">
       
       
       ¶
@@ -668,32 +821,59 @@
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
-</div><div class="basemethod private">
+</div><div class="baseinstancevariable private">
   
   
-  <a name="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel._get_new_read">
+  <a name="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._reader_thread">
     
   </a>
-  <a name="_get_new_read">
+  <a name="_reader_thread">
     
   </a>
   <div class="functionHeader">
     
-    
-    <span class="py-keyword">def</span> <span class="py-defname">_get_new_read</span><span class="function-signature">(self, channel) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.Tuple" class="intersphinx-link">Tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>]</code></span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L136">
+    <span class="py-defname">_reader_thread</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L194">
       
       (source)
     </a>
-    <a class="headerLink" href="#_get_new_read" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel._get_new_read">
+    <a class="headerLink" href="#_reader_thread" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._reader_thread">
       
       
       ¶
     </a>
   </div>
-  <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.readpool.ReadPool.html#_get_new_read" class="internal-link">simreaduntil.simulator.readpool.ReadPool._get_new_read</a></code></div>
-    <div><p>Get new read (not thread-safe), overwrite in subclasses</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">channel</span></td><td class="fieldArgDesc">channel for which to get read, only provided if self.reads_per_channel is True</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.Tuple" class="intersphinx-link">Tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>]</code></td><td class="fieldArgDesc">tuple (read, read signal)</td></tr></table></div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._reads_queue">
+    
+  </a>
+  <a name="_reads_queue">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_reads_queue</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L193">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_reads_queue" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper._reads_queue">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
   </div>
 </div>
         </div>

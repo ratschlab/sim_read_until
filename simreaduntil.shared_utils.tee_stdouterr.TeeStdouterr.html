@@ -7,7 +7,7 @@
   <head>
     
     <title>simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr</title>
-    <meta name="generator" content="pydoctor 23.9.0"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -327,14 +327,14 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">TeeStdouterr</span>: <a href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/tee_stdouterr.py#L10" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.__init__">TeeStdouterr(filename, mode, propagate)</a></code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">TeeStdouterr</span>: <a href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/tee_stdouterr.py#L10" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr.__init__">TeeStdouterr(filename, mode, propagate)</a></code></p>
           <p><a href="classIndex.html#simreaduntil.shared_utils.tee_stdouterr.TeeStdouterr">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
           <div><p>Tee stdout and stderr</p>
 <p>We use the logging module to ensure thread-safety when writing to it. Do not use this logger or its children for anything else.</p>
-<p>Unlike common implementations seen on the Internet, this implementation correctly logs stdout and stderr to the respective
+<p>Unlike common implementations seen on the Internet, this implementation logs stdout and stderr to the respective
 streams (instead of merging them into one stream).</p>
 <table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filename</span></td><td class="fieldArgDesc">file to tee to</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mode</span></td><td class="fieldArgDesc">file mode</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">propagate</span></td><td class="fieldArgDesc">whether to propagate to root logger; if set to True, every write to stdout and stdin (e.g. prints) can be intercepted with the usual logging additionally</td></tr></table></div>
         </div>
@@ -404,7 +404,7 @@ streams (instead of merging them into one stream).</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, filename, mode=<span class="rst-variable-quote">'</span><span class="rst-variable-string">w</span><span class="rst-variable-quote">'</span>, propagate=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/tee_stdouterr.py#L24">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/tee_stdouterr.py#L24">
       
       (source)
     </a>
@@ -431,7 +431,7 @@ streams (instead of merging them into one stream).</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">is_redirecting</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/tee_stdouterr.py#L63">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/tee_stdouterr.py#L63">
       
       (source)
     </a>
@@ -458,7 +458,7 @@ streams (instead of merging them into one stream).</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">redirect</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/tee_stdouterr.py#L45">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/tee_stdouterr.py#L45">
       
       (source)
     </a>
@@ -485,7 +485,7 @@ streams (instead of merging them into one stream).</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">restore</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/tee_stdouterr.py#L53">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/tee_stdouterr.py#L53">
       
       (source)
     </a>
@@ -511,7 +511,7 @@ streams (instead of merging them into one stream).</p>
   <div class="functionHeader">
     
     <span class="py-defname">LOGGER_NAME</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/tee_stdouterr.py#L42">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/tee_stdouterr.py#L42">
       
       (source)
     </a>
@@ -538,7 +538,7 @@ streams (instead of merging them into one stream).</p>
   <div class="functionHeader">
     
     <span class="py-defname">_stderr</span> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/tee_stdouterr.py#L40">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/tee_stdouterr.py#L40">
       
       (source)
     </a>
@@ -565,7 +565,7 @@ streams (instead of merging them into one stream).</p>
   <div class="functionHeader">
     
     <span class="py-defname">_stdout</span> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/tee_stdouterr.py#L39">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/tee_stdouterr.py#L39">
       
       (source)
     </a>
@@ -592,7 +592,7 @@ streams (instead of merging them into one stream).</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.0 at 2023-11-01 13:25:58.
+    23.9.1 at 2024-03-02 12:33:21.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

@@ -7,7 +7,7 @@
   <head>
     
     <title>simreaduntil.shared_utils.utils</title>
-    <meta name="generator" content="pydoctor 23.9.0"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -151,8 +151,31 @@
         
          
 
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
         
         
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.utils.MutableValue.html" class="internal-link" title="simreaduntil.shared_utils.utils.MutableValue"><wbr></wbr>Mutable<wbr></wbr>Value</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.shared_utils.utils.StoppableQueue.html" class="internal-link" title="simreaduntil.shared_utils.utils.StoppableQueue"><wbr></wbr>Stoppable<wbr></wbr>Queue</a></code>
+            </div>
+        
+
+    </li>
+</ul>
 
         <div class="childrenKindTitle">Functions</div>
         <ul>
@@ -303,7 +326,47 @@
         
 
         
+            <div class="itemName"><code><a href="#record_gen_fcn_waiting_time" class="internal-link" title="simreaduntil.shared_utils.utils.record_gen_fcn_waiting_time">record<wbr></wbr>_gen<wbr></wbr>_fcn<wbr></wbr>_waiting<wbr></wbr>_time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#record_gen_waiting_time" class="internal-link" title="simreaduntil.shared_utils.utils.record_gen_waiting_time">record<wbr></wbr>_gen<wbr></wbr>_waiting<wbr></wbr>_time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set_signal_handler" class="internal-link" title="simreaduntil.shared_utils.utils.set_signal_handler">set<wbr></wbr>_signal<wbr></wbr>_handler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#subset_dict" class="internal-link" title="simreaduntil.shared_utils.utils.subset_dict">subset<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tee_stdouterr_to_file" class="internal-link" title="simreaduntil.shared_utils.utils.tee_stdouterr_to_file">tee<wbr></wbr>_stdouterr<wbr></wbr>_to<wbr></wbr>_file</a></code>
             </div>
         
 
@@ -554,7 +617,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py" class="sourceLink">(source)</a>
           <p></p>
         </div>
 
@@ -566,7 +629,17 @@
           <table class="children sortable" id="id34">
   
   
-  <tr class="function">
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="simreaduntil.shared_utils.utils.MutableValue.html" class="internal-link" title="simreaduntil.shared_utils.utils.MutableValue"><wbr></wbr>Mutable<wbr></wbr>Value</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="simreaduntil.shared_utils.utils.StoppableQueue.html" class="internal-link" title="simreaduntil.shared_utils.utils.StoppableQueue"><wbr></wbr>Stoppable<wbr></wbr>Queue</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
     
     <td>Function</td>
     <td><code><a href="#convert_to_vscode_remote_path" class="internal-link" title="simreaduntil.shared_utils.utils.convert_to_vscode_remote_path">convert<wbr></wbr>_to<wbr></wbr>_vscode<wbr></wbr>_remote<wbr></wbr>_path</a></code></td>
@@ -639,8 +712,28 @@
   </tr><tr class="function">
     
     <td>Function</td>
+    <td><code><a href="#record_gen_fcn_waiting_time" class="internal-link" title="simreaduntil.shared_utils.utils.record_gen_fcn_waiting_time">record<wbr></wbr>_gen<wbr></wbr>_fcn<wbr></wbr>_waiting<wbr></wbr>_time</a></code></td>
+    <td>Record how much time the function gen_fcn(gen) takes processing elements coming from generator gen, excluding the time waiting for elements from gen</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#record_gen_waiting_time" class="internal-link" title="simreaduntil.shared_utils.utils.record_gen_waiting_time">record<wbr></wbr>_gen<wbr></wbr>_waiting<wbr></wbr>_time</a></code></td>
+    <td>Record how much time is spent waiting for new elements in the generator, only counting the times when requesting an element and until getting it</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#set_signal_handler" class="internal-link" title="simreaduntil.shared_utils.utils.set_signal_handler">set<wbr></wbr>_signal<wbr></wbr>_handler</a></code></td>
+    <td>Set a signal handler temporarily</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
     <td><code><a href="#subset_dict" class="internal-link" title="simreaduntil.shared_utils.utils.subset_dict">subset<wbr></wbr>_dict</a></code></td>
     <td>Subset dict to some keys, all keys must be present</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#tee_stdouterr_to_file" class="internal-link" title="simreaduntil.shared_utils.utils.tee_stdouterr_to_file">tee<wbr></wbr>_stdouterr<wbr></wbr>_to<wbr></wbr>_file</a></code></td>
+    <td>Try to use a file handler with the logger rather than this function!</td>
   </tr><tr class="function">
     
     <td>Function</td>
@@ -682,7 +775,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">convert_to_vscode_remote_path</span><span class="function-signature">(path)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L41">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L48">
       
       (source)
     </a>
@@ -709,7 +802,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">delete_dir_if_exists</span><span class="function-signature">(dir, ask=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L47">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L54">
       
       (source)
     </a>
@@ -736,7 +829,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">dill_dump</span><span class="function-signature">(obj, filename)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L109">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L116">
       
       (source)
     </a>
@@ -765,7 +858,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">dill_load</span><span class="function-signature">(filename)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L118">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L125">
       
       (source)
     </a>
@@ -792,7 +885,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">force_eval_generator</span><span class="function-signature">(gen)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L79">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L86">
       
       (source)
     </a>
@@ -823,7 +916,7 @@ avoids it by evaluating the generator to its first yield.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">force_eval_generator_function</span><span class="function-signature">(f)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L100">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L107">
       
       (source)
     </a>
@@ -850,7 +943,7 @@ avoids it by evaluating the generator to its first yield.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">get_file_content</span><span class="function-signature">(filename)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L125">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L132">
       
       (source)
     </a>
@@ -877,7 +970,7 @@ avoids it by evaluating the generator to its first yield.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">get_some_value_from_dict</span><span class="function-signature">(d: <code><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">Dict</a></code>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L32">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L39">
       
       (source)
     </a>
@@ -904,7 +997,7 @@ avoids it by evaluating the generator to its first yield.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">is_empty_dir</span><span class="function-signature">(path)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L65">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L72">
       
       (source)
     </a>
@@ -931,7 +1024,7 @@ avoids it by evaluating the generator to its first yield.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">is_empty_file</span><span class="function-signature">(filename)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L130">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L137">
       
       (source)
     </a>
@@ -958,7 +1051,7 @@ avoids it by evaluating the generator to its first yield.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">is_sorted</span><span class="function-signature">(arr: <code><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">List</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>]</code>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L24">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L31">
       
       (source)
     </a>
@@ -985,7 +1078,7 @@ avoids it by evaluating the generator to its first yield.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">num_lines_in_file</span><span class="function-signature">(filename)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L71">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L78">
       
       (source)
     </a>
@@ -1012,7 +1105,7 @@ avoids it by evaluating the generator to its first yield.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">print_args</span><span class="function-signature">(args, logger=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, exclude=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L191">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L198">
       
       (source)
     </a>
@@ -1041,7 +1134,7 @@ avoids it by evaluating the generator to its first yield.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">print_cmd_and_run</span><span class="function-signature">(cmd, verbose=<a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>, dry=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>, **kwargs)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L135">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L142">
       
       (source)
     </a>
@@ -1058,6 +1151,100 @@ avoids it by evaluating the generator to its first yield.</p>
 </div><div class="basefunction">
   
   
+  <a name="simreaduntil.shared_utils.utils.record_gen_fcn_waiting_time">
+    
+  </a>
+  <a name="record_gen_fcn_waiting_time">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">record_gen_fcn_waiting_time</span><span class="function-signature">(gen_fcn, gen, waiting_time: <code><a href="simreaduntil.shared_utils.utils.MutableValue.html" class="internal-link" title="simreaduntil.shared_utils.utils.MutableValue">MutableValue</a></code>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L340">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#record_gen_fcn_waiting_time" title="simreaduntil.shared_utils.utils.record_gen_fcn_waiting_time">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Record how much time the function gen_fcn(gen) takes processing elements coming from generator gen, excluding the time waiting for elements from gen</p>
+<p>Example:
+See tests</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">gen<wbr></wbr>_fcn</span></td><td class="fieldArgDesc">function taking a generator and returning a generator</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">gen</span></td><td class="fieldArgDesc">generator to wrap</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">waiting<wbr></wbr>_time:</span><code><a href="simreaduntil.shared_utils.utils.MutableValue.html" class="internal-link" title="simreaduntil.shared_utils.utils.MutableValue">MutableValue</a></code></td><td class="fieldArgDesc">MutableValue to store the total waiting time in seconds of gen_fcn itself only, only includes the time until the generator is destroyed</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.record_gen_waiting_time">
+    
+  </a>
+  <a name="record_gen_waiting_time">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">record_gen_waiting_time</span><span class="function-signature">(gen, waiting_time: <code><a href="simreaduntil.shared_utils.utils.MutableValue.html" class="internal-link" title="simreaduntil.shared_utils.utils.MutableValue">MutableValue</a></code>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L317">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#record_gen_waiting_time" title="simreaduntil.shared_utils.utils.record_gen_waiting_time">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Record how much time is spent waiting for new elements in the generator, only counting the times when requesting an element and until getting it</p>
+<p>The function also works if the generator is stopped early.</p>
+<p>Yields: values from gen</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">gen</span></td><td class="fieldArgDesc">generator to wrap</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">waiting<wbr></wbr>_time:</span><code><a href="simreaduntil.shared_utils.utils.MutableValue.html" class="internal-link" title="simreaduntil.shared_utils.utils.MutableValue">MutableValue</a></code></td><td class="fieldArgDesc">MutableValue to store the total waiting time in seconds, only includes the time until the generator is destroyed</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="simreaduntil.shared_utils.utils.set_signal_handler">
+    
+  </a>
+  <a name="set_signal_handler">
+    
+  </a>
+  <div class="functionHeader">
+    
+    @<a href="https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager" class="intersphinx-link">contextmanager</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">set_signal_handler</span><span class="function-signature">(signal_type, handler)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L233">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#set_signal_handler" title="simreaduntil.shared_utils.utils.set_signal_handler">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Set a signal handler temporarily</p>
+<p>This function can only be called from the main thread of the main interpreter.</p>
+<p>This is better than using KeyboardInterrupt because this immediately breaks out of the code, possibly leaving the code in an inconsistent
+state, e.g. for the simulator updating channels when Ctrl-C is pressed causes it to immediately stop. It is better to set a flag to stop
+it. Since the signal handler acquires the Pytho GIL, make sure the code in the signal handler can run to completion because all other threads are
+stopped as well due to the Python GIL, so no locked mutexes should be required.</p>
+<p>See the tests for an example.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">signal<wbr></wbr>_type</span></td><td class="fieldArgDesc">e.g. signal.SIGINT for KeyboardInterrupt</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">handler</span></td><td class="fieldArgDesc">function to handle the signal taking two arguments, should not mess with any state</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
   <a name="simreaduntil.shared_utils.utils.subset_dict">
     
   </a>
@@ -1068,7 +1255,7 @@ avoids it by evaluating the generator to its first yield.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">subset_dict</span><span class="function-signature">(d: <code><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">Dict</a></code>, keys: <code><a href="https://docs.python.org/3/library/typing.html#typing.Iterable" class="intersphinx-link">Iterable</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">Any</a>]</code>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L28">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L35">
       
       (source)
     </a>
@@ -1085,6 +1272,39 @@ avoids it by evaluating the generator to its first yield.</p>
 </div><div class="basefunction">
   
   
+  <a name="simreaduntil.shared_utils.utils.tee_stdouterr_to_file">
+    
+  </a>
+  <a name="tee_stdouterr_to_file">
+    
+  </a>
+  <div class="functionHeader">
+    
+    @<a href="https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager" class="intersphinx-link">contextmanager</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">tee_stdouterr_to_file</span><span class="function-signature">(filename_base, mode=<span class="rst-variable-quote">'</span><span class="rst-variable-string">a</span><span class="rst-variable-quote">'</span>)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L258">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#tee_stdouterr_to_file" title="simreaduntil.shared_utils.utils.tee_stdouterr_to_file">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Try to use a file handler with the logger rather than this function!</p>
+<p>Tee the entire output of a Python program to a file and the console.</p>
+<p># assign to an object since otherwise it will get destroyed and the file handler will become invalid!
+obj = tee_stdouterr_to_file("test11", mode="w")
+obj.__enter__()
+# or use with a "with" statement</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filename<wbr></wbr>_base</span></td><td class="fieldArgDesc">base of the filename to write to, ".out" and ".err" will be appended, directory containing the file must exist</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mode</span></td><td class="fieldArgDesc">mode to open file in, "a" for append, "w" for overwrite</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
   <a name="simreaduntil.shared_utils.utils.tqdm_if_verbose">
     
   </a>
@@ -1095,7 +1315,7 @@ avoids it by evaluating the generator to its first yield.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">tqdm_if_verbose</span><span class="function-signature">(iter, *args, verbose=<a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>, **kwargs)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L165">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L172">
       
       (source)
     </a>
@@ -1122,7 +1342,7 @@ avoids it by evaluating the generator to its first yield.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">tqdm_with_name</span><span class="function-signature">(it, *args, **kwargs)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L174">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L181">
       
       (source)
     </a>
@@ -1149,7 +1369,7 @@ when it is available and when the next element is requested</td></tr><tr><td cla
   <div class="functionHeader">
     
     <span class="py-defname">logger</span> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L19">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L26">
       
       (source)
     </a>
@@ -1177,7 +1397,7 @@ when it is available and when the next element is requested</td></tr><tr><td cla
     
     
     <span class="py-keyword">def</span> <span class="py-defname">_cycle_list_deep</span><span class="function-signature">(lst)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/shared_utils/utils.py#L209">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/shared_utils/utils.py#L216">
       
       (source)
     </a>
@@ -1203,7 +1423,7 @@ when it is available and when the next element is requested</td></tr><tr><td cla
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.0 at 2023-11-01 13:25:58.
+    23.9.1 at 2024-03-02 12:33:21.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

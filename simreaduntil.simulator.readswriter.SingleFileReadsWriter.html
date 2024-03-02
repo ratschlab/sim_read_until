@@ -7,7 +7,7 @@
   <head>
     
     <title>simreaduntil.simulator.readswriter.SingleFileReadsWriter</title>
-    <meta name="generator" content="pydoctor 23.9.0"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -187,6 +187,16 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#finish" class="internal-link" title="simreaduntil.simulator.readswriter.SingleFileReadsWriter.finish">finish</a></code>
+            </div>
+        
+
     </li><li class="private">
         
         
@@ -214,6 +224,26 @@
         <ul>
     
     <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#__enter__" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter.__enter__">__enter__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#__exit__" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter.__exit__">__exit__</a></code>
+            </div>
+        
+
+    </li><li class="">
         
         
         
@@ -311,6 +341,16 @@
         
 
         
+            <div class="itemName"><code><a href="simreaduntil.simulator.readswriter.CompoundReadsWriter.html" class="internal-link" title="simreaduntil.simulator.readswriter.CompoundReadsWriter"><wbr></wbr>Compound<wbr></wbr>Reads<wbr></wbr>Writer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter"><wbr></wbr>Reads<wbr></wbr>Writer</a></code>
             </div>
         
@@ -332,6 +372,16 @@
 
         
             <div class="itemName"><code><a href="simreaduntil.simulator.readswriter.SingleFileReadsWriter.html" class="internal-link" title="simreaduntil.simulator.readswriter.SingleFileReadsWriter"><wbr></wbr>Single<wbr></wbr>File<wbr></wbr>Reads<wbr></wbr>Writer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper.html" class="internal-link" title="simreaduntil.simulator.readswriter.ThreadedReadsWriterWrapper"><wbr></wbr>Threaded<wbr></wbr>Reads<wbr></wbr>Writer<wbr></wbr>Wrapper</a></code>
             </div>
         
 
@@ -393,19 +443,19 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">SingleFileReadsWriter</span>(<a href="simreaduntil.simulator.readswriter.ReadsWriter.html" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter">ReadsWriter</a>): <a href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/simulator/readswriter.py#L49" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.readswriter.SingleFileReadsWriter.__init__">SingleFileReadsWriter(reads_out_fh, prefix)</a></code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">SingleFileReadsWriter</span>(<a href="simreaduntil.simulator.readswriter.ReadsWriter.html" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter">ReadsWriter</a>): <a href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L113" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="simreaduntil.simulator.readswriter.SingleFileReadsWriter.__init__">SingleFileReadsWriter(reads_out_fh, prefix)</a></code></p>
           <p><a href="classIndex.html#simreaduntil.simulator.readswriter.SingleFileReadsWriter">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
           <div><p>Write reads to one file (by default stdout), appending reads to the file as they are written (possibly with buffering)</p>
-<p>When pickling the file, the file is flushed. When reloading it, the filehandler is not restored and must be set directly.
+<p>When pickling this class, the file is flushed. When reloading it, the filehandler is not restored and must be set directly.
 This class is useful for debugging by writing to sys.stdout.</p>
 <table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">reads<wbr></wbr>_out<wbr></wbr>_fh</span></td><td class="fieldArgDesc">filehandler to write to</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">prefix</span></td><td class="fieldArgDesc">prefix to append to each id (useful if outputting to stdout)</td></tr></table></div>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id82">
+          <table class="children sortable" id="id89">
   
   
   <tr class="method">
@@ -422,6 +472,11 @@ This class is useful for debugging by writing to sys.stdout.</p>
     
     <td>Method</td>
     <td><code><a href="#__repr__" class="internal-link" title="simreaduntil.simulator.readswriter.SingleFileReadsWriter.__repr__">__repr__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#finish" class="internal-link" title="simreaduntil.simulator.readswriter.SingleFileReadsWriter.finish">finish</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -449,10 +504,20 @@ This class is useful for debugging by writing to sys.stdout.</p>
             <p class="inheritedFrom">
               Inherited from <code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter">ReadsWriter</a></code>:
             </p>
-            <table class="children sortable" id="id83">
+            <table class="children sortable" id="id90">
   
   
   <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#__enter__" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter.__enter__">__enter__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#__exit__" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter.__exit__">__exit__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
     
     <td>Method</td>
     <td><code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#flush" class="internal-link" title="simreaduntil.simulator.readswriter.ReadsWriter.flush">flush</a></code></td>
@@ -488,7 +553,7 @@ This class is useful for debugging by writing to sys.stdout.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">__getstate__</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/simulator/readswriter.py#L79">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L143">
       
       (source)
     </a>
@@ -515,7 +580,7 @@ This class is useful for debugging by writing to sys.stdout.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, reads_out_fh=<a href="https://docs.python.org/3/library/sys.html#sys.stdout" class="intersphinx-link">sys.stdout</a>, prefix=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/simulator/readswriter.py#L60">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L124">
       
       (source)
     </a>
@@ -542,7 +607,7 @@ This class is useful for debugging by writing to sys.stdout.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">__repr__</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/simulator/readswriter.py#L70">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L134">
       
       (source)
     </a>
@@ -554,6 +619,33 @@ This class is useful for debugging by writing to sys.stdout.</p>
   </div>
   <div class="docstring functionBody">
     
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="simreaduntil.simulator.readswriter.SingleFileReadsWriter.finish">
+    
+  </a>
+  <a name="finish">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">finish</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L152">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#finish" title="simreaduntil.simulator.readswriter.SingleFileReadsWriter.finish">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="simreaduntil.simulator.readswriter.ReadsWriter.html#finish" class="internal-link">simreaduntil.simulator.readswriter.ReadsWriter.finish</a></code></div>
     <div><p class="undocumented">Undocumented</p></div>
   </div>
 </div><div class="baseinstancevariable">
@@ -568,7 +660,7 @@ This class is useful for debugging by writing to sys.stdout.</p>
   <div class="functionHeader">
     
     <span class="py-defname">fh</span> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/simulator/readswriter.py#L63">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L127">
       
       (source)
     </a>
@@ -595,7 +687,7 @@ This class is useful for debugging by writing to sys.stdout.</p>
   <div class="functionHeader">
     
     <span class="py-defname">prefix</span> =
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/simulator/readswriter.py#L64">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L128">
       
       (source)
     </a>
@@ -623,7 +715,7 @@ This class is useful for debugging by writing to sys.stdout.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">_flush</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/simulator/readswriter.py#L67">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L131">
       
       (source)
     </a>
@@ -650,7 +742,7 @@ This class is useful for debugging by writing to sys.stdout.</p>
     
     
     <span class="py-keyword">def</span> <span class="py-defname">_write_read</span><span class="function-signature">(self, read: <code>SeqIO.SeqRecord</code>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/simulator/readswriter.py#L74">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readswriter.py#L138">
       
       (source)
     </a>
@@ -676,7 +768,7 @@ This class is useful for debugging by writing to sys.stdout.</p>
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.0 at 2023-11-01 13:25:58.
+    23.9.1 at 2024-03-02 12:33:21.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

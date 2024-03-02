@@ -7,7 +7,7 @@
   <head>
     
     <title>simreaduntil.simulator.readpool</title>
-    <meta name="generator" content="pydoctor 23.9.0"> 
+    <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -200,7 +200,17 @@
         
 
         
-            <div class="itemName"><code><a href="simreaduntil.simulator.readpool.NoReadLeft.html" class="internal-link" title="simreaduntil.simulator.readpool.NoReadLeft"><wbr></wbr>No<wbr></wbr>Read<wbr></wbr>Left</a></code>
+            <div class="itemName"><code><a href="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.html" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper"><wbr></wbr>Threaded<wbr></wbr>Read<wbr></wbr>Pool<wbr></wbr>Wrapper</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="simreaduntil.simulator.readpool.NoReadLeftException.html" class="internal-link" title="simreaduntil.simulator.readpool.NoReadLeftException"><wbr></wbr>No<wbr></wbr>Read<wbr></wbr>Left<wbr></wbr>Exception</a></code>
             </div>
         
 
@@ -216,6 +226,16 @@
         
 
         
+            <div class="itemName"><code><a href="#get_slow5_reads_gen" class="internal-link" title="simreaduntil.simulator.readpool.get_slow5_reads_gen">get<wbr></wbr>_slow5<wbr></wbr>_reads<wbr></wbr>_gen</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#reads_from_file_gen" class="internal-link" title="simreaduntil.simulator.readpool.reads_from_file_gen">reads<wbr></wbr>_from<wbr></wbr>_file<wbr></wbr>_gen</a></code>
             </div>
         
@@ -226,8 +246,21 @@
         
          
 
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
         
-         
+        
+        
+
+        
+            <div class="itemName"><code><a href="#logger" class="internal-link" title="simreaduntil.simulator.readpool.logger">logger</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
 
         
          
@@ -424,7 +457,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/simulator/readpool.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py" class="sourceLink">(source)</a>
           <p></p>
         </div>
 
@@ -433,7 +466,7 @@
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id71">
+          <table class="children sortable" id="id72">
   
   
   <tr class="class">
@@ -445,7 +478,7 @@
     
     <td>Class</td>
     <td><code><a href="simreaduntil.simulator.readpool.ReadPoolFromFile.html" class="internal-link" title="simreaduntil.simulator.readpool.ReadPoolFromFile"><wbr></wbr>Read<wbr></wbr>Pool<wbr></wbr>From<wbr></wbr>File</a></code></td>
-    <td>Keep track of reads_file</td>
+    <td>Read pool that reads from a file or directory</td>
   </tr><tr class="class">
     
     <td>Class</td>
@@ -456,16 +489,31 @@
     <td>Class</td>
     <td><code><a href="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel.html" class="internal-link" title="simreaduntil.simulator.readpool.ReadPoolFromIterablePerChannel"><wbr></wbr>Read<wbr></wbr>Pool<wbr></wbr>From<wbr></wbr>Iterable<wbr></wbr>Per<wbr></wbr>Channel</a></code></td>
     <td>Read pool that requests reads from channel-specific generator</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper.html" class="internal-link" title="simreaduntil.simulator.readpool.ThreadedReadPoolWrapper"><wbr></wbr>Threaded<wbr></wbr>Read<wbr></wbr>Pool<wbr></wbr>Wrapper</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="exception">
     
     <td>Exception</td>
-    <td><code><a href="simreaduntil.simulator.readpool.NoReadLeft.html" class="internal-link" title="simreaduntil.simulator.readpool.NoReadLeft"><wbr></wbr>No<wbr></wbr>Read<wbr></wbr>Left</a></code></td>
+    <td><code><a href="simreaduntil.simulator.readpool.NoReadLeftException.html" class="internal-link" title="simreaduntil.simulator.readpool.NoReadLeftException"><wbr></wbr>No<wbr></wbr>Read<wbr></wbr>Left<wbr></wbr>Exception</a></code></td>
     <td>When no read is left in the read pool</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_slow5_reads_gen" class="internal-link" title="simreaduntil.simulator.readpool.get_slow5_reads_gen">get<wbr></wbr>_slow5<wbr></wbr>_reads<wbr></wbr>_gen</a></code></td>
+    <td>generator returning reads in a slow5 file</td>
   </tr><tr class="function">
     
     <td>Function</td>
     <td><code><a href="#reads_from_file_gen" class="internal-link" title="simreaduntil.simulator.readpool.reads_from_file_gen">reads<wbr></wbr>_from<wbr></wbr>_file<wbr></wbr>_gen</a></code></td>
     <td>Generator returning reads from file</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#logger" class="internal-link" title="simreaduntil.simulator.readpool.logger">logger</a></code></td>
+    <td>module logger</td>
   </tr>
 </table>
           
@@ -475,6 +523,33 @@
 
         <div id="childList">
           <div class="basefunction">
+  
+  
+  <a name="simreaduntil.simulator.readpool.get_slow5_reads_gen">
+    
+  </a>
+  <a name="get_slow5_reads_gen">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_slow5_reads_gen</span><span class="function-signature">(filename)</span>:
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L244">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#get_slow5_reads_gen" title="simreaduntil.simulator.readpool.get_slow5_reads_gen">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>generator returning reads in a slow5 file</p></div>
+  </div>
+</div><div class="basefunction">
   
   
   <a name="simreaduntil.simulator.readpool.reads_from_file_gen">
@@ -487,7 +562,7 @@
     
     @<a href="simreaduntil.shared_utils.utils.html#force_eval_generator_function" class="internal-link" title="simreaduntil.shared_utils.utils.force_eval_generator_function">force_eval_generator_function</a><br />
     <span class="py-keyword">def</span> <span class="py-defname">reads_from_file_gen</span><span class="function-signature">(fasta_file, shuffle_rand_state: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">Optional</a>[<wbr></wbr>np.random.Generator]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
-    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/f71e34df7f92ee26648e7d59758d6a5e9ef4fe91/src/simreaduntil/simulator/readpool.py#L12">
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L21">
       
       (source)
     </a>
@@ -503,6 +578,33 @@
 <p>Also supports .gz files</p>
 <table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Yields</td></tr><tr><td colspan="2">(id, seq)</td></tr></table></div>
   </div>
+</div><div class="basevariable">
+  
+  
+  <a name="simreaduntil.simulator.readpool.logger">
+    
+  </a>
+  <a name="logger">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">logger</span> =
+    <a class="sourceLink" href="https://github.com/ratschlab/sim_read_until/tree/5e8e1ad52a1789298ee12c062c5e54445c0165fc/src/simreaduntil/simulator/readpool.py#L18">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#logger" title="simreaduntil.simulator.readpool.logger">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>module logger</p></div>
+    
+  </div>
 </div>
         </div>
       
@@ -515,7 +617,7 @@
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/ratschlab/sim_read_until" class="projecthome">ratschlab/sim_read_until</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.0 at 2023-11-01 13:25:58.
+    23.9.1 at 2024-03-02 12:33:21.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
