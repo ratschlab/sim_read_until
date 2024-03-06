@@ -52,7 +52,7 @@ class ReadPool:
     Do not forget to call finish() when done.
     
     Args:
-        reads_per_channel: whether reads are channel-specific
+        reads_per_channel: whether reads are channel-specific or any read can be assigned to any channel
     """
     def __init__(self, reads_per_channel):
         self.lock = threading.Lock()
@@ -86,18 +86,19 @@ class ReadPool:
         """
         raise NotImplementedError()
     
-    """
-    Stop the read pool
-    
-    For example, if it is threaded, stop the thread
-    """
     def finish(self):
+        """
+        Stop the read pool
+        
+        For example, if it is threaded, stop the thread
+        """
         pass
 
     def __enter__(self):
         return self
     def __exit__(self, exc_type, exc_value, traceback):
         self.finish()
+        
 class ReadPoolFromIterable(ReadPool):
     """
     Read pool that requests reads from generator
@@ -166,11 +167,14 @@ class ReadPoolFromFile(ReadPoolFromIterable):
         self.shuffled = shuffle_rand_state is not None
         self.reads_file_or_dir = reads_file_or_dir
         
-    """
-    Check if the read pool can open the file/directory
-    """
     @staticmethod
     def can_handle(file: Path) -> bool:
+        """
+        Check if the read pool can open the file/directory
+        
+        Args:
+            file: file or directory
+        """
         file = Path(file)
         return (
             (file.is_dir() and any(file.glob("**/*.fasta"))) or
@@ -180,12 +184,13 @@ class ReadPoolFromFile(ReadPoolFromIterable):
     def __repr__(self):
         return f"ReadPool(file = {self.reads_file_or_dir}, shuffled = {self.shuffled})"
     
-"""
-Threaded ReadPool that wraps another ReadPool and reads from it in another thread using a queue
-
-Note: Using a rng with ThreadedPoolWrapper is not thread-safe if rng is accessed from multiple threads
-"""
 class ThreadedReadPoolWrapper(ReadPool):
+    """
+    Threaded ReadPool that wraps another ReadPool and reads from it in another thread using a queue
+
+    Note: Using a rng with ThreadedPoolWrapper is not thread-safe if rng is accessed from multiple threads
+    """
+    
     def __init__(self, read_pool: ReadPool, queue_size: int):
         super().__init__(reads_per_channel=read_pool.reads_per_channel)
         self._read_pool = read_pool
@@ -195,13 +200,17 @@ class ThreadedReadPoolWrapper(ReadPool):
         self._reader_thread.start()
         self.definitely_empty = False
         
-    """
-    Check if the read pool can open the file/directory
-    """
     def can_handle(self, *args, **kwargs) -> bool:
+        """
+        Check if the read pool can open the file/directory
+        
+        Params:
+            args, kwargs: passed to wrapped read pool
+        """
         return self._read_pool.can_handle(*args, **kwargs)
     
     def _fill_queue(self):
+        """Keep the queue filled"""
         try:
             while True:
                 read = self._read_pool.get_new_read()

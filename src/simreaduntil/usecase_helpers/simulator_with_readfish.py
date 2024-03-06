@@ -87,7 +87,7 @@ def get_sim_params(sim_params_file, n_channels) -> SimParams:
         if n_channels != sim_params.n_channels:
             logger.warning(f"Using sim_params.n_channels={sim_params.n_channels} instead of {n_channels} because it was saved in the sim_params_file")
         
-    assert sorted(list(sim_params.gap_samplers.keys())) == {f"ch{i+1}" for i in range(n_channels)} # assumed by downstream plotting scripts
+    assert sorted(list(sim_params.gap_samplers.keys())) == sorted([f"ch{i+1}" for i in range(n_channels)]) # assumed by downstream plotting scripts
     
     return sim_params
     

@@ -8,7 +8,7 @@ import logging
 import os
 from pathlib import Path
 from textwrap import dedent
-from typing import List, Optional
+from typing import List, Optional, Tuple
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -74,7 +74,7 @@ def random_nanosim_reads_gen(random_state=np.random.default_rng(2), length_range
 
 # to load the FASTA file when the function is called rather than when the first read is requested (which may delay the simulation if an index has to be built first)
 @force_eval_generator_function
-def perfect_reads_gen(fasta_filename: Path, read_lens_range: tuple[int], random_state=np.random.default_rng(1), nanosim_read_id=True):
+def perfect_reads_gen(fasta_filename: Path, read_lens_range: Tuple[int], random_state=np.random.default_rng(1), nanosim_read_id=True):
     """
     Generate perfect reads that align to the reference genome
     
